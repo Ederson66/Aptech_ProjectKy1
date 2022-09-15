@@ -35,24 +35,43 @@
         <div class="main">
             <div style="width: auto;">
                 <div class="me-5 ms-5 mb-3 pt-3">
-                    <h2 class="h1 text-shadow">Đăng nhập ứng dụng</h2>
+                    <h2 class="h1 text-shadow">Đăng ký tài khoản</h2>
                 </div> 
                 <div class="me-5 ms-5 mb-5 mt-3">
                     <form action="" method="" >
                         <div class="input-group d-flex flex-column mb-3">
                             <label class="text-shadow" for="">Tên tài khoản</label>
-                            <input type="text" class="form-control rounded" id="username" name="fusername" placeholder="Username">
+                            <input type="text" class="form-control rounded" id="username" name="fusername" placeholder="Nhập tên tài khoản">
                         </div>
                         <div class="input-group d-flex flex-column mb-3">
                             <label class="text-shadow" for="">Mật khẩu</label>
-                            <input type="password" class="form-control rounded" id="password" name="fpassword" placeholder="password">
+                            <input type="password" class="form-control rounded" id="password" name="fpassword" placeholder="Nhập mật khẩu">
+                        </div>
+                        <div class="input-group d-flex flex-column mb-3">
+                            <label class="text-shadow" for="">Xác nhận mật khẩu</label>
+                            <input type="password" class="form-control rounded" placeholder="Nhập mật khẩu">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="d-flex">
+                               <div class="pe-2">
+                                    <span class="pe-2 text-shadow">Họ: </span>
+                                    <input type="text" class="form-control rounded" placeholder="Nhập họ">
+                               </div>
+                                <div class="ps-2">
+                                    <span class="pe-2 text-shadow">Tên đệm:</span>
+                                    <input type="text" class="form-control rounded" placeholder="Nhập tên đệm">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <label class="text-shadow" for="">Tên:</label>
+                            <input type="text" class="form-control rounded" placeholder="Nhập tên">
                         </div>
                         <div class="mb-3 d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary text-dark me-3 rounded text-shadow">Quên mật khẩu</button>
-                            <button type="submit" class="btn btn-primary text-dark ms-3 rounded text-shadow">Đăng nhập</button>
+                            <button type="submit" class="btn btn-primary text-dark rounded text-shadow">Đăng ký</button>
                         </div>
                         <div class="mb-3 d-flex justify-content-center">
-                            <a href="register.html" class="text-decoration-none text-shadow">Chưa có tài khoản ?</a>
+                            <a href="login.html" class="text-decoration-none text-shadow">Đăng nhập ngay</a>
                         </div>
                     </form>
                 </div>
@@ -75,6 +94,18 @@
         $(document).ready(function(){
             $(".app").height($(window).height());
         });
+
+        var passField = document.querySelector("#password");
+        var showBtn = document.querySelector(".icon-eye");
+        showBtn.onclick = (()=>{
+            if(passField.type === "text"){
+                passField.type = "password";
+                // showBtn.classList.add("hide-btn");
+            }else{
+                passField.type = "text";
+                // showBtn.classList.remove("hide-btn");
+             }   
+      });
     </script>
 </body>
 </html>
