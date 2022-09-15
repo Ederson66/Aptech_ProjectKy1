@@ -39,46 +39,46 @@
                 </div> 
                 <form action="" method="" >
                     <div class="input-group d-flex flex-column mb-3">
-                        <label class="text-shadow" for="">Username</label>
+                        <!-- <label class="text-shadow" for="">Username</label> -->
                         <input type="text" class="form-control rounded" id="username" name="fusername" placeholder="Enter username">
                     </div>
                     <div class="input-group d-flex flex-column mb-3">
-                        <label class="text-shadow" for="">Password</label>
+                        <!-- <label class="text-shadow" for="">Password</label> -->
                         <input type="password" class="form-control rounded" id="password" name="fpassword" placeholder="Enter assword">
                     </div>
                     <div class="input-group d-flex flex-column mb-3">
-                        <label class="text-shadow" for="">Confirm password</label>
+                        <!-- <label class="text-shadow" for="">Confirm password</label> -->
                         <input type="password" class="form-control rounded" placeholder="Enter confirm password">
                     </div>
                     <div class="input-group mb-3">
                         <div class="d-flex">
                            <div class="pe-2">
-                                <span class="pe-2 text-shadow">Last Name: </span>
+                                <!-- <span class="pe-2 text-shadow">Last Name: </span> -->
                                 <input type="text" class="form-control rounded" placeholder="Enter last name">
                            </div>
                             <div class="ps-2">
-                                <span class="pe-2 text-shadow">Middle Name:</span>
+                                <!-- <span class="pe-2 text-shadow">Middle Name:</span> -->
                                 <input type="text" class="form-control rounded" placeholder="Enter middle name">
                             </div>
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <label class="text-shadow" for="">First Name:</label>
+                        <!-- <label class="text-shadow" for="">First Name:</label> -->
                         <input type="text" class="form-control rounded" placeholder="Enter first name">
                     </div>
                     <div class="input-group mb-3">
-                        <label class="text-shadow" for="">Phone Number</label>
+                        <!-- <label class="text-shadow" for="">Phone Number</label> -->
                         <input type="text" class="form-control rounded" placeholder="Enter phone number">
                     </div>
                     <div class="input-group mb-3">
-                        <label class="text-shadow" for="">Email</label>
+                        <!-- <label class="text-shadow" for="">Email</label> -->
                         <input type="text" class="form-control rounded" placeholder="Enter email">
                     </div>
                     <div class="mb-3 d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary text-dark rounded text-shadow">Register</button>
+                        <button type="submit" class="btn btn-primary text-dark rounded text-shadow bg-primary">Register</button>
                     </div>
                     <div class="mb-3 d-flex justify-content-center">
-                        <a href="login.html" class="text-decoration-none text-shadow">Loign now</a>
+                        <a href="login.html" class="text-shadow">Loign now</a>
                     </div>
                 </form>
             </div>
@@ -98,20 +98,8 @@
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
     <script>
         $(document).ready(function(){
-            $(".app").height($(window).height());
+            $(".main").height($(window).height());
         });
-
-        var passField = document.querySelector("#password");
-        var showBtn = document.querySelector(".icon-eye");
-        showBtn.onclick = (()=>{
-            if(passField.type === "text"){
-                passField.type = "password";
-                // showBtn.classList.add("hide-btn");
-            }else{
-                passField.type = "text";
-                // showBtn.classList.remove("hide-btn");
-             }   
-      });
     </script>
 </body>
 </html>

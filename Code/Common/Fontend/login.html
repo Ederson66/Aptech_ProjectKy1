@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <!-- BOOTSTRAP ICON -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!-- TOASTR CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"/>
     <!-- CSS ME -->
     <link rel="stylesheet" href="./assets/css/login.css">
     <title>Login</title>
@@ -39,19 +41,19 @@
                 </div>
                 <form action="" method="" >
                     <div class="input-group d-flex flex-column mb-3">
-                        <label class="text-shadow" for="">Username</label>
+                        <!-- <label class="text-shadow" for="">Username</label> -->
                         <input type="text" class="form-control rounded" id="username" name="fusername" placeholder="Username">
                     </div>
                     <div class="input-group d-flex flex-column mb-3">
-                        <label class="text-shadow" for="">Password</label>
+                        <!-- <label class="text-shadow" for="">Password</label> -->
                         <input type="password" class="form-control rounded" id="password" name="fpassword" placeholder="Password">
                     </div>
                     <div class="mb-3 d-flex justify-content-center">
                         <button type="submit" class="btn btn-primary text-dark me-3 rounded text-shadow">Reset password</button>
-                        <button type="submit" class="btn btn-primary text-dark ms-3 rounded text-shadow">Login</button>
+                        <button type="submit" class="btn btn-primary text-dark ms-3 rounded text-shadow bg-primary">Login</button>
                     </div>
                     <div class="mb-3 d-flex justify-content-center">
-                        <a href="register.html" class="text-decoration-none text-shadow">Do not have an account ?</a>
+                        <a href="register.html" class=" text-shadow">Do not have an account ?</a>
                     </div>
                 </form>
             </div>
@@ -69,9 +71,13 @@
     <script src="./assets/js/jquery.min.js"></script>
     <!-- JS BOOTSTRAP -->
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <!-- TOASTR JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script>
         $(document).ready(function(){
             $(".main").height($(window).height());
+
+
         });
     </script>
 </body>
