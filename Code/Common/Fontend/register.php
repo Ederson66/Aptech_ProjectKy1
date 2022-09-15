@@ -124,7 +124,7 @@ if(!empty($_GET["fregister"])){
                         <input type="file" class="form-control text-shadow rounded" placeholder="Chose file">
                     </div> -->
                     <div class="mb-3 d-flex justify-content-center">
-                        <button type="submit" name="fregister" class="btn btn-primary text-dark rounded text-shadow bg-primary">Register</button>
+                        <button type="submit" id="btnpass" name="fregister" class="btn btn-primary text-dark rounded text-shadow bg-primary">Register</button>
                     </div>
                 </form>
                 <div class="mb-3 d-flex justify-content-center">
@@ -148,6 +148,15 @@ if(!empty($_GET["fregister"])){
     <script>
         $(document).ready(function(){
             $(".main").height($(window).height());
+        });
+        var pattern = /^(?=.{5,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\W])/
+
+        $("#btnpass").click(function () {
+            var checkval = pattern.test($("#password").val());
+
+            if (!checkval) {
+                alert("Nhập lại password!!");
+            }
         });
     </script>
 </body>
