@@ -1,0 +1,18 @@
+.app {
+    background-image: url(../image/login.jpg);
+    background-size: cover;
+    font-family: cursive;
+    display: flex;
+    align-items: center;
+}
+
+input, button{
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    border: none !important;
+    width: 100% !important;
+}
+
+.form-control:focus{
+    outline: none !important;
+    box-shadow: none !important;
+}
