@@ -1,5 +1,6 @@
+/* Css main */
 .main {
-    background-image: url(../image/bg.jpg);
+    background-image: url(https://i.pinimg.com/originals/93/c6/aa/93c6aaa4424c468db1c9f7904eb400d8.gif);
     background-size: cover;
     font-family: cursive;
     display: flex;
@@ -11,15 +12,17 @@
     justify-content: flex-start;
 }
 
+/* Css input button select */
 input, button, 
 select, option{
     background-color: rgba(0, 0, 0, 0.3) !important;
     border: none !important;
     width: 100% !important;
+    color: var(--bs-white) !important;
 }
 
 input::placeholder{
-    text-shadow: 2px 2px #959494;
+    text-shadow: 1.2px 1.2px #959494;
     color: #424248 !important;
 }
 
@@ -33,13 +36,7 @@ input::placeholder{
     box-shadow: none !important;
 }
 
+/* Css text-shadow */
 .text-shadow{
     text-shadow: 1.2px 1.2px #959494;
-}
-
-/* responsive */
-@media (min-width: 1400px){
-    .container{
-        max-width: 600px;
-    }
 }
