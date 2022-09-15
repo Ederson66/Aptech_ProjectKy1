@@ -11,7 +11,8 @@
     justify-content: flex-start;
 }
 
-input, button{
+input, button, 
+select, option{
     background-color: rgba(0, 0, 0, 0.3) !important;
     border: none !important;
     width: 100% !important;
@@ -27,9 +28,9 @@ input::placeholder{
     box-shadow: none !important;
 }
 
-.icon-eye{
-    top: 50%;
-    right: 4%;
+.form-select:focus{
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 .text-shadow{
