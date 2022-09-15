@@ -3,7 +3,12 @@
     background-size: cover;
     font-family: cursive;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: flex-start;
 }
 
 input, button{
@@ -13,7 +18,7 @@ input, button{
 }
 
 input::placeholder{
-    text-shadow: 1px 1px #c4c4c4;
+    text-shadow: 2px 2px #959494;
     color: #424248 !important;
 }
 
@@ -28,5 +33,12 @@ input::placeholder{
 }
 
 .text-shadow{
-    text-shadow: 1px 1px #c4c4c4;
+    text-shadow: 1.2px 1.2px #959494;
+}
+
+/* responsive */
+@media (min-width: 1400px){
+    .container{
+        max-width: 600px;
+    }
 }
