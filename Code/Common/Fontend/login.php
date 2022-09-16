@@ -1,3 +1,39 @@
+<?php
+
+require_once './PhpSetting/SqlConfig.php';
+
+// function redirect
+function redirect($url, $statusCode = 303) {
+    header('Location:' . $url, true, $statusCode);
+    die();
+}
+
+if (!empty($_POST["flogin"])) {
+
+    $a = new SQLConfig();
+
+    $arr = $a->login();
+
+    if (isset($_POST["fusername"]) && isset($_POST["fpassword"])) {
+        $username = $_POST["fusername"];
+        $password = $_POST["fpassword"];
+
+        $enableLogin = false;
+
+        for ($i = 0; $i < count($arr); $i++) {
+            $obj = $arr[$i];
+
+            if ($username == $obj->Username && $password == $obj->Password) {
+                $enableLogin = true;
+            }
+            if ($enableLogin) {
+                redirect("http://localhost:8080/ProjectKy1/home.php");
+            }
+        }
+        echo '<script>alert("Login Faild !" + "\n" + "Kiểm tra lại username & password")</script>';
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -37,7 +73,7 @@
                     <div class="mb-3 pt-3">
                         <h2 class="h1 text-shadow">Login</h2>
                     </div>
-                    <form action="./PhpSetting/Phplogin.php" method="POST" >
+                    <form action="login.php" method="POST" >
                         <div class="input-group d-flex flex-column mb-3">
                             <!-- <label class="text-shadow" for="">Username</label> -->
                             <input type="text" class="form-control rounded" id="username" name="fusername" placeholder="Username">

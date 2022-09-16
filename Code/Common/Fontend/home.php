@@ -42,6 +42,6 @@
         <!-- JS BOOTSTRAP -->
         <script src="./assets/js/bootstrap.bundle.min.js"></script>
         <!-- js me -->
-        <script src="./assets/js/loadMenu.js" defer></script>
+        <script src="./assets/js/loadMenu.js"></script>
     </body>
 </html>
