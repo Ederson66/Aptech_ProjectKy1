@@ -72,7 +72,7 @@ if(!empty($_POST["fregister"])){
                     </div>
                     <div class="input-group d-flex flex-column mb-3">
                         <!-- <label class="text-shadow" for="">Password</label> -->
-                        <input type="password" class="form-control rounded" id="password" name="fpassword" placeholder="Enter assword">
+                        <input type="password" class="form-control rounded" id="password" name="fpassword" placeholder="Enter password">
                     </div>
                     <div class="input-group d-flex flex-column mb-3">
                         <!-- <label class="text-shadow" for="">Confirm password</label> -->
