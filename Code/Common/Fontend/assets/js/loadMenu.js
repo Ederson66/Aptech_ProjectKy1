@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         '<div class="dropdown text-end">' +
         '<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="user" data-bs-toggle="dropdown" aria-expanded="false">' +
         '<img src="./assets/image/avt_pro.jpg" alt="quản trị" width="40" height="40" class="rounded-circle" /></a>' +
-        '<ul class="dropdown-menu text-small" aria-labelledby="user">' +
+        '<ul class="dropdown-menu text-small" aria-labelledby="user" style="min-width: 256px;">' +
         '<li><a class="dropdown-item" href="#">Quản lý</a></li>' +
         '<li><a class="dropdown-item" href="#">Trang cá nhân</a></li>' +
         '<li><a class="dropdown-item" href="#">Cài đặt cá nhân</a></li>' +

@@ -130,7 +130,7 @@ a {
 }
 /* active và thẻ end  */
 
-/* show and hiden sidebar */
+/* show and hiden sidebar responsive */
 @media screen and (min-width: 768px) {
     body {
         margin: calc(var(--header-height) + 1rem) 0 0 0;
@@ -159,7 +159,7 @@ a {
         padding-left: calc(var(--nav-width) + 188px);
     }
 }
-/* show and hiden sidebar end  */
+/* show and hiden sidebar end responsive*/
 
 /* color text menu câu hỏi */
 .cl-1{
