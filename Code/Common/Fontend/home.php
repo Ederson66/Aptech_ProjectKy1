@@ -1,50 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Reset CSS -->
-    <link rel="stylesheet" href="./assets/css/reset.min.css">
-    <!-- BOOTSTRAP 5.2 CSS -->
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-    <!-- BOOTSTRAP ICON -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <!-- CSS ME -->
-    <link rel="stylesheet" href="./assets/css/home.css">
-    <title>Login</title>
-</head>
-<body>
-    <!--BEGIN App -->
-    <div class="app">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Reset CSS -->
+        <link rel="stylesheet" href="./assets/css/reset.min.css">
+        <!-- BOOTSTRAP 5.0 CSS -->
+        <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+        <!-- BOOTSTRAP ICON -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <!-- Icon -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+        <!-- CSS ME -->
+        <link rel="stylesheet" href="./assets/css/home.css" />
+        <title>Quản trị</title>
+    </head>
+    <body id="body-pd">
+        <div class="app">
+            <!-- BEGIN HEADER -->
+            <header class="header" id="header"></header>
+            <!-- END HEADER -->
 
-        <!--BEGIN Header -->
-        <div class="header">
-            <div class="d-flex">
-                <h3 class="p-3 pe-5">
-                    <a class="text-decoration-none text-secondary" href="#" style="text-shadow: 2px 2px #cccc;">Home</a>
-                </h3>
-                <h3 class="p-3 ps-5">
-                    <a class="text-decoration-none text-secondary" href="#" style="text-shadow: 2px 2px #cccc;">About</a>
-                </h3>
-            </div>
+            <!-- BEGIN NAV -->
+            <div class="l-navbar" id="nav-bar"></div>
+            <!-- END NAV -->
+
+            <!-- BEGIN MAIN -->
+            <main class="main">
+                <h1 class="text-center">Hello</h1>
+            </main>
+            <!-- END MAIN -->
+
+            <!-- BEGIN FOOTER -->
+            <footer class="footer" id="footer"></footer>
+            <!-- END FOOTER -->
         </div>
-        <!--END Header -->
 
-        <!--BEGIN Main -->
-        <div class="main"></div>
-        <!--END Main -->
-
-        <!--BEGIN Footer -->
-        <div class="footer"></div>
-        <!--END Footer -->
-
-    </div>
-    <!--END App -->
-
-    <!-- JQUERY 3.6.1 -->
-    <script src="./assets/js/jquery.min.js"></script>
-    <!-- JS BOOTSTRAP -->
-    <script src="./assets/js/bootstrap.bundle.min.js"></script>
-</body>
+        <!-- JQUERY 3.6.1 -->
+        <script src="./assets/js/jquery.min.js"></script>
+        <!-- JS BOOTSTRAP -->
+        <script src="./assets/js/bootstrap.bundle.min.js"></script>
+        <!-- js me -->
+        <script src="./assets/js/loadMenu.js" defer></script>
+    </body>
 </html>

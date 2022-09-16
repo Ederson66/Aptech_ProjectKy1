@@ -2,16 +2,16 @@
 
 require_once './PhpSetting/SqlConfig.php';
 
-if(!empty($_GET["fregister"])){
-    $fusername = $_GET['fusername'];
-    $fpassword = $_GET['fpassword'];
-     $flastname = $_GET['flastname'];
-    $fmiddlename = $_GET['fmiddlename'];
-    $ffirstname = $_GET['ffirstname'];
-    $fbirthday = $_GET['fbirthday'];
-    $fsex = $_GET['fsex'];
-    $fphonenumber = $_GET['fphonenumber'];
-    $femail = $_GET['femail'];
+if(!empty($_POST["fregister"])){
+    $fusername = $_POST['fusername'];
+    $fpassword = $_POST['fpassword'];
+     $flastname = $_POST['flastname'];
+    $fmiddlename = $_POST['fmiddlename'];
+    $ffirstname = $_POST['ffirstname'];
+    $fbirthday = $_POST['fbirthday'];
+    $fsex = $_POST['fsex'];
+    $fphonenumber = $_POST['fphonenumber'];
+    $femail = $_POST['femail'];
 
     $a = new SQLConfig();
     $a->Username=$fusername;
@@ -24,8 +24,6 @@ if(!empty($_GET["fregister"])){
     $a->Telephone=$fphonenumber;
     $a->Email=$femail;
     $a->register();
-    
-    echo '<script>alert("Done")</script>';
 }
 ?>
 <!DOCTYPE html>
@@ -36,7 +34,7 @@ if(!empty($_GET["fregister"])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Reset CSS -->
     <link rel="stylesheet" href="./assets/css/reset.min.css">
-    <!-- BOOTSTRAP 5.2 CSS -->
+    <!-- BOOTSTRAP 5.0 CSS -->
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <!-- BOOTSTRAP ICON -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -67,7 +65,7 @@ if(!empty($_GET["fregister"])){
                 <div class="mb-3 pt-3">
                     <h2 class="h1 text-shadow">Register</h2>
                 </div> 
-                <form action="register.php" method="GET" >
+                <form action="register.php" method="POST" >
                     <div class="input-group d-flex flex-column mb-3">
                         <!-- <label class="text-shadow" for="">Username</label> -->
                         <input type="text" class="form-control rounded" id="username" name="fusername" placeholder="Enter username">
@@ -124,7 +122,7 @@ if(!empty($_GET["fregister"])){
                         <input type="file" class="form-control text-shadow rounded" placeholder="Chose file">
                     </div> -->
                     <div class="mb-3 d-flex justify-content-center">
-                        <button type="submit" id="btnpass" name="fregister" class="btn btn-primary text-dark rounded text-shadow bg-primary">Register</button>
+                        <input class="p-2 rounded text-shadow bg-primary" type="submit" id="btnpass" name="fregister" value="Register" >
                     </div>
                 </form>
                 <div class="mb-3 d-flex justify-content-center">
@@ -148,16 +146,18 @@ if(!empty($_GET["fregister"])){
     <script>
         $(document).ready(function(){
             $(".main").height($(window).height());
+            
+//            var pattern = /^(?=.{5,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\W])/
+//
+//            $("#btnpass").click(function () {
+//                var checkval = pattern.test($("#password").val());
+//
+//                if (!checkval) {
+//                    alert("Nhập lại password!!");
+//                }
+//            });
         });
-        var pattern = /^(?=.{5,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\W])/
-
-        $("#btnpass").click(function () {
-            var checkval = pattern.test($("#password").val());
-
-            if (!checkval) {
-                alert("Nhập lại password!!");
-            }
-        });
+        
     </script>
 </body>
 </html>

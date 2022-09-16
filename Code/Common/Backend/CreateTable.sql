@@ -21,3 +21,10 @@ CREATE TABLE `User` (
   `Field5` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO  `User`(Username, Password, Fisrtname, Middlename, Lastname, Birthday, Sex, Telephone, Email) 
+VALUES ( 'Username','a','Fisrtname','Middlename','Lastname','Birthday','Sex',093453495,'a@gmail.com');
+
+
+
+
