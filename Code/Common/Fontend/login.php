@@ -53,7 +53,6 @@ if (!empty($_POST["flogin"])) {
     <body>
         <!--BEGIN App -->
         <div class="app">
-            <!--<div class="overlay"></div>-->
             <!--BEGIN Header -->
             <!-- <div class="header">
                 <div class="d-flex">
