@@ -79,32 +79,26 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // khi ấn vào menu thì show luôn sidebar
-        // $('#showmenu0, #showmenu1, #showmenu2, #showmenu3, #showmenu4, #showmenu5').click(function (e) {
-        //     // alert('a');
-        //     // show navbar
-        //     nav.classList.toggle("showsidebar");
-        //     // change icon
-        //     toggle.classList.toggle("bx-x");
-        //     // add padding to body
-        //     bodypd.classList.toggle("body-pd");
-        //     // add padding to header
-        //     headerpd.classList.toggle("body-pd");
-        //     // add padding to footer
-        //     footerpd.classList.toggle("body-pd");
-        // });
+        $('#showmenu0, #showmenu1, #showmenu2, #showmenu3, #showmenu4, #showmenu5').click(function (e) {
+            // alert('a');
+            // show navbar
+            nav.classList.add("showsidebar");
+            // change icon
+//            toggle.classList.add("bx-x");
+            // add padding to body
+            bodypd.classList.add("body-pd");
+            // add padding to header
+            headerpd.classList.add("body-pd");
+            // add padding to footer
+            footerpd.classList.add("body-pd");
+        });
 
         // Ngăn chặn mọi sự lan truyền của cùng một sự kiện
         $('#nav-bar, #body-pd, #header, #footer, #header-toggle').click(function (e) {
             e.stopPropagation();
         });
 
-        if (window.screen.width <= 767) {
-            $('#nav-bar').removeClass('showsidebar');
-            $('#header').removeClass('body-pd');
-            $('#footer').removeClass('body-pd');
-            $('#body-pd').removeClass('body-pd');
-            $('#header-toggle').removeClass('bx-x');
-            
+        // if (window.screen.width <= 767) {
             $('body,html').click(function (e) {
                 $('#nav-bar').removeClass('showsidebar');
                 $('#header').removeClass('body-pd');
@@ -112,11 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 $('#body-pd').removeClass('body-pd');
                 $('#header-toggle').removeClass('bx-x');
             });
-        }
-
-
-
-
+        // }
     };
 
     showNavbar("header-toggle", "nav-bar", "body-pd", "header", "footer");
