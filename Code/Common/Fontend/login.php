@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 
 require_once './PhpSetting/SqlConfig.php';
 
@@ -7,6 +7,7 @@ function redirect($url, $statusCode = 303) {
     header('Location:' . $url, true, $statusCode);
     die();
 }
+
 
 if (!empty($_POST["flogin"])) {
 
@@ -19,7 +20,6 @@ if (!empty($_POST["flogin"])) {
         $password = $_POST["fpassword"];
 
         $enableLogin = false;
-
         for ($i = 0; $i < count($arr); $i++) {
             $obj = $arr[$i];
 
@@ -27,13 +27,13 @@ if (!empty($_POST["flogin"])) {
                 $enableLogin = true;
             }
             if ($enableLogin) {
-                redirect("http://localhost:8080/ProjectKy1/home.php");
+                redirect("/Projectky1/home.php");
             }
         }
         echo '<script>alert("Login Faild !" + "\n" + "Kiểm tra lại username & password")</script>';
     }
 }
-?> -->
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>

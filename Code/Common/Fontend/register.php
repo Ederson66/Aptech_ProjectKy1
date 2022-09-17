@@ -1,4 +1,4 @@
-<!-- <?php
+ <?php
 
 require_once './PhpSetting/SqlConfig.php';
 
@@ -25,7 +25,7 @@ if(!empty($_POST["fregister"])){
     $a->Email=$femail;
     $a->register();
 }
-?> -->
+?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -53,7 +53,7 @@ class SQLConfig {
             $enableLogin = true;
         }
         if($enableLogin) {
-            redirect("http://localhost:8080/ProjectKy1/login.php");
+            redirect("/ProjectKy1/login.php");
         }
         
         // đóng kết nối
