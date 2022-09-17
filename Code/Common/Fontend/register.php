@@ -163,7 +163,6 @@ if(!empty($_POST["fregister"])){
                 }
             });
         });
-        });
      
     </script>
 </body>
