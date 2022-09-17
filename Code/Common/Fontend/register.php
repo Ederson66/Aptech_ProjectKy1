@@ -75,7 +75,7 @@ if(!empty($_POST["fregister"])){
                         <label class="text-shadow text-white" for="">Password</label>
                     </div>
                     <div class="input-group d-flex flex-column mb-3 pt-2 position-relative">
-                        <input type="password" class="form-control rounded" name="fconfirmpass" required>
+                        <input type="password" class="form-control rounded" name="fconfirmpass" id="confirm" required>
                         <label class="text-shadow text-white" for="">Confirm password</label>
                     </div>
                     <div class="input-group mb-3 pt-2">
@@ -144,6 +144,16 @@ if(!empty($_POST["fregister"])){
     <script>
         $(document).ready(function(){
             $(".main").height($(window).height());
+<<<<<<< HEAD
+=======
+        });
+     $("#btnpass").click(function () {
+            $pass = $("#password").val();
+            $confirm = $("#confirm").val();
+            // Chekc độ khó password
+            var pattern = /^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])/
+            var checkval = pattern.test($("#pass").val());
+>>>>>>> aa8d62fb8b9af5df1717d521bc5674b4fb38a34e
 
             $("#submit").click(function () {
                 $pass = $("#pass").val();
