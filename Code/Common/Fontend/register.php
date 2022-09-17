@@ -148,7 +148,7 @@ if(!empty($_POST["fregister"])){
             $pass = $("#password").val();
             $confirm = $("#confirm").val();
             // Chekc độ khó password
-            var pattern = /^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])/
+            var pattern = /^(?=.{5,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])/
             var checkval = pattern.test($("#pass").val());
                 if (!checkval) {
                     alert("Không đúng định dạng");
