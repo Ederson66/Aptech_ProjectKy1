@@ -34,10 +34,10 @@ select, option{
     color: var(--bs-white) !important;
 }
 
-input::placeholder{
+/* input::placeholder{
     text-shadow: 1.2px 1.2px #959494;
     color: #424248 !important;
-}
+} */
 
 .form-control:focus{
     outline: none !important;
@@ -51,5 +51,32 @@ input::placeholder{
 
 /* Css text-shadow */
 .text-shadow{
-    text-shadow: 1.2px 1.2px #959494;
+    text-shadow: 1.5px 1.5px #645f5f;
+}
+
+/* CSS LABEL */
+label {
+    position: absolute;
+    pointer-events: none;
+    left: 12px;
+    top: 12px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+/* 
+.lable-dp{
+    position: absolute;
+    pointer-events: none;
+    left: 12px;
+    top: 12px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+} */
+
+/* active state */
+input:focus~label,
+input:valid~label {
+    top: -14px;
 }

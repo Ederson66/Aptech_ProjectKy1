@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 require_once './PhpSetting/SqlConfig.php';
 
@@ -25,7 +25,7 @@ if(!empty($_POST["fregister"])){
     $a->Email=$femail;
     $a->register();
 }
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,66 +62,64 @@ if(!empty($_POST["fregister"])){
         <!--BEGIN Main -->
         <div class="main">
             <div class="me-5 ms-5 mb-5 mt-4">
-                <div class="mb-3 pt-3">
-                    <h2 class="h1 text-shadow">Register</h2>
+                <div class="mb-4 pt-3">
+                    <h2 class="h1 text-shadow text-white">Register</h2>
                 </div> 
                 <form action="register.php" method="POST" >
-                    <div class="input-group d-flex flex-column mb-3">
-                        <!-- <label class="text-shadow" for="">Username</label> -->
-                        <input type="text" class="form-control rounded" id="username" name="fusername" placeholder="Enter username">
+                    <div class="input-group d-flex flex-column mb-3 pt-2 position-relative">
+                        <input type="text" class="form-control rounded" id="username" name="fusername" required>
+                        <label class="text-shadow text-white" for="">Username</label>
                     </div>
-                    <div class="input-group d-flex flex-column mb-3">
-                        <!-- <label class="text-shadow" for="">Password</label> -->
-                        <input type="password" class="form-control rounded" id="password" name="fpassword" placeholder="Enter password">
+                    <div class="input-group d-flex flex-column mb-3 pt-2 position-relative">
+                        <input type="password" class="form-control rounded" id="password" name="fpassword" required>
+                        <label class="text-shadow text-white" for="">Password</label>
                     </div>
-                    <div class="input-group d-flex flex-column mb-3">
-                        <!-- <label class="text-shadow" for="">Confirm password</label> -->
-                        <input type="password" class="form-control rounded" name="fconfirmpass" placeholder="Enter confirm password">
+                    <div class="input-group d-flex flex-column mb-3 pt-2 position-relative">
+                        <input type="password" class="form-control rounded" name="fconfirmpass" required>
+                        <label class="text-shadow text-white" for="">Confirm password</label>
                     </div>
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3 pt-2">
                         <div class="d-flex">
-                           <div class="pe-2">
-                                <!-- <span class="pe-2 text-shadow">Last Name: </span> -->
-                               <input type="text" class="form-control rounded" name="flastname" placeholder="Enter last name">
+                           <div class="pe-2 position-relative pt-2">
+                               <input type="text" class="form-control rounded" name="flastname" required>
+                               <label class="pe-2 text-shadow text-white">Last Name</label>
                            </div>
-                            <div class="ps-2">
-                                <!-- <span class="pe-2 text-shadow">Middle Name:</span> -->
-                                <input type="text" class="form-control rounded" name="fmiddlename" placeholder="Enter middle name">
+                            <div class="ps-2 position-relative pt-2">
+                                <input type="text" class="form-control rounded" name="fmiddlename" required>
+                                <label class="ps-2 text-shadow text-white">Middle Name</label>
                             </div>
                         </div>
                     </div>
-                    <div class="input-group mb-3">
-                        <!-- <label class="text-shadow" for="">First Name:</label> -->
-                        <input type="text" class="form-control rounded" name="ffirstname" placeholder="Enter first name">
+                    <div class="input-group mb-3 pt-2 position-relative">
+                        <input type="text" class="form-control rounded" name="ffirstname" required>
+                        <label class="text-shadow text-white" for="">First Name</label> 
                     </div>
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3 pt-2">
                         <div class="d-flex w-100">
                             <div class="pe-2">
-                                <!-- <label class="text-shadow" for="">Brithday:</label> -->
-                                <input type="date" class="form-control text-shadow rounded text-secondary" name="fbirthday">
+                                <input type="date" class="form-control text-shadow rounded text-white" name="fbirthday" required>
                             </div>
-                            <div class="ps-2 w-100">
-                                <!-- <label class="text-shadow" for="">Giới tính</label> -->
-                                <select name="fsex" class="form-select text-shadow text-secondary">
+                            <div class="ps-2 position-relative w-100">
+                                <select name="fsex" class="form-select text-shadow text-white">
                                     <option selected>Sex</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
-                                </select> 
+                                </select>
                             </div>
                         </div>                      
                     </div>
-                    <div class="input-group mb-3">
-                        <!-- <label class="text-shadow" for="">Phone Number</label> -->
-                        <input type="text" class="form-control rounded" name="fphonenumber" placeholder="Enter phone number">
+                    <div class="input-group mb-3 pt-2 position-relative">
+                        <input type="text" class="form-control rounded" name="fphonenumber" required>
+                        <label class="text-shadow text-white" for="">Phone Number</label>
                     </div>
-                    <div class="input-group mb-3">
-                        <!-- <label class="text-shadow" for="">Email</label> -->
-                        <input type="text" class="form-control rounded" name="femail" placeholder="Enter email">
+                    <div class="input-group mb-3 pt-2 position-relative">
+                        <input type="text" class="form-control rounded" name="femail" required>
+                        <label class="text-shadow text-white" for="">Email</label>
                     </div>
                     <!-- <div class="input-group mb-3">
                         <input type="file" class="form-control text-shadow rounded" placeholder="Chose file">
                     </div> -->
-                    <div class="mb-3 d-flex justify-content-center">
+                    <div class="mb-3 d-flex justify-content-center pt-2 position-relative">
                         <input class="p-2 rounded text-shadow bg-primary" type="submit" id="btnpass" name="fregister" value="Register" >
                     </div>
                 </form>
@@ -146,16 +144,6 @@ if(!empty($_POST["fregister"])){
     <script>
         $(document).ready(function(){
             $(".main").height($(window).height());
-            
-//            var pattern = /^(?=.{5,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\W])/
-//
-//            $("#btnpass").click(function () {
-//                var checkval = pattern.test($("#password").val());
-//
-//                if (!checkval) {
-//                    alert("Nhập lại password!!");
-//                }
-//            });
         });
         
     </script>

@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 require_once './PhpSetting/SqlConfig.php';
 
@@ -33,7 +33,7 @@ if (!empty($_POST["flogin"])) {
         echo '<script>alert("Login Faild !" + "\n" + "Kiểm tra lại username & password")</script>';
     }
 }
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -68,25 +68,26 @@ if (!empty($_POST["flogin"])) {
 
             <!--BEGIN Main -->
             <div class="main">
+                
                 <div class="me-5 ms-5 mb-5 mt-4" style="width: 500px;">
-                    <div class="mb-3 pt-3">
-                        <h2 class="h1 text-shadow">Login</h2>
+                    <div class="mb-4 pt-3">
+                        <h2 class="h1 text-shadow text-white">Login</h2>
                     </div>
                     <form action="login.php" method="POST" >
-                        <div class="input-group d-flex flex-column mb-3">
-                            <!-- <label class="text-shadow" for="">Username</label> -->
-                            <input type="text" class="form-control rounded" id="username" name="fusername" placeholder="Username">
+                        <div class="input-group d-flex flex-column pt-2 mb-3 position-relative">
+                            <input type="text" class="form-control rounded" id="username" name="fusername" required>
+                            <label class="text-shadow text-white">Username</label>
                         </div>
-                        <div class="input-group d-flex flex-column mb-3">
-                            <!-- <label class="text-shadow" for="">Password</label> -->
-                            <input type="password" class="form-control rounded" id="password" name="fpassword" placeholder="Password">
+                        <div class="input-group d-flex flex-column pt-2 mb-3 position-relative">
+                            <input type="password" class="form-control rounded" id="password" name="fpassword" required>
+                            <label class="text-shadow text-white">Password</label>
                         </div>
                         <div class="mb-3 d-flex align-items-center justify-content-between">
                             <div>
-                                <a href="#" class="text-dark rounded text-shadow">Reset password</a>
+                                <a href="#" class="text-white rounded text-shadow">Reset password</a>
                             </div>
                             <div class="d-flex align-items-center">
-                                <span class="text-shadow me-2" for="">Remember</span>
+                                <span class="text-shadow me-2 text-white">Remember</span>
                                 <input type="checkbox" style="width: 16px !important; height: 16px; margin-top: 5px;">
                             </div>
                         </div>
@@ -95,7 +96,7 @@ if (!empty($_POST["flogin"])) {
                         </div>
                     </form>
                     <div class="mb-3 d-flex justify-content-center">
-                        <span class="text-shadow">No account?</span>
+                        <span class="text-shadow text-white">No account?</span>
                         <a href="register.php" class=" text-shadow">Register</a>
                     </div>
                 </div>
@@ -113,6 +114,7 @@ if (!empty($_POST["flogin"])) {
         <!-- JS BOOTSTRAP -->
         <script src="./assets/js/bootstrap.bundle.min.js"></script>
         <script>
+            // xét chiều cao tự đọng theo màn hình
             $(document).ready(function () {
                 $(".main").height($(window).height());
             });
