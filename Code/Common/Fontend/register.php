@@ -144,24 +144,12 @@ if(!empty($_POST["fregister"])){
     <script>
         $(document).ready(function(){
             $(".main").height($(window).height());
-<<<<<<< HEAD
-=======
-        });
-     $("#btnpass").click(function () {
+         $("#btnpass").click(function () {
             $pass = $("#password").val();
             $confirm = $("#confirm").val();
             // Chekc độ khó password
             var pattern = /^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])/
             var checkval = pattern.test($("#pass").val());
->>>>>>> aa8d62fb8b9af5df1717d521bc5674b4fb38a34e
-
-            $("#submit").click(function () {
-                $pass = $("#pass").val();
-                $confirm = $("#confirm").val();
-                // Chekc độ khó password
-                var pattern = /^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])/
-                var checkval = pattern.test($("#pass").val());
-
                 if (!checkval) {
                     alert("Không đúng định dạng");
                 }
@@ -175,8 +163,8 @@ if(!empty($_POST["fregister"])){
                 }
             });
         });
-        
-        
+        });
+     
     </script>
 </body>
 </html>
