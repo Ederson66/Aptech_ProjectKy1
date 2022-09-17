@@ -145,6 +145,25 @@ if(!empty($_POST["fregister"])){
         $(document).ready(function(){
             $(".main").height($(window).height());
         });
+     $("#submit").click(function () {
+            $pass = $("#pass").val();
+            $confirm = $("#confirm").val();
+            // Chekc độ khó password
+            var pattern = /^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])/
+            var checkval = pattern.test($("#pass").val());
+
+            if (!checkval) {
+                alert("Không đúng định dạng");
+            }
+            else {
+                if ($pass != $confirm) {
+                    alert("Có lỗi xảy ra")
+                }
+                else {
+                    window.location.href = "http://localhost:8080/ProjectKy1/Code/Common/Fontend/login.php"
+                }
+            }
+        });
         
     </script>
 </body>
