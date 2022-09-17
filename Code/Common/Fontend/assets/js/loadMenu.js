@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
             e.stopPropagation();
         });
 
-        // if (window.screen.width <= 767) {
+        if (window.screen.width <= 820) {
             $('body,html').click(function (e) {
                 $('#nav-bar').removeClass('showsidebar');
                 $('#header').removeClass('body-pd');
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 $('#body-pd').removeClass('body-pd');
                 $('#header-toggle').removeClass('bx-x');
             });
-        // }
+        }
     };
 
     showNavbar("header-toggle", "nav-bar", "body-pd", "header", "footer");
