@@ -27,7 +27,7 @@ if (!empty($_POST["flogin"])) {
                 $enableLogin = true;
             }
             if ($enableLogin) {
-                redirect("/Projectky1/home.php");
+                redirect("/Projectky1/admin.php");
             }
         }
         echo '<script>alert("Login Faild !" + "\n" + "Kiểm tra lại username & password")</script>';

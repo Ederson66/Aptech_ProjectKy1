@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector("#nav-bar").innerHTML = sidebar;
 
     // footer
-    let footer = '<div class="d-flex justify-content-between align-items-center">' +
+    let footer = '<div class="d-flex justify-content-between align-items-center" style="padding: 0 1rem;">' +
         '<p>© All copyright</p>' +
-        '<div class=\"d-flex align-items-center\" style=\"margin-top: -10px;\">' +
+        '<div class=\"d-flex align-items-center\" style=\"margin-top: -10px;">' +
         '<a class=\"m-1\" href=\"https://www.facebook.com\">' +
         '<i class=\"bx bi bi-facebook nav_icon\"></i></a>' +
         '<a class=\"m-1\" href=\"https://www.github.com\">' +
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // show navbar
                 nav.classList.toggle("showsidebar");
                 // change icon
-                toggle.classList.toggle("bx-x");
+                // toggle.classList.toggle("bx-x");
                 // add padding to body
                 bodypd.classList.toggle("body-pd");
                 // add padding to header
@@ -79,19 +79,19 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // khi ấn vào menu thì show luôn sidebar
-        $('#showmenu0, #showmenu1, #showmenu2, #showmenu3, #showmenu4, #showmenu5').click(function (e) {
-            // alert('a');
-            // show navbar
-            nav.classList.toggle("showsidebar");
-            // change icon
-            toggle.classList.toggle("bx-x");
-            // add padding to body
-            bodypd.classList.toggle("body-pd");
-            // add padding to header
-            headerpd.classList.toggle("body-pd");
-            // add padding to footer
-            footerpd.classList.toggle("body-pd");
-        });
+        // $('#showmenu0, #showmenu1, #showmenu2, #showmenu3, #showmenu4, #showmenu5').click(function (e) {
+        //     // alert('a');
+        //     // show navbar
+        //     nav.classList.toggle("showsidebar");
+        //     // change icon
+        //     toggle.classList.toggle("bx-x");
+        //     // add padding to body
+        //     bodypd.classList.toggle("body-pd");
+        //     // add padding to header
+        //     headerpd.classList.toggle("body-pd");
+        //     // add padding to footer
+        //     footerpd.classList.toggle("body-pd");
+        // });
 
         // Ngăn chặn mọi sự lan truyền của cùng một sự kiện
         $('#nav-bar, #body-pd, #header, #footer, #header-toggle').click(function (e) {
@@ -99,7 +99,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         if (window.screen.width <= 767) {
-            // alert('a');
+            $('#nav-bar').removeClass('showsidebar');
+            $('#header').removeClass('body-pd');
+            $('#footer').removeClass('body-pd');
+            $('#body-pd').removeClass('body-pd');
+            $('#header-toggle').removeClass('bx-x');
+            
             $('body,html').click(function (e) {
                 $('#nav-bar').removeClass('showsidebar');
                 $('#header').removeClass('body-pd');
@@ -108,6 +113,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 $('#header-toggle').removeClass('bx-x');
             });
         }
+
+
+
 
     };
 
