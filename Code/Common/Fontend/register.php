@@ -1,11 +1,11 @@
- <?php
+<?php
 
 require_once './PhpSetting/User.php';
 
 if(!empty($_POST["fregister"])){
     $fusername = $_POST['fusername'];
     $fpassword = $_POST['fpassword'];
-     $flastname = $_POST['flastname'];
+    $flastname = $_POST['flastname'];
     $fmiddlename = $_POST['fmiddlename'];
     $ffirstname = $_POST['ffirstname'];
     $fbirthday = $_POST['fbirthday'];
@@ -150,7 +150,7 @@ if(!empty($_POST["fregister"])){
                 $pass = $("#password").val();
                 $confirm = $("#confirm").val();
                 // Chekc độ khó password
-                var pattern = /^(?=.{5,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])/
+                var pattern = /^(?=.{5,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])/;
                 var checkval = pattern.test($("#pass").val());
                     if (!checkval) {
                         alert("Không đúng định dạng");
