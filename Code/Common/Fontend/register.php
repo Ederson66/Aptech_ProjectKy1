@@ -1,6 +1,6 @@
  <?php
 
-require_once './PhpSetting/SqlConfig.php';
+require_once './PhpSetting/User.php';
 
 if(!empty($_POST["fregister"])){
     $fusername = $_POST['fusername'];
@@ -13,7 +13,7 @@ if(!empty($_POST["fregister"])){
     $fphonenumber = $_POST['fphonenumber'];
     $femail = $_POST['femail'];
 
-    $a = new SQLConfig();
+    $a = new User();
     $a->Username=$fusername;
     $a->Password=$fpassword;
     $a->Fisrtname=$ffirstname;

@@ -4,19 +4,19 @@ $(document).ready(function () {
 
 document.addEventListener('DOMContentLoaded', function () {
     // header
-    let header = '<div class="header_toggle"><i class="bx bx-menu text-dark" id="header-toggle"></i></div>' +
-        '<form class="w-50"><input type="search" class="form-control" placeholder="Tìm kiếm..." aria-label="Search" /> </form>' +
-        '<div class="dropdown text-end">' +
-        '<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="user" data-bs-toggle="dropdown" aria-expanded="false">' +
-        '<img src="./assets/image/avt_pro.jpg" alt="quản trị" width="40" height="40" class="rounded-circle" /></a>' +
-        '<ul class="dropdown-menu text-small" aria-labelledby="user" style="min-width: 256px;">' +
-        '<li><a class="dropdown-item" href="#">Quản lý</a></li>' +
-        '<li><a class="dropdown-item" href="#">Trang cá nhân</a></li>' +
-        '<li><a class="dropdown-item" href="#">Cài đặt cá nhân</a></li>' +
-        '<li><hr class="dropdown-divider" /></li>' +
-        '<li><a id="signout-1" class="dropdown-item" href="#">Đăng xuất</a></li></ul>' +
-        '</div>';
-    document.querySelector("#header").innerHTML = header;
+//    let header = '<div class="header_toggle"><i class="bx bx-menu text-dark" id="header-toggle"></i></div>' +
+//        '<form class="w-50"><input type="search" class="form-control" placeholder="Tìm kiếm..." aria-label="Search" /> </form>' +
+//        '<div class="dropdown text-end">' +
+//        '<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="user" data-bs-toggle="dropdown" aria-expanded="false">' +
+//        '<img src="./assets/image/avt_pro.jpg" alt="quản trị" width="40" height="40" class="rounded-circle" /></a>' +
+//        '<ul class="dropdown-menu text-small" aria-labelledby="user" style="min-width: 256px;">' +
+//        '<li><a class="dropdown-item" href="#">Quản lý</a></li>' +
+//        '<li><a class="dropdown-item" href="#">Trang cá nhân</a></li>' +
+//        '<li><a class="dropdown-item" href="#">Cài đặt cá nhân</a></li>' +
+//        '<li><hr class="dropdown-divider" /></li>' +
+//        '<form action="<?php echo $_SERVER[\'PHP_SELF\']; ?>" method="POST"><li><a id="signout-1" name="signout-1" class="dropdown-item" href="#">Đăng xuất</a></li><form></ul>' +
+//        '</div>';
+//    document.querySelector("#header").innerHTML = header;
 
     // sidebar
     let sidebar = '<nav class="nav">' +
@@ -37,8 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
         '<div class="menu mb-0 pt-0 pb-0 collapse" id="menu4"> <ul class="btn-toggle-nav list-unstyled fw-normal small"> <li><a id="inputanswer" class="dropdown-item cl-1" href="#">item 1</a></li> <li><a id="ds-answer" class="dropdown-item cl-1" href="#">item 2</a></li> </ul> </div>' +
         '<div id="showmenu5"> <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu5"> <i class="bx bi bi-list-check nav_icon"></i> <span class="nav_name float-start">Test <i class="bi bi-chevron-compact-down"></i></span> </a> </div>' +
         '<div class="menu mb-0 pt-0 pb-0 collapse" id="menu5"> <ul class="btn-toggle-nav list-unstyled fw-normal small"> <li><a class="dropdown-item cl-1" href="./answer.html">item 1</a></li> <li><a id="ds-answerlist" class="dropdown-item cl-1" href="#">item 2</a></li> </ul> </div>' +
-        '</div></div>' +
-        '<a href="#" id="signout" class="nav_link"> <i class="bx bx-log-out nav_icon"></i> <span class="nav_name">Đăng xuất</span> </a></nav>';
+        '</div></div></nav>';
     document.querySelector("#nav-bar").innerHTML = sidebar;
 
     // footer

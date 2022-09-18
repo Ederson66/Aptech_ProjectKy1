@@ -1,3 +1,21 @@
+<?php
+// bawts ddaafu tuwf treen cungf
+session_start();
+
+require_once './PhpSetting/Common.php';
+require_once './PhpSetting/User.php';
+
+$checkss = IsAuthen();
+if($checkss != 1) {
+    redirect("/Projectky1/login.php");
+}
+
+if (!empty($_POST["flogout"])) {
+    $a = new User();
+    $arr = $a->Logout();
+    redirect("/Projectky1/login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,7 +37,43 @@
     <body id="body-pd" class="body-pd">
         <div class="app">
             <!-- BEGIN HEADER -->
-            <header class="header body-pd" id="header"></header>
+            <header class="header body-pd" id="header">
+                <div class="header_toggle"><i class="bx bx-menu text-dark" id="header-toggle"></i></div>
+                <form class="w-50"><input type="search" class="form-control" placeholder="Tìm kiếm..." aria-label="Search" /></form>
+                <div class="dropdown text-end">
+                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="user" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="./assets/image/avt_pro.jpg" alt="quản trị" width="40" height="40" class="rounded-circle" />
+                    </a>
+                    <ul class="dropdown-menu text-small" aria-labelledby="user" style="min-width: 256px;">
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <?php
+                                require_once './PhpSetting/User.php';
+
+
+                                $u = new User();
+                                $u->Username = (string) $_SESSION["Username"];
+                                $list = $u->GetUserByUsername();
+
+
+                                for ($i = 0; $i < count($list); $i++) {
+                                    $obj = $list[$i];
+
+                                    echo "Chào" . " " . strtoupper($obj->Lastname ." " . $obj->Middlename . " " . $obj->Fisrtname);
+                                }
+                                ?>
+                            </a>
+                        </li>
+                        <li><a class="dropdown-item" href="#">Trang cá nhân</a></li>
+                        <li><a class="dropdown-item" href="#">Cài đặt cá nhân</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                            <li><input class="dropdown-item" type="submit" name="flogout" value="Đăng xuất"></li>
+                        </form>
+                    </ul>
+                </div>
+            </header>
+
             <!-- END HEADER -->
 
             <!-- BEGIN NAV -->

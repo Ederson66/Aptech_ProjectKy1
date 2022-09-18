@@ -3,8 +3,12 @@
 require_once './PhpSetting/User.php';
 require_once './PhpSetting/Common.php';
 
+
+
 if (!empty($_POST["flogin"])) {
+
     
+
     if (isset($_POST["fusername"]) && isset($_POST["fpassword"])) {
         $username = $_POST["fusername"];
         $password = $_POST["fpassword"];
@@ -18,15 +22,23 @@ if (!empty($_POST["flogin"])) {
         if(count($arr) > 0) {
             // sử dụng ss
             session_start();
-            // tạo ra ss
             $_SESSION["Username"] = $username;
             redirect("/Projectky1/admin.php");
             
-        } else {
-            echo '<script>alert("Login Faild !" + "\n" + "Kiểm tra lại username & password")</script>';
         }
+        
+//        for ($i = 0; $i < count($arr); $i++) {
+//            $obj = $arr[$i];
+//
+//            if ($username == $obj->Username && $password == $obj->Password) {
+//                $enableLogin = true;
+//            }
+//            if ($enableLogin) {
+//                redirect("/Projectky1/admin.php");
+//            }
+//        }
+        echo '<script>alert("Login Faild !" + "\n" + "Kiểm tra lại username & password")</script>';
     }
-    
 }
 ?>
 <!DOCTYPE html>
