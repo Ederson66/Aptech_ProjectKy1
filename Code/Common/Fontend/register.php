@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 require_once './PhpSetting/User.php';
 
@@ -40,6 +40,8 @@ if(!empty($_POST["fregister"])){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- CSS ME -->
     <link rel="stylesheet" href="./assets/css/login.css">
+    <!--favicon-->
+    <link rel="icon" type="image/x-icon" href="./assets/image/favicon.ico">
     <title>Register</title>
 </head>
 <body>

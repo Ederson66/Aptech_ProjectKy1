@@ -32,6 +32,8 @@ if (!empty($_POST["flogout"])) {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
         <!-- CSS ME -->
         <link rel="stylesheet" href="./assets/css/admin.css" />
+        <!--favicon-->
+        <link rel="icon" type="image/x-icon" href="./assets/image/favicon.ico">
         <title>Admin</title>
     </head>
     <body id="body-pd" class="body-pd">
@@ -54,8 +56,7 @@ if (!empty($_POST["flogout"])) {
                                 $u = new User();
                                 $u->Username = (string) $_SESSION["Username"];
                                 $list = $u->GetUserByUsername();
-
-
+                                
                                 for ($i = 0; $i < count($list); $i++) {
                                     $obj = $list[$i];
 
