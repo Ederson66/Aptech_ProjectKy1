@@ -33,7 +33,7 @@ if (!empty($_POST["flogout"])) {
         <!-- CSS ME -->
         <link rel="stylesheet" href="./assets/css/admin.css" />
         <!--favicon-->
-        <link rel="icon" type="image/x-icon" href="./assets/image/favicon.ico">
+        <link rel="icon" type="image/x-icon" href="./assets/image/favicon.png">
         <title>Admin</title>
     </head>
     <body id="body-pd" class="body-pd">

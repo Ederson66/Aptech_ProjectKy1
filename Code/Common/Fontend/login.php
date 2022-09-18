@@ -44,7 +44,7 @@ if (!empty($_POST["flogin"])) {
         <!-- CSS ME -->
         <link rel="stylesheet" href="./assets/css/login.css">
         <!--favicon-->
-        <link rel="icon" type="image/x-icon" href="./assets/image/favicon.ico">
+        <link rel="icon" type="image/x-icon" href="./assets/image/favicon.png">
         <title>Login</title>
     </head>
     <body>
