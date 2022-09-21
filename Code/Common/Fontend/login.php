@@ -37,7 +37,7 @@ if (!empty($_POST["flogin"])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Reset CSS -->
         <link rel="stylesheet" href="./assets/css/reset.min.css">
-        <!-- BOOTSTRAP 5.0 CSS -->
+        <!-- BOOTSTRAP 5.0.2 CSS -->
         <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
         <!-- BOOTSTRAP ICON -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -110,11 +110,7 @@ if (!empty($_POST["flogin"])) {
         <script src="./assets/js/jquery.min.js"></script>
         <!-- JS BOOTSTRAP -->
         <script src="./assets/js/bootstrap.bundle.min.js"></script>
-        <script>
-            // xét chiều cao tự đọng theo màn hình
-            $(document).ready(function () {
-                $(".main").height($(window).height());
-            });
-        </script>
+        <!-- JS ME -->
+        <script src="./assets/js/log.reg.js"></script>
     </body>
 </html>
