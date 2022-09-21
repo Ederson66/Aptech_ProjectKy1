@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // sidebar
     let sidebar = '<nav class="nav">' +
         '<div class="">' +
-        '<a href="#" class="nav_logo"> <i class="text-white bi bi-stack"></i> <span class="nav_logo-name">Quản trị</span> </a>' +
+        '<a href="#" class="nav_logo"> <i class="text-white bi bi-stack"></i> <span class="nav_logo-name">Manager</span> </a>' +
         '<div class="nav_list">' +
-        '<div id="showdashboard"><a href="#" class="nav_link active"> <i class="bx bx-grid-alt nav_icon"></i> <span class="nav_name">Bảng điều khiển</span> </a></div>' +
-        '<a href="#" class="nav_link"> <i class="bx bi bi-bell nav_icon"></i> <span class="nav_name">Thông báo</span> </a>' +
+        '<div id="showdashboard"><a href="#" class="nav_link active"> <i class="bx bx-grid-alt nav_icon"></i> <span class="nav_name">Dashboard</span> </a></div>' +
+        '<a href="#" class="nav_link"> <i class="bx bi bi-bell nav_icon"></i> <span class="nav_name">Notify</span> </a>' +
         '<div id="showmenu0"> <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu0"> <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Test <i class="bi bi-chevron-compact-down"></i></span> </a> </div>' +
         '<div class="menu mb-0 pt-0 pb-0 collapse" id="menu0"> <ul class="btn-toggle-nav list-unstyled fw-normal small"> <li><a class="dropdown-item cl-1" href="#">item 1</a></li> <li><a class="dropdown-item cl-1" href="#">item 2</a></li> </ul> </div>' +
         '<div id="showmenu1"> <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu1"> <i class="bx bi bi-file-font nav_icon"></i> <span class="nav_name float-start">Test <i class="bi bi-chevron-compact-down"></i></span> </a> </div>' +
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // change icon
                 // toggle.classList.toggle("bx-x");
                 // add padding to body
-                bodypd.classList.toggle("body-pd");
+                //bodypd.classList.toggle("body-pd");
                 // add padding to header
                 headerpd.classList.toggle("body-pd");
                 // add padding to footer
@@ -83,9 +83,9 @@ document.addEventListener('DOMContentLoaded', function () {
             // show navbar
             nav.classList.add("showsidebar");
             // change icon
-//            toggle.classList.add("bx-x");
+            //toggle.classList.add("bx-x");
             // add padding to body
-            bodypd.classList.add("body-pd");
+            // bodypd.classList.add("body-pd");
             // add padding to header
             headerpd.classList.add("body-pd");
             // add padding to footer
@@ -98,6 +98,14 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         if (window.screen.width <= 820) {
+            // remove class nếu màn hình 820 trở xuống
+            $('#nav-bar').removeClass('showsidebar');
+            $('#header').removeClass('body-pd');
+            $('#footer').removeClass('body-pd');
+            $('#body-pd').removeClass('body-pd');
+            $('#header-toggle').removeClass('bx-x');
+
+            // click ở màn hình bé
             $('body,html').click(function (e) {
                 $('#nav-bar').removeClass('showsidebar');
                 $('#header').removeClass('body-pd');

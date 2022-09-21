@@ -49,10 +49,10 @@ a {
     top: 0;
     left: -30%;
     width: var(--nav-width);
-    height: 100vh;
-    background: #606c88;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #3f4c6b, #606c88); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 100%;
+    background: #232526;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding: 0.5rem 1rem 0 0;
     transition: 0.5s;
     z-index: var(--z-fixed);
@@ -240,4 +240,91 @@ table {
     background-color: blue;
     border-radius: 50%;
     display: inline-block;
+}
+
+.dot-4 {
+    height: 10px;
+    width: 10px;
+    background-color: forestgreen;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-5 {
+    height: 10px;
+    width: 10px;
+    background-color: #e5e5e5;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-6 {
+    height: 8px;
+    width: 8px;
+    background-color: #33af23;
+    border-radius: 50%;
+    display: inline-block;
+    left: 34px;
+    top: 32px;
+}
+
+/* css dung lượng */
+.progress {
+    margin: 20px auto;
+    padding: 0;
+    width: 90%;
+    height: 16px;
+    overflow: hidden;
+    background: #e5e5e5;
+    border-radius: 6px;
+}
+
+.bar {
+    position: relative;
+    float: left;
+    min-width: 1%;
+    height: 100%;
+    background: blue;
+}
+
+.bar1 {
+    position: relative;
+    float: left;
+    min-width: 20%;
+    height: 100%;
+    background: red;
+}
+
+.bar2 {
+    position: relative;
+    float: left;
+    min-width: 20%;
+    height: 100%;
+    background: forestgreen;
+}
+
+.percent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-family: tahoma, arial, helvetica;
+    font-size: 12px;
+    color: white;
+}
+
+.bg-holder{
+    width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    max-height: 162px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    will-change: transform,opacity,filter;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-repeat: no-repeat;
 }
