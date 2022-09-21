@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //    document.querySelector("#header").innerHTML = header;
 
     // sidebar
-    let sidebar = '<nav class="nav">' +
+    let sidebar = '<nav class="nav" id="style-11">' +
         '<div class="">' +
         '<a href="#" class="nav_logo"> <i class="text-white bi bi-stack"></i> <span class="nav_logo-name">Manager</span> </a>' +
         '<div class="nav_list">' +
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
         '<div id="showmenu4"> <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu4"> <i class="bx bi bi-reply nav_icon"></i> <span class="nav_name float-start">Test <i class="bi bi-chevron-compact-down"></i></span> </a> </div>' +
         '<div class="menu mb-0 pt-0 pb-0 collapse" id="menu4"> <ul class="btn-toggle-nav list-unstyled fw-normal small"> <li><a id="inputanswer" class="dropdown-item cl-1" href="#">item 1</a></li> <li><a id="ds-answer" class="dropdown-item cl-1" href="#">item 2</a></li> </ul> </div>' +
         '<div id="showmenu5"> <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu5"> <i class="bx bi bi-list-check nav_icon"></i> <span class="nav_name float-start">Test <i class="bi bi-chevron-compact-down"></i></span> </a> </div>' +
-        '<div class="menu mb-0 pt-0 pb-0 collapse" id="menu5"> <ul class="btn-toggle-nav list-unstyled fw-normal small"> <li><a class="dropdown-item cl-1" href="./answer.html">item 1</a></li> <li><a id="ds-answerlist" class="dropdown-item cl-1" href="#">item 2</a></li> </ul> </div>' +
+        '<div class="menu mb-0 pt-0 pb-0 collapse" id="menu5"> <ul class="btn-toggle-nav list-unstyled fw-normal small"> <li><a class="dropdown-item cl-1" href="#">item 1</a></li> <li><a id="ds-answerlist" class="dropdown-item cl-1" href="#">item 2</a></li> </ul> </div>' +
         '</div></div></nav>';
     document.querySelector("#nav-bar").innerHTML = sidebar;
 

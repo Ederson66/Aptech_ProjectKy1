@@ -136,12 +136,17 @@
             <!--END Header -->
 
             <!--BEGIN Main -->
-            <div class="main"></div>
+            <div class="main">
+                <!-- notification -->
+                <div class="notification"></div>
+            </div>
             <!--END Main -->
 
             <!--BEGIN Footer -->
             <div class="footer"></div>
             <!--END Footer -->
+
+            <div id="demo"></div>
         </div>
 
         <!-- JQUERY 3.6.1 -->
@@ -151,9 +156,7 @@
         <!-- JS ME -->
         <script src="./assets/js/home.js"></script>
         <script>
-            $(document).ready(function () {
-                $(".app").height($(window).height());
-            });
+            
         </script>
     </body>
 </html>

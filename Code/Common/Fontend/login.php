@@ -50,25 +50,16 @@ if (!empty($_POST["flogin"])) {
     <body>
         <!--BEGIN App -->
         <div class="app">
-            <!--BEGIN Header -->
-            <!-- <div class="header">
-                <div class="d-flex">
-                    <h3 class="p-3 pe-5">
-                        <a class="text-decoration-none text-secondary" href="#" style="text-shadow: 2px 2px #cccc;">Home</a>
-                    </h3>
-                    <h3 class="p-3 ps-5">
-                        <a class="text-decoration-none text-secondary" href="#" style="text-shadow: 2px 2px #cccc;">About</a>
-                    </h3>
-                </div>
-            </div> -->
-            <!--END Header -->
 
             <!--BEGIN Main -->
             <div class="main">
                 
                 <div class="m-5" style="width: 500px;">
-                    <div class="mb-4">
+                    <div class="mb-4 d-flex justify-content-between">
                         <h2 class="h1 text-shadow text-white">Login</h2>
+                        <h2 class="h1 text-shadow text-white">
+                            <a onclick="alert('You will still go to the homepage but anonymously !!!')" href="index.php">Home</a>
+                        </h2>
                     </div>
                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" >
                         <div class="input-group d-flex flex-column pt-2 mb-3 position-relative">
@@ -100,9 +91,6 @@ if (!empty($_POST["flogin"])) {
             </div>
             <!--END Main -->
 
-            <!--BEGIN Footer -->
-            <div class="footer"></div>
-            <!--END Footer -->
         </div>
         <!--END App -->
 
