@@ -42,7 +42,7 @@ if (!empty($_POST["flogin"])) {
         <!-- BOOTSTRAP ICON -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <!-- CSS ME -->
-        <link rel="stylesheet" href="./assets/css/login.css">
+        <link rel="stylesheet" href="./assets/css/log.reg.css">
         <!--favicon-->
         <link rel="icon" type="image/x-icon" href="./assets/image/favicon.png">
         <title>Login</title>
@@ -66,8 +66,8 @@ if (!empty($_POST["flogin"])) {
             <!--BEGIN Main -->
             <div class="main">
                 
-                <div class="me-5 ms-5 mb-5 mt-4" style="width: 500px;">
-                    <div class="mb-4 pt-3">
+                <div class="m-5" style="width: 500px;">
+                    <div class="mb-4">
                         <h2 class="h1 text-shadow text-white">Login</h2>
                     </div>
                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" >

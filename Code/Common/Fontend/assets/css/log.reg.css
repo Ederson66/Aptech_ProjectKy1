@@ -80,3 +80,12 @@ input:focus~label,
 input:valid~label {
     top: -14px;
 }
+
+/*css valid*/
+.error {
+    border: 2px solid red !important;
+}
+
+.success {
+    border: 2px solid green !important;
+}
