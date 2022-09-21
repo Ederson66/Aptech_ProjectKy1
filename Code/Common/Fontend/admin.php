@@ -1,5 +1,5 @@
 <?php
-// bawts ddaafu tuwf treen cungf
+// bắt đầu trên cùng
 session_start();
 
 require_once './PhpSetting/Common.php';
