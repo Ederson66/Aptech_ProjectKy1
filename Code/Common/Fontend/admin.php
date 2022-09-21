@@ -60,7 +60,7 @@ if (!empty($_POST["flogout"])) {
                                 for ($i = 0; $i < count($list); $i++) {
                                     $obj = $list[$i];
 
-                                    echo "Hello" . " " . strtoupper($obj->Lastname ." " . $obj->Middlename . " " . $obj->Fisrtname);
+                                    echo "Hello" . " " . ucwords($obj->Lastname ." " . $obj->Middlename . " " . $obj->Fisrtname);
                                 }
                                 ?>
                             </a>
