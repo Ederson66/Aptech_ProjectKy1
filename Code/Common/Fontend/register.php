@@ -85,14 +85,17 @@ if (!empty($_POST["fregister"])) {
                         <div class="input-group d-flex flex-column mb-3 pt-2 position-relative">
                             <input type="text" class="form-control rounded" id="username" name="fusername" required>
                             <label class="text-shadow text-white" for="">Username</label>
+                            <p id="MessageUser"></p>
                         </div>
                         <div class="input-group d-flex flex-column mb-3 pt-2 position-relative">
                             <input type="password" class="form-control rounded" id="password" name="fpassword" required>
                             <label class="text-shadow text-white" for="">Password</label>
+                            <p id="MessagePass"></p>
                         </div>
                         <div class="input-group d-flex flex-column mb-3 pt-2 position-relative">
                             <input type="password" class="form-control rounded" name="fconfirmpass" id="confirm" required>
                             <label class="text-shadow text-white" for="">Confirm password</label>
+                            <p id="MessageConfirm"></p>
                         </div>
                         <div class="input-group mb-3 pt-2">
                             <div class="d-flex">
@@ -131,7 +134,7 @@ if (!empty($_POST["fregister"])) {
                         <div class="input-group mb-3 pt-2 position-relative">
                             <input type="text" class="form-control rounded" name="femail" id="email" required>
                             <label class="text-shadow text-white" for="">Email</label>
-                            <p id="result"></p>
+                            <p id="MessageMail"></p>
                         </div>
                         <!-- <div class="input-group mb-3">
                             <input type="file" class="form-control text-shadow rounded" placeholder="Chose file">
