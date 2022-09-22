@@ -19,35 +19,92 @@ document.addEventListener('DOMContentLoaded', function () {
 //    document.querySelector("#header").innerHTML = header;
 
     // sidebar
-    let sidebar = '<nav class="nav" id="style-11">' +
-        '<div class="">' +
-        '<a href="#" class="nav_logo"> <i class="text-white bi bi-stack"></i> <span class="nav_logo-name">Manager</span> </a>' +
-        '<div class="nav_list">' +
-        '<div id="showdashboard"><a href="#" class="nav_link active"> <i class="bx bx-grid-alt nav_icon"></i> <span class="nav_name">Dashboard</span> </a></div>' +
-        '<a href="#" class="nav_link"> <i class="bx bi bi-bell nav_icon"></i> <span class="nav_name">Notify</span> </a>' +
-        '<div id="showmenu0"> <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu0"> <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Test <i class="bi bi-chevron-compact-down"></i></span> </a> </div>' +
-        '<div class="menu mb-0 pt-0 pb-0 collapse" id="menu0"> <ul class="btn-toggle-nav list-unstyled fw-normal small"> <li><a class="dropdown-item cl-1" href="#">item 1</a></li> <li><a class="dropdown-item cl-1" href="#">item 2</a></li> </ul> </div>' +
-        '<div id="showmenu1"> <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu1"> <i class="bx bi bi-file-font nav_icon"></i> <span class="nav_name float-start">Test <i class="bi bi-chevron-compact-down"></i></span> </a> </div>' +
-        '<div class="menu mb-0 pt-0 pb-0 collapse" id="menu1"> <ul class="btn-toggle-nav list-unstyled fw-normal small"> <li><a class="dropdown-item cl-1" href="#">item 1</a></li> <li><a class="dropdown-item cl-1" href="#">item 2</a></li> </ul> </div>' +
-        '<div id="showmenu2"> <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu2"> <i class="bx bi bi-question-circle nav_icon"></i> <span class="nav_name float-start">Test <i class="bi bi-chevron-compact-down"></i></span> </a> </div>' +
-        '<div class="menu mb-0 pt-0 pb-0 collapse" id="menu2"> <ul class="btn-toggle-nav list-unstyled fw-normal small"> <li><a id="inputquestion" class="dropdown-item cl-1" href="#">item 1</a></li> <li><a id="ds-question" class="dropdown-item cl-1" href="#">item 2</a></li> </ul> </div>' +
-        '<div id="showmenu3"> <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu3"> <i class="bx bi bi-card-text nav_icon"></i> <span class="nav_name float-start">Test <i class="bi bi-chevron-compact-down"></i></span> </a> </div>' +
-        '<div class="menu mb-0 pt-0 pb-0 collapse" id="menu3"> <ul class="btn-toggle-nav list-unstyled fw-normal small"> <li><a id="ds-answerid" class="dropdown-item cl-1" href="#">item 2</a></li> </ul> </div>' +
-        '<div id="showmenu4"> <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu4"> <i class="bx bi bi-reply nav_icon"></i> <span class="nav_name float-start">Test <i class="bi bi-chevron-compact-down"></i></span> </a> </div>' +
-        '<div class="menu mb-0 pt-0 pb-0 collapse" id="menu4"> <ul class="btn-toggle-nav list-unstyled fw-normal small"> <li><a id="inputanswer" class="dropdown-item cl-1" href="#">item 1</a></li> <li><a id="ds-answer" class="dropdown-item cl-1" href="#">item 2</a></li> </ul> </div>' +
-        '<div id="showmenu5"> <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu5"> <i class="bx bi bi-list-check nav_icon"></i> <span class="nav_name float-start">Test <i class="bi bi-chevron-compact-down"></i></span> </a> </div>' +
-        '<div class="menu mb-0 pt-0 pb-0 collapse" id="menu5"> <ul class="btn-toggle-nav list-unstyled fw-normal small"> <li><a class="dropdown-item cl-1" href="#">item 1</a></li> <li><a id="ds-answerlist" class="dropdown-item cl-1" href="#">item 2</a></li> </ul> </div>' +
-        '</div></div></nav>';
+    let sidebar = ` <nav class="nav" id="style-11">
+                        <div class="">
+                            <a href="#" class="nav_logo"> <i class="text-white bi bi-stack"></i> <span class="nav_logo-name">Manager</span> </a>
+                            <div class="nav_list">
+                                <div id="showdashboard">
+                                    <a href="#" class="nav_link active"> <i class="bx bx-grid-alt nav_icon"></i> <span class="nav_name">Dashboard</span> </a>
+                                </div>
+                                <a href="#" class="nav_link"> <i class="bx bi bi-bell nav_icon"></i> <span class="nav_name">Notify</span> </a>
+                                <div id="showmenu0">
+                                    <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu0">
+                                        <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Test <i class="bi bi-chevron-compact-down"></i></span>
+                                    </a>
+                                </div>
+                                <div class="menu mb-0 pt-0 pb-0 collapse" id="menu0">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                                        <li><a class="dropdown-item cl-1" href="#">item 1</a></li>
+                                        <li><a class="dropdown-item cl-1" href="#">item 2</a></li>
+                                    </ul>
+                                </div>
+                                <div id="showmenu1">
+                                    <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu1">
+                                        <i class="bx bi bi-file-font nav_icon"></i> <span class="nav_name float-start">Test <i class="bi bi-chevron-compact-down"></i></span>
+                                    </a>
+                                </div>
+                                <div class="menu mb-0 pt-0 pb-0 collapse" id="menu1">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                                        <li><a class="dropdown-item cl-1" href="#">item 1</a></li>
+                                        <li><a class="dropdown-item cl-1" href="#">item 2</a></li>
+                                    </ul>
+                                </div>
+                                <div id="showmenu2">
+                                    <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu2">
+                                        <i class="bx bi bi-question-circle nav_icon"></i> <span class="nav_name float-start">Test <i class="bi bi-chevron-compact-down"></i></span>
+                                    </a>
+                                </div>
+                                <div class="menu mb-0 pt-0 pb-0 collapse" id="menu2">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                                        <li><a id="inputquestion" class="dropdown-item cl-1" href="#">item 1</a></li>
+                                        <li><a id="ds-question" class="dropdown-item cl-1" href="#">item 2</a></li>
+                                    </ul>
+                                </div>
+                                <div id="showmenu3">
+                                    <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu3">
+                                        <i class="bx bi bi-card-text nav_icon"></i> <span class="nav_name float-start">Test <i class="bi bi-chevron-compact-down"></i></span>
+                                    </a>
+                                </div>
+                                <div class="menu mb-0 pt-0 pb-0 collapse" id="menu3">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                                        <li><a id="ds-answerid" class="dropdown-item cl-1" href="#">item 2</a></li>
+                                    </ul>
+                                </div>
+                                <div id="showmenu4">
+                                    <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu4">
+                                        <i class="bx bi bi-reply nav_icon"></i> <span class="nav_name float-start">Test <i class="bi bi-chevron-compact-down"></i></span>
+                                    </a>
+                                </div>
+                                <div class="menu mb-0 pt-0 pb-0 collapse" id="menu4">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                                        <li><a id="inputanswer" class="dropdown-item cl-1" href="#">item 1</a></li>
+                                        <li><a id="ds-answer" class="dropdown-item cl-1" href="#">item 2</a></li>
+                                    </ul>
+                                </div>
+                                <div id="showmenu5">
+                                    <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu5">
+                                        <i class="bx bi bi-list-check nav_icon"></i> <span class="nav_name float-start">Test <i class="bi bi-chevron-compact-down"></i></span>
+                                    </a>
+                                </div>
+                                <div class="menu mb-0 pt-0 pb-0 collapse" id="menu5">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                                        <li><a class="dropdown-item cl-1" href="#">item 1</a></li>
+                                        <li><a id="ds-answerlist" class="dropdown-item cl-1" href="#">item 2</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+`;
     document.querySelector("#nav-bar").innerHTML = sidebar;
 
     // footer
-    let footer = '<div class="d-flex justify-content-between align-items-center" style="padding: 0 1rem;">' +
-        '<p>© All copyright</p>' +
-        '<div class=\"d-flex align-items-center\" style=\"margin-top: -10px;">' +
-        '<a class=\"m-1\" href=\"https://www.facebook.com\">' +
-        '<i class=\"bx bi bi-facebook nav_icon\"></i></a>' +
-        '<a class=\"m-1\" href=\"https://www.github.com\">' +
-        '<i class=\"text-dark bx bi bi-github nav_icon\"></i></a></div></div>';
+    let footer = `  <div class="d-flex justify-content-between align-items-center" style="padding: 0 1rem;">
+                        <p>© All copyright</p>
+                        <div class="d-flex align-items-center" style="margin-top: -10px;">
+                            <a class="m-1" href="https://www.facebook.com"><i class="bx bi bi-facebook nav_icon"></i></a><a class="m-1" href="https://www.github.com"><i class="text-dark bx bi bi-github nav_icon"></i></a>
+                        </div>
+                    </div>`;
     document.querySelector("#footer").innerHTML = footer;
 
 

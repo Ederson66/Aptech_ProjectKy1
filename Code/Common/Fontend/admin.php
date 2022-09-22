@@ -50,9 +50,6 @@ if (!empty($_POST["flogout"])) {
                         <li>
                             <a class="dropdown-item" href="#">
                                 <?php
-                                require_once './PhpSetting/User.php';
-
-
                                 $u = new User();
                                 $u->Username = (string) $_SESSION["Username"];
                                 $list = $u->GetUserByUsername();

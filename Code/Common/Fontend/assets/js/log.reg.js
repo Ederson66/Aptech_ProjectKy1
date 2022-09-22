@@ -2,7 +2,7 @@ $(document).ready(function () {
     // xét chiều cao phù hợp màn hình
     $(".main").height($(window).height());
 
-    $("form").submit(function (e) {
+    $("#formReg").submit(function (e) {
         // Khai báo biến
         const $MessageUser = $("#MessageUser");
         $MessageUser.text("");
