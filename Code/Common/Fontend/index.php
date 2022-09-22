@@ -32,7 +32,7 @@
                             preserveAspectRatio="xMidYMid meet" style="height: 40px; width: 40px;">
 
                             <g transform="translate(0.000000,500.000000) scale(0.100000,-0.100000)"
-                            fill="#000000" stroke="none">
+                            fill="#fff" stroke="none">
                             <path d="M2650 4978 c0 -3 9 -31 20 -64 26 -74 64 -226 82 -324 8 -48 13 -151
                             12 -285 0 -178 -4 -226 -23 -315 -70 -331 -210 -586 -460 -843 -97 -100 -318
                             -287 -339 -287 -15 0 -92 104 -137 184 -71 128 -125 346 -125 509 0 42 -3 77
@@ -118,13 +118,13 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="nav-item ps-3 pe-3">
-                                    <a class="nav-link text-center p-2 mt-2 hv-box text-white fw-bold bg-danger rounded-pill" href="login.php">
+                                <li class="nav-item ps-3 pe-3 mt-2 mb-2">
+                                    <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="login.php">
                                         Login
                                     </a>
                                 </li>
-                                <li class="nav-item ps-3 pe-3">
-                                    <a class="nav-link text-center p-2 mt-2 hv-box text-white fw-bold bg-primary rounded-pill" href="register.php">
+                                <li class="nav-item ps-3 pe-3 mt-2 mb-2">
+                                    <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-primary rounded-pill" href="register.php">
                                         Register
                                     </a>
                                 </li>

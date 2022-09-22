@@ -11,8 +11,9 @@ body {
     left: 0;
     right: 0;
     transition: top 0.2s ease-in-out;
-    background-image: url(../image/a1.png);
-    background-size: cover;
+    background: #232526;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 /* css main */
@@ -100,7 +101,7 @@ body {
     min-width: 100%;
     left: 0;
     top: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.2);
     z-index: 1;
     margin-top: 66px;
 }

@@ -13,7 +13,6 @@ $(document).ready(function () {
         const $MessageMail = $("#MessageMail");
         $MessageMail.text("");
 
-        e.preventDefault();
         var user = $("#username").val();
         var pass = $("#password").val();
         var confirm = $("#confirm").val();
@@ -22,15 +21,18 @@ $(document).ready(function () {
         var pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
         var checkval = pattern.test($("#password").val());
         if (!checkval) {
+            e.preventDefault();
             $("#password").addClass("error");
             $MessagePass.text("Password phải chứa ít nhất 8 ký tự");
             $MessagePass.css("color", "red");
         } else if (confirm == "") {
+            e.preventDefault();
             $("#confirm").addClass("error");
             $MessageConfirm.text("Confirm không được để trống");
             $MessageConfirm.css("color", "red");
         } else {
             if (pass != confirm) {
+                e.preventDefault();
                 $("#confirm").addClass("error");
                 $MessageConfirm.text("Đã có lỗi");
                 $MessageConfirm.css("color", "red");

@@ -8,17 +8,14 @@ if (!empty($_POST["fregister"])) {
     $fconfirmpass = $_POST['fconfirmpass'];
 
     if (strlen($fpassword) < 8) {
-        $passwordErr = "Your Password Must Contain At Least 8 Characters!";
         redirect("./register.php");
         exit;
-    } elseif (strcmp($fpassword, $fconfirmpass) !== 0) {
-        $passwordErr = "Passwords must match!";
+    } else if (strcmp($fpassword, $fconfirmpass) !== 0) {
         redirect("./register.php");
         exit;
     }
     $fusername = $_POST['fusername'];
     $fpassword = $_POST['fpassword'];
-    $fconfirmpass = $_POST['fconfirmpass'];
     $flastname = $_POST['flastname'];
     $fmiddlename = $_POST['fmiddlename'];
     $ffirstname = $_POST['ffirstname'];
@@ -59,16 +56,15 @@ if (!empty($_POST["fregister"])) {
         <title>Register</title>
     </head>
     <body>
-        <!--BEGIN App -->
-        <div class="app">
-
-            <!--BEGIN Main -->
-            <div class="main">
-                <div class="m-5">
-                    <div class="mb-4">
-                        <h2 class="h1 text-shadow text-white">Register</h2>
-                    </div> 
-                    <form id="formReg" action="register.php" method="POST" >
+    <!--BEGIN App -->
+    <div class="app">
+        <!--BEGIN Main -->
+        <div class="main">
+            <div class="m-5">
+                <div class="mb-4">
+                    <h2 class="h1 text-shadow text-white">Register</h2>
+                </div>
+                <form id="formReg" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" >
                         <div class="input-group d-flex flex-column mb-3 pt-2 position-relative">
                             <input type="text" class="form-control rounded" id="username" name="fusername" required>
                             <label class="text-shadow text-white" for="">Username</label>
@@ -103,7 +99,7 @@ if (!empty($_POST["fregister"])) {
                         <div class="input-group mb-3 pt-2">
                             <div class="d-flex w-100">
                                 <div class="pe-2">
-                                    <input type="date" class="form-control text-shadow rounded text-white" name="fbirthday" required>
+                                    <input type="date" class="form-control text-shadow rounded text-white" name="fbirthday" title="Brithday" required>
                                 </div>
                                 <div class="ps-2 position-relative w-100">
                                     <select name="fsex" class="form-select text-shadow text-white">
@@ -130,25 +126,25 @@ if (!empty($_POST["fregister"])) {
                             <input class="p-2 rounded text-shadow bg-primary" type="submit" id="btnpass" name="fregister" value="Register" >
                         </div>
                     </form>
-                    <div class="mb-3 d-flex justify-content-center">
-                        <a href="login.php" class="text-shadow">Loign now</a>
-                    </div>
+                <div class="mb-3 d-flex justify-content-center">
+                    <a href="login.php" class="text-shadow">Loign now</a>
                 </div>
             </div>
-            <!--END Main -->
-
-            <!--BEGIN Footer -->
-            <div class="footer"></div>
-            <!--END Footer -->
-
         </div>
-        <!--END App -->
+        <!--END Main -->
 
-        <!-- JQUERY 3.6.1 -->
-        <script src="./assets/js/jquery.min.js"></script>
-        <!-- JS BOOTSTRAP -->
-        <script src="./assets/js/bootstrap.bundle.min.js"></script>
-        <!-- JS ME -->
-        <script src="./assets/js/log.reg.js"></script>
-    </body>
+        <!--BEGIN Footer -->
+        <div class="footer"></div>
+        <!--END Footer -->
+    </div>
+    <!--END App -->
+
+    <!-- JQUERY 3.6.1 -->
+    <script src="./assets/js/jquery.min.js"></script>
+    <!-- JS BOOTSTRAP -->
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <!-- JS ME -->
+    <script src="./assets/js/log.reg.js"></script>
+</body>
+
 </html>
