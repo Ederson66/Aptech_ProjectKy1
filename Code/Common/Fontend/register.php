@@ -65,67 +65,67 @@ if (!empty($_POST["fregister"])) {
                     <h2 class="h1 text-shadow text-white">Register</h2>
                 </div>
                 <form id="formReg" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" >
-                        <div class="input-group d-flex flex-column mb-3 pt-2 position-relative">
-                            <input type="text" class="form-control rounded" id="username" name="fusername" required>
-                            <label class="text-shadow text-white" for="">Username</label>
-                            <span id="MessageUser"></span>
-                        </div>
-                        <div class="input-group d-flex flex-column mb-3 pt-2 position-relative">
-                            <input type="password" class="form-control rounded" id="password" name="fpassword" required>
-                            <label class="text-shadow text-white" for="">Password</label>
-                            <span id="MessagePass"></span>
-                        </div>
-                        <div class="input-group d-flex flex-column mb-3 pt-2 position-relative">
-                            <input type="password" class="form-control rounded" name="fconfirmpass" id="confirm" required>
-                            <label class="text-shadow text-white" for="">Confirm password</label>
-                            <span id="MessageConfirm"></span>
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="d-flex">
-                                <div class="pe-2 position-relative pt-2">
-                                    <input type="text" class="form-control rounded" name="flastname" required>
-                                    <label class="pe-2 text-shadow text-white">Last Name</label>
-                                </div>
-                                <div class="ps-2 position-relative pt-2">
-                                    <input type="text" class="form-control rounded" name="fmiddlename" required>
-                                    <label class="ps-2 text-shadow text-white">Middle Name</label>
-                                </div>
+                    <div class="input-group d-flex flex-column mb-3 pt-2 position-relative">
+                        <input type="text" class="form-control rounded" id="username" name="fusername" required>
+                        <label class="text-shadow text-white" for="">Username</label>
+                        <span id="MessageUser"></span>
+                    </div>
+                    <div class="input-group d-flex flex-column mb-3 pt-2 position-relative">
+                        <input type="password" class="form-control rounded" id="password" name="fpassword" required>
+                        <label class="text-shadow text-white" for="">Password</label>
+                        <span id="MessagePass"></span>
+                    </div>
+                    <div class="input-group d-flex flex-column mb-3 pt-2 position-relative">
+                        <input type="password" class="form-control rounded" name="fconfirmpass" id="confirm" required>
+                        <label class="text-shadow text-white" for="">Confirm password</label>
+                        <span id="MessageConfirm"></span>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="d-flex">
+                            <div class="pe-2 position-relative pt-2">
+                                <input type="text" class="form-control rounded" name="flastname" required>
+                                <label class="pe-2 text-shadow text-white">Last Name</label>
+                            </div>
+                            <div class="ps-2 position-relative pt-2">
+                                <input type="text" class="form-control rounded" name="fmiddlename" required>
+                                <label class="ps-2 text-shadow text-white">Middle Name</label>
                             </div>
                         </div>
-                        <div class="input-group mb-3 pt-2 position-relative">
-                            <input type="text" class="form-control rounded" name="ffirstname" required>
-                            <label class="text-shadow text-white" for="">First Name</label> 
-                        </div>
-                        <div class="input-group mb-3 pt-2">
-                            <div class="d-flex w-100">
-                                <div class="pe-2">
-                                    <input type="date" class="form-control text-shadow rounded text-white" name="fbirthday" title="Brithday" required>
-                                </div>
-                                <div class="ps-2 position-relative w-100">
-                                    <select name="fsex" class="form-select text-shadow text-white">
-                                        <option selected>Sex</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                    </select>
-                                </div>
-                            </div>                      
-                        </div>
-                        <div class="input-group mb-3 pt-2 position-relative">
-                            <input type="text" class="form-control rounded" name="fphonenumber" required>
-                            <label class="text-shadow text-white" for="">Phone Number</label>
-                        </div>
-                        <div class="input-group mb-3 pt-2 position-relative">
-                            <input type="text" class="form-control rounded" name="femail" id="email" required>
-                            <label class="text-shadow text-white" for="">Email</label>
-                            <span id="MessageMail"></span>
-                        </div>
-                        <!-- <div class="input-group mb-3">
-                            <input type="file" class="form-control text-shadow rounded" placeholder="Chose file">
-                        </div> -->
-                        <div class="mb-3 d-flex justify-content-center pt-2 position-relative">
-                            <input class="p-2 rounded text-shadow bg-primary" type="submit" id="btnpass" name="fregister" value="Register" >
-                        </div>
-                    </form>
+                    </div>
+                    <div class="input-group mb-3 pt-2 position-relative">
+                        <input type="text" class="form-control rounded" name="ffirstname" required>
+                        <label class="text-shadow text-white" for="">First Name</label> 
+                    </div>
+                    <div class="input-group mb-3 pt-2">
+                        <div class="d-flex w-100">
+                            <div class="pe-2">
+                                <input type="date" class="form-control text-shadow rounded text-white" name="fbirthday" title="Brithday" required>
+                            </div>
+                            <div class="ps-2 position-relative w-100">
+                                <select name="fsex" class="form-select text-shadow text-white">
+                                    <option selected>Sex</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>                      
+                    </div>
+                    <div class="input-group mb-3 pt-2 position-relative">
+                        <input type="text" class="form-control rounded" name="fphonenumber" required>
+                        <label class="text-shadow text-white" for="">Phone Number</label>
+                    </div>
+                    <div class="input-group mb-3 pt-2 position-relative">
+                        <input type="text" class="form-control rounded" name="femail" id="email" required>
+                        <label class="text-shadow text-white" for="">Email</label>
+                        <span id="MessageMail"></span>
+                    </div>
+                    <!-- <div class="input-group mb-3">
+                        <input type="file" class="form-control text-shadow rounded" placeholder="Chose file">
+                    </div> -->
+                    <div class="mb-3 d-flex justify-content-center pt-2 position-relative">
+                        <input class="p-2 rounded text-shadow bg-primary" type="submit" id="btnpass" name="fregister" value="Register" >
+                    </div>
+                </form>
                 <div class="mb-3 d-flex justify-content-center">
                     <a href="login.php" class="text-shadow">Loign now</a>
                 </div>
