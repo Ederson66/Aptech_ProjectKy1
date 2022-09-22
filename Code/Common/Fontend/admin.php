@@ -7,13 +7,13 @@ require_once './PhpSetting/User.php';
 
 $checkss = IsAuthen();
 if($checkss != 1) {
-    redirect("/Projectky1/login.php");
+    redirect("login.php");
 }
 
 if (!empty($_POST["flogout"])) {
     $a = new User();
     $arr = $a->Logout();
-    redirect("/Projectky1/login.php");
+    redirect("login.php");
 }
 ?>
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ if (!empty($_POST["flogout"])) {
     <body id="body-pd">
         <div class="app">
             <!-- BEGIN HEADER -->
-            <header class="header body-pd" id="header">
+            <header class="header" id="header">
                 <div class="header_toggle"><i class="bx bx-menu text-dark" id="header-toggle"></i></div>
                 <form class="w-50"><input type="search" class="form-control" placeholder="Search..." aria-label="Search" /></form>
                 <div class="dropdown text-end">
@@ -78,7 +78,7 @@ if (!empty($_POST["flogout"])) {
             <!-- END HEADER -->
 
             <!-- BEGIN NAV -->
-            <div class="l-navbar showsidebar" id="nav-bar"></div>
+            <div class="l-navbar" id="nav-bar"></div>
             <!-- END NAV -->
 
             <!-- BEGIN MAIN -->
@@ -280,7 +280,7 @@ if (!empty($_POST["flogout"])) {
             <!-- END MAIN -->
 
             <!-- BEGIN FOOTER -->
-            <footer class="footer body-pd" id="footer"></footer>
+            <footer class="footer" id="footer"></footer>
             <!-- END FOOTER -->
         </div>
 

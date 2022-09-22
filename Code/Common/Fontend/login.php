@@ -20,7 +20,7 @@ if (!empty($_POST["flogin"])) {
             session_start();
             // tạo ra ss
             $_SESSION["Username"] = $username;
-            redirect("/Projectky1/admin.php");
+            redirect("admin.php");
             
         } else {
             echo '<script>alert("Login Faild !" + "\n" + "Kiểm tra lại username & password")</script>';
@@ -63,11 +63,11 @@ if (!empty($_POST["flogin"])) {
                     </div>
                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" >
                         <div class="input-group d-flex flex-column pt-2 mb-3 position-relative">
-                            <input type="text" class="form-control rounded" id="username" name="fusername" required>
+                            <input type="text" class="form-control rounded" id="logusername" name="fusername" required>
                             <label class="text-shadow text-white">Username</label>
                         </div>
                         <div class="input-group d-flex flex-column pt-2 mb-3 position-relative">
-                            <input type="password" class="form-control rounded" id="password" name="fpassword" required>
+                            <input type="password" class="form-control rounded" id="logpassword" name="fpassword" required>
                             <label class="text-shadow text-white">Password</label>
                         </div>
                         <div class="mb-3 d-flex align-items-center justify-content-between">

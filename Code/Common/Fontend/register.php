@@ -9,11 +9,11 @@ if (!empty($_POST["fregister"])) {
 
     if (strlen($fpassword) < 8) {
         $passwordErr = "Your Password Must Contain At Least 8 Characters!";
-        redirect("http://localhost:8080/DoAn/register.php");
+        redirect("./register.php");
         exit;
     } elseif (strcmp($fpassword, $fconfirmpass) !== 0) {
         $passwordErr = "Passwords must match!";
-        redirect("http://localhost:8080/DoAn/register.php");
+        redirect("./register.php");
         exit;
     }
     $fusername = $_POST['fusername'];

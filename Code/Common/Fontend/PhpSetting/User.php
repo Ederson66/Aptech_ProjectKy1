@@ -1,6 +1,7 @@
 <?php
 
 require_once './PhpSetting/DBinfoConfig.php';
+require_once './PhpSetting/Common.php';
 
 class User {
     // Khai báo các trường trong bảng
@@ -21,12 +22,6 @@ class User {
     
     
     public function register() {
-        // function redirect
-        function redirect($url, $statusCode = 303) {
-            header('Location:' . $url, true, $statusCode);
-            die();
-        }   
-        
         // chuỗi kết nối đến DB
         $options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
         $dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
@@ -53,7 +48,7 @@ class User {
             $enableLogin = true;
         }
         if($enableLogin) {
-            redirect("/ProjectKy1/login.php");
+            redirect("./login.php");
         }
         
         // đóng kết nối
