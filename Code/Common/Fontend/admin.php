@@ -178,19 +178,19 @@ if (!empty($_POST["flogout"])) {
                                     </div>
                                 </div>
                                 <ul class="m-1 p-0 d-flex">
-                                    <li class="pe-3 p-2">
+                                    <li class="pe-2 p-2">
                                         <span class="dot-3"></span>
                                         Image
                                     </li>
-                                    <li class="pe-3 ps-3 p-2">
+                                    <li class="pe-2 ps-2 p-2">
                                         <span class="dot-1"></span>
                                         Content
                                     </li>
-                                    <li class="pe-3 ps-3 p-2">
+                                    <li class="pe-2 ps-2 p-2">
                                         <span class="dot-4"></span>
                                         Other
                                     </li>
-                                    <li class="pe-3 ps-3 p-2">
+                                    <li class="pe-2 ps-2 p-2">
                                         <span class="dot-5"></span>
                                         Empty
                                     </li>
