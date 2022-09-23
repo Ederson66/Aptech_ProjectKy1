@@ -24,7 +24,7 @@
         <div class="app">
             <!--BEGIN Header -->
             <div class="header">
-                <nav class="navbar navbar-expand-lg position-fixed">
+                <nav class="navbar navbar-expand-lg position-fixed shadow">
                     <div class="container">
                         <a class="navbar-brand" href="#">
                             <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
