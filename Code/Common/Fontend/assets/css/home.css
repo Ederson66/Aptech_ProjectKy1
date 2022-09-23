@@ -109,7 +109,7 @@ body {
 .description {
     left: 50%;
     position: absolute;
-    top: 50%;
+    top: 55%;
     transform: translate(-50%, -55%);
     text-align: center;
 }
