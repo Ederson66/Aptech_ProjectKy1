@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $(".app, .bg-ground").height($(window).height());
+    $(".app, .bg-ground, .overlay").height($(window).height());
 });
 
 //const myTimeout = setTimeout(myGreeting, 3000);
