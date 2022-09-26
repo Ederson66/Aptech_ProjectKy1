@@ -275,13 +275,13 @@
                     <!-- slide -->
                     <div class="pt-120 pb-130 bg-linear-gradient-2 shape-parent text-center">
                         <!-- shape 1 -->
-                        <div class="shape position-absolute d-flex justify-content-end">
+                        <!-- <div class="shape position-absolute d-flex justify-content-end">
                             <img loading="lazy" src="assets/image/home/landing-shape-542x382.png" alt="" width="958" height="571">
-                        </div>
+                        </div> -->
                         <!-- shape 2 -->
-                        <div class="shape position-absolute d-flex align-items-end">
+                        <!-- <div class="shape position-absolute d-flex align-items-end">
                             <img loading="lazy" src="assets/image/home/lanidng-shape-309x435.png" alt="" width="487" height="422">
-                        </div>
+                        </div> -->
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6 offset-lg-3">
@@ -293,7 +293,6 @@
                                     <div class="swiper mt-5 mySwiper">
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
-                                                <!-- <img src="https://swiperjs.com/demos/images/nature-1.jpg" /> -->
                                                 <a class="card border-0 text-decoration-none text-dark" href="#">
                                                     <span class="card-img shadow-lg rounded-3 overflow-hidden">
                                                         <span class="browser-topbar">
@@ -309,7 +308,6 @@
                                                 </a>
                                             </div>
                                             <div class="swiper-slide">
-                                                <!-- <img src="https://swiperjs.com/demos/images/nature-2.jpg" /> -->
                                                 <a class="card border-0 text-decoration-none text-dark" href="#">
                                                     <span class="card-img shadow-lg rounded-3 overflow-hidden">
                                                         <span class="browser-topbar">
@@ -325,7 +323,6 @@
                                                 </a>
                                             </div>
                                             <div class="swiper-slide">
-                                                <!-- <img src="https://swiperjs.com/demos/images/nature-3.jpg" /> -->
                                                 <a class="card border-0 text-decoration-none text-dark" href="#">
                                                     <span class="card-img shadow-lg rounded-3 overflow-hidden">
                                                         <span class="browser-topbar">
@@ -341,7 +338,6 @@
                                                 </a>
                                             </div>
                                             <div class="swiper-slide">
-                                                <!-- <img src="https://swiperjs.com/demos/images/nature-4.jpg" /> -->
                                                 <a class="card border-0 text-decoration-none text-dark" href="#">
                                                     <span class="card-img shadow-lg rounded-3 overflow-hidden">
                                                         <span class="browser-topbar">
@@ -357,7 +353,6 @@
                                                 </a>
                                             </div>
                                             <div class="swiper-slide">
-                                                <!-- <img src="https://swiperjs.com/demos/images/nature-5.jpg" /> -->
                                                 <a class="card border-0 text-decoration-none text-dark" href="#">
                                                     <span class="card-img shadow-lg rounded-3 overflow-hidden">
                                                         <span class="browser-topbar">
@@ -373,7 +368,6 @@
                                                 </a>
                                             </div>
                                             <div class="swiper-slide">
-                                                <!-- <img src="https://swiperjs.com/demos/images/nature-6.jpg" /> -->
                                                 <a class="card border-0 text-decoration-none text-dark" href="#">
                                                     <span class="card-img shadow-lg rounded-3 overflow-hidden">
                                                         <span class="browser-topbar">
@@ -430,10 +424,10 @@
                 grabCursor: true,
                 centeredSlides: true,
                 slidesPerView: "auto",
-                autoplay: {
-                    delay: 2500,
-                    disableOnInteraction: false,
-                },
+                 autoplay: {
+                     delay: 2500,
+                     disableOnInteraction: false,
+                 },
                 coverflowEffect: {
                     rotate: 50,
                     stretch: 0,
