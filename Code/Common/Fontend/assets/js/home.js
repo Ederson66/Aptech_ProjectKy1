@@ -4,7 +4,6 @@ var prevScrollpos = window.pageYOffset;
 /* Lấy phần tử tiêu đề và vị trí của nó */
 var navDiv = document.querySelector("nav");
 var navBottom = navDiv.offsetTop + navDiv.offsetHeight;
-
 window.onscroll = function () {
     var currentScrollPos = window.pageYOffset;
 
@@ -24,14 +23,35 @@ window.onscroll = function () {
     }
 
     prevScrollpos = currentScrollPos;
+
 }
 // end //
-document.addEventListener('DOMContentLoaded', function () {
-    console.log( "loaded!" );
-    $("#bg-show-mobile").click(function(){
 
+document.addEventListener('DOMContentLoaded', function () {
+    console.log("loaded!");
+
+    $("#bg-show-mobile").click(function () {
         navDiv.classList.toggle("bg-white");
-        
+        navDiv.classList.toggle("shadow-sm");
     });
+
+    // active show data
+    function reveal() {
+        var reveals = document.querySelectorAll('[data-show="startbox"]');
+    
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 50;
+    
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("activeShow");
+            } else {
+                reveals[i].classList.remove("activeShow");
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+
 });
 

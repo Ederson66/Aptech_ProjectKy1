@@ -13,6 +13,8 @@
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
             <!-- Icon -->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+            <!-- Swiper -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
             <!-- CSS ME -->
             <link rel="stylesheet" href="./assets/css/home.css" />
             <!--favicon-->
@@ -20,7 +22,7 @@
             <title>Home</title>
         </head>
     </head>
-    <body class="navbar-scroll">
+    <body>
         <div class="app">
             <!--BEGIN Header -->
             <nav class="navbar navbar-expand-lg position-fixed">
@@ -138,7 +140,7 @@
                 <!-- note 1 --> 
                 <div class="content-wrap position-relative mw-100">
                     <!-- giới thiệu -->
-                    <div class="pt-180 pb-290 bg-linear-gradient shape-parent text-center">
+                    <div class="pt-180 pb-290 bg-linear-gradient-1 shape-parent text-center">
                         <!-- shape 1 -->
                         <!-- <div class="shape position-absolute d-flex justify-content-start">
                             <img loading="lazy" src="assets/image/home/landing-shape-958x571.png" alt="" width="958" height="571">
@@ -150,14 +152,14 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-8 offset-lg-2">
-                                    <h1 class="mb-3 px-lg-3 fs-fw" data-show="startbox" style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
+                                    <h1 class="mb-3 px-lg-3 fs-fw activeShow" data-show="startbox">
                                         <span class="highlight">
                                             Open the Startbox
                                         </span>
                                         Now. Build your future.
                                     </h1>
                                     
-                                    <p class="mb-0 fw-normal fs-5 px-lg-5" data-show="startbox" data-show-delay="100" style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
+                                    <p class="mb-0 fw-normal fs-5 px-lg-5 activeShow" data-show="startbox">
                                         Corporate template for business, portfolio, agencies, freelancers & blog. Creative design, modern and thoughtful functionality.
                                     </p>
                                 </div>
@@ -168,10 +170,16 @@
                     <!-- product -->
                     <div class="pb-130 mt-n180 text-center">
                         <div class="container">
-                            <div class="row gy-5">
-                                <div class="col-lg-5 offset-lg-1 progress-bar-animated" data-show="startbox" style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
+                            <div class="row g-5">
+
+                                <div class="col-lg-5 offset-lg-1 activeShow" data-show="startbox">
                                     <a class="card border-0 text-decoration-none text-dark" href="#">
                                         <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
+                                            <span class="browser-topbar">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </span>
                                             <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
                                         </span>
                                         <span class="card-body">
@@ -179,15 +187,139 @@
                                         </span>
                                     </a>
                                 </div>
-                                <div class="col-lg-5 progress-bar-animated" data-show="startbox" style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
+                                <div class="col-lg-5 activeShow" data-show="startbox">
                                     <a class="card border-0 text-decoration-none text-dark" href="#">
                                         <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
+                                            <span class="browser-topbar">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </span>
                                             <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
                                         </span>
                                         <span class="card-body">
                                             <span class="card-title h4">Main Corporate</span>
                                         </span>
                                     </a>
+                                </div>
+
+                                <div class="col-lg-5 offset-lg-1" data-show="startbox">
+                                    <a class="card border-0 text-decoration-none text-dark" href="#">
+                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
+                                            <span class="browser-topbar">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </span>
+                                            <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                        </span>
+                                        <span class="card-body">
+                                            <span class="card-title h4">Main Corporate</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-lg-5" data-show="startbox">
+                                    <a class="card border-0 text-decoration-none text-dark" href="#">
+                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
+                                            <span class="browser-topbar">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </span>
+                                            <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                        </span>
+                                        <span class="card-body">
+                                            <span class="card-title h4">Main Corporate</span>
+                                        </span>
+                                    </a>
+                                </div>
+
+                                <div class="col-lg-5 offset-lg-1" data-show="startbox">
+                                    <a class="card border-0 text-decoration-none text-dark" href="#">
+                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
+                                            <span class="browser-topbar">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </span>
+                                            <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                        </span>
+                                        <span class="card-body">
+                                            <span class="card-title h4">Main Corporate</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-lg-5" data-show="startbox">
+                                    <a class="card border-0 text-decoration-none text-dark" href="#">
+                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
+                                            <span class="browser-topbar">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </span>
+                                            <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                        </span>
+                                        <span class="card-body">
+                                            <span class="card-title h4">Main Corporate</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="m-3" data-show="startbox">
+                                <button class="btn btn-danger rounded-pill p-3 hv-box">Get started</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- slide -->
+                    <div class="pt-120 pb-130 bg-linear-gradient-2 shape-parent text-center">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 offset-lg-3">
+                                    <h2 class="m-0 text-white progress-bar-animated fs-1 fw-bold " data-show="startbox">Practical Inner pages for everything you may need</h2>
+                                </div>
+
+                                <!-- Swiper -->
+                                <div class="swiper mt-5 mySwiper" data-show="startbox">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                                        </div>
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                                <div class="d-flex mt-5 justify-content-center" data-show="startbox">
+                                    <div class="m-2">
+                                        <button class="btn-next btn bg-dark rounded-circle"><i class="text-white bi bi-arrow-left"></i></button>
+                                    </div>
+                                    <div class="m-2">
+                                        <button class="btn-prev btn bg-dark rounded-circle"><i class="text-white bi bi-arrow-right"></i></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -208,7 +340,35 @@
         <script src="./assets/js/jquery.min.js"></script>
         <!-- JS BOOTSTRAP -->
         <script src="./assets/js/bootstrap.bundle.min.js"></script>
+        <!-- js swiper -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
         <!-- JS ME -->
         <script src="./assets/js/home.js"></script>
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                effect: "coverflow",
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: "auto",
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                coverflowEffect: {
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: true,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                },
+                navigation: {
+                    nextEl: ".btn-prev",
+                    prevEl: ".btn-next",
+                },
+            });
+        </script>
     </body>
 </html>
