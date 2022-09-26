@@ -20,136 +20,180 @@
             <title>Home</title>
         </head>
     </head>
-    <body>
+    <body class="navbar-scroll">
         <div class="app">
             <!--BEGIN Header -->
-            <div class="header">
-                <nav class="navbar navbar-expand-lg position-fixed">
-                    <div class="container">
-                        <a class="navbar-brand" href="#">
-                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                            width="500.000000pt" height="500.000000pt" viewBox="0 0 500.000000 500.000000"
-                            preserveAspectRatio="xMidYMid meet" style="height: 40px; width: 40px;">
+            <nav class="navbar navbar-expand-lg position-fixed">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                        width="500.000000pt" height="500.000000pt" viewBox="0 0 500.000000 500.000000"
+                        preserveAspectRatio="xMidYMid meet" style="height: 40px; width: 40px;">
 
-                            <g transform="translate(0.000000,500.000000) scale(0.100000,-0.100000)"
-                            fill="#fff" stroke="none">
-                            <path d="M2650 4978 c0 -3 9 -31 20 -64 26 -74 64 -226 82 -324 8 -48 13 -151
-                            12 -285 0 -178 -4 -226 -23 -315 -70 -331 -210 -586 -460 -843 -97 -100 -318
-                            -287 -339 -287 -15 0 -92 104 -137 184 -71 128 -125 346 -125 509 0 42 -3 77
-                            -6 77 -7 0 -23 -17 -128 -140 -257 -300 -573 -786 -705 -1086 -62 -140 -128
-                            -336 -164 -484 -81 -331 -76 -673 12 -934 118 -347 343 -589 711 -765 314
-                            -150 631 -211 1094 -211 670 0 1127 142 1424 442 244 246 407 608 453 1007 16
-                            140 6 550 -16 691 -42 268 -117 554 -206 780 -65 167 -231 501 -339 680 -199
-                            330 -523 739 -860 1084 -134 137 -300 294 -300 284z"/>
-                            </g>
-                            </svg>
-                        </a>
-                        <a class="navbar-toggler text-dark" data-bs-toggle="collapse" data-bs-target="#navbarsExampleXxl">
-                            <i class="bi bi-list navbar-toggler-icon text-white" style="padding: 4px;"></i>
-                        </a>
+                        <g transform="translate(0.000000,500.000000) scale(0.100000,-0.100000)"
+                        fill="#00000" stroke="none">
+                        <path d="M2650 4978 c0 -3 9 -31 20 -64 26 -74 64 -226 82 -324 8 -48 13 -151
+                        12 -285 0 -178 -4 -226 -23 -315 -70 -331 -210 -586 -460 -843 -97 -100 -318
+                        -287 -339 -287 -15 0 -92 104 -137 184 -71 128 -125 346 -125 509 0 42 -3 77
+                        -6 77 -7 0 -23 -17 -128 -140 -257 -300 -573 -786 -705 -1086 -62 -140 -128
+                        -336 -164 -484 -81 -331 -76 -673 12 -934 118 -347 343 -589 711 -765 314
+                        -150 631 -211 1094 -211 670 0 1127 142 1424 442 244 246 407 608 453 1007 16
+                        140 6 550 -16 691 -42 268 -117 554 -206 780 -65 167 -231 501 -339 680 -199
+                        330 -523 739 -860 1084 -134 137 -300 294 -300 284z"/>
+                        </g>
+                        </svg>
+                    </a>
+                    <a id="bg-show-mobile" class="navbar-toggler text-dark" data-bs-toggle="collapse" data-bs-target="#navbarsExampleXxl">
+                        <i class="bi bi-list navbar-toggler-icon text-dark" style="padding: 4px;"></i>
+                    </a>
 
-                        <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleXxl">
-                            <ul class="navbar-nav">
-                                <li class="nav-item ps-3 pe-3 mt-2 home">
-                                    <a class="nav-link text-white fw-bold" aria-current="page" href="#">Home</a>
-                                    <ul class="sub rounded">
-                                        <li>
-                                            <a class="nav-link text-dark" href="#">Home 1</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link text-dark" href="#">Home 2</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link text-dark" href="#">Home 3</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link text-dark" href="#">Home 4</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item ps-3 pe-3 mt-2 link">
-                                    <a class="nav-link text-white fw-bold" href="#">Link</a>
-                                    <ul class="sub rounded">
-                                        <li>
-                                            <a class="nav-link text-dark" href="#">Link 1</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link text-dark" href="#">Link 2</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link text-dark" href="#">Link 3</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link text-dark" href="#">Link 4</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item ps-3 pe-3 mt-2 disabled">
-                                    <a class="nav-link text-white fw-bold" href="#">Disabled</a>
-                                    <ul class="sub rounded">
-                                        <li>
-                                            <a class="nav-link text-dark" href="#">Disabled 1</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link text-dark" href="#">Disabled 2</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link text-dark" href="#">Disabled 3</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link text-dark" href="#">Disabled 4</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                                    <a class="nav-link text-white fw-bold" href="#">Dropdown</a>
-                                    <ul class="sub rounded">
-                                        <li>
-                                            <a class="nav-link text-dark" href="#">Dropdown 1</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link text-dark" href="#">Dropdown 2</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link text-dark" href="#">Dropdown 3</a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link text-dark" href="#">Dropdown 4</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item ps-3 pe-3 mt-2 mb-2">
-                                    <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="login.php">
-                                        Login
-                                    </a>
-                                </li>
-                                <li class="nav-item ps-3 pe-3 mt-2 mb-2">
-                                    <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-primary rounded-pill" href="register.php">
-                                        Register
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleXxl">
+                        <ul class="navbar-nav">
+                            <li class="nav-item ps-3 pe-3 mt-2 home">
+                                <a class="nav-link text-dark fw-bold hv-cl" href="#">Home</a>
+                                <ul class="sub rounded p-0">
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Home 1</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Home 2</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Home 3</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Home 4</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item ps-3 pe-3 mt-2 link">
+                                <a class="nav-link text-dark fw-bold hv-cl" href="#">Link</a>
+                                <ul class="sub rounded p-0">
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Link 1</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Link 2</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Link 3</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Link 4</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item ps-3 pe-3 mt-2 disabled">
+                                <a class="nav-link text-dark fw-bold hv-cl" href="#">Disabled</a>
+                                <ul class="sub rounded p-0">
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Disabled 1</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Disabled 2</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Disabled 3</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Disabled 4</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item ps-3 pe-3 mt-2 dropdown">
+                                <a class="nav-link text-dark fw-bold hv-cl" href="#">Dropdown</a>
+                                <ul class="sub rounded p-0">
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Dropdown 1</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Dropdown 2</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Dropdown 3</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Dropdown 4</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item ps-3 pe-3 mt-2 mb-2">
+                                <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="login.php">
+                                    Login
+                                </a>
+                            </li>
+                            <li class="nav-item ps-3 pe-3 mt-2 mb-2">
+                                <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-primary rounded-pill" href="register.php">
+                                    Register
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                </nav>
-            </div>
+                </div>
+            </nav>
             <!--END Header -->
-
+            
             <!--BEGIN Main -->
             <div class="main">
-                <!-- notification -->
-                <div class="notification"></div>
-                <div class="page-header bg-ground container-fluid">
-                    <div class="overlay">
-                        <div class="description">
-                            <h1>Áp dụng công nghệ 4.0</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum quam odio, quis placerat ante
-                                luctus eu. Sed aliquet dolor id sapien rutrum, id vulputate quam iaculis. Suspendisse consectetur mi id
-                                libero fringilla, in pharetra sem ullamcorper.</p>
-                            <button class="btn btn-outline-secondary btn-lg">Chi Tiết</button>
+                <!-- note 1 --> 
+                <div class="content-wrap position-relative mw-100">
+                    <!-- giới thiệu -->
+                    <div class="pt-180 pb-290 bg-linear-gradient shape-parent text-center">
+                        <!-- shape 1 -->
+                        <!-- <div class="shape position-absolute d-flex justify-content-start">
+                            <img loading="lazy" src="assets/image/home/landing-shape-958x571.png" alt="" width="958" height="571">
+                        </div> -->
+                        <!-- shape 2 -->
+                        <!-- <div class="shape position-absolute d-flex justify-content-end align-items-end">
+                            <img loading="lazy" src="assets/image/home/landing-shape-487x422.png" alt="" width="487" height="422">
+                        </div> -->
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 offset-lg-2">
+                                    <h1 class="mb-3 px-lg-3 fs-fw" data-show="startbox" style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
+                                        <span class="highlight">
+                                            Open the Startbox
+                                        </span>
+                                        Now. Build your future.
+                                    </h1>
+                                    
+                                    <p class="mb-0 fw-normal fs-5 px-lg-5" data-show="startbox" data-show-delay="100" style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
+                                        Corporate template for business, portfolio, agencies, freelancers & blog. Creative design, modern and thoughtful functionality.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- product -->
+                    <div class="pb-130 mt-n180 text-center">
+                        <div class="container">
+                            <div class="row gy-5">
+                                <div class="col-lg-5 offset-lg-1 progress-bar-animated" data-show="startbox" style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
+                                    <a class="card border-0 text-decoration-none text-dark" href="#">
+                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
+                                            <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                        </span>
+                                        <span class="card-body">
+                                            <span class="card-title h4">Main Corporate</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-lg-5 progress-bar-animated" data-show="startbox" style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
+                                    <a class="card border-0 text-decoration-none text-dark" href="#">
+                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
+                                            <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                        </span>
+                                        <span class="card-body">
+                                            <span class="card-title h4">Main Corporate</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
             <!--END Main -->
 
