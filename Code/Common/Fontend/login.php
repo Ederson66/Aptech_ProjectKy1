@@ -23,7 +23,7 @@ if (!empty($_POST["flogin"])) {
             redirect("admin.php");
             
         } else {
-            echo '<script>alert("Login Faild !" + "\n" + "Kiểm tra lại username & password")</script>';
+            echo '<script>alert("Login Faild !" + "\n" + "Review username & password")</script>';
         }
     }
     
