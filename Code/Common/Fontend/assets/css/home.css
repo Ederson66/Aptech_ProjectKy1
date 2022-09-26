@@ -235,14 +235,14 @@ span.highlight::after {
     display: -ms-flexbox;
     display: flex;
     padding: 11px 13px;
-    background-color: rgba(130, 130, 136, 0.25);
+    background-color: #9d9da2;
 }
 
 .browser-topbar span {
     display: inline-block;
     width: 6px;
     height: 6px;
-    background-color: #B1B1B4;
+    background-color: #d0d0d3;
     border-radius: 50%;
     margin: 0px 2px 0 2px;
 }
@@ -262,7 +262,7 @@ span.highlight::after {
 .swiper {
     width: 100%;
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 110px;
 }
 
 .swiper-slide {

@@ -266,7 +266,7 @@
                                 </div>
                             </div>
 
-                            <div class="m-3" data-show="startbox">
+                            <div class="m-3 mt-5" data-show="startbox">
                                 <button class="btn btn-danger rounded-pill p-3 hv-box">Get started</button>
                             </div>
                         </div>
@@ -274,6 +274,14 @@
 
                     <!-- slide -->
                     <div class="pt-120 pb-130 bg-linear-gradient-2 shape-parent text-center">
+                        <!-- shape 1 -->
+                        <div class="shape position-absolute d-flex justify-content-end">
+                            <img loading="lazy" src="assets/image/home/landing-shape-542x382.png" alt="" width="958" height="571">
+                        </div>
+                        <!-- shape 2 -->
+                        <div class="shape position-absolute d-flex align-items-end">
+                            <img loading="lazy" src="assets/image/home/lanidng-shape-309x435.png" alt="" width="487" height="422">
+                        </div>
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6 offset-lg-3">
@@ -281,46 +289,118 @@
                                 </div>
 
                                 <!-- Swiper -->
-                                <div class="swiper mt-5 mySwiper" data-show="startbox">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                                <div data-show="startbox">
+                                    <div class="swiper mt-5 mySwiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <!-- <img src="https://swiperjs.com/demos/images/nature-1.jpg" /> -->
+                                                <a class="card border-0 text-decoration-none text-dark" href="#">
+                                                    <span class="card-img shadow-lg rounded-3 overflow-hidden">
+                                                        <span class="browser-topbar">
+                                                            <span></span>
+                                                            <span></span>
+                                                            <span></span>
+                                                        </span>
+                                                        <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                                    </span>
+                                                    <span class="card-body">
+                                                        <span class="card-title h4 text-white">Main Corporate</span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <!-- <img src="https://swiperjs.com/demos/images/nature-2.jpg" /> -->
+                                                <a class="card border-0 text-decoration-none text-dark" href="#">
+                                                    <span class="card-img shadow-lg rounded-3 overflow-hidden">
+                                                        <span class="browser-topbar">
+                                                            <span></span>
+                                                            <span></span>
+                                                            <span></span>
+                                                        </span>
+                                                        <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                                    </span>
+                                                    <span class="card-body">
+                                                        <span class="card-title h4 text-white">Main Corporate</span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <!-- <img src="https://swiperjs.com/demos/images/nature-3.jpg" /> -->
+                                                <a class="card border-0 text-decoration-none text-dark" href="#">
+                                                    <span class="card-img shadow-lg rounded-3 overflow-hidden">
+                                                        <span class="browser-topbar">
+                                                            <span></span>
+                                                            <span></span>
+                                                            <span></span>
+                                                        </span>
+                                                        <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                                    </span>
+                                                    <span class="card-body">
+                                                        <span class="card-title h4 text-white">Main Corporate</span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <!-- <img src="https://swiperjs.com/demos/images/nature-4.jpg" /> -->
+                                                <a class="card border-0 text-decoration-none text-dark" href="#">
+                                                    <span class="card-img shadow-lg rounded-3 overflow-hidden">
+                                                        <span class="browser-topbar">
+                                                            <span></span>
+                                                            <span></span>
+                                                            <span></span>
+                                                        </span>
+                                                        <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                                    </span>
+                                                    <span class="card-body">
+                                                        <span class="card-title h4 text-white">Main Corporate</span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <!-- <img src="https://swiperjs.com/demos/images/nature-5.jpg" /> -->
+                                                <a class="card border-0 text-decoration-none text-dark" href="#">
+                                                    <span class="card-img shadow-lg rounded-3 overflow-hidden">
+                                                        <span class="browser-topbar">
+                                                            <span></span>
+                                                            <span></span>
+                                                            <span></span>
+                                                        </span>
+                                                        <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                                    </span>
+                                                    <span class="card-body">
+                                                        <span class="card-title h4 text-white">Main Corporate</span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <!-- <img src="https://swiperjs.com/demos/images/nature-6.jpg" /> -->
+                                                <a class="card border-0 text-decoration-none text-dark" href="#">
+                                                    <span class="card-img shadow-lg rounded-3 overflow-hidden">
+                                                        <span class="browser-topbar">
+                                                            <span></span>
+                                                            <span></span>
+                                                            <span></span>
+                                                        </span>
+                                                        <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                                    </span>
+                                                    <span class="card-body">
+                                                        <span class="card-title h4 text-white">Main Corporate</span>
+                                                    </span>
+                                                </a>
+                                            </div>
                                         </div>
-                                        <div class="swiper-slide">
-                                            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                                        <!-- <div class="swiper-pagination"></div> -->
+                                    </div>
+                                    <div class="d-flex mt-5 justify-content-center">
+                                        <div class="m-2">
+                                            <button class="btn-next btn bg-dark rounded-circle"><i class="text-white bi bi-arrow-left"></i></button>
                                         </div>
-                                        <div class="swiper-slide">
-                                            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                                        <div class="m-2">
+                                            <button class="btn-prev btn bg-dark rounded-circle"><i class="text-white bi bi-arrow-right"></i></button>
                                         </div>
                                     </div>
-                                    <div class="swiper-pagination"></div>
                                 </div>
-                                <div class="d-flex mt-5 justify-content-center" data-show="startbox">
-                                    <div class="m-2">
-                                        <button class="btn-next btn bg-dark rounded-circle"><i class="text-white bi bi-arrow-left"></i></button>
-                                    </div>
-                                    <div class="m-2">
-                                        <button class="btn-prev btn bg-dark rounded-circle"><i class="text-white bi bi-arrow-right"></i></button>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -350,10 +430,10 @@
                 grabCursor: true,
                 centeredSlides: true,
                 slidesPerView: "auto",
-                autoplay: {
-                    delay: 2500,
-                    disableOnInteraction: false,
-                },
+                // autoplay: {
+                //     delay: 2500,
+                //     disableOnInteraction: false,
+                // },
                 coverflowEffect: {
                     rotate: 50,
                     stretch: 0,
