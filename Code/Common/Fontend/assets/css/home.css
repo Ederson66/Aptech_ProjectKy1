@@ -1,7 +1,6 @@
 /* body css */
 body {
-    /* background-image: url(../image/a1.png);
-    background-size: cover; */
+    
 }
 
 /* selection (bôi đen) */
@@ -24,8 +23,9 @@ body {
     /* margin-top: 65px; */
     /* height: 2000px; */
 }
+/* css main */
 
-/* css menu */
+/* css menu navbar */
 .sub {
     z-index: 9;
     display: none;
@@ -61,11 +61,12 @@ body {
         transform: scale(1);
     }
 }
+/* end css menu navbar */
 
-/* css main */
 /* note 1 */
 .content-wrap {
     z-index: 1;
+    /*đặt độ dài linh hoạt trên các mặt hàng linh hoạt*/
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
     -ms-flex: 0 0 100%;
@@ -100,6 +101,7 @@ body {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
+    /*ko cho sự kiện phản ứng với con trỏ*/
     pointer-events: none;
 }
 

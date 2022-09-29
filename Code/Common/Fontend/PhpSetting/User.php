@@ -48,7 +48,11 @@ class User {
             $enableLogin = true;
         }
         if($enableLogin) {
-            redirect("./login.php");
+            // redirect("./login.php");
+            echo '<script>alert("Congratulations, you have successfully registered")</script>';
+            echo "<script type='text/javascript'>
+                    window.location = './login.php';
+                </script>";
         }
         
         // đóng kết nối
@@ -68,7 +72,7 @@ class User {
         $stmt = $conn->prepare($sql);
         
         // thực hiện
-        $stmt->execute(['Username' => $_POST["fusername"], 'Password' => $_POST["fpassword"]]);
+        $stmt->execute(array(":Username" => $this->Username, ":Password" => $this->Password));
         
         $list = Array();
         while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {

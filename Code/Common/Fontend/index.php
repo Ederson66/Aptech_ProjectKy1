@@ -46,10 +46,12 @@
                         </g>
                         </svg>
                     </a>
+                    <!--nút ấn menu khi màn hình bé-->
                     <a id="bg-show-mobile" class="navbar-toggler text-dark" data-bs-toggle="collapse" data-bs-target="#navbarsExampleXxl">
                         <i class="bi bi-list navbar-toggler-icon text-dark" style="padding: 4px;"></i>
                     </a>
 
+                    <!--menu-->
                     <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleXxl">
                         <ul class="navbar-nav">
                             <li class="nav-item ps-3 pe-3 mt-2 home">
@@ -169,7 +171,7 @@
                     </div>
 
                     <!-- product -->
-                    <div class="pb-130 mt-n180 text-center">
+                    <div class="pb-130 mt-n180 text-center bg-gradient">
                         <div class="container">
                             <div class="row g-5">
 

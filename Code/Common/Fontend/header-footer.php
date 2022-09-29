@@ -15,7 +15,7 @@
         <!-- Swiper -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
         <!-- CSS ME -->
-        <link rel="stylesheet" href="./assets/css/home.css" />
+        <link rel="stylesheet" href="./assets/css/header-footer.css" />
         <link rel="stylesheet" href="./assets/css/base.css" />
         <!--favicon-->
         <link rel="icon" type="image/x-icon" href="./assets/image/favicon.png" />
