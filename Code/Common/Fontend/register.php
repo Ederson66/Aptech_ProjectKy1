@@ -3,6 +3,10 @@ require_once './PhpSetting/User.php';
 require_once './PhpSetting/Common.php';
 if (!empty($_POST["fregister"])) {
     $fusername = $_POST['fusername'];
+    if (strlen($fusername) < 8) {
+        redirect("./register.php");
+        exit;
+    }
     // validate trên server
     $fpassword = $_POST['fpassword'];
     $fconfirmpass = $_POST['fconfirmpass'];
@@ -14,6 +18,45 @@ if (!empty($_POST["fregister"])) {
         redirect("./register.php");
         exit;
     }
+    
+    // Dùng isset để kiểm tra Form
+if (isset($_POST['dangky'])) {
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+    $email = trim($_POST['email']);
+    $phone = trim($_POST['numberphone']);
+
+
+    if (empty($username)) {
+        array_push($errors, "Username is required");
+    }
+    if (empty($email)) {
+        array_push($errors, "Email is required");
+    }
+    if (empty($phone)) {
+        array_push($errors, "Password is required");
+    }
+    if (empty($password)) {
+        array_push($errors, "Two password do not match");
+    }
+
+// Kiểm tra username hoặc email có bị trùng hay không
+    $sql = "SELECT * FROM member WHERE username = '$username' OR email = '$email'";
+
+// Thực thi câu truy vấn
+    $result = mysqli_query($conn, $sql);
+
+// Nếu kết quả trả về lớn hơn 1 thì nghĩa là username hoặc email đã tồn tại trong CSDL
+    if (mysqli_num_rows($result) > 0) {
+        echo '<script language="javascript">alert("Bị trùng tên hoặc chưa nhập tên!"); window.location="Signup.php";</script>';
+}
+// Dừng chương trình
+        die();
+    } else {
+        $sql = "INSERT INTO member (username, password, email,numberphone) VALUES ('$username','$password','$email','$phone')";
+        echo '<script language="javascript">alert("Đăng ký thành công!"); window.location="Login1.php";</script>';
+    }
+        
     $fusername = $_POST['fusername'];
     $fpassword = $_POST['fpassword'];
     $flastname = $_POST['flastname'];
@@ -26,7 +69,7 @@ if (!empty($_POST["fregister"])) {
 
     $a = new User();
     $a->Username = $fusername;
-    $a->Password = $fpassword;
+    $a->Password = md5($fpassword);
     $a->Fisrtname = $ffirstname;
     $a->Middlename = $fmiddlename;
     $a->Lastname = $flastname;
@@ -111,8 +154,9 @@ if (!empty($_POST["fregister"])) {
                             </div>                      
                         </div>
                         <div class="input-group mb-3 pt-2 position-relative">
-                            <input type="text" class="form-control rounded" name="fphonenumber" required>
+                            <input type="text" class="form-control rounded" name="fphonenumber" id="phonenumber" required>
                             <label class="text-shadow text-white" for="">Phone Number</label>
+                            <span id="MessageNumber"></span>
                         </div>
                         <div class="input-group mb-3 pt-2 position-relative">
                             <input type="text" class="form-control rounded" name="femail" id="email" required>
@@ -145,6 +189,8 @@ if (!empty($_POST["fregister"])) {
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
     <!-- JS ME -->
     <script src="./assets/js/log.reg.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
 </body>
 
 </html>
