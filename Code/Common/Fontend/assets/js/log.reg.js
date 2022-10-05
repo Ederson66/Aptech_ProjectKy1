@@ -12,6 +12,8 @@ $(document).ready(function () {
         $MessageConfirm.text("");
         const $MessageMail = $("#MessageMail");
         $MessageMail.text("");
+        const $MessageNumber = $("#MessageNumber");
+        $MessageNumber.text("");
 
         var user = $("#username").val();
         var pass = $("#password").val();
@@ -62,6 +64,7 @@ $(document).ready(function () {
             $MessageMail.text('Email không được để trống');
             $MessageMail.css('color', 'red');
         } else {
+            $("#email").removeClass("success");
             $("#email").addClass("error");
             $MessageMail.text(email + ' không hợp lệ ');
             $MessageMail.css('color', 'red');
@@ -73,9 +76,8 @@ $(document).ready(function () {
 
 
 //    Check User
-    const user = $('#username').val();
     const validateUser = (user) => {
-        return user.match(/^[a-zA-Z0-9]*.{8,}$/);
+        return user.match(/^[a-zA-Z0-9]*.{6,}$/);
     };
     const checkUser = () => {
         const $MessageUser = $('#MessageUser');
@@ -86,11 +88,13 @@ $(document).ready(function () {
             $('#username').addClass("success");
             $MessageUser.css('color', 'green');
         } else if(user ==''){
+            $('#username').removeClass("success");
             $('#username').addClass("error");
             $MessageUser.text('UserName không được để trống');
             $MessageUser.css('color', 'red');
         }
         else {
+            $('#username').removeClass("success");
             $('#username').addClass("error");
             $MessageUser.text('UserName không hợp lệ');
             $MessageUser.css('color', 'red');
@@ -99,4 +103,33 @@ $(document).ready(function () {
     }
 
     $('#username').on('input', checkUser);
+    
+//    Check numberphone
+        const validateNumber = (PhoneNumber) => {
+            return PhoneNumber.match(/(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/);
+        };
+        const checkNumber = () => {
+        const $MessageNumber = $('#MessageNumber');
+        const PhoneNumber = $('#phonenumber').val();
+        $MessageNumber.text('');
+        
+        if (validateNumber(PhoneNumber)) {
+            $('#phonenumber').addClass("success");
+            $MessageNumber.css('color', 'green');
+        } else if(PhoneNumber ==''){
+            $('#phonenumber').removeClass("success");
+            $('#phonenumber').addClass("error");
+            $MessageNumber.text('PhoneNumber không được để trống');
+            $MessageNumber.css('color', 'red');
+        }
+        else {
+            $('#phonenumber').removeClass("success");
+            $('#phonenumber').addClass("error");
+            $MessageNumber.text('PhoneNumber không hợp lệ');
+            $MessageNumber.css('color', 'red');
+        }
+        return false;
+        
+        }
+        $('#phonenumber').on('input', checkNumber);
 });
