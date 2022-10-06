@@ -153,8 +153,8 @@
                             <img loading="lazy" src="assets/image/home/landing-shape-487x422.png" alt="" width="487" height="422">
                         </div> -->
                         <div class="container">
-                            <div class="row">
-                                <div class="col-lg-8 offset-lg-2">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
                                     <h1 class="mb-3 px-lg-3 fs-fw activeShow" data-show="startbox">
                                         <span class="highlight">
                                             Open the Startbox
@@ -171,11 +171,11 @@
                     </div>
 
                     <!-- product -->
-                    <div class="pb-130 mt-n180 text-center bg-gradient">
+                    <div class="pb-130 mt-n180 text-center bg-gradient bg-body">
                         <div class="container">
-                            <div class="row g-5">
+                            <div class="row g-5 justify-content-center">
 
-                                <div class="col-lg-5 offset-lg-1 activeShow" data-show="startbox">
+                                <div class="col-lg-5 activeShow" data-show="startbox">
                                     <a class="card border-0 text-decoration-none text-dark" href="#">
                                         <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
                                             <span class="browser-topbar">
@@ -206,7 +206,7 @@
                                     </a>
                                 </div>
 
-                                <div class="col-lg-5 offset-lg-1" data-show="startbox">
+                                <div class="col-lg-5" data-show="startbox">
                                     <a class="card border-0 text-decoration-none text-dark" href="#">
                                         <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
                                             <span class="browser-topbar">
@@ -237,7 +237,7 @@
                                     </a>
                                 </div>
 
-                                <div class="col-lg-5 offset-lg-1" data-show="startbox">
+                                <div class="col-lg-5" data-show="startbox">
                                     <a class="card border-0 text-decoration-none text-dark" href="#">
                                         <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
                                             <span class="browser-topbar">
@@ -286,8 +286,8 @@
                             <img loading="lazy" src="assets/image/home/lanidng-shape-309x435.png" alt="" width="487" height="422">
                         </div> -->
                         <div class="container">
-                            <div class="row">
-                                <div class="col-lg-6 offset-lg-3">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-6">
                                     <h2 class="m-0 text-white fs-1 fw-bold" data-show="startbox">Practical Inner pages for everything you may need</h2>
                                 </div>
 

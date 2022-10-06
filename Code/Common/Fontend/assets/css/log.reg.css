@@ -1,6 +1,8 @@
 /*Css app*/
 .app{
-    background-image: url(https://i.pinimg.com/originals/93/c6/aa/93c6aaa4424c468db1c9f7904eb400d8.gif);
+    /*background-image: url(https://i.pinimg.com/originals/93/c6/aa/93c6aaa4424c468db1c9f7904eb400d8.gif);*/
+    /* background-image: url(../image/log-reg/bg.jpg); */
+    background-image: url(https://cdn.dribbble.com/userupload/3368405/file/original-6bb6ea3370a5e1510940331d3175db67.png?);
     background-size: cover;
     font-family: cursive;
     position: relative;

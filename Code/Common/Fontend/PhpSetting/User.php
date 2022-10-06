@@ -92,7 +92,8 @@ class User {
     // logout
     public function Logout() {
         // xóa ss khi tạo ở login
-        unset($_SESSION["Username"]);
+        session_destroy();
+//        unset($_SESSION["Username"]);
     }
 
 

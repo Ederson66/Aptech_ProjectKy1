@@ -44,7 +44,7 @@ if (!empty($_POST["flogout"])) {
                 <form class="w-50"><input type="search" class="form-control" placeholder="Search..." aria-label="Search" /></form>
                 <div class="dropdown text-end">
                     <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="user" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="./assets/image/avt_pro.jpg" alt="quản trị" width="40" height="40" class="rounded-circle" />
+                        <img src="./assets/image/admin/avt_pro.jpg" alt="quản trị" width="40" height="40" class="rounded-circle" />
                     </a>
                     <ul class="dropdown-menu text-small" aria-labelledby="user" style="min-width: 256px;">
                         <li>
@@ -216,27 +216,27 @@ if (!empty($_POST["flogout"])) {
                                 </div>
                                 <div class="p-1">
                                     <div class="position-relative p-2">
-                                        <img class="rounded-circle" src="./assets/image/default_avatar.png" alt="avatar" style="width: 36px;">
+                                        <img class="rounded-circle" src="./assets/image/admin/default_avatar.png" alt="avatar" style="width: 36px;">
                                         <div class="dot-6 position-absolute bottom-0 left-0"></div>
                                         <span>Test 1</span>
                                     </div>
                                     <div class="position-relative p-2">
-                                        <img class="rounded-circle" src="./assets/image/default_avatar.png" alt="avatar" style="width: 36px;">
+                                        <img class="rounded-circle" src="./assets/image/admin/default_avatar.png" alt="avatar" style="width: 36px;">
                                         <div class="dot-6 position-absolute bottom-0 left-0"></div>
                                         <span>Test 2</span>
                                     </div>
                                     <div class="position-relative p-2">
-                                        <img class="rounded-circle" src="./assets/image/default_avatar.png" alt="avatar" style="width: 36px;">
+                                        <img class="rounded-circle" src="./assets/image/admin/default_avatar.png" alt="avatar" style="width: 36px;">
                                         <div class="dot-6 position-absolute bottom-0 left-0"></div>
                                         <span>Test 3</span>
                                     </div>
                                     <div class="position-relative p-2">
-                                        <img class="rounded-circle" src="./assets/image/default_avatar.png" alt="avatar" style="width: 36px;">
+                                        <img class="rounded-circle" src="./assets/image/admin/default_avatar.png" alt="avatar" style="width: 36px;">
                                         <div class="dot-6 position-absolute bottom-0 left-0"></div>
                                         <span>Test 4</span>
                                     </div>
                                     <div class="position-relative p-2">
-                                        <img class="rounded-circle" src="./assets/image/default_avatar.png" alt="avatar" style="width: 36px;">
+                                        <img class="rounded-circle" src="./assets/image/admin/default_avatar.png" alt="avatar" style="width: 36px;">
                                         <div class="dot-6 position-absolute bottom-0 left-0"></div>
                                         <span>Test 5</span>
                                     </div>

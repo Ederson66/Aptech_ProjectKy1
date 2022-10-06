@@ -3,7 +3,7 @@ body {
     
 }
 
-/* selection (bôi đen) */
+/* selection */
 ::selection {background:#f02d2d;color:#ffffff;}
 ::-moz-selection {background:#f02d2d;color:#ffffff;}
 ::-webkit-selection {background:#f02d2d;color:#ffffff;}
@@ -66,7 +66,7 @@ body {
 /* note 1 */
 .content-wrap {
     z-index: 1;
-    /*đặt độ dài linh hoạt trên các mặt hàng linh hoạt*/
+    /*đặt độ dài linh hoạt trên các hàng linh hoạt*/
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
     -ms-flex: 0 0 100%;
@@ -75,8 +75,9 @@ body {
 
 /* bg-linear-gradient-1 */
 .bg-linear-gradient-1 {
-    background-image: -webkit-linear-gradient(26.66deg, #FFF5EB 0%, #F4F2F9 100%);
-    background-image: linear-gradient(63.34deg, #FFF5EB 0%, #F4F2F9 100%);
+    /* background-image: -webkit-linear-gradient(26.66deg, #FFF5EB 0%, #F4F2F9 100%);
+    background-image: linear-gradient(63.34deg, #FFF5EB 0%, #F4F2F9 100%); */
+    background-image: url(../image/home/gioithieu.png);
 }
 
 /* bg-linear-gradient-2 */

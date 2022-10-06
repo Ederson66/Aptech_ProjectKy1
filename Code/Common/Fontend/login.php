@@ -3,11 +3,12 @@
 require_once './PhpSetting/User.php';
 require_once './PhpSetting/Common.php';
 
-if (!empty($_POST["flogin"])) {
+if (isset($_POST["flogin"])) {
     
     if (isset($_POST["fusername"]) && isset($_POST["fpassword"])) {
         $username = $_POST["fusername"];
         $password = $_POST["fpassword"];
+        $password = md5($password);  
         
         
         $a = new User();

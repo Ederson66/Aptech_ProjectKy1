@@ -1,7 +1,7 @@
 <?php
 require_once './PhpSetting/User.php';
 require_once './PhpSetting/Common.php';
-if (!empty($_POST["fregister"])) {
+if (isset($_POST["fregister"])) {
     $fusername = $_POST['fusername'];
     // validate trên server
     $fpassword = $_POST['fpassword'];
@@ -16,6 +16,7 @@ if (!empty($_POST["fregister"])) {
     }
     $fusername = $_POST['fusername'];
     $fpassword = $_POST['fpassword'];
+    $password = md5($fpassword);
     $flastname = $_POST['flastname'];
     $fmiddlename = $_POST['fmiddlename'];
     $ffirstname = $_POST['ffirstname'];
@@ -26,7 +27,7 @@ if (!empty($_POST["fregister"])) {
 
     $a = new User();
     $a->Username = $fusername;
-    $a->Password = $fpassword;
+    $a->Password = $password;
     $a->Fisrtname = $ffirstname;
     $a->Middlename = $fmiddlename;
     $a->Lastname = $flastname;
