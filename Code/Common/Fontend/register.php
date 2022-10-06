@@ -18,45 +18,44 @@ if (isset($_POST["fregister"])) {
         redirect("./register.php");
         exit;
     }
-    
+
     // Dùng isset để kiểm tra Form
-if (isset($_POST['dangky'])) {
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
-    $email = trim($_POST['email']);
-    $phone = trim($_POST['numberphone']);
+    if (isset($_POST['dangky'])) {
+        $username = trim($_POST['username']);
+        $password = trim($_POST['password']);
+        $email = trim($_POST['email']);
+        $phone = trim($_POST['numberphone']);
 
-
-    if (empty($username)) {
-        array_push($errors, "Username is required");
-    }
-    if (empty($email)) {
-        array_push($errors, "Email is required");
-    }
-    if (empty($phone)) {
-        array_push($errors, "Password is required");
-    }
-    if (empty($password)) {
-        array_push($errors, "Two password do not match");
-    }
+        if (empty($username)) {
+            array_push($errors, "Username is required");
+        }
+        if (empty($email)) {
+            array_push($errors, "Email is required");
+        }
+        if (empty($phone)) {
+            array_push($errors, "Password is required");
+        }
+        if (empty($password)) {
+            array_push($errors, "Two password do not match");
+        }
 
 // Kiểm tra username hoặc email có bị trùng hay không
-    $sql = "SELECT * FROM member WHERE username = '$username' OR email = '$email'";
+        $sql = "SELECT * FROM member WHERE username = '$username' OR email = '$email'";
 
 // Thực thi câu truy vấn
-    $result = mysqli_query($conn, $sql);
+        $result = mysqli_query($conn, $sql);
 
 // Nếu kết quả trả về lớn hơn 1 thì nghĩa là username hoặc email đã tồn tại trong CSDL
-    if (mysqli_num_rows($result) > 0) {
-        echo '<script language="javascript">alert("Bị trùng tên hoặc chưa nhập tên!"); window.location="Signup.php";</script>';
-}
+        if (mysqli_num_rows($result) > 0) {
+            echo '<script language="javascript">alert("Bị trùng tên hoặc chưa nhập tên!"); window.location="Signup.php";</script>';
+        }
 // Dừng chương trình
         die();
     } else {
         $sql = "INSERT INTO member (username, password, email,numberphone) VALUES ('$username','$password','$email','$phone')";
         echo '<script language="javascript">alert("Đăng ký thành công!"); window.location="Login1.php";</script>';
     }
-        
+
     $fusername = $_POST['fusername'];
     $fpassword = $_POST['fpassword'];
     $password = md5($fpassword);
@@ -100,15 +99,15 @@ if (isset($_POST['dangky'])) {
         <title>Register</title>
     </head>
     <body>
-    <!--BEGIN App -->
-    <div class="app">
-        <!--BEGIN Main -->
-        <div class="main">
-            <div class="m-5">
-                <div class="mb-4">
-                    <h2 class="h1 text-shadow text-white">Register</h2>
-                </div>
-                <form id="formReg" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" >
+        <!--BEGIN App -->
+        <div class="app">
+            <!--BEGIN Main -->
+            <div class="main">
+                <div class="m-5">
+                    <div class="mb-4">
+                        <h2 class="h1 text-shadow text-white">Register</h2>
+                    </div>
+                    <form id="formReg" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" >
                         <div class="input-group d-flex flex-column mb-3 pt-2 position-relative">
                             <input type="text" class="form-control rounded" id="username" name="fusername" required>
                             <label class="text-shadow text-white" for="">Username</label>
@@ -171,27 +170,27 @@ if (isset($_POST['dangky'])) {
                             <input class="p-2 rounded text-shadow bg-primary" type="submit" id="btnpass" name="fregister" value="Register" >
                         </div>
                     </form>
-                <div class="mb-3 d-flex justify-content-center">
-                    <a href="login.php" class="text-shadow">Loign now</a>
+                    <div class="mb-3 d-flex justify-content-center">
+                        <a href="login.php" class="text-shadow">Loign now</a>
+                    </div>
                 </div>
             </div>
+            <!--END Main -->
+
+            <!--BEGIN Footer -->
+            <div class="footer"></div>
+            <!--END Footer -->
         </div>
-        <!--END Main -->
+        <!--END App -->
 
-        <!--BEGIN Footer -->
-        <div class="footer"></div>
-        <!--END Footer -->
-    </div>
-    <!--END App -->
+        <!-- JQUERY 3.6.1 -->
+        <script src="./assets/js/jquery.min.js"></script>
+        <!-- JS BOOTSTRAP -->
+        <script src="./assets/js/bootstrap.bundle.min.js"></script>
+        <!-- JS ME -->
+        <script src="./assets/js/log.reg.js"></script>
 
-    <!-- JQUERY 3.6.1 -->
-    <script src="./assets/js/jquery.min.js"></script>
-    <!-- JS BOOTSTRAP -->
-    <script src="./assets/js/bootstrap.bundle.min.js"></script>
-    <!-- JS ME -->
-    <script src="./assets/js/log.reg.js"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
-</body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    </body>
 
 </html>
