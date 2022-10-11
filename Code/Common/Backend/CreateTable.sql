@@ -75,3 +75,9 @@ CREATE TABLE `doannhom1`.`library` (
   `Type` VARCHAR(45) NOT NULL,
   `Description` VARCHAR(45) NULL,
   PRIMARY KEY (`ItemID`));
+  
+--   Table ItemLibrary
+  CREATE TABLE `doannhom1`.`itemlibrary` (
+  `ItemID` INT NOT NULL,
+  `LibraryID` VARCHAR(45) NULL);
+
