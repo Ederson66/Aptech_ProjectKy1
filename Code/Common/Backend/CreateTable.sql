@@ -39,3 +39,12 @@ CREATE TABLE `doannhom1`.`mountaineering` (
   `Upload` VARCHAR(45) NOT NULL,
   `Description` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`MountaineeringID`));
+  
+-- Table service
+CREATE TABLE `doannhom1`.`service` (
+  `ServiceID` INT NOT NULL AUTO_INCREMENT,
+  `ServiceName` VARCHAR(45) NOT NULL,
+  `Price` VARCHAR(45) NOT NULL,
+  `VAT` VARCHAR(45) NOT NULL,
+  `Description` VARCHAR(45) NULL,
+  PRIMARY KEY (`ServiceID`));
