@@ -48,3 +48,8 @@ CREATE TABLE `doannhom1`.`service` (
   `VAT` VARCHAR(45) NOT NULL,
   `Description` VARCHAR(45) NULL,
   PRIMARY KEY (`ServiceID`));
+  
+--   Table Location-service
+CREATE TABLE `doannhom1`.`location_service` (
+  `MountaineeringID` INT NOT NULL,
+  `Service` INT NOT NULL);
