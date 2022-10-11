@@ -68,3 +68,10 @@ CREATE TABLE `doannhom1`.`library` (
   `LibraryID` INT NOT NULL AUTO_INCREMENT,
   `LibraryName` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`LibraryID`));
+  
+--   Table Item
+  CREATE TABLE `doannhom1`.`item` (
+  `ItemID` INT NOT NULL AUTO_INCREMENT,
+  `Type` VARCHAR(45) NOT NULL,
+  `Description` VARCHAR(45) NULL,
+  PRIMARY KEY (`ItemID`));
