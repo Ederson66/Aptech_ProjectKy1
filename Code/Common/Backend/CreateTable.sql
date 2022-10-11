@@ -62,3 +62,9 @@ CREATE TABLE `doannhom1`.`news` (
   `Author` VARCHAR(45) NOT NULL,
   `Library` VARCHAR(45) NULL,
   PRIMARY KEY (`NewsID`));
+  
+--   Table library
+CREATE TABLE `doannhom1`.`library` (
+  `LibraryID` INT NOT NULL AUTO_INCREMENT,
+  `LibraryName` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`LibraryID`));
