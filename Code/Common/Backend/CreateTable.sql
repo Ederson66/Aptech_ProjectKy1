@@ -24,3 +24,18 @@ CREATE TABLE `User` (
 
 INSERT INTO  `User`(Username, Password, Fisrtname, Middlename, Lastname, Birthday, Sex, Telephone, Email) 
 VALUES ( 'Username','a','Fisrtname','Middlename','Lastname','Birthday','Sex',093453495,'a@gmail.com');
+
+-- Table moutain
+CREATE TABLE `doannhom1`.`mountaineering` (
+  `MountaineeringID` INT NOT NULL AUTO_INCREMENT,
+  `Location-X` VARCHAR(45) NOT NULL,
+  `Location-Y` VARCHAR(45) NOT NULL,
+  `MountainName` VARCHAR(45) NOT NULL,
+  `Level` VARCHAR(45) NOT NULL,
+  `Banner` VARCHAR(45) NOT NULL,
+  `Type` INT NOT NULL,
+  `Sheltering` VARCHAR(45) NOT NULL,
+  `Techniques` VARCHAR(45) NOT NULL,
+  `Upload` VARCHAR(45) NOT NULL,
+  `Description` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`MountaineeringID`));
