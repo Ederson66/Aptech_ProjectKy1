@@ -53,3 +53,12 @@ CREATE TABLE `doannhom1`.`service` (
 CREATE TABLE `doannhom1`.`location_service` (
   `MountaineeringID` INT NOT NULL,
   `Service` INT NOT NULL);
+--   Table News
+CREATE TABLE `doannhom1`.`news` (
+  `NewsID` INT NOT NULL AUTO_INCREMENT,
+  `Title` VARCHAR(45) NOT NULL,
+  `Content` VARCHAR(45) NOT NULL,
+  `NewsIMG` VARCHAR(45) NOT NULL,
+  `Author` VARCHAR(45) NOT NULL,
+  `Library` VARCHAR(45) NULL,
+  PRIMARY KEY (`NewsID`));
