@@ -1,7 +1,7 @@
 <?php
 require_once './PhpSetting/User.php';
 require_once './PhpSetting/Common.php';
-
+if (isset($_POST["fregister"])) {
     $fusername = $_POST['fusername'];
     if (strlen($fusername) < 8) {
         redirect("./register.php");
@@ -56,6 +56,29 @@ require_once './PhpSetting/Common.php';
         echo '<script language="javascript">alert("Đăng ký thành công!"); window.location="Login1.php";</script>';
     }
 
+    $fusername = $_POST['fusername'];
+    $fpassword = $_POST['fpassword'];
+    $password = md5($fpassword);
+    $flastname = $_POST['flastname'];
+    $fmiddlename = $_POST['fmiddlename'];
+    $ffirstname = $_POST['ffirstname'];
+    $fbirthday = $_POST['fbirthday'];
+    $fsex = $_POST['fsex'];
+    $fphonenumber = $_POST['fphonenumber'];
+    $femail = $_POST['femail'];
+
+    $a = new User();
+    $a->Username = $fusername;
+    $a->Password = md5($fpassword);
+    $a->Fisrtname = $ffirstname;
+    $a->Middlename = $fmiddlename;
+    $a->Lastname = $flastname;
+    $a->Birthday = $fbirthday;
+    $a->Sex = $fsex;
+    $a->Telephone = $fphonenumber;
+    $a->Email = $femail;
+    $a->register();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

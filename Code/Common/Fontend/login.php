@@ -3,6 +3,32 @@
 require_once './PhpSetting/User.php';
 require_once './PhpSetting/Common.php';
 
+if (isset($_POST["flogin"])) {
+    
+    if (isset($_POST["fusername"]) && isset($_POST["fpassword"])) {
+        $username = $_POST["fusername"];
+        $password = $_POST["fpassword"];
+        $password = md5($password);  
+        
+        
+        $a = new User();
+        $a->Username=$username;
+        $a->Password=$password;
+        $arr = $a->login();
+        
+        if(count($arr) > 0) {
+            // sử dụng ss
+            session_start();
+            // tạo ra ss
+            $_SESSION["Username"] = $username;
+            redirect("admin.php");
+            
+        } else {
+            echo '<script>alert("Login Faild !" + "\n" + "Review username & password")</script>';
+        }
+    }
+    
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

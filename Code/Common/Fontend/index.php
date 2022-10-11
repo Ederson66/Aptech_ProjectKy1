@@ -155,14 +155,14 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
-                                    <h1 class="mb-3 px-lg-3 fs-fw activeShow" data-show="startbox">
+                                    <h1 class="mb-3 px-lg-3 fs-fw activeShow">
                                         <span class="highlight">
                                             Open the Startbox
                                         </span>
                                         Now. Build your future.
                                     </h1>
                                     
-                                    <p class="mb-0 fw-normal fs-5 px-lg-5 activeShow" data-show="startbox">
+                                    <p class="mb-0 fw-normal fs-5 px-lg-5 activeShow">
                                         Corporate template for business, portfolio, agencies, freelancers & blog. Creative design, modern and thoughtful functionality.
                                     </p>
                                 </div>
@@ -175,7 +175,7 @@
                         <div class="container">
                             <div class="row g-5 justify-content-center">
 
-                                <div class="col-lg-5 activeShow" data-show="startbox">
+                                <div class="col-lg-5 activeShow">
                                     <a class="card border-0 text-decoration-none text-dark" href="#">
                                         <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
                                             <span class="browser-topbar">
@@ -190,38 +190,7 @@
                                         </span>
                                     </a>
                                 </div>
-                                <div class="col-lg-5 activeShow" data-show="startbox">
-                                    <a class="card border-0 text-decoration-none text-dark" href="#">
-                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <span class="browser-topbar">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                            </span>
-                                            <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
-                                        </span>
-                                        <span class="card-body">
-                                            <span class="card-title h4">Main Corporate</span>
-                                        </span>
-                                    </a>
-                                </div>
-
-                                <div class="col-lg-5" data-show="startbox">
-                                    <a class="card border-0 text-decoration-none text-dark" href="#">
-                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <span class="browser-topbar">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                            </span>
-                                            <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
-                                        </span>
-                                        <span class="card-body">
-                                            <span class="card-title h4">Main Corporate</span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="col-lg-5" data-show="startbox">
+                                <div class="col-lg-5 activeShow">
                                     <a class="card border-0 text-decoration-none text-dark" href="#">
                                         <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
                                             <span class="browser-topbar">
@@ -237,7 +206,7 @@
                                     </a>
                                 </div>
 
-                                <div class="col-lg-5" data-show="startbox">
+                                <div class="col-lg-5 activeShow">
                                     <a class="card border-0 text-decoration-none text-dark" href="#">
                                         <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
                                             <span class="browser-topbar">
@@ -252,7 +221,38 @@
                                         </span>
                                     </a>
                                 </div>
-                                <div class="col-lg-5" data-show="startbox">
+                                <div class="col-lg-5 activeShow">
+                                    <a class="card border-0 text-decoration-none text-dark" href="#">
+                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
+                                            <span class="browser-topbar">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </span>
+                                            <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                        </span>
+                                        <span class="card-body">
+                                            <span class="card-title h4">Main Corporate</span>
+                                        </span>
+                                    </a>
+                                </div>
+
+                                <div class="col-lg-5 activeShow">
+                                    <a class="card border-0 text-decoration-none text-dark" href="#">
+                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
+                                            <span class="browser-topbar">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </span>
+                                            <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                        </span>
+                                        <span class="card-body">
+                                            <span class="card-title h4">Main Corporate</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-lg-5 activeShow">
                                     <a class="card border-0 text-decoration-none text-dark" href="#">
                                         <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
                                             <span class="browser-topbar">
@@ -269,7 +269,7 @@
                                 </div>
                             </div>
 
-                            <div class="m-3 mt-5" data-show="startbox">
+                            <div class="m-3 mt-5 activeShow">
                                 <button class="btn btn-danger rounded-pill p-3 hv-box">Get started</button>
                             </div>
                         </div>
@@ -288,11 +288,11 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-6">
-                                    <h2 class="m-0 text-white fs-1 fw-bold" data-show="startbox">Practical Inner pages for everything you may need</h2>
+                                    <h2 class="m-0 text-white fs-1 fw-bold activeShow">Practical Inner pages for everything you may need</h2>
                                 </div>
 
                                 <!-- Swiper -->
-                                <div data-show="startbox">
+                                <div class="activeShow">
                                     <div class="swiper mt-5 mySwiper">
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
@@ -402,63 +402,63 @@
                         </div>
                     </div>
 
-                    <!-- future product -->
+                    <!-- Developer Team -->
                     <div class="pt-120 pb-5 bg-linear-gradient-3">
                         <div class="container">
 
-                            <h2 class="text-center mb-90 fs-1 fw-bold" data-show="startbox">
+                            <h2 class="text-center mb-90 fs-1 fw-bold activeShow">
                                 Developer Team
                             </h2>
 
                             <div class="mb-100">
                                 <div class="row g-4 position-relative">
 
-                                    <div class="col-12 col-md-6 col-lg-3" data-show="startbox">
+                                    <div class="col-12 col-md-6 col-lg-3 activeShow">
                                         <div class="service-box position-relative bg-white text-center service-box-sm rounded-4">
                                             <div class="circle-icon text-white bg-danger mb-30">
                                                 <!-- <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="none">
                                                     <path fill="currentColor" fill-rule="evenodd" d="M26.125 2.375h-14.25A2.375 2.375 0 0 0 9.5 4.75V19a1.188 1.188 0 0 1-2.375 0V4.75A4.75 4.75 0 0 1 11.875 0h14.25a4.75 4.75 0 0 1 4.75 4.75V19a1.188 1.188 0 0 1-2.375 0V4.75a2.375 2.375 0 0 0-2.375-2.375ZM28.5 33.25a2.375 2.375 0 0 1-2.375 2.375h-14.25A2.375 2.375 0 0 1 9.5 33.25V28.5a1.188 1.188 0 0 0-2.375 0v4.75a4.75 4.75 0 0 0 4.75 4.75h14.25a4.75 4.75 0 0 0 4.75-4.75V28.5a1.188 1.188 0 0 0-2.375 0v4.75ZM4.068 18.89a1.188 1.188 0 0 0-.995-2.156c-.824.38-1.553.827-2.095 1.354-.541.537-.978 1.242-.978 2.1 0 1.296.969 2.232 1.955 2.852C3 23.7 4.432 24.25 6.099 24.693c3.349.893 7.909 1.432 12.901 1.432.235 0 .468 0 .698-.005l-2.726 2.727a1.188 1.188 0 1 0 1.681 1.681l4.75-4.75a1.186 1.186 0 0 0 0-1.681l-4.75-4.75a1.188 1.188 0 1 0-1.681 1.681l2.72 2.717-.692.005c-4.845 0-9.191-.525-12.288-1.351-1.558-.416-2.734-.889-3.491-1.366-.817-.515-.846-.831-.846-.846 0-.007 0-.14.266-.403.273-.266.736-.575 1.425-.893h.002Zm30.859-2.156a1.188 1.188 0 0 0-.995 2.157c.693.318 1.154.627 1.425.895.268.261.268.394.268.401 0 .008 0 .155-.309.445-.313.29-.836.617-1.608.95-1.532.665-3.79 1.242-6.562 1.631a1.187 1.187 0 0 0 .333 2.351c2.878-.403 5.367-1.02 7.172-1.8.903-.39 1.694-.848 2.28-1.394.585-.544 1.069-1.275 1.069-2.183 0-.86-.437-1.567-.978-2.097-.542-.53-1.271-.976-2.095-1.356ZM17.813 4.75a1.188 1.188 0 0 0 0 2.375h2.375a1.188 1.188 0 0 0 0-2.375h-2.375Z" clip-rule="evenodd"></path>
                                                 </svg> -->
-                                                <img class="circle-icon" src="./assets/image/avt_pro.jpg" alt="">
+                                                <img class="circle-icon" src="./assets/image/admin/avt_pro.jpg" alt="avatar dev">
                                             </div>
                                             <h4 class="mb-3">Du Duy Nguyen</h4>
                                             <p class="fs-6 mb-0">Startbox has a fully responsive design. It fits perfectly on various displays and resolutions.</p>
                                         </div>
                                     </div>
 
-                                    <div class="col-12 col-md-6 col-lg-3" data-show="startbox">
+                                    <div class="col-12 col-md-6 col-lg-3 activeShow">
                                         <div class="service-box position-relative bg-white text-center service-box-sm rounded-4">
                                             <div class="circle-icon text-white bg-danger mb-30">
                                                 <!-- <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="none">
                                                     <path fill="currentColor" fill-rule="evenodd" d="M26.125 2.375h-14.25A2.375 2.375 0 0 0 9.5 4.75V19a1.188 1.188 0 0 1-2.375 0V4.75A4.75 4.75 0 0 1 11.875 0h14.25a4.75 4.75 0 0 1 4.75 4.75V19a1.188 1.188 0 0 1-2.375 0V4.75a2.375 2.375 0 0 0-2.375-2.375ZM28.5 33.25a2.375 2.375 0 0 1-2.375 2.375h-14.25A2.375 2.375 0 0 1 9.5 33.25V28.5a1.188 1.188 0 0 0-2.375 0v4.75a4.75 4.75 0 0 0 4.75 4.75h14.25a4.75 4.75 0 0 0 4.75-4.75V28.5a1.188 1.188 0 0 0-2.375 0v4.75ZM4.068 18.89a1.188 1.188 0 0 0-.995-2.156c-.824.38-1.553.827-2.095 1.354-.541.537-.978 1.242-.978 2.1 0 1.296.969 2.232 1.955 2.852C3 23.7 4.432 24.25 6.099 24.693c3.349.893 7.909 1.432 12.901 1.432.235 0 .468 0 .698-.005l-2.726 2.727a1.188 1.188 0 1 0 1.681 1.681l4.75-4.75a1.186 1.186 0 0 0 0-1.681l-4.75-4.75a1.188 1.188 0 1 0-1.681 1.681l2.72 2.717-.692.005c-4.845 0-9.191-.525-12.288-1.351-1.558-.416-2.734-.889-3.491-1.366-.817-.515-.846-.831-.846-.846 0-.007 0-.14.266-.403.273-.266.736-.575 1.425-.893h.002Zm30.859-2.156a1.188 1.188 0 0 0-.995 2.157c.693.318 1.154.627 1.425.895.268.261.268.394.268.401 0 .008 0 .155-.309.445-.313.29-.836.617-1.608.95-1.532.665-3.79 1.242-6.562 1.631a1.187 1.187 0 0 0 .333 2.351c2.878-.403 5.367-1.02 7.172-1.8.903-.39 1.694-.848 2.28-1.394.585-.544 1.069-1.275 1.069-2.183 0-.86-.437-1.567-.978-2.097-.542-.53-1.271-.976-2.095-1.356ZM17.813 4.75a1.188 1.188 0 0 0 0 2.375h2.375a1.188 1.188 0 0 0 0-2.375h-2.375Z" clip-rule="evenodd"></path>
                                                 </svg> -->
-                                                <img class="circle-icon" src="./assets/image/avt_pro.jpg" alt="">
+                                                <img class="circle-icon" src="./assets/image/admin/avt_pro.jpg" alt="avatar dev">
                                             </div>
                                             <h4 class="mb-3">Du Duy Nguyen</h4>
                                             <p class="fs-6 mb-0">Startbox has a fully responsive design. It fits perfectly on various displays and resolutions.</p>
                                         </div>
                                     </div>
 
-                                    <div class="col-12 col-md-6 col-lg-3" data-show="startbox">
+                                    <div class="col-12 col-md-6 col-lg-3 activeShow">
                                         <div class="service-box position-relative bg-white text-center service-box-sm rounded-4">
                                             <div class="circle-icon text-white bg-danger mb-30">
                                                 <!-- <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="none">
                                                     <path fill="currentColor" fill-rule="evenodd" d="M26.125 2.375h-14.25A2.375 2.375 0 0 0 9.5 4.75V19a1.188 1.188 0 0 1-2.375 0V4.75A4.75 4.75 0 0 1 11.875 0h14.25a4.75 4.75 0 0 1 4.75 4.75V19a1.188 1.188 0 0 1-2.375 0V4.75a2.375 2.375 0 0 0-2.375-2.375ZM28.5 33.25a2.375 2.375 0 0 1-2.375 2.375h-14.25A2.375 2.375 0 0 1 9.5 33.25V28.5a1.188 1.188 0 0 0-2.375 0v4.75a4.75 4.75 0 0 0 4.75 4.75h14.25a4.75 4.75 0 0 0 4.75-4.75V28.5a1.188 1.188 0 0 0-2.375 0v4.75ZM4.068 18.89a1.188 1.188 0 0 0-.995-2.156c-.824.38-1.553.827-2.095 1.354-.541.537-.978 1.242-.978 2.1 0 1.296.969 2.232 1.955 2.852C3 23.7 4.432 24.25 6.099 24.693c3.349.893 7.909 1.432 12.901 1.432.235 0 .468 0 .698-.005l-2.726 2.727a1.188 1.188 0 1 0 1.681 1.681l4.75-4.75a1.186 1.186 0 0 0 0-1.681l-4.75-4.75a1.188 1.188 0 1 0-1.681 1.681l2.72 2.717-.692.005c-4.845 0-9.191-.525-12.288-1.351-1.558-.416-2.734-.889-3.491-1.366-.817-.515-.846-.831-.846-.846 0-.007 0-.14.266-.403.273-.266.736-.575 1.425-.893h.002Zm30.859-2.156a1.188 1.188 0 0 0-.995 2.157c.693.318 1.154.627 1.425.895.268.261.268.394.268.401 0 .008 0 .155-.309.445-.313.29-.836.617-1.608.95-1.532.665-3.79 1.242-6.562 1.631a1.187 1.187 0 0 0 .333 2.351c2.878-.403 5.367-1.02 7.172-1.8.903-.39 1.694-.848 2.28-1.394.585-.544 1.069-1.275 1.069-2.183 0-.86-.437-1.567-.978-2.097-.542-.53-1.271-.976-2.095-1.356ZM17.813 4.75a1.188 1.188 0 0 0 0 2.375h2.375a1.188 1.188 0 0 0 0-2.375h-2.375Z" clip-rule="evenodd"></path>
                                                 </svg> -->
-                                                <img class="circle-icon" src="./assets/image/avt_pro.jpg" alt="">
+                                                <img class="circle-icon" src="./assets/image/admin/avt_pro.jpg" alt="avatar dev">
                                             </div>
                                             <h4 class="mb-3">Du Duy Nguyen</h4>
                                             <p class="fs-6 mb-0">Startbox has a fully responsive design. It fits perfectly on various displays and resolutions.</p>
                                         </div>
                                     </div>
 
-                                    <div class="col-12 col-md-6 col-lg-3" data-show="startbox">
+                                    <div class="col-12 col-md-6 col-lg-3 activeShow">
                                         <div class="service-box position-relative bg-white text-center service-box-sm rounded-4">
                                             <div class="circle-icon text-white bg-danger mb-30">
                                                 <!-- <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="none">
                                                     <path fill="currentColor" fill-rule="evenodd" d="M26.125 2.375h-14.25A2.375 2.375 0 0 0 9.5 4.75V19a1.188 1.188 0 0 1-2.375 0V4.75A4.75 4.75 0 0 1 11.875 0h14.25a4.75 4.75 0 0 1 4.75 4.75V19a1.188 1.188 0 0 1-2.375 0V4.75a2.375 2.375 0 0 0-2.375-2.375ZM28.5 33.25a2.375 2.375 0 0 1-2.375 2.375h-14.25A2.375 2.375 0 0 1 9.5 33.25V28.5a1.188 1.188 0 0 0-2.375 0v4.75a4.75 4.75 0 0 0 4.75 4.75h14.25a4.75 4.75 0 0 0 4.75-4.75V28.5a1.188 1.188 0 0 0-2.375 0v4.75ZM4.068 18.89a1.188 1.188 0 0 0-.995-2.156c-.824.38-1.553.827-2.095 1.354-.541.537-.978 1.242-.978 2.1 0 1.296.969 2.232 1.955 2.852C3 23.7 4.432 24.25 6.099 24.693c3.349.893 7.909 1.432 12.901 1.432.235 0 .468 0 .698-.005l-2.726 2.727a1.188 1.188 0 1 0 1.681 1.681l4.75-4.75a1.186 1.186 0 0 0 0-1.681l-4.75-4.75a1.188 1.188 0 1 0-1.681 1.681l2.72 2.717-.692.005c-4.845 0-9.191-.525-12.288-1.351-1.558-.416-2.734-.889-3.491-1.366-.817-.515-.846-.831-.846-.846 0-.007 0-.14.266-.403.273-.266.736-.575 1.425-.893h.002Zm30.859-2.156a1.188 1.188 0 0 0-.995 2.157c.693.318 1.154.627 1.425.895.268.261.268.394.268.401 0 .008 0 .155-.309.445-.313.29-.836.617-1.608.95-1.532.665-3.79 1.242-6.562 1.631a1.187 1.187 0 0 0 .333 2.351c2.878-.403 5.367-1.02 7.172-1.8.903-.39 1.694-.848 2.28-1.394.585-.544 1.069-1.275 1.069-2.183 0-.86-.437-1.567-.978-2.097-.542-.53-1.271-.976-2.095-1.356ZM17.813 4.75a1.188 1.188 0 0 0 0 2.375h2.375a1.188 1.188 0 0 0 0-2.375h-2.375Z" clip-rule="evenodd"></path>
                                                 </svg> -->
-                                                <img class="circle-icon" src="./assets/image/avt_pro.jpg" alt="">
+                                                <img class="circle-icon" src="./assets/image/admin/avt_pro.jpg" alt="avatar dev">
                                             </div>
                                             <h4 class="mb-3">Du Duy Nguyen</h4>
                                             <p class="fs-6 mb-0">Startbox has a fully responsive design. It fits perfectly on various displays and resolutions.</p>

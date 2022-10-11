@@ -115,7 +115,8 @@ body {
     z-index: -1;
 }
 
-[data-show=startbox] {
+/* show data*/
+/* [data-show=startbox] {
     opacity: 0;
     transform: translateY(150px);
     transition: 3s all ease;
@@ -126,7 +127,13 @@ body {
     transition-property: transform, opacity;
     transition-property: transform, opacity, -webkit-transform;
     will-change: opacity, transform;
-}
+} */
+
+/* .activeShow{
+    transform: translateY(0px); 
+    transition-duration: .9s;
+    opacity: 1;
+} */
 
 span.highlight {
     position: relative;
@@ -147,13 +154,13 @@ span.highlight::after {
     z-index: -1;
 }
 
-/* general container fix bootstrap */
+/* general container fix bootstrap - có thể xóa khi có project*/
 .container, .container-fluid, .container-xl, .container-lg, .container-md, .container-sm {
-    width: 100%;
+    /* width: 100%;
     padding-right: var(--bs-gutter-x, 15px);
     padding-left: var(--bs-gutter-x, 15px);
     margin-right: auto;
-    margin-left: auto;
+    margin-left: auto; */
 }
 
 @media (min-width: 1400px){
@@ -183,12 +190,6 @@ span.highlight::after {
 /* fix card bootstrap */
 .card{
     background-color: inherit !important;
-}
-
-.activeShow{
-    transform: translateY(0px); 
-    transition-duration: .9s;
-    opacity: 1;
 }
 
 /* swiper */
