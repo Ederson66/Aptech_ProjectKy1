@@ -5,14 +5,9 @@ session_start();
 require_once './PhpSetting/Common.php';
 require_once './PhpSetting/User.php';
 
+// check session
 $checkss = IsAuthen();
 if($checkss != 1) {
-    redirect("login.php");
-}
-
-if (!empty($_POST["flogout"])) {
-    $a = new User();
-    $arr = $a->Logout();
     redirect("login.php");
 }
 ?>

@@ -1,7 +1,7 @@
 <?php
 require_once './PhpSetting/User.php';
 require_once './PhpSetting/Common.php';
-if (isset($_POST["fregister"])) {
+
     $fusername = $_POST['fusername'];
     if (strlen($fusername) < 8) {
         redirect("./register.php");
@@ -55,30 +55,6 @@ if (isset($_POST["fregister"])) {
         $sql = "INSERT INTO member (username, password, email,numberphone) VALUES ('$username','$password','$email','$phone')";
         echo '<script language="javascript">alert("Đăng ký thành công!"); window.location="Login1.php";</script>';
     }
-
-    $fusername = $_POST['fusername'];
-    $fpassword = $_POST['fpassword'];
-    $password = md5($fpassword);
-    $flastname = $_POST['flastname'];
-    $fmiddlename = $_POST['fmiddlename'];
-    $ffirstname = $_POST['ffirstname'];
-    $fbirthday = $_POST['fbirthday'];
-    $fsex = $_POST['fsex'];
-    $fphonenumber = $_POST['fphonenumber'];
-    $femail = $_POST['femail'];
-
-    $a = new User();
-    $a->Username = $fusername;
-    $a->Password = md5($fpassword);
-    $a->Fisrtname = $ffirstname;
-    $a->Middlename = $fmiddlename;
-    $a->Lastname = $flastname;
-    $a->Birthday = $fbirthday;
-    $a->Sex = $fsex;
-    $a->Telephone = $fphonenumber;
-    $a->Email = $femail;
-    $a->register();
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -141,10 +117,10 @@ if (isset($_POST["fregister"])) {
                         </div>
                         <div class="input-group mb-3 pt-2">
                             <div class="d-flex w-100">
-                                <div class="pe-2">
+                                <div class="pe-2 w-50">
                                     <input type="date" class="form-control text-shadow rounded text-white" name="fbirthday" title="Brithday" required>
                                 </div>
-                                <div class="ps-2 position-relative w-100">
+                                <div class="ps-2 position-relative w-50">
                                     <select name="fsex" class="form-select text-shadow text-white">
                                         <option selected>Sex</option>
                                         <option value="Male">Male</option>
@@ -187,10 +163,11 @@ if (isset($_POST["fregister"])) {
         <script src="./assets/js/jquery.min.js"></script>
         <!-- JS BOOTSTRAP -->
         <script src="./assets/js/bootstrap.bundle.min.js"></script>
+        <!-- validate sau code cái gì note vào -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script> -->
         <!-- JS ME -->
         <script src="./assets/js/log.reg.js"></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     </body>
 
 </html>

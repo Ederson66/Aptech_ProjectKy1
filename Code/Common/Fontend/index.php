@@ -155,14 +155,14 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
-                                    <h1 class="mb-3 px-lg-3 fs-fw activeShow">
+                                    <h1 class="mb-3 px-lg-3 fs-fw text-shadow activeShow">
                                         <span class="highlight">
                                             Open the Startbox
                                         </span>
                                         Now. Build your future.
                                     </h1>
                                     
-                                    <p class="mb-0 fw-normal fs-5 px-lg-5 activeShow">
+                                    <p class="mb-0 fw-normal fs-5 px-lg-5 text-shadow activeShow">
                                         Corporate template for business, portfolio, agencies, freelancers & blog. Creative design, modern and thoughtful functionality.
                                     </p>
                                 </div>
@@ -183,7 +183,7 @@
                                                 <span></span>
                                                 <span></span>
                                             </span>
-                                            <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                            <img class="img-fluid" src="./assets/image/home/item-img/im-1.png" alt="">
                                         </span>
                                         <span class="card-body">
                                             <span class="card-title h4">Main Corporate</span>
@@ -198,38 +198,7 @@
                                                 <span></span>
                                                 <span></span>
                                             </span>
-                                            <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
-                                        </span>
-                                        <span class="card-body">
-                                            <span class="card-title h4">Main Corporate</span>
-                                        </span>
-                                    </a>
-                                </div>
-
-                                <div class="col-lg-5 activeShow">
-                                    <a class="card border-0 text-decoration-none text-dark" href="#">
-                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <span class="browser-topbar">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                            </span>
-                                            <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
-                                        </span>
-                                        <span class="card-body">
-                                            <span class="card-title h4">Main Corporate</span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="col-lg-5 activeShow">
-                                    <a class="card border-0 text-decoration-none text-dark" href="#">
-                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <span class="browser-topbar">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                            </span>
-                                            <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                            <img class="img-fluid" src="./assets/image/home/item-img/im-2.png" alt="">
                                         </span>
                                         <span class="card-body">
                                             <span class="card-title h4">Main Corporate</span>
@@ -245,7 +214,7 @@
                                                 <span></span>
                                                 <span></span>
                                             </span>
-                                            <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                            <img class="img-fluid" src="./assets/image/home/item-img/im-3.png" alt="">
                                         </span>
                                         <span class="card-body">
                                             <span class="card-title h4">Main Corporate</span>
@@ -260,7 +229,38 @@
                                                 <span></span>
                                                 <span></span>
                                             </span>
-                                            <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                            <img class="img-fluid" src="./assets/image/home/item-img/im-4.png" alt="">
+                                        </span>
+                                        <span class="card-body">
+                                            <span class="card-title h4">Main Corporate</span>
+                                        </span>
+                                    </a>
+                                </div>
+
+                                <div class="col-lg-5 activeShow">
+                                    <a class="card border-0 text-decoration-none text-dark" href="#">
+                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
+                                            <span class="browser-topbar">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </span>
+                                            <img class="img-fluid" src="./assets/image/home/item-img/im-5.png" alt="">
+                                        </span>
+                                        <span class="card-body">
+                                            <span class="card-title h4">Main Corporate</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-lg-5 activeShow">
+                                    <a class="card border-0 text-decoration-none text-dark" href="#">
+                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
+                                            <span class="browser-topbar">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </span>
+                                            <img class="img-fluid" src="./assets/image/home/item-img/im-6.png" alt="">
                                         </span>
                                         <span class="card-body">
                                             <span class="card-title h4">Main Corporate</span>
@@ -303,10 +303,10 @@
                                                             <span></span>
                                                             <span></span>
                                                         </span>
-                                                        <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                                        <img class="img-fluid" src="./assets/image/home/item-img/im-1.png" alt="">
                                                     </span>
                                                     <span class="card-body">
-                                                        <span class="card-title h4 text-white">Main Corporate</span>
+                                                        <span class="card-title h4">Main Corporate</span>
                                                     </span>
                                                 </a>
                                             </div>
@@ -318,10 +318,10 @@
                                                             <span></span>
                                                             <span></span>
                                                         </span>
-                                                        <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                                        <img class="img-fluid" src="./assets/image/home/item-img/im-2.png" alt="">
                                                     </span>
                                                     <span class="card-body">
-                                                        <span class="card-title h4 text-white">Main Corporate</span>
+                                                        <span class="card-title h4">Main Corporate</span>
                                                     </span>
                                                 </a>
                                             </div>
@@ -333,10 +333,10 @@
                                                             <span></span>
                                                             <span></span>
                                                         </span>
-                                                        <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                                        <img class="img-fluid" src="./assets/image/home/item-img/im-3.png" alt="">
                                                     </span>
                                                     <span class="card-body">
-                                                        <span class="card-title h4 text-white">Main Corporate</span>
+                                                        <span class="card-title h4">Main Corporate</span>
                                                     </span>
                                                 </a>
                                             </div>
@@ -348,10 +348,10 @@
                                                             <span></span>
                                                             <span></span>
                                                         </span>
-                                                        <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                                        <img class="img-fluid" src="./assets/image/home/item-img/im-4.png" alt="">
                                                     </span>
                                                     <span class="card-body">
-                                                        <span class="card-title h4 text-white">Main Corporate</span>
+                                                        <span class="card-title h4">Main Corporate</span>
                                                     </span>
                                                 </a>
                                             </div>
@@ -363,10 +363,10 @@
                                                             <span></span>
                                                             <span></span>
                                                         </span>
-                                                        <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                                        <img class="img-fluid" src="./assets/image/home/item-img/im-5.png" alt="">
                                                     </span>
                                                     <span class="card-body">
-                                                        <span class="card-title h4 text-white">Main Corporate</span>
+                                                        <span class="card-title h4">Main Corporate</span>
                                                     </span>
                                                 </a>
                                             </div>
@@ -378,10 +378,10 @@
                                                             <span></span>
                                                             <span></span>
                                                         </span>
-                                                        <img class="img-fluid" src="./assets/image/home/home-1.jpg" alt="">
+                                                        <img class="img-fluid" src="./assets/image/home/item-img/im-6.png" alt="">
                                                     </span>
                                                     <span class="card-body">
-                                                        <span class="card-title h4 text-white">Main Corporate</span>
+                                                        <span class="card-title h4">Main Corporate</span>
                                                     </span>
                                                 </a>
                                             </div>
