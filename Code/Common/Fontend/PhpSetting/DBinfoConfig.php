@@ -14,7 +14,7 @@ class DBinfoConfig {
     }
     
     public static function getPassword() {
-        return "662002";
+        return "Thang2K";
     }
 }
 

@@ -1,85 +1,76 @@
+<?php 
+    $errMsg ="UserName invalid!!!"
+?>
 <?php
 require_once './PhpSetting/User.php';
 require_once './PhpSetting/Common.php';
+
 if (isset($_POST["fregister"])) {
-    $fusername = $_POST['fusername'];
-    if (strlen($fusername) < 8) {
-        redirect("./register.php");
-        exit;
-    }
-    // validate trên server
-    $fpassword = $_POST['fpassword'];
-    $fconfirmpass = $_POST['fconfirmpass'];
+$fusername = $_POST['fusername'];
+//Validate username
+if (empty($_POST['fusername'])) {  
+    echo $errMsg;  
+} else {  
+    $fusername = $_POST['fusername']; 
+} 
 
-    if (strlen($fpassword) < 8) {
-        redirect("./register.php");
-        exit;
-    } else if (strcmp($fpassword, $fconfirmpass) !== 0) {
-        redirect("./register.php");
-        exit;
-    }
+// validate trên server
+$fpassword = $_POST['fpassword'];
+$fconfirmpass = $_POST['fconfirmpass'];
+if (strlen("$fpassword]") < '8') {
+echo '<script language="javascript">alert("Your Password Must Contain At Least 8 Characters!"); window.location="register.php";</script>';
+exit();
+}
+ elseif ($fpassword != $fconfirmpass) {
+echo '<script language="javascript">alert("Plese check again!"); window.location="register.php";</script>';
+exit();
+}
+elseif(!preg_match("#[0-9]+#", $fpassword)) {
+echo '<script language="javascript">alert("Your Password Must Contain At Least 1 Number!"); window.location="register.php";</script>';
+exit();
+}
+elseif(!preg_match("#[A-Z]+#", $fpassword)) {
+echo '<script language="javascript">alert("Your Password Must Contain At Least 1 Capital Letter!"); window.location="register.php";</script>';
+exit();
+}
+elseif(!preg_match("#[a-z]+#", $fpassword)) {
+echo '<script language="javascript">alert("Your Password Must Contain At Least 1 Lowercase Letter!"); window.location="register.php";</script>';
+exit();
+}
+elseif(!empty($_POST["fpassword"])) {
+$cpasswordErr = "Please Check You've Entered Or Confirmed Your Password!";
+redirect("./register.php");
+exit();
+} else {
+$passwordErr = "Please enter password   ";
+}
 
-    // Dùng isset để kiểm tra Form
-    if (isset($_POST['dangky'])) {
-        $username = trim($_POST['username']);
-        $password = trim($_POST['password']);
-        $email = trim($_POST['email']);
-        $phone = trim($_POST['numberphone']);
 
-        if (empty($username)) {
-            array_push($errors, "Username is required");
-        }
-        if (empty($email)) {
-            array_push($errors, "Email is required");
-        }
-        if (empty($phone)) {
-            array_push($errors, "Password is required");
-        }
-        if (empty($password)) {
-            array_push($errors, "Two password do not match");
-        }
+$fusername = $_POST['fusername'];
+$fpassword = $_POST['fpassword'];
+$password = md5($fpassword);
+$flastname = $_POST['flastname'];
+$fmiddlename = $_POST['fmiddlename'];
+$ffirstname = $_POST['ffirstname'];
+$fbirthday = $_POST['fbirthday'];
+$fsex = $_POST['fsex'];
+$fphonenumber = $_POST['fphonenumber'];
+$femail = $_POST['femail'];
 
-// Kiểm tra username hoặc email có bị trùng hay không
-        $sql = "SELECT * FROM member WHERE username = '$username' OR email = '$email'";
-
-// Thực thi câu truy vấn
-        $result = mysqli_query($conn, $sql);
-
-// Nếu kết quả trả về lớn hơn 1 thì nghĩa là username hoặc email đã tồn tại trong CSDL
-        if (mysqli_num_rows($result) > 0) {
-            echo '<script language="javascript">alert("Bị trùng tên hoặc chưa nhập tên!"); window.location="Signup.php";</script>';
-        }
-// Dừng chương trình
-        die();
-    } else {
-        $sql = "INSERT INTO member (username, password, email,numberphone) VALUES ('$username','$password','$email','$phone')";
-        echo '<script language="javascript">alert("Đăng ký thành công!"); window.location="Login1.php";</script>';
-    }
-
-    $fusername = $_POST['fusername'];
-    $fpassword = $_POST['fpassword'];
-    $password = md5($fpassword);
-    $flastname = $_POST['flastname'];
-    $fmiddlename = $_POST['fmiddlename'];
-    $ffirstname = $_POST['ffirstname'];
-    $fbirthday = $_POST['fbirthday'];
-    $fsex = $_POST['fsex'];
-    $fphonenumber = $_POST['fphonenumber'];
-    $femail = $_POST['femail'];
-
-    $a = new User();
-    $a->Username = $fusername;
-    $a->Password = md5($fpassword);
-    $a->Fisrtname = $ffirstname;
-    $a->Middlename = $fmiddlename;
-    $a->Lastname = $flastname;
-    $a->Birthday = $fbirthday;
-    $a->Sex = $fsex;
-    $a->Telephone = $fphonenumber;
-    $a->Email = $femail;
-    $a->register();
+$a = new User();
+$a->Username = $fusername;
+$a->Password = md5($fpassword);
+$a->Fisrtname = $ffirstname;
+$a->Middlename = $fmiddlename;
+$a->Lastname = $flastname;
+$a->Birthday = $fbirthday;
+$a->Sex = $fsex;
+$a->Telephone = $fphonenumber;
+$a->Email = $femail;
+$a->register();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -114,7 +105,7 @@ if (isset($_POST["fregister"])) {
                             <span id="MessageUser"></span>
                         </div>
                         <div class="input-group d-flex flex-column mb-3 pt-2 position-relative">
-                            <input type="password" class="form-control rounded" id="password" name="fpassword" required>
+                            <input type="password" class="form-control rounded" id="password" name="fpassword" required >
                             <label class="text-shadow text-white" for="">Password</label>
                             <span id="MessagePass"></span>
                         </div>
