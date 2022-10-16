@@ -77,7 +77,8 @@ body {
 .bg-linear-gradient-1 {
     /* background-image: -webkit-linear-gradient(26.66deg, #FFF5EB 0%, #F4F2F9 100%);
     background-image: linear-gradient(63.34deg, #FFF5EB 0%, #F4F2F9 100%); */
-    background-image: url(../image/home/gioithieu.png);
+    background-image: url(../image/home/gioithieu\ \(2\).png);
+    background-size: cover;
 }
 
 /* bg-linear-gradient-2 */
@@ -156,11 +157,11 @@ span.highlight::after {
 
 /* general container fix bootstrap - có thể xóa khi có project*/
 .container, .container-fluid, .container-xl, .container-lg, .container-md, .container-sm {
-    /* width: 100%;
+    width: 100%;
     padding-right: var(--bs-gutter-x, 15px);
     padding-left: var(--bs-gutter-x, 15px);
     margin-right: auto;
-    margin-left: auto; */
+    margin-left: auto;
 }
 
 @media (min-width: 1400px){

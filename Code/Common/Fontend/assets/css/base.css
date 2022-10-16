@@ -118,3 +118,9 @@
     text-transform: uppercase;
     letter-spacing: 0.14em;
 }
+
+/* Css text-shadow */
+.text-shadow{
+    /* text-shadow: 1.5px 1.5px #645f5f; */
+    text-shadow: 1px 0.5px #645f5f;
+}
