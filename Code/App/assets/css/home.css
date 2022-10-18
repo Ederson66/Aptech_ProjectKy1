@@ -1,0 +1,250 @@
+/* body css */
+body {
+    
+}
+
+/* selection */
+::selection {background:#f02d2d;color:#ffffff;}
+::-moz-selection {background:#f02d2d;color:#ffffff;}
+::-webkit-selection {background:#f02d2d;color:#ffffff;}
+
+/* css header-navbar */
+.navbar {
+    z-index: 9;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: top 0.2s ease-in-out;
+}
+/* end header-navbar */
+
+/* css main */
+.main {
+    /* margin-top: 65px; */
+    /* height: 2000px; */
+}
+/* css main */
+
+/* css menu navbar */
+.sub {
+    z-index: 9;
+    display: none;
+    width: 200px;
+    margin-top: 10px;
+    background-color: skyblue;
+    position: absolute;
+    transform-origin: calc(100% - 130px) top;
+    will-change: opacity, transform;
+    animation: headerMenu ease-in .3s;
+}
+
+/* thanh hover ẩn */
+.sub::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 190px;
+    height: 24px;
+    top: -16px;
+    right: 22px;
+}
+
+/* keyfram menu */
+@keyframes headerMenu {
+    from {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/* end css menu navbar */
+
+/* note 1 */
+.content-wrap {
+    z-index: 1;
+    /*đặt độ dài linh hoạt trên các hàng linh hoạt*/
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+}
+
+/* bg-linear-gradient-1 */
+.bg-linear-gradient-1 {
+    /* background-image: -webkit-linear-gradient(26.66deg, #FFF5EB 0%, #F4F2F9 100%);
+    background-image: linear-gradient(63.34deg, #FFF5EB 0%, #F4F2F9 100%); */
+    background-image: url(../image/home/gioithieu.jpg);
+    background-size: cover;
+}
+
+/* bg-linear-gradient-2 */
+.bg-linear-gradient-2 {
+    background: #232526;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: url(../image/home/slide.jpeg);
+    background-size: cover;
+}
+
+/* bg-linear-gradient-3 */
+.bg-linear-gradient-3 {
+    background: #8e9eab; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #eef2f3, #e1e7ec); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #eef2f3, #e1e7ec);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.shape {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    /*ko cho sự kiện phản ứng với con trỏ*/
+    pointer-events: none;
+}
+
+.shape>svg,
+.shape>img {
+    -webkit-transition: -webkit-transform 150ms linear;
+    transition: -webkit-transform 150ms linear;
+    transition: transform 150ms linear;
+    transition: transform 150ms linear, -webkit-transform 150ms linear;
+    z-index: -1;
+}
+
+/* show data*/
+/* [data-show=startbox] {
+    opacity: 0;
+    transform: translateY(150px);
+    transition: 3s all ease;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+    -webkit-transition-property: opacity, -webkit-transform;
+    transition-property: opacity, -webkit-transform;
+    transition-property: transform, opacity;
+    transition-property: transform, opacity, -webkit-transform;
+    will-change: opacity, transform;
+} */
+
+/* .activeShow{
+    transform: translateY(0px); 
+    transition-duration: .9s;
+    opacity: 1;
+} */
+
+span.highlight {
+    position: relative;
+    z-index: 1;
+}
+
+span.highlight::after {
+    content: "";
+    position: absolute;
+    top: calc(100% - 7.5px);
+    right: 0;
+    left: 0;
+    height: 15px;
+    background-image: url(../image/home/underline.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+}
+
+/* general container fix bootstrap - có thể xóa khi có project*/
+.container, .container-fluid, .container-xl, .container-lg, .container-md, .container-sm {
+    width: 100%;
+    padding-right: var(--bs-gutter-x, 15px);
+    padding-left: var(--bs-gutter-x, 15px);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 1400px){
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1140px;
+    }
+}
+
+.browser-topbar {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 11px 13px;
+    background-color: #9d9da2;
+}
+
+.browser-topbar span {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #d0d0d3;
+    border-radius: 50%;
+    margin: 0px 2px 0 2px;
+}
+
+/* fix card bootstrap */
+.card{
+    background-color: inherit !important;
+}
+
+/* swiper */
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 110px;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+}
+/* end swiper */
+
+/* future product */
+.service-box {
+    padding: 35px 30px;
+}
+.service-box-arrow:hover {
+    color: #F01F4B;
+}
+
+.service-box-sm {
+    padding: 35px 25px 50px;
+}
+
+.circle-icon {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+/* end future product */
+
+/* end main*/

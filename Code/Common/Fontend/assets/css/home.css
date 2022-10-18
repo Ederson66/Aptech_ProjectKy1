@@ -30,7 +30,7 @@ body {
     z-index: 9;
     display: none;
     width: 200px;
-    margin-top: 4px;
+    margin-top: 10px;
     background-color: skyblue;
     position: absolute;
     transform-origin: calc(100% - 130px) top;
@@ -77,7 +77,7 @@ body {
 .bg-linear-gradient-1 {
     /* background-image: -webkit-linear-gradient(26.66deg, #FFF5EB 0%, #F4F2F9 100%);
     background-image: linear-gradient(63.34deg, #FFF5EB 0%, #F4F2F9 100%); */
-    background-image: url(../image/home/gioithieu\ \(2\).png);
+    background-image: url(../image/home/gioithieu.jpg);
     background-size: cover;
 }
 
@@ -86,13 +86,16 @@ body {
     background: #232526;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: url(../image/home/slide.jpeg);
+    background-size: cover;
 }
 
 /* bg-linear-gradient-3 */
 .bg-linear-gradient-3 {
-    background: #8e9eab;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #eef2f3, #e1e7ec);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #eef2f3, #e1e7ec); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #8e9eab; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #eef2f3, #e1e7ec); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #eef2f3, #e1e7ec);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .shape {

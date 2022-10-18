@@ -79,6 +79,7 @@ if (isset($_POST["fregister"])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- CSS ME -->
     <link rel="stylesheet" href="./assets/css/log.reg.css">
+    <link rel="stylesheet" href="./assets/css/base.css">
     <!--favicon-->
     <link rel="icon" type="image/x-icon" href="./assets/image/favicon.png">
     <title>Register</title>
@@ -156,7 +157,7 @@ if (isset($_POST["fregister"])) {
                     </div>
                 </form>
                 <div class="mb-3 d-flex justify-content-center">
-                    <a href="login.php" class="text-shadow">Loign now</a>
+                    <a href="login.php" class="text-shadow text-white">Loign now</a>
                 </div>
             </div>
         </div>
