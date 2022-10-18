@@ -145,13 +145,12 @@
                                 <div class="col-lg-8 text-white">
                                     <h1 class="mb-3 px-lg-3 fs-fw text-shadow activeShow">
                                         <span class="highlight">
-                                            Open the Startbox
+                                            Climb the mountain
                                         </span>
-                                        Now. Build your future.
                                     </h1>
                                     
                                     <p class="mb-0 fw-normal fs-5 px-lg-5 text-shadow activeShow">
-                                        Corporate template for business, portfolio, agencies, freelancers & blog. Creative design, modern and thoughtful functionality.
+                                    Climbing is the activity and sport in which participants strive to reach the highest point of a mountain mountain. Climbing techniques greatly depend on the location.
                                     </p>
                                 </div>
                             </div>
