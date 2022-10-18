@@ -43,6 +43,7 @@ if (!empty($_POST["flogin"])) {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <!-- CSS ME -->
         <link rel="stylesheet" href="./assets/css/log.reg.css">
+        <link rel="stylesheet" href="./assets/css/base.css">
         <!--favicon-->
         <link rel="icon" type="image/x-icon" href="./assets/image/favicon.png">
         <title>Login</title>
@@ -85,7 +86,7 @@ if (!empty($_POST["flogin"])) {
                     </form>
                     <div class="mb-3 d-flex justify-content-center">
                         <span class="text-shadow text-white">No account?</span>
-                        <a href="register.php" class=" text-shadow">Register</a>
+                        <a href="register.php" class=" text-shadow text-white">Register</a>
                     </div>
                 </div>
             </div>

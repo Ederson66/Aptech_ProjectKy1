@@ -66,53 +66,53 @@
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 link">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="#">Link</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="#">News</a>
                                 <ul class="sub rounded p-0">
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Link 1</a>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">News 1</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Link 2</a>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">News 2</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Link 3</a>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">News 3</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Link 4</a>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">News 4</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 disabled">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="#">Disabled</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="#">Contact</a>
                                 <ul class="sub rounded p-0">
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Disabled 1</a>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Contact 1</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Disabled 2</a>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Contact 2</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Disabled 3</a>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Contact 3</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Disabled 4</a>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Contact 4</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="#">Dropdown</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="#">Service</a>
                                 <ul class="sub rounded p-0">
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Dropdown 1</a>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Service 1</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Dropdown 2</a>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Service 2</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Dropdown 3</a>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Service 3</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Dropdown 4</a>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Service 4</a>
                                     </li>
                                 </ul>
                             </li>
