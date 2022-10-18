@@ -20,7 +20,7 @@ if (!empty($_POST["flogin"])) {
             session_start();
             // tạo ra ss
             $_SESSION["Username"] = $username;
-            redirect("admin.php");
+            redirect("index.php");
             
         } else {
             echo '<script>alert("Login Faild !" + "\n" + "Review username & password")</script>';

@@ -1,20 +1,20 @@
 <?php
-
+// không được sửa lại db này
 class DBinfoConfig {
     public static function getServer() {
-        return "localhost";
+        return "4.246.165.201";
     }
     
     public static function getDBname() {
-        return "DOAN";
+        return "db_g1";
     }
     
     public static function getUsername() {
-        return "root";
+        return "nduydu";
     }
     
     public static function getPassword() {
-        return "Thang2K";
+        return "ndd123";
     }
 }
 

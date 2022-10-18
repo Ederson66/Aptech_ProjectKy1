@@ -65,6 +65,23 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="nav-item ps-3 pe-3 mt-2 dropdown">
+                                <a class="nav-link text-dark fw-bold hv-cl" href="./service.php">Service</a>
+                                <ul class="sub rounded p-0">
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Service 1</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Service 2</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Service 3</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Service 4</a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li class="nav-item ps-3 pe-3 mt-2 link">
                                 <a class="nav-link text-dark fw-bold hv-cl" href="./news.php">News</a>
                                 <ul class="sub rounded p-0">
@@ -82,6 +99,57 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="nav-item ps-3 pe-3 mt-2 dropdown">
+                                <a class="nav-link text-dark fw-bold hv-cl" href="#">History</a>
+                                <ul class="sub rounded p-0">
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">History 1</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">History 2</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">History 3</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">History 4</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item ps-3 pe-3 mt-2 dropdown">
+                                <a class="nav-link text-dark fw-bold hv-cl" href="#">Blog</a>
+                                <ul class="sub rounded p-0">
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Blog 1</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Blog 2</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Blog 3</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Blog 4</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item ps-3 pe-3 mt-2 dropdown">
+                                <a class="nav-link text-dark fw-bold hv-cl" href="#">Experience</a>
+                                <ul class="sub rounded p-0">
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Experience 1</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Experience 2</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Experience 3</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Experience 4</a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li class="nav-item ps-3 pe-3 mt-2 disabled">
                                 <a class="nav-link text-dark fw-bold hv-cl" href="./Contact.php">Contact</a>
                                 <ul class="sub rounded p-0">
@@ -96,23 +164,6 @@
                                     </li>
                                     <li>
                                         <a class="nav-link text-dark text-center hv-bg" href="#">Contact 4</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="./service.php">Service</a>
-                                <ul class="sub rounded p-0">
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Service 1</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Service 2</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Service 3</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Service 4</a>
                                     </li>
                                 </ul>
                             </li>

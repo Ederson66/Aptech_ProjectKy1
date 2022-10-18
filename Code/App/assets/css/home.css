@@ -207,7 +207,6 @@ span.highlight::after {
     background-position: center;
     background-size: cover;
     width: 300px;
-    height: 300px;
 }
 
 .swiper-slide img {
