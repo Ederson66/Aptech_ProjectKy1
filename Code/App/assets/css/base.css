@@ -11,13 +11,17 @@
     padding-top: 120px !important;
 }
 
+.pt-100{
+    padding-top: 100px !important;
+}
+
 .px-30 {
     padding-right: 30px !important;
     padding-left: 30px !important;
 }
 
-.mt-n180 {
-    margin-top: -180px !important;
+.mt-180 {
+    margin-top: 180px !important;
 }
 
 .mb-90{
@@ -123,4 +127,11 @@
 .text-shadow{
     /* text-shadow: 1.5px 1.5px #645f5f; */
     text-shadow: 2px 1.5px #645f5f;
+}
+
+/* fix bootstrap container */
+@media (min-width: 1400px){
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1140px;
+    }
 }

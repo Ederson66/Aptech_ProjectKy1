@@ -183,7 +183,7 @@
                     </div>
                 </div>
             </nav>
-            <!--END Header -->
+            <!--END nav -->
             
             <!--BEGIN Main -->
             <div class="main">
@@ -202,7 +202,7 @@
                                     </h1>
                                     
                                     <p class="mb-0 fw-normal fs-5 px-lg-5 text-shadow activeShow">
-                                    Climbing is the activity and sport in which participants strive to reach the highest point of a mountain mountain. Climbing techniques greatly depend on the location.
+                                        Climbing is the activity and sport in which participants strive to reach the highest point of a mountain mountain. Climbing techniques greatly depend on the location.
                                     </p>
                                 </div>
                             </div>
@@ -210,18 +210,18 @@
                     </div>
 
                     <!-- service -->
-                    <div class="pb-130 mt-n180 text-center bg-gradient bg-body">
+                    <div class="pb-130 pt-100 text-center bg-gradient bg-body">
                         <div class="container">
+
+                            <h2 class="text-center mb-90 fs-1 fw-bold activeShow">
+                                Dịch vụ nổi bật
+                            </h2>
+
                             <div class="row g-5 justify-content-center">
 
                                 <div class="col-lg-5 activeShow">
                                     <a class="card border-0 text-decoration-none text-dark" href="#">
                                         <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <span class="browser-topbar">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                            </span>
                                             <img class="img-fluid" src="./assets/image/home/item-img/im-1.png" alt="">
                                         </span>
                                         <span class="card-body">
@@ -232,11 +232,6 @@
                                 <div class="col-lg-5 activeShow">
                                     <a class="card border-0 text-decoration-none text-dark" href="#">
                                         <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <span class="browser-topbar">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                            </span>
                                             <img class="img-fluid" src="./assets/image/home/item-img/im-2.png" alt="">
                                         </span>
                                         <span class="card-body">
@@ -248,11 +243,6 @@
                                 <div class="col-lg-5 activeShow">
                                     <a class="card border-0 text-decoration-none text-dark" href="#">
                                         <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <span class="browser-topbar">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                            </span>
                                             <img class="img-fluid" src="./assets/image/home/item-img/im-3.png" alt="">
                                         </span>
                                         <span class="card-body">
@@ -263,11 +253,6 @@
                                 <div class="col-lg-5 activeShow">
                                     <a class="card border-0 text-decoration-none text-dark" href="#">
                                         <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <span class="browser-topbar">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                            </span>
                                             <img class="img-fluid" src="./assets/image/home/item-img/im-4.png" alt="">
                                         </span>
                                         <span class="card-body">
@@ -279,11 +264,6 @@
                                 <div class="col-lg-5 activeShow">
                                     <a class="card border-0 text-decoration-none text-dark" href="#">
                                         <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <span class="browser-topbar">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                            </span>
                                             <img class="img-fluid" src="./assets/image/home/item-img/im-5.png" alt="">
                                         </span>
                                         <span class="card-body">
@@ -294,11 +274,6 @@
                                 <div class="col-lg-5 activeShow">
                                     <a class="card border-0 text-decoration-none text-dark" href="#">
                                         <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <span class="browser-topbar">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                            </span>
                                             <img class="img-fluid" src="./assets/image/home/item-img/im-6.png" alt="">
                                         </span>
                                         <span class="card-body">
@@ -308,9 +283,9 @@
                                 </div>
                             </div>
 
-                            <!-- <div class="m-3 mt-5 activeShow">
-                                <button class="btn btn-danger rounded-pill p-3 hv-box">Get started</button>
-                            </div> -->
+                            <div class="m-3 mt-5 activeShow">
+                                <button class="btn btn-danger rounded-pill p-3 hv-box">Xem thêm</button>
+                            </div>
                         </div>
                     </div>
 
@@ -394,7 +369,7 @@
                             </h2>
 
                             <div class="mb-100">
-
+                                
                             </div>
                         </div>
                     </div>
