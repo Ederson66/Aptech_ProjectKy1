@@ -66,7 +66,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 link">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="#">News</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="./news.php">News</a>
                                 <ul class="sub rounded p-0">
                                     <li>
                                         <a class="nav-link text-dark text-center hv-bg" href="#">News 1</a>
@@ -83,7 +83,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 disabled">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="#">Contact</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="./Contact.php">Contact</a>
                                 <ul class="sub rounded p-0">
                                     <li>
                                         <a class="nav-link text-dark text-center hv-bg" href="#">Contact 1</a>
@@ -100,7 +100,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="#">Service</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="./service.php">Service</a>
                                 <ul class="sub rounded p-0">
                                     <li>
                                         <a class="nav-link text-dark text-center hv-bg" href="#">Service 1</a>
