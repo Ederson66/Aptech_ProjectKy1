@@ -1,6 +1,6 @@
 /*Css app*/
 .app{
-    background-image: url(../image/log-reg/bg.png);
+    background-image: url(../image/log-reg/bg.jpg);
     background-size: cover;
     font-family: cursive;
     position: relative;
@@ -28,7 +28,7 @@
 /* Css input button select */
 input, button,
 select, option{
-    background-color: rgba(0, 0, 0, 0.3) !important;
+    background-color: rgb(149 142 142 / 30%) !important;
     border: none !important;
     width: 100% !important;
     color: var(--bs-white) !important;
