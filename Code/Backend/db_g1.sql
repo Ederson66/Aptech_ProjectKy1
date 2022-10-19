@@ -135,3 +135,16 @@ CREATE TABLE usersystem (
 	Flag VARCHAR(1) NULL DEFAULT NULL ,
 	PRIMARY KEY (UserSystemID) 
 );
+
+
+CREATE TABLE contact (
+  contactID INT NOT NULL AUTO_INCREMENT,
+  fullname VARCHAR(500) NOT NULL,
+  address VARCHAR(1000) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  telephone VARCHAR(15) NOT NULL,
+  message LONGTEXT NOT NULL,
+  description LONGTEXT NULL,
+  flag VARCHAR(1) NULL,
+  PRIMARY KEY (contactID)
+);

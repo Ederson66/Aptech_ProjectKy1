@@ -2,13 +2,18 @@
 // bắt đầu trên cùng
 session_start();
 
-require_once './PhpSetting/Common.php';
-require_once './PhpSetting/User.php';
+require_once '../PhpSetting/Common.php';
+require_once '../PhpSetting/Usersystem.php';
 
 // check session
 $checkss = IsAuthen();
 if($checkss != 1) {
     redirect("login.php");
+}
+
+if (!empty($_POST["flogout"])) {
+    $a = new Usersystem();
+    $a->logout();
 }
 ?>
 <!DOCTYPE html>
@@ -18,9 +23,9 @@ if($checkss != 1) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- Reset CSS -->
-        <link rel="stylesheet" href="./assets/css/reset.min.css">
+        <link rel="stylesheet" href="../assets/css/reset.min.css">
         <!-- BOOTSTRAP 5.0.2 CSS -->
-        <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
         <!-- BOOTSTRAP ICON -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <!-- Icon -->
@@ -28,7 +33,7 @@ if($checkss != 1) {
         <!-- CSS ME -->
         <link rel="stylesheet" href="./assets/css/admin.css" />
         <!--favicon-->
-        <link rel="icon" type="image/x-icon" href="./assets/image/favicon.png">
+        <link rel="icon" type="image/x-icon" href="./assets/img/admin.ico">
         <title>Admin</title>
     </head>
     <body id="body-pd">
@@ -39,21 +44,21 @@ if($checkss != 1) {
                 <form class="w-50"><input type="search" class="form-control" placeholder="Search..." aria-label="Search" /></form>
                 <div class="dropdown text-end">
                     <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="user" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="./assets/image/admin/avt_pro.jpg" alt="quản trị" width="40" height="40" class="rounded-circle" />
+                        <img src="./assets/img/avt_pro.jpg" alt="quản trị" width="40" height="40" class="rounded-circle" />
                     </a>
                     <ul class="dropdown-menu text-small" aria-labelledby="user" style="min-width: 256px;">
                         <li>
                             <a class="dropdown-item" href="#">
                                 <?php
-                                $u = new User();
-                                $u->Username = (string) $_SESSION["Username"];
-                                $list = $u->GetUserByUsername();
-                                
-                                for ($i = 0; $i < count($list); $i++) {
-                                    $obj = $list[$i];
-
-                                    echo "Hello" . " " . ucwords($obj->Lastname ." " . $obj->Middlename . " " . $obj->Fisrtname);
-                                }
+//                                $u = new User();
+//                                $u->Username = (string) $_SESSION["Username"];
+//                                $list = $u->GetUserByUsername();
+//                                
+//                                for ($i = 0; $i < count($list); $i++) {
+//                                    $obj = $list[$i];
+//
+//                                    echo "Hello" . " " . ucwords($obj->Lastname ." " . $obj->Middlename . " " . $obj->Fisrtname);
+//                                }
                                 ?>
                             </a>
                         </li>
@@ -211,27 +216,27 @@ if($checkss != 1) {
                                 </div>
                                 <div class="p-1">
                                     <div class="position-relative p-2">
-                                        <img class="rounded-circle" src="./assets/image/admin/default_avatar.png" alt="avatar" style="width: 36px;">
+                                        <img class="rounded-circle" src="./assets/img/default_avatar.png" alt="avatar" style="width: 36px;">
                                         <div class="dot-6 position-absolute bottom-0 left-0"></div>
                                         <span>Test 1</span>
                                     </div>
                                     <div class="position-relative p-2">
-                                        <img class="rounded-circle" src="./assets/image/admin/default_avatar.png" alt="avatar" style="width: 36px;">
+                                        <img class="rounded-circle" src="./assets/img/default_avatar.png" alt="avatar" style="width: 36px;">
                                         <div class="dot-6 position-absolute bottom-0 left-0"></div>
                                         <span>Test 2</span>
                                     </div>
                                     <div class="position-relative p-2">
-                                        <img class="rounded-circle" src="./assets/image/admin/default_avatar.png" alt="avatar" style="width: 36px;">
+                                        <img class="rounded-circle" src="./assets/img/default_avatar.png" alt="avatar" style="width: 36px;">
                                         <div class="dot-6 position-absolute bottom-0 left-0"></div>
                                         <span>Test 3</span>
                                     </div>
                                     <div class="position-relative p-2">
-                                        <img class="rounded-circle" src="./assets/image/admin/default_avatar.png" alt="avatar" style="width: 36px;">
+                                        <img class="rounded-circle" src="./assets/img/default_avatar.png" alt="avatar" style="width: 36px;">
                                         <div class="dot-6 position-absolute bottom-0 left-0"></div>
                                         <span>Test 4</span>
                                     </div>
                                     <div class="position-relative p-2">
-                                        <img class="rounded-circle" src="./assets/image/admin/default_avatar.png" alt="avatar" style="width: 36px;">
+                                        <img class="rounded-circle" src="./assets/img/default_avatar.png" alt="avatar" style="width: 36px;">
                                         <div class="dot-6 position-absolute bottom-0 left-0"></div>
                                         <span>Test 5</span>
                                     </div>
