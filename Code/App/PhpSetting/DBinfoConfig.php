@@ -2,7 +2,7 @@
 // không được sửa lại db này
 class DBinfoConfig {
     public static function getServer() {
-        return "4.246.165.201";
+        return "68.178.145.105";
     }
     
     public static function getDBname() {
@@ -10,11 +10,11 @@ class DBinfoConfig {
     }
     
     public static function getUsername() {
-        return "nduydu";
+        return "ydlb77rhcthx";
     }
     
     public static function getPassword() {
-        return "ndd123";
+        return "+m>)(Ww5-XJ";
     }
 }
 
