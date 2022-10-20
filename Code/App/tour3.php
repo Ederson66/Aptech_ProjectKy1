@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="./assets/css/service.css">
     <!--favicon-->
     <link rel="icon" type="image/x-icon" href="./assets/image/favicon.png" />
-    <title>Services</title>
+    <title>Chinh phục đỉnh cao</title>
 </head>
 
 <body>
@@ -71,16 +71,16 @@
                             </ul>
                         </li>
                         <li class="nav-item ps-3 pe-3 mt-2 link">
-                            <a class="nav-link text-dark fw-bold hv-cl" href="./service.html">Services</a>
+                            <a class="nav-link text-dark fw-bold hv-cl" href="./tour.php">Tour</a>
                             <ul class="sub rounded p-0">
                                 <li>
-                                    <a class="nav-link text-dark text-left hv-bg" href="./service1.html">Khám phá hang động</a>
+                                    <a class="nav-link text-dark text-left hv-bg" href="./tour1.php">Khám phá hang động</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link text-dark text-left hv-bg" href="./service2.html">Du lịch cắm trại</a>
+                                    <a class="nav-link text-dark text-left hv-bg" href="./tour2.php">Du lịch cắm trại</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link text-dark text-left hv-bg" href="./service3.html">Chinh Phục đỉnh cao</a>
+                                    <a class="nav-link text-dark text-left hv-bg" href="./tour3.php">Chinh Phục đỉnh cao</a>
                                 </li>
                             </ul>
                         </li>
@@ -119,7 +119,7 @@
                             </ul>
                         </li>
                         <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                            <a href="../Fontend/news.html" class="nav-link text-dark fw-bold hv-cl" href="#">News</a>
+                            <a class="nav-link text-dark fw-bold hv-cl" href="./news.php">News</a>
                             <ul class="sub rounded p-0">
                                 <li>
                                     <a class="nav-link text-dark text-center hv-bg" href="#">Dropdown 1</a>
@@ -136,8 +136,7 @@
                             </ul>
                         </li>
                         <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                            <a href="../Fontend/contact.html" class="nav-link text-dark fw-bold hv-cl"
-                                href="#">Contact</a>
+                            <a href="./contact.php" class="nav-link text-dark fw-bold hv-cl">Contact</a>
                             <ul class="sub rounded p-0">
                                 <li>
                                     <a class="nav-link text-dark text-center hv-bg" href="#">Dropdown 1</a>
