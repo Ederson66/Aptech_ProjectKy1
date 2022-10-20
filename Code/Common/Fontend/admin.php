@@ -5,7 +5,7 @@ session_start();
 require_once './PhpSetting/Common.php';
 require_once './PhpSetting/User.php';
 
-// check session
+//// check session
 $checkss = IsAuthen();
 if($checkss != 1) {
     redirect("login.php");
