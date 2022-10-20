@@ -71,7 +71,6 @@
                             </ul>
                         </li>
                         <li class="nav-item ps-3 pe-3 mt-2 link">
-<<<<<<<< HEAD:Code/App/contact.html
                             <a class="nav-link text-dark fw-bold hv-cl" href="./service.html">Service</a>
                             <ul class="sub rounded p-0">
                                 <li>
@@ -82,8 +81,7 @@
                                 </li>
                                 <li>
                                     <a class="nav-link text-dark text-left hv-bg" href="./service3.html">Chinh Phục đỉnh cao</a>
-========
-                            <a class="nav-link text-dark fw-bold hv-cl" href="#">Service</a>
+                                </li>
                             <ul class="sub rounded p-0">
                                 <li>
                                     <a class="nav-link text-dark text-center hv-bg" href="#">Link 1</a>
@@ -96,7 +94,6 @@
                                 </li>
                                 <li>
                                     <a class="nav-link text-dark text-center hv-bg" href="#">Link 4</a>
->>>>>>>> b1514a523f1727c73e1c08eb3f3687f1d8c5fcc8:Code/App/Contact.php
                                 </li>
                             </ul>
                         </li>
@@ -285,11 +282,8 @@
                                 <div class="col-12 col-md-6 mb-5"><input class="form-control form-contact" type="tel"
                                         placeholder="Your Phone *"></div>
                                 <div class="col-12 col-md-6 mb-5"><input class="form-control form-contact" type="text"
-<<<<<<<< HEAD:Code/App/contact.html
                                         placeholder="Address"></div>
-========
                                         placeholder="Company"></div>
->>>>>>>> b1514a523f1727c73e1c08eb3f3687f1d8c5fcc8:Code/App/Contact.php
                                 <div class="col-12 mb-5"><textarea class="form-control form-contact" rows="2"
                                         placeholder="Message *"></textarea></div>
                                 <div class="col-12 col-lg-3 text-end text-lg-start">
