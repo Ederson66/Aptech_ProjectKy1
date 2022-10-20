@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                     </nav>
 `;
-    document.querySelector("#nav-bar").innerHTML = sidebar;
+    // document.querySelector("#nav-bar").innerHTML = sidebar;
 
     // footer
     let footer = `  <div class="d-flex justify-content-between align-items-center" style="padding: 0 1rem;">
