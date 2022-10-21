@@ -27,20 +27,6 @@
             <nav class="navbar navbar-expand-lg position-fixed">
                 <div class="container">
                     <a class="navbar-brand" href="index.php">
-                        <!-- <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="500.000000pt" height="500.000000pt" viewBox="0 0 500.000000 500.000000" preserveAspectRatio="xMidYMid meet" style="height: 40px; width: 40px;">
-                            <g transform="translate(0.000000,500.000000) scale(0.100000,-0.100000)" fill="#00000" stroke="none">
-                                <path
-                                    d="M2650 4978 c0 -3 9 -31 20 -64 26 -74 64 -226 82 -324 8 -48 13 -151
-                        12 -285 0 -178 -4 -226 -23 -315 -70 -331 -210 -586 -460 -843 -97 -100 -318
-                        -287 -339 -287 -15 0 -92 104 -137 184 -71 128 -125 346 -125 509 0 42 -3 77
-                        -6 77 -7 0 -23 -17 -128 -140 -257 -300 -573 -786 -705 -1086 -62 -140 -128
-                        -336 -164 -484 -81 -331 -76 -673 12 -934 118 -347 343 -589 711 -765 314
-                        -150 631 -211 1094 -211 670 0 1127 142 1424 442 244 246 407 608 453 1007 16
-                        140 6 550 -16 691 -42 268 -117 554 -206 780 -65 167 -231 501 -339 680 -199
-                        330 -523 739 -860 1084 -134 137 -300 294 -300 284z"
-                                />
-                            </g>
-                        </svg> -->
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 56.68 55.66" style="width: 50px; height: 50px;" xml:space="preserve">
                             <style type="text/css">
@@ -104,23 +90,6 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item ps-3 pe-3 mt-2 link">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="./news.php">News</a>
-                                <ul class="sub rounded p-0">
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">News 1</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">News 2</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">News 3</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">News 4</a>
-                                    </li>
-                                </ul>
-                            </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
                                 <a class="nav-link text-dark fw-bold hv-cl" href="#">History</a>
                                 <ul class="sub rounded p-0">
@@ -139,19 +108,36 @@
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="#">Blog</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="#">Tour</a>
                                 <ul class="sub rounded p-0">
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Blog 1</a>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Tour 1</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Blog 2</a>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Tour 2</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Blog 3</a>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Tour 3</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Blog 4</a>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Tour 4</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item ps-3 pe-3 mt-2 link">
+                                <a class="nav-link text-dark fw-bold hv-cl" href="./news.php">News</a>
+                                <ul class="sub rounded p-0">
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Sale</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">News 3</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">News 4</a>
                                     </li>
                                 </ul>
                             </li>
