@@ -1,17 +1,17 @@
 <?php
 
-require_once './PhpSetting/User.php';
+require_once './PhpSetting/Member.php';
 require_once './PhpSetting/Common.php';
 
 if (!empty($_POST["flogin"])) {
     
-    if (isset($_POST["fusername"]) && isset($_POST["fpassword"])) {
-        $username = $_POST["fusername"];
+    if (isset($_POST["fmember"]) && isset($_POST["fpassword"])) {
+        $member = $_POST["fmember"];
         $password = $_POST["fpassword"];
         
         
-        $a = new User();
-        $a->Username=$username;
+        $a = new Member();
+        $a->MemberName=$member;
         $a->Password=md5($password);
         $arr = $a->login();
         
@@ -19,7 +19,7 @@ if (!empty($_POST["flogin"])) {
             // sử dụng ss
             session_start();
             // tạo ra ss
-            $_SESSION["Username"] = $username;
+            $_SESSION["MemberName"] = $member;
             redirect("index.php");
             
         } else {
