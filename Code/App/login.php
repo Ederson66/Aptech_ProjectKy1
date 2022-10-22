@@ -64,7 +64,7 @@ if (!empty($_POST["flogin"])) {
                     </div>
                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" >
                         <div class="input-group d-flex flex-column pt-2 mb-3 position-relative">
-                            <input type="text" class="form-control rounded" id="logusername" name="fusername" required>
+                            <input type="text" class="form-control rounded" id="logusername" name="fmember" required>
                             <label class="text-shadow text-white">Username</label>
                         </div>
                         <div class="input-group d-flex flex-column pt-2 mb-3 position-relative">
