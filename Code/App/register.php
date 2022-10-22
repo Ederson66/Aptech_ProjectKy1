@@ -1,45 +1,45 @@
 
 <?php
-require_once './PhpSetting/User.php';
+require_once './PhpSetting/Member.php';
 require_once './PhpSetting/Common.php';
 
 if (isset($_POST["fregister"])) {
-    $fusername = $_POST['fusername'];
-    //Validate username
-    if (empty($_POST['fusername'])) {
-        echo $errMsg;
-    } else {
-        $fusername = $_POST['fusername'];
-    }
-//
-    // validate trên server
-    $fpassword = $_POST['fpassword'];
-    $fconfirmpass = $_POST['fconfirmpass'];
-    if (strlen("$fpassword]") < '8') {
-        echo '<script language="javascript">alert("Your Password Must Contain At Least 8 Characters!"); window.location="register.php";</script>';
-        exit();
-    } elseif ($fpassword != $fconfirmpass) {
-        echo '<script language="javascript">alert("Plese check again!"); window.location="register.php";</script>';
-        exit();
-    } 
-    elseif (!preg_match("#[0-9]+#", $fpassword)) {
-        echo '<script language="javascript">alert("Your Password Must Contain At Least 1 Number!"); window.location="register.php";</script>';
-        exit();
-    } 
-    elseif (!preg_match("#[A-Z]+#", $fpassword)) {
-        echo '<script language="javascript">alert("Your Password Must Contain At Least 1 Capital Letter!"); window.location="register.php";</script>';
-        exit();
-    } 
-    elseif (!preg_match("#[a-z]+#", $fpassword)) {
-        echo '<script language="javascript">alert("Your Password Must Contain At Least 1 Lowercase Letter!"); window.location="register.php";</script>';
-        exit();
-    }
-    else {
-        $passwordErr = "Please enter password   ";
-    }
+//    $fmembername = $_POST['fmembername'];
+//    //Validate username
+//    if (empty($_POST['fmembername'])) {
+//        echo $errMsg;
+//    } else {
+//        $fmembername = $_POST['fmembername'];
+//    }
+////
+//    // validate trên server
+//    $fpassword = $_POST['fpassword'];
+//    $fconfirmpass = $_POST['fconfirmpass'];
+//    if (strlen("$fpassword]") < '8') {
+//        echo '<script language="javascript">alert("Your Password Must Contain At Least 8 Characters!"); window.location="register.php";</script>';
+//        exit();
+//    } elseif ($fpassword != $fconfirmpass) {
+//        echo '<script language="javascript">alert("Plese check again!"); window.location="register.php";</script>';
+//        exit();
+//    } 
+//    elseif (!preg_match("#[0-9]+#", $fpassword)) {
+//        echo '<script language="javascript">alert("Your Password Must Contain At Least 1 Number!"); window.location="register.php";</script>';
+//        exit();
+//    } 
+//    elseif (!preg_match("#[A-Z]+#", $fpassword)) {
+//        echo '<script language="javascript">alert("Your Password Must Contain At Least 1 Capital Letter!"); window.location="register.php";</script>';
+//        exit();
+//    } 
+//    elseif (!preg_match("#[a-z]+#", $fpassword)) {
+//        echo '<script language="javascript">alert("Your Password Must Contain At Least 1 Lowercase Letter!"); window.location="register.php";</script>';
+//        exit();
+//    }
+//    else {
+//        $passwordErr = "Please enter password   ";
+//    }
 
 
-    $fusername = $_POST['fusername'];
+    $fmembername = $_POST['fmembername'];
     $fpassword = $_POST['fpassword'];
     $password = md5($fpassword);
     $flastname = $_POST['flastname'];
@@ -51,10 +51,10 @@ if (isset($_POST["fregister"])) {
     $femail = $_POST['femail'];
 
 
-    $a = new User();
-    $a->Username = $fusername;
+    $a = new Member();
+    $a->MemberName = $fmembername;
     $a->Password = md5($fpassword);
-    $a->Fisrtname = $ffirstname;
+    $a->Firstname = $ffirstname;
     $a->Middlename = $fmiddlename;
     $a->Lastname = $flastname;
     $a->Birthday = $fbirthday;
@@ -95,7 +95,7 @@ if (isset($_POST["fregister"])) {
                 </div>
                 <form id="formReg" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                     <div class="input-group d-flex flex-column mb-3 pt-2 position-relative">
-                        <input type="text" class="form-control rounded" id="username" name="fusername" required>
+                        <input type="text" class="form-control rounded" id="username" name="fmembername" required>
                         <label class="text-shadow text-white" for="">Username</label>
                         <span id="MessageUser"></span>
                     </div>
