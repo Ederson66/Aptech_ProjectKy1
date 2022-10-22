@@ -86,15 +86,15 @@ if (!empty($_POST["flogout"])) {
                         <a href="#" class="nav_logo"> <i class="text-white bi bi-stack"></i> <span class="nav_logo-name">Manager</span> </a>
                         <ul class="nav_list nav" id="myTab" role="tablist">
                             <!-- showdashboard -->
-                            <li id="showdashboard">
+                            <li class="showmenu1">
                                 <a href="#dashboard" class="nav_link active" data-bs-toggle="tab" aria-selected="true"> <i class="bx bx-grid-alt nav_icon"></i> <span class="nav_name">Dashboard</span> </a>
                             </li>
                             <!-- notification -->
-                            <li>
+                            <li class="showmenu1">
                                 <a href="#notification" class="nav_link" data-bs-toggle="tab" aria-selected="false"> <i class="bx bi bi-bell nav_icon"></i> <span class="nav_name">Notify</span> </a>
                             </li>
                             <!-- mountaineering -->
-                            <li id="showmenu0">
+                            <li class="showmenu1">
                                 <span data-bs-target="#mountaineering" data-bs-toggle="tab" aria-selected="false">
                                     <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu0">
                                         <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Mountaineering <i class="bi bi-chevron-compact-down"></i></span>
@@ -109,7 +109,7 @@ if (!empty($_POST["flogout"])) {
                                 </ul>
                             </div>
                             <!-- service -->
-                            <li id="showmenu1">
+                            <li class="showmenu1">
                                 <span data-bs-target="#service" data-bs-toggle="tab" aria-selected="false">
                                     <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu1">
                                         <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Service <i class="bi bi-chevron-compact-down"></i></span>
@@ -124,7 +124,7 @@ if (!empty($_POST["flogout"])) {
                                 </ul>
                             </div>
                             <!-- tour -->
-                            <li id="showmenu2">
+                            <li class="showmenu1">
                                 <span data-bs-target="#tour" data-bs-toggle="tab" aria-selected="false">
                                     <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu2">
                                         <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Tour <i class="bi bi-chevron-compact-down"></i></span>
@@ -139,7 +139,7 @@ if (!empty($_POST["flogout"])) {
                                 </ul>
                             </div>
                             <!-- booktour -->
-                            <li id="showmenu3">
+                            <li class="showmenu1">
                                 <span data-bs-target="#booktour" data-bs-toggle="tab" aria-selected="false">
                                     <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu3">
                                         <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Booktour <i class="bi bi-chevron-compact-down"></i></span>
@@ -149,12 +149,11 @@ if (!empty($_POST["flogout"])) {
                             <!-- menu booktour -->
                             <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu3">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                    <li><a class="dropdown-item cl-1" href="#">Add Booktour</a></li>
                                     <li><a class="dropdown-item cl-1" href="#">List Booktour</a></li>
                                 </ul>
                             </div>
                             <!-- news -->
-                            <li id="showmenu4">
+                            <li class="showmenu1">
                                 <span data-bs-target="#news" data-bs-toggle="tab" aria-selected="false">   
                                     <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu4">
                                         <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">News <i class="bi bi-chevron-compact-down"></i></span>
@@ -169,7 +168,7 @@ if (!empty($_POST["flogout"])) {
                                 </ul>
                             </div>
                             <!-- library -->
-                            <li id="showmenu5">
+                            <li class="showmenu1">
                                 <span data-bs-target="#library" data-bs-toggle="tab" aria-selected="false">   
                                     <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu5">
                                         <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Library <i class="bi bi-chevron-compact-down"></i></span>
@@ -181,6 +180,95 @@ if (!empty($_POST["flogout"])) {
                                 <ul class="btn-toggle-nav list-unstyled fw-normal small">
                                     <li><a class="dropdown-item cl-1" href="#">Add Library</a></li>
                                     <li><a class="dropdown-item cl-1" href="#">List Library</a></li>
+                                </ul>
+                            </div>
+                            <!-- category -->
+                            <li class="showmenu1">
+                                <span data-bs-target="#category" data-bs-toggle="tab" aria-selected="false">   
+                                    <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu6">
+                                        <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Category <i class="bi bi-chevron-compact-down"></i></span>
+                                    </a>
+                                </span>
+                            </li>
+                            <!-- menu category -->
+                            <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu6">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                                    <li><a class="dropdown-item cl-1" href="#">Add Category</a></li>
+                                    <li><a class="dropdown-item cl-1" href="#">List Category</a></li>
+                                </ul>
+                            </div>
+                            <!-- categorytour -->
+                            <li class="showmenu1">
+                                <span data-bs-target="#categorytour" data-bs-toggle="tab" aria-selected="false">   
+                                    <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu7">
+                                        <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Categorytour <i class="bi bi-chevron-compact-down"></i></span>
+                                    </a>
+                                </span>
+                            </li>
+                            <!-- menu categorytour -->
+                            <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu7">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                                    <li><a class="dropdown-item cl-1" href="#">Add Categorytour</a></li>
+                                    <li><a class="dropdown-item cl-1" href="#">List Categorytour</a></li>
+                                </ul>
+                            </div>
+                            <!-- contact -->
+                            <li class="showmenu1">
+                                <span data-bs-target="#contact" data-bs-toggle="tab" aria-selected="false">   
+                                    <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu8">
+                                        <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Contact <i class="bi bi-chevron-compact-down"></i></span>
+                                    </a>
+                                </span>
+                            </li>
+                            <!-- menu contact -->
+                            <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu8">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                                    <li><a class="dropdown-item cl-1" href="#">List contact</a></li>
+                                </ul>
+                            </div>
+                            <!-- item -->
+                            <li class="showmenu1">
+                                <span data-bs-target="#item" data-bs-toggle="tab" aria-selected="false">   
+                                    <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu9">
+                                        <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Item <i class="bi bi-chevron-compact-down"></i></span>
+                                    </a>
+                                </span>
+                            </li>
+                            <!-- menu item -->
+                            <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu9">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                                    <li><a class="dropdown-item cl-1" href="#">Add Item</a></li>
+                                    <li><a class="dropdown-item cl-1" href="#">List Item</a></li>
+                                </ul>
+                            </div>
+                            <!-- itemlibrary -->
+                            <li class="showmenu1">
+                                <span data-bs-target="#itemlibrary" data-bs-toggle="tab" aria-selected="false">   
+                                    <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu10">
+                                        <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Itemlibrary <i class="bi bi-chevron-compact-down"></i></span>
+                                    </a>
+                                </span>
+                            </li>
+                            <!-- menu itemlibrary -->
+                            <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu10">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                                    <li><a class="dropdown-item cl-1" href="#">Add Itemlibrary</a></li>
+                                    <li><a class="dropdown-item cl-1" href="#">List Itemlibrary</a></li>
+                                </ul>
+                            </div>
+                            <!-- locationandservice -->
+                            <li class="showmenu1">
+                                <span data-bs-target="#locationandservice" data-bs-toggle="tab" aria-selected="false">   
+                                    <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu11">
+                                        <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Locationandservice <i class="bi bi-chevron-compact-down"></i></span>
+                                    </a>
+                                </span>
+                            </li>
+                            <!-- menu locationandservice -->
+                            <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu11">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                                    <li><a class="dropdown-item cl-1" href="#">Add Locationandservice</a></li>
+                                    <li><a class="dropdown-item cl-1" href="#">List Locationandservice</a></li>
                                 </ul>
                             </div>
                         </ul>
@@ -427,6 +515,10 @@ if (!empty($_POST["flogout"])) {
                                                     <input type="text" id="Type" class="form-control" placeholder="Type">
                                                 </div>
                                                 <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Level:</label>
+                                                    <input type="text" id="Level" class="form-control" placeholder="Level">
+                                                </div>
+                                                <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Sheltering:</label>
                                                     <input type="text" id="Sheltering" class="form-control" placeholder="Sheltering">
                                                 </div>
@@ -462,6 +554,7 @@ if (!empty($_POST["flogout"])) {
                                                         <th scope="col">LocationY</th>
                                                         <th scope="col">Banner</th>
                                                         <th scope="col">Type</th>
+                                                        <th scope="col">Level</th>
                                                         <th scope="col">Sheltering</th>
                                                         <th scope="col">Techniques</th>
                                                         <th scope="col">Description</th>
@@ -500,6 +593,10 @@ if (!empty($_POST["flogout"])) {
                                                 <input type="text" id="VAT" class="form-control" placeholder="VAT" />
                                             </div>
                                             <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Sale:</label>
+                                                <input type="text" id="Sale" class="form-control" placeholder="Sale" />
+                                            </div>
+                                            <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
                                                 <input type="text" id="Description" class="form-control" placeholder="Description" />
                                             </div>
@@ -525,6 +622,7 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">ServiceName</th>
                                                     <th scope="col">Price</th>
                                                     <th scope="col">VAT</th>
+                                                    <th scope="col">Sale</th>
                                                     <th scope="col">Description</th>
                                                 </tr>
                                             </table>
@@ -548,6 +646,14 @@ if (!empty($_POST["flogout"])) {
                                             <h2>Add Tour</h2>
                                         </div>
                                         <form>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">CategoryTour:</label>
+                                                <select class="form-select" id="CategoryTour">
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">TourName:</label>
                                                 <input type="text" id="TourName" class="form-control" placeholder="TourName" />
@@ -627,57 +733,7 @@ if (!empty($_POST["flogout"])) {
 
                     <!-- booktour -->
                     <div class="tab-pane fade" id="booktour">
-                        <div class="container text-dark pb-5">
-                            <!-- form Add booktour -->
-                            <div id="addbooktour">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
-                                    <div style="width: 650px;">
-                                        <div class="text-center pb-3">
-                                            <h2>Add Booktour</h2>
-                                        </div>
-                                        <form>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">TourID:</label>
-                                                <select id="TourID" class="form-select">
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">TourName:</label>
-                                                <input type="text" id="TourName" class="form-control" placeholder="TourName" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">UserBookTour:</label>
-                                                <input type="text" id="UserBookTour" class="form-control" placeholder="UserBookTour" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">EmailUser:</label>
-                                                <input type="email" id="EmailUser" class="form-control" placeholder="EmailUser" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">AddressUser:</label>
-                                                <input type="text" id="AddressUser" class="form-control" placeholder="AddressUser" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">NumberPhoneUser:</label>
-                                                <input type="text" id="NumberPhoneUser" class="form-control" placeholder="NumberPhoneUser" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Status:</label>
-                                                <input type="text" id="Status" class="form-control" placeholder="Status" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" class="form-control" placeholder="Description" />
-                                            </div>
-                                            <input type="submitbooktour" id="btn" class="btn btn-primary" value="Submit" />
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
+                        <div class="container text-dark pb-5 pt-5">
                             <!-- table list booktour -->
                             <div id="listbooktour">
                                 <div class="text-center">
@@ -692,11 +748,11 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">STT</th>
                                                     <th scope="col">ID</th>
                                                     <th scope="col">TourID</th>
-                                                    <th scope="col">TourName</th>
-                                                    <th scope="col">UserBookTour</th>
-                                                    <th scope="col">EmailUser</th>
-                                                    <th scope="col">AddressUser</th>
-                                                    <th scope="col">NumberPhoneUser</th>
+                                                    <th scope="col">MemberID</th>
+                                                    <th scope="col">AnonymousBookTour</th>
+                                                    <th scope="col">AnonymousEmail</th>
+                                                    <th scope="col">AnonymousAddress</th>
+                                                    <th scope="col">AnonymousPhone</th>
                                                     <th scope="col">Status</th>
                                                     <th scope="col">Description</th>
                                                 </tr>
@@ -721,6 +777,14 @@ if (!empty($_POST["flogout"])) {
                                             <h2>Add News</h2>
                                         </div>
                                         <form>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Category:</label>
+                                                <select class="form-select" id="CategoryID">
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Title:</label>
                                                 <input type="text" id="Title" class="form-control" placeholder="Title" />
@@ -760,6 +824,7 @@ if (!empty($_POST["flogout"])) {
                                                 <tr>
                                                     <th scope="col">STT</th>
                                                     <th scope="col">ID</th>
+                                                    <th scope="col">Category</th>
                                                     <th scope="col">Title</th>
                                                     <th scope="col">Content</th>
                                                     <th scope="col">AvatarNews</th>
@@ -815,6 +880,323 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">STT</th>
                                                     <th scope="col">ID</th>
                                                     <th scope="col">LibraryName</th>
+                                                    <th scope="col">Description</th>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- category -->
+                    <div class="tab-pane fade" id="category">
+                        <div class="container text-dark pb-5">
+                            <!-- form Add Category -->
+                            <div id="addCategory">
+                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                    <div style="width: 650px;">
+                                        <div class="text-center pb-3">
+                                            <h2>Add Category</h2>
+                                        </div>
+                                        <form>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">CategoryName:</label>
+                                                <input type="text" id="CategoryName" class="form-control" placeholder="CategoryName" />
+                                            </div>
+                                            <div class="mb-3 w-50">
+                                                <label class="form-label fw-bold text-secondary">ParentID:</label>
+                                                <input type="text" id="ParentID" class="form-control" placeholder="ParentID" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Description:</label>
+                                                <input type="text" id="Description" class="form-control" placeholder="Description" />
+                                            </div>
+                                            <input type="submitcategory" id="btn" class="btn btn-primary" value="Submit" />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- table list category -->
+                            <div id="listcategory">
+                                <div class="text-center">
+                                    <h2>List Category</h2>
+                                </div>
+                                <div class="pb-5 d-flex justify-content-center">
+                                    <div style="overflow-x: auto;">
+
+                                        <div id="tbl-kithi" class="mt-4 pb-5" >
+                                            <table class="table table-striped table-hover">
+                                                <tr>
+                                                    <th scope="col">STT</th>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">CategoryName</th>
+                                                    <th scope="col">ParentID</th>
+                                                    <th scope="col">Description</th>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- categorytour -->
+                    <div class="tab-pane fade" id="categorytour">
+                        <div class="container text-dark pb-5">
+                            <!-- form Add Categorytour -->
+                            <div id="addCategorytour">
+                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                    <div style="width: 650px;">
+                                        <div class="text-center pb-3">
+                                            <h2>Add Categorytour</h2>
+                                        </div>
+                                        <form>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">CategoryTourName:</label>
+                                                <input type="text" id="CategoryTourName" class="form-control" placeholder="CategoryTourName" />
+                                            </div>
+                                            <div class="mb-3 w-50">
+                                                <label class="form-label fw-bold text-secondary">Status:</label>
+                                                <input type="text" id="Status" class="form-control" placeholder="Status" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Description:</label>
+                                                <input type="text" id="Description" class="form-control" placeholder="Description" />
+                                            </div>
+                                            <input type="submitcategorytour" id="btn" class="btn btn-primary" value="Submit" />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- table list categorytour -->
+                            <div id="listCategorytour">
+                                <div class="text-center">
+                                    <h2>List Categorytour</h2>
+                                </div>
+                                <div class="pb-5 d-flex justify-content-center">
+                                    <div style="overflow-x: auto;">
+
+                                        <div id="tbl-kithi" class="mt-4 pb-5" >
+                                            <table class="table table-striped table-hover">
+                                                <tr>
+                                                    <th scope="col">STT</th>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">CategoryTourName</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Description</th>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- contact -->
+                    <div class="tab-pane fade" id="contact">
+                        <div class="container text-dark pb-5 pt-5">
+                            <!-- table list categorytour -->
+                            <div id="listCategorytour">
+                                <div class="text-center">
+                                    <h2>List Categorytour</h2>
+                                </div>
+                                <div class="pb-5 d-flex justify-content-center">
+                                    <div style="overflow-x: auto;">
+
+                                        <div id="tbl-kithi" class="mt-4 pb-5" >
+                                            <table class="table table-striped table-hover">
+                                                <tr>
+                                                    <th scope="col">STT</th>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">MemberID</th>
+                                                    <th scope="col">Fullname</th>
+                                                    <th scope="col">Address</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Telephone</th>
+                                                    <th scope="col">Message</th>
+                                                    <th scope="col">description</th>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- item -->
+                    <div class="tab-pane fade" id="item">
+                        <div class="container text-dark pb-5">
+                            <!-- form Add Item -->
+                            <div id="addItem">
+                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                    <div style="width: 650px;">
+                                        <div class="text-center pb-3">
+                                            <h2>Add Item</h2>
+                                        </div>
+                                        <form>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Type:</label>
+                                                <input type="text" id="Type" class="form-control" placeholder="Type" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Description:</label>
+                                                <input type="text" id="Description" class="form-control" placeholder="Description" />
+                                            </div>
+                                            <input type="submitItem" id="btn" class="btn btn-primary" value="Submit" />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- table list Item -->
+                            <div id="listItem">
+                                <div class="text-center">
+                                    <h2>List Item</h2>
+                                </div>
+                                <div class="pb-5 d-flex justify-content-center">
+                                    <div style="overflow-x: auto;">
+
+                                        <div id="tbl-kithi" class="mt-4 pb-5" >
+                                            <table class="table table-striped table-hover">
+                                                <tr>
+                                                    <th scope="col">STT</th>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Type</th>
+                                                    <th scope="col">Description</th>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- itemlibrary -->
+                    <div class="tab-pane fade" id="itemlibrary">
+                        <div class="container text-dark pb-5">
+                            <!-- form Add Itemlibrary -->
+                            <div id="addItemlibrary">
+                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                    <div style="width: 650px;">
+                                        <div class="text-center pb-3">
+                                            <h2>Add Itemlibrary</h2>
+                                        </div>
+                                        <form>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">ItemID:</label>
+                                                <input type="text" id="ItemID" class="form-control" placeholder="ItemID" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">LibraryID:</label>
+                                                <input type="text" id="LibraryID" class="form-control" placeholder="LibraryID" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Description:</label>
+                                                <input type="text" id="Description" class="form-control" placeholder="Description" />
+                                            </div>
+                                            <input type="submititemlibrary" id="btn" class="btn btn-primary" value="Submit" />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- table list Itemlibrary -->
+                            <div id="listItemlibrary">
+                                <div class="text-center">
+                                    <h2>List Itemlibrary</h2>
+                                </div>
+                                <div class="pb-5 d-flex justify-content-center">
+                                    <div style="overflow-x: auto;">
+
+                                        <div id="tbl-kithi" class="mt-4 pb-5" >
+                                            <table class="table table-striped table-hover">
+                                                <tr>
+                                                    <th scope="col">STT</th>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">ItemID</th>
+                                                    <th scope="col">LibraryID</th>
+                                                    <th scope="col">Description</th>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- locationandservice -->
+                    <div class="tab-pane fade" id="locationandservice">
+                        <div class="container text-dark pb-5">
+                            <!-- form Add Locationandservice -->
+                            <div id="addLocationandservice">
+                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                    <div style="width: 650px;">
+                                        <div class="text-center pb-3">
+                                            <h2>Add Locationandservice</h2>
+                                        </div>
+                                        <form>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Mountaineering:</label>
+                                                <select id="Mountaineering" class="form-select">
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Service:</label>
+                                                <select id="Service" class="form-select">
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Description:</label>
+                                                <input type="text" id="Description" class="form-control" placeholder="Description" />
+                                            </div>
+                                            <input type="submitlocationandservice" id="btn" class="btn btn-primary" value="Submit" />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- table list locationandservice -->
+                            <div id="listlocationandservice">
+                                <div class="text-center">
+                                    <h2>List Locationandservice</h2>
+                                </div>
+                                <div class="pb-5 d-flex justify-content-center">
+                                    <div style="overflow-x: auto;">
+
+                                        <div id="tbl-kithi" class="mt-4 pb-5" >
+                                            <table class="table table-striped table-hover">
+                                                <tr>
+                                                    <th scope="col">STT</th>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">MountaineeringID</th>
+                                                    <th scope="col">ServiceID</th>
                                                     <th scope="col">Description</th>
                                                 </tr>
                                             </table>

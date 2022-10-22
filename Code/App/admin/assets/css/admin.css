@@ -127,7 +127,7 @@ a {
     position: absolute;
     left: 0;
     width: 2px;
-    height: 32px;
+    height: 26px;
     background-color: var(--white-color);
 }
 /* active và thẻ end  */
@@ -156,6 +156,7 @@ a {
 
     .showsidebar {
         width: calc(var(--nav-width) + 156px);
+        width: calc(var(--nav-width) + 164px);
     }
 
     .body-pd {
