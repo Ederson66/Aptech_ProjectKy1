@@ -156,9 +156,6 @@ if (isset($_POST["fregister"])) {
                         <input class="p-2 rounded text-shadow bg-primary" type="submit" id="btnpass" name="fregister" value="Register">
                     </div>
                 </form>
-                <div class="mb-3 d-flex justify-content-center">
-                    <a href="login.php" class="text-shadow text-white">Loign now</a>
-                </div>
             </div>
         </div>
         <!--END Main -->

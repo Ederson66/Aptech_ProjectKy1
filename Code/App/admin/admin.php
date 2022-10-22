@@ -3,6 +3,7 @@
 session_start();
 
 require_once '../PhpSetting/Common.php';
+// require_once '../PhpSetting/Usersystem.php';
 require_once '../PhpSetting/Usersystem.php';
 
 // check session
