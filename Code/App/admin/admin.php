@@ -190,6 +190,21 @@ if (!empty($_POST["flogout"])) {
                                     <li><a class="dropdown-item cl-1" href="#">List Library</a></li>
                                 </ul>
                             </div>
+                            <!-- itemlibrary -->
+                            <li class="showmenu1">
+                                <span data-bs-target="#itemlibrary" data-bs-toggle="tab" aria-selected="false">   
+                                    <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu10">
+                                        <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Itemlibrary <i class="bi bi-chevron-compact-down"></i></span>
+                                    </a>
+                                </span>
+                            </li>
+                            <!-- menu itemlibrary -->
+                            <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu10">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                                    <li><a class="dropdown-item cl-1" href="#">Add Itemlibrary</a></li>
+                                    <li><a class="dropdown-item cl-1" href="#">List Itemlibrary</a></li>
+                                </ul>
+                            </div>
                             <!-- category -->
                             <li class="showmenu1">
                                 <span data-bs-target="#category" data-bs-toggle="tab" aria-selected="false">   
@@ -249,21 +264,6 @@ if (!empty($_POST["flogout"])) {
                                     <li><a class="dropdown-item cl-1" href="#">List Item</a></li>
                                 </ul>
                             </div> -->
-                            <!-- itemlibrary -->
-                            <li class="showmenu1">
-                                <span data-bs-target="#itemlibrary" data-bs-toggle="tab" aria-selected="false">   
-                                    <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu10">
-                                        <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Itemlibrary <i class="bi bi-chevron-compact-down"></i></span>
-                                    </a>
-                                </span>
-                            </li>
-                            <!-- menu itemlibrary -->
-                            <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu10">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                    <li><a class="dropdown-item cl-1" href="#">Add Itemlibrary</a></li>
-                                    <li><a class="dropdown-item cl-1" href="#">List Itemlibrary</a></li>
-                                </ul>
-                            </div>
                             <!-- locationandservice -->
                             <li class="showmenu1">
                                 <span data-bs-target="#locationandservice" data-bs-toggle="tab" aria-selected="false">   
