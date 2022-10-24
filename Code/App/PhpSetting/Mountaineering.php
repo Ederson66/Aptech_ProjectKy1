@@ -80,7 +80,21 @@ class Mountaineering {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT * FROM `mountaineering`;";
+        $sql = "SELECT MountaineeringID, LocationX, LocationY, MountainName, Banner, Sheltering, Techniques, Description,
+				CASE
+					WHEN Type =	1 THEN '1 Chặng'
+					WHEN Type =	2 THEN 'Nhiều chặng'
+					ELSE 'Error'
+				END
+				AS `Type`,
+				CASE 
+					WHEN Level = 1 THEN 'Dễ'
+					WHEN Level = 2 THEN 'Trung Bình'
+					WHEN Level = 3 THEN 'Khó'
+					ELSE 'Erorr'
+				END
+				AS `Level`
+				FROM `mountaineering`;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);

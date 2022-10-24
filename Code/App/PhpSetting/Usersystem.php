@@ -95,6 +95,38 @@ class Usersystem {
 		return $list;
 	}
 
+	public function getProfile() {
+		// chuỗi kết nối đến DB
+		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUsername(), DBinfoConfig::getPassword(), $options);
+
+		// câu lệnh sql
+		$sql = "SELECT * FROM `usersystem`;";
+
+		// chuẩn bị câu lệnh SQL
+		$stmt = $conn->prepare($sql);
+
+		// thực hiện
+		$stmt->execute();
+
+		$list = Array();
+		while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			$s = new Usersystem();
+			$s->Username = $row["Username"];
+			$s->Password = $row["Password"];
+			$s->Description = $row["Description"];
+			$s->UserSystemID = $row["UserSystemID"];
+
+			array_push($list, $s);
+		}
+
+		// đóng kết nối
+		$conn = NULL;
+
+		return $list;
+	}
+
 
 	public function logout() {
 		// xóa ss khi tạo ở login

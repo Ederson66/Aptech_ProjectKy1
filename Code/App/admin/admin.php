@@ -34,6 +34,26 @@ if (!empty($_POST["flogout"])) {
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Website về leo núi,cắm trại,du lịch,đặt tour và các dịch vụ đi cùng chuyến du lịch.Cho bạn 1 nơi tha hồ lựa chọn các địa điểm du lịch và book tour dễ dàng thuận tiện cùng những khuyến mãi khủng."/>
+        <meta name="keywords" content="Leo núi,Moutaineering,Du lịch,Tour,Book Tour, Dịch vụ,Service,Lịch sử,History,Kĩ năng,Đồ leo núi,Sale hấp dẫn ." />
+        <meta name="news_keywords" content="Leo núi,Moutaineering,Du lịch,Tour,Book Tour, Dịch vụ,Service,Lịch sử,History,Kĩ năng,Đồ leo núi,Sale hấp dẫn ." />
+        <meta http-equiv="REFRESH" content="1800" />
+        <meta name="copyright" content="Moutaineering" />
+        <meta name="author" content="Moutaineering" />
+        <meta name="robots" content="index,follow" />
+        <meta name="geo.placename" content="Ha Noi, Viet Nam" />
+        <meta name="geo.region" content="VN-HN" />
+        <meta name="geo.position" content="21.030624;105.782431" />
+        <!-- META FOR FACEBOOK -->
+        <meta property="og:site_name" content="Moutaineering.com" />
+        <meta property="og:rich_attachment" content="true" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" itemprop="url" content="https://Moutaineering.com" />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="354" />
+        <meta content="Moutaineering,Service,Tour,BookTour" itemprop="headline" property="og:title" />
+        <meta content="Home" itemprop="description" property="og:description" />
+        <!-- END META FOR FACEBOOK -->
         <!-- Reset CSS -->
         <link rel="stylesheet" href="../assets/css/reset.min.css">
         <!-- BOOTSTRAP ICON -->
@@ -51,6 +71,13 @@ if (!empty($_POST["flogout"])) {
             th{
                 font-weight: bold;
             }
+
+            @media (min-width: 576px){
+                .modal-dialog {
+                    max-width: 100%;
+                    margin: 1.75rem;
+                }
+            }
         </style>
     </head>
     <body id="body-pd">
@@ -59,34 +86,9 @@ if (!empty($_POST["flogout"])) {
             <header class="header" id="header">
                 <div class="header_toggle"><i class="bx bx-menu text-dark" id="header-toggle"></i></div>
                 <form class="w-50"><input type="search" class="form-control" placeholder="Search..." aria-label="Search" /></form>
-                <div class="dropdown text-end">
-                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="user" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="./assets/img/avt_pro.jpg" alt="quản trị" width="40" height="40" class="rounded-circle" />
-                    </a>
-                    <ul class="dropdown-menu text-small" aria-labelledby="user" style="min-width: 256px;">
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                <?php
-//                                $u = new User();
-//                                $u->Username = (string) $_SESSION["Username"];
-//                                $list = $u->GetUserByUsername();
-//                                
-//                                for ($i = 0; $i < count($list); $i++) {
-//                                    $obj = $list[$i];
-//
-//                                    echo "Hello" . " " . ucwords($obj->Lastname ." " . $obj->Middlename . " " . $obj->Fisrtname);
-//                                }
-                                ?>
-                            </a>
-                        </li>
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                            <li><input class="dropdown-item" type="submit" name="flogout" value="Logout"></li>
-                        </form>
-                    </ul>
-                </div>
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                    <input class="btn btn-danger" type="submit" name="flogout" value="Logout">
+                </form>
             </header>
 
             <!-- END HEADER -->
@@ -100,6 +102,10 @@ if (!empty($_POST["flogout"])) {
                             <!-- showdashboard -->
                             <li class="showmenu1">
                                 <a href="#dashboard" class="nav_link active" data-bs-toggle="tab" aria-selected="true"> <i class="bx bx-grid-alt nav_icon"></i> <span class="nav_name">Dashboard</span> </a>
+                            </li>
+                            <!-- profile -->
+                            <li class="showmenu1">
+                                <a href="#profile" class="nav_link" data-bs-toggle="tab" aria-selected="false"><i class="bi bi-person-bounding-box"></i><span class="nav_name">Profile</span> </a>
                             </li>
                             <!-- booktour -->
                             <li class="showmenu1">
@@ -288,7 +294,7 @@ if (!empty($_POST["flogout"])) {
             <!-- BEGIN MAIN -->
             <main class="main">
 
-                <div class="tab-content" id="nav-tabContent">
+                <div class="tab-content" id="myTabContent">
                     <!-- dashboard -->
                     <div class="tab-pane fade show active" id="dashboard">
                         <div class="container text-dark">
@@ -332,15 +338,15 @@ if (!empty($_POST["flogout"])) {
                                             <ul class="m-2 p-0">
                                                 <li class="fs text-start">
                                                     <span class="dot-1 me-2"></span>
-                                                    Service 1 57%
+                                                    Service 1
                                                 </li>
                                                 <li class="fs text-start">
                                                     <span class="dot-2 me-2"></span>
-                                                    Service 2 15%
+                                                    Service 2
                                                 </li>
                                                 <li class="fs text-start">
                                                     <span class="dot-3 me-2"></span>
-                                                    Service 3 28%
+                                                    Service 3
                                                 </li>
                                             </ul>
                                         </div>
@@ -358,7 +364,7 @@ if (!empty($_POST["flogout"])) {
                                 </div>
                             </div>
 
-                            <div class="row pb-3">
+                            <div class="row pb-5">
 
                                 <div class="col-xxl-12 mb-3">
                                     <div class="p-2 card shadow" style="height: 100%;">
@@ -380,7 +386,7 @@ if (!empty($_POST["flogout"])) {
                                 <div class="text-center">
                                     <h2>List Booktour</h2>
                                 </div>
-                                <div class="pb-5 d-flex justify-content-center">
+                                <div class="pb-5">
                                     <div style="overflow-x: auto;">
 
                                         <div id="tbl-kithi" class="mt-4 pb-5" >
@@ -396,6 +402,7 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">Phone</th>
                                                     <th scope="col">Status</th>
                                                     <th scope="col">Description</th>
+                                                    <th scope="col">Action</th>
                                                 </tr>
                                                 <?php 
                                                 
@@ -419,6 +426,7 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->AnonymousPhone</td>";
                                                         $strTbl .= "<td>$obj->Status</td>";
                                                         $strTbl .= "<td>$obj->Description</td>";
+                                                        $strTbl .= "<td>...</td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -470,15 +478,24 @@ if (!empty($_POST["flogout"])) {
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">TourPrice:</label>
-                                                <input type="text" id="TourPrice" name="fTourPrice" class="form-control" placeholder="TourPrice" />
+                                                <div class="input-group">
+                                                    <input type="text" id="TourPrice" name="fTourPrice" class="form-control" placeholder="TourPrice" />
+                                                    <span class="input-group-text">VND</span>
+                                                </div>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">TourPromotion:</label>
-                                                <input type="text" id="TourPromotion" name="fTourSale" class="form-control" placeholder="TourPromotion" />
+                                                <div class="input-group">
+                                                    <input type="text" id="TourPromotion" name="fTourSale" class="form-control" placeholder="TourPromotion" />
+                                                    <span class="input-group-text">%</span>
+                                                </div>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Location:</label>
-                                                <input type="text" id="Location" name="fLocation" class="form-control" placeholder="Location" />
+                                                <div class="input-group">
+                                                    <input type="text" id="Location" name="fLocation" class="form-control" placeholder="Location" />
+                                                    <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
+                                                </div>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">AvatarTour:</label>
@@ -496,12 +513,12 @@ if (!empty($_POST["flogout"])) {
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
                                                 <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submit" id="btntour" name="ftour" class="btn btn-primary" value="Submit" />
+                                            <input type="submit" id="btntour" name="ftour" class="btn btn-primary" value="Save" />
                                         </form>
                                         <?php
                                         $message = "";
 
-                                        if (isset($_POST['ftour']) && $_POST['ftour'] == 'Submit') {
+                                        if (isset($_POST['ftour']) && $_POST['ftour'] == 'Save') {
                                             if (isset($_FILES['fAvatarTour']) && $_FILES['fAvatarTour']['error'] === UPLOAD_ERR_OK) {
                                 
                                                 // lưu vào thư mục tạm webserver
@@ -580,13 +597,13 @@ if (!empty($_POST["flogout"])) {
                                 <div class="text-center">
                                     <h2>List Tour</h2>
                                 </div>
-                                <div class="pb-5 d-flex justify-content-center">
+                                <div class="pb-5">
                                     <div style="overflow-x: auto;">
 
                                         <div id="tbl-kithi" class="mt-4 pb-5" >
                                             <table class="table table-striped table-hover">
                                                 <tr>
-                                                    <th scope="col">STT</th>
+                                                    <!-- <th scope="col">STT</th>
                                                     <th scope="col">ID</th>
                                                     <th scope="col">CategoryTour</th>
                                                     <th scope="col">TourName</th>
@@ -598,6 +615,15 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">AvatarTour</th>
                                                     <th scope="col">Status</th>
                                                     <th scope="col">Description</th>
+                                                    <th scope="col">Action</th> -->
+
+                                                    <th scope="col">STT</th>
+                                                    <th scope="col">CategoryTour</th>
+                                                    <th scope="col">TourName</th>
+                                                    <th scope="col">TimeStart</th>
+                                                    <th scope="col">TimeEnd</th>
+                                                    <th scope="col">TourPrice</th>
+                                                    <th scope="col">More</th>
                                                 </tr>
                                                 <?php 
                                                 
@@ -611,18 +637,27 @@ if (!empty($_POST["flogout"])) {
                                                     $obj = $arr[$i];
 
                                                     $strTbl .= "<tr>";
+                                                        // $strTbl .= "<th>". $stt++ ."</th>";
+                                                        // $strTbl .= "<td>$obj->TourID</td>";
+                                                        // $strTbl .= "<td>$obj->CategoryTourID</td>";
+                                                        // $strTbl .= "<td>$obj->TourName</td>";
+                                                        // $strTbl .= "<td>$obj->TimeStart</td>";
+                                                        // $strTbl .= "<td>$obj->TimeLimit</td>";
+                                                        // $strTbl .= "<td>$obj->TourPrice</td>";
+                                                        // $strTbl .= "<td>$obj->TourSale</td>";
+                                                        // $strTbl .= "<td>$obj->Location</td>";
+                                                        // $strTbl .= "<td><img src='$obj->AvatarTour' alt='banner' width='200' height='100'></td>";
+                                                        // $strTbl .= "<td>$obj->Status</td>";
+                                                        // $strTbl .= "<td>$obj->Description</td>";
+                                                        // $strTbl .= "<td>...</td>";
+
                                                         $strTbl .= "<th>". $stt++ ."</th>";
-                                                        $strTbl .= "<td>$obj->TourID</td>";
                                                         $strTbl .= "<td>$obj->CategoryTourID</td>";
                                                         $strTbl .= "<td>$obj->TourName</td>";
                                                         $strTbl .= "<td>$obj->TimeStart</td>";
                                                         $strTbl .= "<td>$obj->TimeLimit</td>";
                                                         $strTbl .= "<td>$obj->TourPrice</td>";
-                                                        $strTbl .= "<td>$obj->TourSale</td>";
-                                                        $strTbl .= "<td>$obj->Location</td>";
-                                                        $strTbl .= "<td><img src='$obj->AvatarTour' alt='banner' width='200' height='100'></td>";
-                                                        $strTbl .= "<td>$obj->Status</td>";
-                                                        $strTbl .= "<td>$obj->Description</td>";
+                                                        $strTbl .= "<td><button class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#modaltour'>More</button></td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -693,13 +728,13 @@ if (!empty($_POST["flogout"])) {
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
                                                 <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submit" id="btnMountaineering" name="fMountaineering" class="btn btn-primary" value="Submit" />
+                                            <input type="submit" id="btnMountaineering" name="fMountaineering" class="btn btn-primary" value="Save" />
                                         </form>
 
                                         <?php
                                         $message = "";
 
-                                        if (isset($_POST['fMountaineering']) && $_POST['fMountaineering'] == 'Submit') {
+                                        if (isset($_POST['fMountaineering']) && $_POST['fMountaineering'] == 'Save') {
                                             if (isset($_FILES['fBanner']) && $_FILES['fBanner']['error'] === UPLOAD_ERR_OK) {
                                 
                                                 // lưu vào thư mục tạm webserver
@@ -775,7 +810,7 @@ if (!empty($_POST["flogout"])) {
                                 <div class="text-center">
                                     <h2>List Mountaineering</h2>
                                 </div>
-                                <div class="pb-5 d-flex justify-content-center">
+                                <div class="pb-5">
                                     <div style="overflow-x: auto;">
                                         <div id="tbl-kithi" class="mt-4 pb-5">
                                             <table class="table table-striped table-hover">
@@ -791,6 +826,7 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">Sheltering</th>
                                                     <th scope="col">Techniques</th>
                                                     <th scope="col">Description</th>
+                                                    <th scope="col">Action</th>
                                                 </tr>
                                                 
                                                 <?php 
@@ -816,6 +852,7 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->sheltering</td>";
                                                         $strTbl .= "<td>$obj->techniques</td>";
                                                         $strTbl .= "<td>$obj->description</td>";
+                                                        $strTbl .= "<td>...</td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -847,21 +884,30 @@ if (!empty($_POST["flogout"])) {
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Price:</label>
-                                                <input type="text" id="Price" name="fPrice" class="form-control" placeholder="Price" />
+                                                <div class="input-group">
+                                                    <input type="text" id="Price" name="fPrice" class="form-control" placeholder="Price" />
+                                                    <span class="input-group-text">VND</span>
+                                                </div>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">VAT:</label>
-                                                <input type="text" id="VAT" name="fVAT" class="form-control" placeholder="VAT" />
+                                                <div class="input-group">
+                                                    <input type="text" id="VAT" name="fVAT" class="form-control" placeholder="VAT" value="8"/>
+                                                    <span class="input-group-text">%</span>
+                                                </div>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Sale:</label>
-                                                <input type="text" id="Sale" name="fSale" class="form-control" placeholder="Sale" />
+                                                <div class="input-group">
+                                                    <input type="text" id="Sale" name="fSale" class="form-control" placeholder="Sale" />
+                                                    <span class="input-group-text">%</span>
+                                                </div>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
                                                 <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submit" id="btnservice" name="fservice" class="btn btn-primary" value="Submit" />
+                                            <input type="submit" id="btnservice" name="fservice" class="btn btn-primary" value="Save" />
                                         </form>
                                         <?php
 
@@ -891,7 +937,7 @@ if (!empty($_POST["flogout"])) {
                                 <div class="text-center">
                                     <h2>List Service</h2>
                                 </div>
-                                <div class="pb-5 d-flex justify-content-center">
+                                <div class="pb-5">
                                     <div style="overflow-x: auto;">
                                         
                                         <div id="tbl-kithi" class="mt-4 pb-5">
@@ -904,6 +950,7 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">VAT</th>
                                                     <th scope="col">Sale</th>
                                                     <th scope="col">Description</th>
+                                                    <th scope="col">Action</th>
                                                 </tr>
                                                 <?php 
                                                 
@@ -924,6 +971,7 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->vAT</td>";
                                                         $strTbl .= "<td>$obj->sale</td>";
                                                         $strTbl .= "<td>$obj->description</td>";
+                                                        $strTbl .= "<td>...</td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -969,8 +1017,8 @@ if (!empty($_POST["flogout"])) {
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Content:</label>
-                                                <input type="text" id="Content" name="fContent" class="form-control" placeholder="Content" />
-                                            </div>
+                                                <textarea name="fContent" id="editor1" rows="10" cols="80" class="form-control">Content here...</textarea>
+                                            </div> 
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">AvatarNews:</label>
                                                 <input type="file" id="AvatarNews" name="fAvatarNews" class="form-control" placeholder="AvatarNews" />
@@ -983,12 +1031,12 @@ if (!empty($_POST["flogout"])) {
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
                                                 <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submit" id="btnnews" name="fnews" class="btn btn-primary" value="Submit" />
+                                            <input type="submit" id="btnnews" name="fnews" class="btn btn-primary" value="Save" />
                                         </form>
                                         <?php
                                         $message = "";
 
-                                        if (isset($_POST['fnews']) && $_POST['fnews'] == 'Submit') {
+                                        if (isset($_POST['fnews']) && $_POST['fnews'] == 'Save') {
                                             if (isset($_FILES['fAvatarNews']) && $_FILES['fAvatarNews']['error'] === UPLOAD_ERR_OK) {
                                 
                                                 // lưu vào thư mục tạm webserver
@@ -1059,7 +1107,7 @@ if (!empty($_POST["flogout"])) {
                                 <div class="text-center">
                                     <h2>List News</h2>
                                 </div>
-                                <div class="pb-5 d-flex justify-content-center">
+                                <div class="pb-5">
                                     <div style="overflow-x: auto;">
 
                                         <div id="tbl-kithi" class="mt-4 pb-5" >
@@ -1073,6 +1121,7 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">AvatarNews</th>
                                                     <th scope="col">Author</th>
                                                     <th scope="col">Description</th>
+                                                    <th scope="col">Action</th>
                                                 </tr>
                                                 <?php 
                                                 
@@ -1094,6 +1143,7 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td><img src='$obj->AvatarNews' alt='AvatarNews' width='200' height='100'></td>";
                                                         $strTbl .= "<td>$obj->Author</td>";
                                                         $strTbl .= "<td>$obj->Description</td>";
+                                                        $strTbl .= "<td>...</td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -1129,7 +1179,7 @@ if (!empty($_POST["flogout"])) {
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
                                                 <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submit" id="btnlibrary" name="flibrary" class="btn btn-primary" value="Submit" />
+                                            <input type="submit" id="btnlibrary" name="flibrary" class="btn btn-primary" value="Save" />
                                         </form>
                                         <?php
                                         
@@ -1153,7 +1203,7 @@ if (!empty($_POST["flogout"])) {
                                 <div class="text-center">
                                     <h2>List Library</h2>
                                 </div>
-                                <div class="pb-5 d-flex justify-content-center">
+                                <div class="pb-5">
                                     <div style="overflow-x: auto;">
 
                                         <div id="tbl-kithi" class="mt-4 pb-5" >
@@ -1163,6 +1213,7 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">ID</th>
                                                     <th scope="col">LibraryName</th>
                                                     <th scope="col">Description</th>
+                                                    <th scope="col">Action</th>
                                                 </tr>
                                                 <?php 
                                                 
@@ -1180,6 +1231,7 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->libraryID</td>";
                                                         $strTbl .= "<td>$obj->libraryName</td>";
                                                         $strTbl .= "<td>$obj->description</td>";
+                                                        $strTbl .= "<td>...</td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -1220,7 +1272,7 @@ if (!empty($_POST["flogout"])) {
                                             </div> -->
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Upload:</label>
-                                                <input type="text" id="Upload" name="fUpload" class="form-control" placeholder="Upload" />
+                                                <input type="file" id="Upload" name="fUpload" class="form-control" placeholder="Upload" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Alt:</label>
@@ -1230,7 +1282,7 @@ if (!empty($_POST["flogout"])) {
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
                                                 <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submit" id="btnitemlibrary" name="fitemlibrary" class="btn btn-primary" value="Submit" />
+                                            <input type="submit" id="btnitemlibrary" name="fitemlibrary" class="btn btn-primary" value="Save" />
                                         </form>
                                         <?php 
                                         
@@ -1256,7 +1308,7 @@ if (!empty($_POST["flogout"])) {
                                 <div class="text-center">
                                     <h2>List Itemlibrary</h2>
                                 </div>
-                                <div class="pb-5 d-flex justify-content-center">
+                                <div class="pb-5">
                                     <div style="overflow-x: auto;">
 
                                         <div id="tbl-kithi" class="mt-4 pb-5" >
@@ -1267,6 +1319,7 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">ItemID</th>
                                                     <th scope="col">LibraryID</th>
                                                     <th scope="col">Description</th>
+                                                    <th scope="col">Action</th>
                                                 </tr>
                                                 <?php 
                                                 
@@ -1285,6 +1338,7 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->itemID</td>";
                                                         $strTbl .= "<td>$obj->libraryID</td>";
                                                         $strTbl .= "<td>$obj->description</td>";
+                                                        $strTbl .= "<td>...</td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -1324,7 +1378,7 @@ if (!empty($_POST["flogout"])) {
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
                                                 <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submit" id="btncategory" name="fcategory" class="btn btn-primary" value="Submit" />
+                                            <input type="submit" id="btncategory" name="fcategory" class="btn btn-primary" value="Save" />
                                         </form>
                                         <?php 
                                         
@@ -1350,7 +1404,7 @@ if (!empty($_POST["flogout"])) {
                                 <div class="text-center">
                                     <h2>List Category</h2>
                                 </div>
-                                <div class="pb-5 d-flex justify-content-center">
+                                <div class="pb-5">
                                     <div style="overflow-x: auto;">
 
                                         <div id="tbl-kithi" class="mt-4 pb-5" >
@@ -1361,6 +1415,7 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">CategoryName</th>
                                                     <th scope="col">ParentID</th>
                                                     <th scope="col">Description</th>
+                                                    <th scope="col">Action</th>
                                                 </tr>
                                                 <?php 
                                                 
@@ -1379,6 +1434,7 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->CategoryName</td>";
                                                         $strTbl .= "<td>$obj->ParentID</td>";
                                                         $strTbl .= "<td>$obj->Description</td>";
+                                                        $strTbl .= "<td>...</td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -1418,7 +1474,7 @@ if (!empty($_POST["flogout"])) {
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
                                                 <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submit" id="btncategorytour" name="fcategorytour" class="btn btn-primary" value="Submit" />
+                                            <input type="submit" id="btncategorytour" name="fcategorytour" class="btn btn-primary" value="Save" />
                                         </form>
                                         <?php 
                                         
@@ -1444,7 +1500,7 @@ if (!empty($_POST["flogout"])) {
                                 <div class="text-center">
                                     <h2>List Categorytour</h2>
                                 </div>
-                                <div class="pb-5 d-flex justify-content-center">
+                                <div class="pb-5">
                                     <div style="overflow-x: auto;">
 
                                         <div id="tbl-kithi" class="mt-4 pb-5" >
@@ -1455,6 +1511,7 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">CategoryTourName</th>
                                                     <th scope="col">Status</th>
                                                     <th scope="col">Description</th>
+                                                    <th scope="col">Action</th>
                                                 </tr>
                                                 <?php 
                                                 
@@ -1473,6 +1530,7 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->CategoryTourName</td>";
                                                         $strTbl .= "<td>$obj->Status</td>";
                                                         $strTbl .= "<td>$obj->Description</td>";
+                                                        $strTbl .= "<td>...</td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -1497,7 +1555,7 @@ if (!empty($_POST["flogout"])) {
                                 <div class="text-center">
                                     <h2>List Categorytour</h2>
                                 </div>
-                                <div class="pb-5 d-flex justify-content-center">
+                                <div class="pb-5">
                                     <div style="overflow-x: auto;">
 
                                         <div id="tbl-kithi" class="mt-4 pb-5" >
@@ -1511,7 +1569,8 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">Email</th>
                                                     <th scope="col">Telephone</th>
                                                     <th scope="col">Message</th>
-                                                    <th scope="col">description</th>
+                                                    <th scope="col">Description</th>
+                                                    <th scope="col">Action</th>
                                                 </tr>
                                                 <?php 
                                                 
@@ -1534,6 +1593,7 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->telephone</td>";
                                                         $strTbl .= "<td>$obj->message</td>";
                                                         $strTbl .= "<td>$obj->description</td>";
+                                                        $strTbl .= "<td>...</td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -1569,7 +1629,7 @@ if (!empty($_POST["flogout"])) {
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
                                                 <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submit" id="btnItem" name="fItem" class="btn btn-primary" value="Submit" />
+                                            <input type="submit" id="btnItem" name="fItem" class="btn btn-primary" value="Save" />
                                         </form>
                                         <?php 
                                         
@@ -1593,7 +1653,7 @@ if (!empty($_POST["flogout"])) {
                                 <div class="text-center">
                                     <h2>List Item</h2>
                                 </div>
-                                <div class="pb-5 d-flex justify-content-center">
+                                <div class="pb-5">
                                     <div style="overflow-x: auto;">
 
                                         <div id="tbl-kithi" class="mt-4 pb-5" >
@@ -1648,7 +1708,7 @@ if (!empty($_POST["flogout"])) {
                                         </div>
                                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                                             <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Location:</label>
+                                                <label class="form-label fw-bold text-secondary">Mountaineering:</label>
                                                 <select id="Mountaineering" name="fMountaineeringID" class="form-select">
                                                     <option value="1">One</option>
                                                     <option value="2">Two</option>
@@ -1667,7 +1727,7 @@ if (!empty($_POST["flogout"])) {
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
                                                 <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submit" id="btnlocationandservice" name="flocationandservice" class="btn btn-primary" value="Submit" />
+                                            <input type="submit" id="btnlocationandservice" name="flocationandservice" class="btn btn-primary" value="Save" />
                                         </form>
                                         <?php 
                                         
@@ -1693,7 +1753,7 @@ if (!empty($_POST["flogout"])) {
                                 <div class="text-center">
                                     <h2>List Locationandservice</h2>
                                 </div>
-                                <div class="pb-5 d-flex justify-content-center">
+                                <div class="pb-5">
                                     <div style="overflow-x: auto;">
 
                                         <div id="tbl-kithi" class="mt-4 pb-5" >
@@ -1704,6 +1764,7 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">MountaineeringID</th>
                                                     <th scope="col">ServiceID</th>
                                                     <th scope="col">Description</th>
+                                                    <th scope="col">Action</th>
                                                 </tr>
                                                 <?php 
                                                 
@@ -1722,6 +1783,7 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->mountaineeringID</td>";
                                                         $strTbl .= "<td>$obj->serviceID</td>";
                                                         $strTbl .= "<td>$obj->description</td>";
+                                                        $strTbl .= "<td>...</td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -1737,6 +1799,50 @@ if (!empty($_POST["flogout"])) {
 
                         </div>
                     </div>
+
+                    <!-- profile -->
+                    <div class="tab-pane fade" id="profile">
+                        <div class="container pt-5 pb-5 text-dark">
+                            <div>
+                                <h2 class="text-center">Account Information</h2> 
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <div style="width: 650px;">
+                                    <div class="p-3">
+                                        <div class="mt-2 mb-2 d-flex justify-content-between border-bottom">
+                                            <strong class="text-secondary">Username:</strong><span class="text-primary"> admin</span>
+                                        </div>
+                                        <div class="mt-2 mb-2 d-flex justify-content-between border-bottom">
+                                            <strong class="text-secondary">Role:</strong><span class="text-primary"> Admin</span>
+                                        </div>
+                                    </div>
+                                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                                        <div class="p-3">
+                                            <div>
+                                                <h4>Reset password:</h3>
+                                            </div>
+                                            <div class="mt-3 mb-3">
+                                                <label class="form-label fw-bold text-secondary">Current password:</label>
+                                                <input type="text" id="crpass" name="fcrpass" class="form-control" placeholder="Pass" />
+                                            </div>
+                                            <div class="mt-3 mb-3">
+                                                <label class="form-label fw-bold text-secondary">New password:</label>
+                                                <input type="text" id="newpass" name="fnewpass" class="form-control" placeholder="Create pass" />
+                                            </div>
+                                            <div class="mt-3 mb-3">
+                                                <label class="form-label fw-bold text-secondary">Confirm password:</label>
+                                                <input type="text" id="cfpass" name="cfpass" class="form-control" placeholder="Create pass" />
+                                            </div>
+                                            <div class="mt-3 mb-3">
+                                                <input type="submit" class="btn btn-primary" name="fresetpass" value="Reset"/>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
                 <div>
                 
             </main>
@@ -1747,7 +1853,79 @@ if (!empty($_POST["flogout"])) {
             <!-- END FOOTER -->
 
             <!-- BEGIN MODAL -->
-            
+
+            <!-- modal tour -->
+            <!-- Modal -->
+            <div class="modal fade" id="modaltour" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Full info tour</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div style="overflow-x: auto;">
+
+                                <div id="tbl-kithi" class="mt-4 pb-5" >
+                                    <table class="table table-striped table-hover">
+                                        <tr>
+                                            <th scope="col">STT</th>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">CategoryTour</th>
+                                            <th scope="col">TourName</th>
+                                            <th scope="col">TimeStart</th>
+                                            <th scope="col">TimeLimit</th>
+                                            <th scope="col">TourPrice</th>
+                                            <th scope="col">TourSale</th>
+                                            <th scope="col">Location</th>
+                                            <th scope="col">AvatarTour</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Description</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                        <?php 
+                                        
+                                        $a = new Tour();
+                                        $arr = $a->getListTour();
+                                        $strTbl="";
+
+                                        $stt = 1;
+
+                                        for($i = 0; $i < count($arr); $i++) {
+                                            $obj = $arr[$i];
+
+                                            $strTbl .= "<tr>";
+                                                $strTbl .= "<th>". $stt++ ."</th>";
+                                                $strTbl .= "<td>$obj->TourID</td>";
+                                                $strTbl .= "<td>$obj->CategoryTourID</td>";
+                                                $strTbl .= "<td>$obj->TourName</td>";
+                                                $strTbl .= "<td>$obj->TimeStart</td>";
+                                                $strTbl .= "<td>$obj->TimeLimit</td>";
+                                                $strTbl .= "<td>$obj->TourPrice</td>";
+                                                $strTbl .= "<td>$obj->TourSale</td>";
+                                                $strTbl .= "<td>$obj->Location</td>";
+                                                $strTbl .= "<td><img src='$obj->AvatarTour' alt='banner' width='200' height='100'></td>";
+                                                $strTbl .= "<td>$obj->Status</td>";
+                                                $strTbl .= "<td>$obj->Description</td>";
+                                                $strTbl .= "<td>...</td>";
+                                            $strTbl .= "</tr>";
+                                            
+                                        }
+                                        
+                                        echo $strTbl;
+                                        ?>
+                                    </table>
+                                </div>
+
+                                </div>
+                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- END MODAL -->
         </div>
 
@@ -1760,5 +1938,9 @@ if (!empty($_POST["flogout"])) {
         <!-- JS ME -->
         <script src="./assets/js/loadMenu.js"></script>
         <script src="./assets/js/admin.js"></script>
+        <script src="../assets/js/ckeditor/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace( 'editor1' );
+        </script>
     </body> 
 </html>

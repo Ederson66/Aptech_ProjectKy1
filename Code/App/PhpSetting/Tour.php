@@ -84,7 +84,15 @@ class Tour {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT * FROM `tour`;";
+        $sql = "SELECT TourID, CategoryTourID, TourName, TimeStart, TimeLimit, TourPrice, TourSale, Location, AvatarTour, Description, Flag,
+				CASE
+					WHEN Status = 1 THEN 'Đang hoạt động'
+					WHEN Status = 2 THEN 'Dừng hoạt động'
+					WHEN Status = 2 THEN 'Chưa kích hoạt'
+					ELSE 'Error'
+				END
+				AS `Status`
+				FROM `tour`;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
@@ -95,6 +103,7 @@ class Tour {
         $list = Array();
         while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
             $s = new Tour();
+            $s->TourID = $row["TourID"];
             $s->CategoryTourID = $row["CategoryTourID"];
             $s->TourName = $row["TourName"];
 			$s->TimeStart = $row["TimeStart"];
