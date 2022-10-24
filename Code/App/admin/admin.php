@@ -3,8 +3,19 @@
 session_start();
 
 require_once '../PhpSetting/Common.php';
-// require_once '../PhpSetting/Usersystem.php';
 require_once '../PhpSetting/Usersystem.php';
+require_once '../PhpSetting/Mountaineering.php';
+require_once '../PhpSetting/Service.php';
+require_once '../PhpSetting/Tour.php';
+require_once '../PhpSetting/Booktour.php';
+require_once '../PhpSetting/News.php';
+require_once '../PhpSetting/Library.php';
+require_once '../PhpSetting/Category.php';
+require_once '../PhpSetting/CategoryTour.php';
+require_once '../PhpSetting/Contact.php';
+require_once '../PhpSetting/Item.php';
+require_once '../PhpSetting/Itemlibrary.php';
+require_once '../PhpSetting/Locationandservice.php';
 
 // check session
 $checkss = IsAuthen();
@@ -90,10 +101,35 @@ if (!empty($_POST["flogout"])) {
                             <li class="showmenu1">
                                 <a href="#dashboard" class="nav_link active" data-bs-toggle="tab" aria-selected="true"> <i class="bx bx-grid-alt nav_icon"></i> <span class="nav_name">Dashboard</span> </a>
                             </li>
-                            <!-- notification -->
+                            <!-- booktour -->
                             <li class="showmenu1">
-                                <a href="#notification" class="nav_link" data-bs-toggle="tab" aria-selected="false"> <i class="bx bi bi-bell nav_icon"></i> <span class="nav_name">Notify</span> </a>
+                                <span data-bs-target="#booktour" data-bs-toggle="tab" aria-selected="false">
+                                    <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu3">
+                                        <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Booktour <i class="bi bi-chevron-compact-down"></i></span>
+                                    </a>
+                                </span>
                             </li>
+                            <!-- menu booktour -->
+                            <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu3">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                                    <li><a class="dropdown-item cl-1" href="#">List Booktour</a></li>
+                                </ul>
+                            </div>
+                            <!-- tour -->
+                            <li class="showmenu1">
+                                <span data-bs-target="#tour" data-bs-toggle="tab" aria-selected="false">
+                                    <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu2">
+                                        <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Tour <i class="bi bi-chevron-compact-down"></i></span>
+                                    </a>
+                                </span>
+                            </li>
+                            <!-- menu tour -->
+                            <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu2">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                                    <li><a class="dropdown-item cl-1" href="#">Add Tour</a></li>
+                                    <li><a class="dropdown-item cl-1" href="#">List Tour</a></li>
+                                </ul>
+                            </div>
                             <!-- mountaineering -->
                             <li class="showmenu1">
                                 <span data-bs-target="#mountaineering" data-bs-toggle="tab" aria-selected="false">
@@ -122,35 +158,6 @@ if (!empty($_POST["flogout"])) {
                                 <ul class="btn-toggle-nav list-unstyled fw-normal small">
                                     <li><a class="dropdown-item cl-1" href="#">Add Service</a></li>
                                     <li><a class="dropdown-item cl-1" href="#">List Service</a></li>
-                                </ul>
-                            </div>
-                            <!-- tour -->
-                            <li class="showmenu1">
-                                <span data-bs-target="#tour" data-bs-toggle="tab" aria-selected="false">
-                                    <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu2">
-                                        <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Tour <i class="bi bi-chevron-compact-down"></i></span>
-                                    </a>
-                                </span>
-                            </li>
-                            <!-- menu tour -->
-                            <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu2">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                    <li><a class="dropdown-item cl-1" href="#">Add Tour</a></li>
-                                    <li><a class="dropdown-item cl-1" href="#">List Tour</a></li>
-                                </ul>
-                            </div>
-                            <!-- booktour -->
-                            <li class="showmenu1">
-                                <span data-bs-target="#booktour" data-bs-toggle="tab" aria-selected="false">
-                                    <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu3">
-                                        <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Booktour <i class="bi bi-chevron-compact-down"></i></span>
-                                    </a>
-                                </span>
-                            </li>
-                            <!-- menu booktour -->
-                            <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu3">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                    <li><a class="dropdown-item cl-1" href="#">List Booktour</a></li>
                                 </ul>
                             </div>
                             <!-- news -->
@@ -228,20 +235,20 @@ if (!empty($_POST["flogout"])) {
                                 </ul>
                             </div>
                             <!-- item -->
-                            <li class="showmenu1">
+                            <!-- <li class="showmenu1">
                                 <span data-bs-target="#item" data-bs-toggle="tab" aria-selected="false">   
                                     <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu9">
                                         <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Item <i class="bi bi-chevron-compact-down"></i></span>
                                     </a>
                                 </span>
-                            </li>
+                            </li> -->
                             <!-- menu item -->
-                            <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu9">
+                            <!-- <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu9">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal small">
                                     <li><a class="dropdown-item cl-1" href="#">Add Item</a></li>
                                     <li><a class="dropdown-item cl-1" href="#">List Item</a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                             <!-- itemlibrary -->
                             <li class="showmenu1">
                                 <span data-bs-target="#itemlibrary" data-bs-toggle="tab" aria-selected="false">   
@@ -479,94 +486,194 @@ if (!empty($_POST["flogout"])) {
                         </div>
                     </div>
 
-                    <!-- notification -->
-                    <div class="tab-pane fade" id="notification">
-                        <h2 class="text-center text-dark">Notification</h2>
-                    </div>
-
                     <!-- mountaineering -->
                     <div class="tab-pane fade" id="mountaineering">
                         <div class="container text-dark pb-5">
                             <!-- form Add Mountaineering -->
-                            <div id="addMountaineering"> 
-                                    <div class="pt-5 pb-5 d-flex justify-content-center">
-                                        <div style="width: 650px;">
-                                            <div class="text-center pb-3">
-                                                <h2 class="">Add Mountaineering</h2>
-                                            </div>  
-                                            <form>
-                                                <div class="mb-3">
-                                                    <label class="form-label fw-bold text-secondary">MountainName:</label>
-                                                    <input type="text" id="MountainName" class="form-control" placeholder="MountainName">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label fw-bold text-secondary">LocationX:</label>
-                                                    <input type="text" id="LocationX" class="form-control" placeholder="LocationX">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label fw-bold text-secondary">LocationY:</label>
-                                                    <input type="text" id="LocationY" class="form-control" placeholder="LocationY">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label fw-bold text-secondary">Banner:</label>
-                                                    <input type="file" id="Banner" class="form-control" placeholder="Banner">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label fw-bold text-secondary">Type:</label>
-                                                    <input type="text" id="Type" class="form-control" placeholder="Type">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label fw-bold text-secondary">Level:</label>
-                                                    <input type="text" id="Level" class="form-control" placeholder="Level">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label fw-bold text-secondary">Sheltering:</label>
-                                                    <input type="text" id="Sheltering" class="form-control" placeholder="Sheltering">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label fw-bold text-secondary">Techniques:</label>
-                                                    <input type="text" id="Techniques" class="form-control" placeholder="Techniques">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label fw-bold text-secondary">Description:</label>
-                                                    <input type="text" id="Description" class="form-control" placeholder="Description">
-                                                </div>
-                                                <input type="submit" id="btnMountaineering" class="btn btn-primary" value="Submit">
-                                            </form>
+                            <div id="addMountaineering">
+                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                    <div style="width: 650px;">
+                                        <div class="text-center pb-3">
+                                            <h2 class="">Add Mountaineering</h2>
                                         </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- table list Mountaineering -->
-                                <div id="listMountaineering">
-                                    <div class="text-center">
-                                        <h2>List Mountaineering</h2>
-                                    </div>
-                                    <div class="pb-5 d-flex justify-content-center">
-                                        <div style="overflow-x: auto;">
-                                            
-                                            <div id="tbl-kithi" class="mt-4 pb-5">
-                                                <table class="table table-striped table-hover">
-                                                    <tr>
-                                                        <th scope="col">STT</th>
-                                                        <th scope="col">ID</th>
-                                                        <th scope="col">MountainName</th>
-                                                        <th scope="col">LocationX</th>
-                                                        <th scope="col">LocationY</th>
-                                                        <th scope="col">Banner</th>
-                                                        <th scope="col">Type</th>
-                                                        <th scope="col">Level</th>
-                                                        <th scope="col">Sheltering</th>
-                                                        <th scope="col">Techniques</th>
-                                                        <th scope="col">Description</th>
-                                                    </tr>
-                                                </table>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">MountainName:</label>
+                                                <input type="text" id="MountainName" name="fMountainName" class="form-control" placeholder="MountainName" />
                                             </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">LocationX:</label>
+                                                <input type="text" id="LocationX" name="fLocationX" class="form-control" placeholder="LocationX" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">LocationY:</label>
+                                                <input type="text" id="LocationY" name="fLocationY" class="form-control" placeholder="LocationY" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Banner:</label>
+                                                <input type="file" id="Banner" name="fBanner" class="form-control" placeholder="Banner" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Type:</label>
+                                                <select class="form-select" id="Type" name="fType">
+                                                    <option value="1">1 chặng</option>
+                                                    <option value="2">Nhiều chặng</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Level:</label>
+                                                <select class="form-select" id="Level" name="fLevel">
+                                                    <option value="1">Dễ</option>
+                                                    <option value="2">Trung bình</option>
+                                                    <option value="3">Khó</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Sheltering:</label>
+                                                <input type="text" id="Sheltering" name="fSheltering" class="form-control" placeholder="Sheltering" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Techniques:</label>
+                                                <input type="text" id="Techniques" name="fTechniques" class="form-control" placeholder="Techniques" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Description:</label>
+                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                            </div>
+                                            <input type="submit" id="btnMountaineering" name="fMountaineering" class="btn btn-primary" value="Submit" />
+                                        </form>
 
+                                        <?php
+                                        $message = "";
+
+                                        if (isset($_POST['fMountaineering']) && $_POST['fMountaineering'] == 'Submit') {
+                                            if (isset($_FILES['fBanner']) && $_FILES['fBanner']['error'] === UPLOAD_ERR_OK) {
+                                
+                                                // lưu vào thư mục tạm webserver
+                                                $fileTmpPath = $_FILES['fBanner']['tmp_name'];
+                                                //echo $fileTmpPath;
+                                
+                                                // thông tin file
+                                                $fileName = $_FILES['fBanner']['name'];
+                                                $fileSize = $_FILES['fBanner']['size'];
+                                                $fileType = $_FILES['fBanner']['type'];
+                                
+                                                // lấy tên file và đuôi file
+                                                $fileNameCmps = explode(".", $fileName);
+                                
+                                                // chuẩn hóa lại tên file
+                                                $fileExtension = strtolower(end($fileNameCmps));
+                                
+                                                // thiết đặt filename để k bị trùng nhau 
+                                                $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+                                
+                                                // kiem tra phan mo rong cua file
+                                                $allowedfileExtensions = array('jpg', 'gif', 'png');
+                                
+                                                // kiểm tra đuôi file
+                                                if (in_array($fileExtension, $allowedfileExtensions)) {
+                                                    // thu muc file uploaded
+                                                    global $uploadFileDir;
+                                                    $uploadFileDir = './admin/assets/img/Mountaineering/';
+                                                    $dest_path = $uploadFileDir . $newFileName;
+                                
+                                                    // if (move_uploaded_file($fileTmpPath, $dest_path)) {
+                                                    //     $message = 'Upload file success.';
+                                                    // } else {
+                                                    //     $message = 'Kiem tra xem thu muc co quyen ghi.';
+                                                    // }
+                                                } else {
+                                                    $message = 'Chi cho phep cac loai file: ' . implode(',', $allowedfileExtensions);
+                                                }
+                                            }
+                                        }
+                                        echo $message;
+
+                                        if(isset($_POST["fMountaineering"])) {
+                                            $fMountainName = $_POST["fMountainName"];
+                                            $fLocationX = $_POST["fLocationX"];
+                                            $fLocationY = $_POST["fLocationY"];
+                                            // $fBanner = $_POST["fBanner"];
+                                            $fType = $_POST["fType"];
+                                            $fLevel = $_POST["fLevel"];
+                                            $fSheltering = $_POST["fSheltering"];
+                                            $fTechniques = $_POST["fTechniques"];
+                                            $fDescription = $_POST["fDescription"];
+                                    
+                                            $a = new Mountaineering();
+                                            $a->mountainName = $fMountainName; 
+                                            $a->locationX = $fLocationX; 
+                                            $a->locationY = $fLocationY; 
+                                            $a->banner = $uploadFileDir.$newFileName; 
+                                            $a->type = $fType; 
+                                            $a->level = $fLevel; 
+                                            $a->sheltering = $fSheltering;
+                                            $a->techniques = $fTechniques; 
+                                            $a->description = $fDescription; 
+                                            $a->addMountaineering(); 
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- table list Mountaineering -->
+                            <div id="listMountaineering">
+                                <div class="text-center">
+                                    <h2>List Mountaineering</h2>
+                                </div>
+                                <div class="pb-5 d-flex justify-content-center">
+                                    <div style="overflow-x: auto;">
+                                        <div id="tbl-kithi" class="mt-4 pb-5">
+                                            <table class="table table-striped table-hover">
+                                                <tr>
+                                                    <th scope="col">STT</th>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">MountainName</th>
+                                                    <th scope="col">LocationX</th>
+                                                    <th scope="col">LocationY</th>
+                                                    <th scope="col">Banner</th>
+                                                    <th scope="col">Type</th>
+                                                    <th scope="col">Level</th>
+                                                    <th scope="col">Sheltering</th>
+                                                    <th scope="col">Techniques</th>
+                                                    <th scope="col">Description</th>
+                                                </tr>
+                                                
+                                                <?php 
+                                                
+                                                $a = new Mountaineering();
+                                                $arr = $a->getListMountaineering();
+                                                $strTbl="";
+
+                                                $stt = 1;
+
+                                                for($i = 0; $i < count($arr); $i++) {
+                                                    $obj = $arr[$i];
+
+                                                    $strTbl .= "<tr>";
+                                                        $strTbl .= "<th>". $stt++ ."</th>";
+                                                        $strTbl .= "<td>$obj->mountaineeringID</td>";
+                                                        $strTbl .= "<td>$obj->mountainName</td>";
+                                                        $strTbl .= "<td>$obj->locationX</td>";
+                                                        $strTbl .= "<td>$obj->locationY</td>";
+                                                        $strTbl .= "<td>$obj->banner</td>";
+                                                        $strTbl .= "<td>$obj->type</td>";
+                                                        $strTbl .= "<td>$obj->level</td>";
+                                                        $strTbl .= "<td>$obj->sheltering</td>";
+                                                        $strTbl .= "<td>$obj->techniques</td>";
+                                                        $strTbl .= "<td>$obj->description</td>";
+                                                    $strTbl .= "</tr>";
+                                                    
+                                                }
+                                                
+                                                echo $strTbl;
+                                                ?>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
-                            
+                            </div>
                         </div>
                     </div>
 
@@ -580,29 +687,48 @@ if (!empty($_POST["flogout"])) {
                                         <div class="text-center pb-3">
                                             <h2>Add Service</h2>
                                         </div>
-                                        <form>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">ServiceName:</label>
-                                                <input type="text" id="ServiceName" class="form-control" placeholder="ServiceName" />
+                                                <input type="text" id="ServiceName" name="fServiceName" class="form-control" placeholder="ServiceName" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Price:</label>
-                                                <input type="text" id="Price" class="form-control" placeholder="Price" />
+                                                <input type="text" id="Price" name="fPrice" class="form-control" placeholder="Price" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">VAT:</label>
-                                                <input type="text" id="VAT" class="form-control" placeholder="VAT" />
+                                                <input type="text" id="VAT" name="fVAT" class="form-control" placeholder="VAT" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Sale:</label>
-                                                <input type="text" id="Sale" class="form-control" placeholder="Sale" />
+                                                <input type="text" id="Sale" name="fSale" class="form-control" placeholder="Sale" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" class="form-control" placeholder="Description" />
+                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submit" id="btnservice" class="btn btn-primary" value="Submit" />
+                                            <input type="submit" id="btnservice" name="fservice" class="btn btn-primary" value="Submit" />
                                         </form>
+                                        <?php
+
+                                        if(isset($_POST["fservice"])) {
+                                            $fServiceName = $_POST["fServiceName"];
+                                            $fPrice = $_POST["fPrice"];
+                                            $fVAT = $_POST["fVAT"];
+                                            $fSale = $_POST["fSale"];
+                                            $fDescription = $_POST["fDescription"];
+
+                                            $a = new Service();
+                                            $a->serviceName = $fServiceName;
+                                            $a->price = $fPrice;
+                                            $a->vAT = $fVAT;
+                                            $a->sale = $fSale;
+                                            $a->description = $fDescription;
+                                            $a->addService();
+                                        }
+
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -626,6 +752,31 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">Sale</th>
                                                     <th scope="col">Description</th>
                                                 </tr>
+                                                <?php 
+                                                
+                                                $a = new Service();
+                                                $arr = $a->getListService();
+                                                $strTbl="";
+
+                                                $stt = 1;
+
+                                                for($i = 0; $i < count($arr); $i++) {
+                                                    $obj = $arr[$i];
+
+                                                    $strTbl .= "<tr>";
+                                                        $strTbl .= "<th>". $stt++ ."</th>";
+                                                        $strTbl .= "<td>$obj->serviceID</td>";
+                                                        $strTbl .= "<td>$obj->serviceName</td>";
+                                                        $strTbl .= "<td>$obj->price</td>";
+                                                        $strTbl .= "<td>$obj->vAT</td>";
+                                                        $strTbl .= "<td>$obj->sale</td>";
+                                                        $strTbl .= "<td>$obj->description</td>";
+                                                    $strTbl .= "</tr>";
+                                                    
+                                                }
+                                                
+                                                echo $strTbl;
+                                                ?>
                                             </table>
                                         </div>
 
@@ -646,55 +797,132 @@ if (!empty($_POST["flogout"])) {
                                         <div class="text-center pb-3">
                                             <h2>Add Tour</h2>
                                         </div>
-                                        <form>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">CategoryTour:</label>
-                                                <select class="form-select" id="CategoryTour">
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                            </div>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">TourName:</label>
-                                                <input type="text" id="TourName" class="form-control" placeholder="TourName" />
+                                                <input type="text" id="TourName" name="fTourName" class="form-control" placeholder="TourName" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">CategoryTour:</label>
+                                                <select class="form-select" name="fCategoryTour" id="CategoryTour">
+                                                    <option value="1">kHÁM PHÁ HANG ĐỘNG</option>
+                                                    <option value="2">Cắm trại</option>
+                                                    <option value="3">Chinh phục núi cao</option>
+                                                </select>
                                             </div>
                                             <div class="mb-3 d-flex w-100">
                                                 <div class="w-50 pe-2">
                                                     <label class="form-label fw-bold text-secondary">TimeStart:</label>
-                                                    <input type="date" id="TimeStart" class="form-control" placeholder="TimeStart" />
+                                                    <input type="date" id="TimeStart" name="fTimeStart" class="form-control" placeholder="TimeStart" />
                                                 </div>
                                                 <div class="w-50 ps-2">
-                                                    <label class="form-label fw-bold text-secondary">TimeLimit:</label>
-                                                    <input type="date" id="TimeLimit" class="form-control" placeholder="TimeLimit" />
+                                                    <label class="form-label fw-bold text-secondary">TimeEnd:</label>
+                                                    <input type="date" id="TimeLimit" name="fTimeLimit" class="form-control" placeholder="TimeLimit" />
                                                 </div>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">TourPrice:</label>
-                                                <input type="text" id="TourPrice" class="form-control" placeholder="TourPrice" />
+                                                <input type="text" id="TourPrice" name="fTourPrice" class="form-control" placeholder="TourPrice" />
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">TourSale:</label>
-                                                <input type="text" id="TourSale" class="form-control" placeholder="TourSale" />
+                                                <label class="form-label fw-bold text-secondary">TourPromotion:</label>
+                                                <input type="text" id="TourPromotion" name="fTourSale" class="form-control" placeholder="TourPromotion" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Location:</label>
-                                                <input type="text" id="Location" class="form-control" placeholder="Location" />
+                                                <input type="text" id="Location" name="fLocation" class="form-control" placeholder="Location" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">AvatarTour:</label>
-                                                <input type="file" id="AvatarTour" class="form-control" placeholder="AvatarTour" />
+                                                <input type="file" id="AvatarTour" name="fAvatarTour" class="form-control" placeholder="AvatarTour" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Status:</label>
-                                                <input type="text" id="Status" class="form-control" placeholder="Status" />
+                                                <select class="form-select" id="Status" name="fStatus" >
+                                                    <option value="1">Đang hoạt động</option>
+                                                    <option value="2">Dừng hoạt động</option>
+                                                    <option value="3">Chưa kích hoạt</option>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" class="form-control" placeholder="Description" />
+                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submit" id="btntour" class="btn btn-primary" value="Submit" />
+                                            <input type="submit" id="btntour" name="ftour" class="btn btn-primary" value="Submit" />
                                         </form>
+                                        <?php
+                                        $message = "";
+
+                                        if (isset($_POST['ftour']) && $_POST['ftour'] == 'Submit') {
+                                            if (isset($_FILES['fAvatarTour']) && $_FILES['fAvatarTour']['error'] === UPLOAD_ERR_OK) {
+                                
+                                                // lưu vào thư mục tạm webserver
+                                                $fileTmpPath = $_FILES['fAvatarTour']['tmp_name'];
+                                                //echo $fileTmpPath;
+                                
+                                                // thông tin file
+                                                $fileName = $_FILES['fAvatarTour']['name'];
+                                                $fileSize = $_FILES['fAvatarTour']['size'];
+                                                $fileType = $_FILES['fAvatarTour']['type'];
+                                
+                                                // lấy tên file và đuôi file
+                                                $fileNameCmps = explode(".", $fileName);
+                                
+                                                // chuẩn hóa lại tên file
+                                                $fileExtension = strtolower(end($fileNameCmps));
+                                
+                                                // thiết đặt filename để k bị trùng nhau 
+                                                $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+                                
+                                                // kiem tra phan mo rong cua file
+                                                $allowedfileExtensions = array('jpg', 'gif', 'png');
+                                
+                                                // kiểm tra đuôi file
+                                                if (in_array($fileExtension, $allowedfileExtensions)) {
+                                                    // thu muc file uploaded
+                                                    global $uploadFileDir;
+                                                    $uploadFileDir = '.admin/assets/img/Tour/';
+                                                    $dest_path = $uploadFileDir . $newFileName;
+                                
+                                                    // if (move_uploaded_file($fileTmpPath, $dest_path)) {
+                                                    //     $message = 'Upload file success.';
+                                                    // } else {
+                                                    //     $message = 'Kiem tra xem thu muc co quyen ghi.';
+                                                    // }
+                                                } else {
+                                                    $message = 'Chi cho phep cac loai file: ' . implode(',', $allowedfileExtensions);
+                                                }
+                                            }
+                                        }
+                                        echo $message;
+
+                                        if(isset($_POST["ftour"])) {
+                                            $fCategoryTour = $_POST["fCategoryTour"];
+                                            $fTourName = $_POST["fTourName"];
+                                            $fTimeStart = $_POST["fTimeStart"];
+                                            $fTimeLimit = $_POST["fTimeLimit"];
+                                            $fTourPrice = $_POST["fTourPrice"];
+                                            $fTourSale = $_POST["fTourSale"];
+                                            $fLocation = $_POST["fLocation"];
+                                            // $fAvatarTour = $_POST["fAvatarTour"];
+                                            $fStatus = $_POST["fStatus"];
+                                            $fDescription = $_POST["fDescription"];
+
+                                            $a = new Tour();
+                                            $a->CategoryTourID = $fCategoryTour;
+                                            $a->TourName = $fTourName;
+                                            $a->TimeStart = $fTimeStart;
+                                            $a->TimeLimit = $fTimeLimit;
+                                            $a->TourPrice = $fTourPrice;
+                                            $a->TourSale = $fTourSale;
+                                            $a->Location = $fLocation;
+                                            $a->AvatarTour = $uploadFileDir.$newFileName;
+                                            $a->Status = $fStatus;
+                                            $a->Description = $fDescription;
+                                            $a->addTour();
+                                        }
+
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -712,6 +940,7 @@ if (!empty($_POST["flogout"])) {
                                                 <tr>
                                                     <th scope="col">STT</th>
                                                     <th scope="col">ID</th>
+                                                    <th scope="col">CategoryTour</th>
                                                     <th scope="col">TourName</th>
                                                     <th scope="col">TimeStart</th>
                                                     <th scope="col">TimeLimit</th>
@@ -722,6 +951,36 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">Status</th>
                                                     <th scope="col">Description</th>
                                                 </tr>
+                                                <?php 
+                                                
+                                                $a = new Tour();
+                                                $arr = $a->getListTour();
+                                                $strTbl="";
+
+                                                $stt = 1;
+
+                                                for($i = 0; $i < count($arr); $i++) {
+                                                    $obj = $arr[$i];
+
+                                                    $strTbl .= "<tr>";
+                                                        $strTbl .= "<th>". $stt++ ."</th>";
+                                                        $strTbl .= "<td>$obj->TourID</td>";
+                                                        $strTbl .= "<td>$obj->CategoryTourID</td>";
+                                                        $strTbl .= "<td>$obj->TourName</td>";
+                                                        $strTbl .= "<td>$obj->TimeStart</td>";
+                                                        $strTbl .= "<td>$obj->TimeLimit</td>";
+                                                        $strTbl .= "<td>$obj->TourPrice</td>";
+                                                        $strTbl .= "<td>$obj->TourSale</td>";
+                                                        $strTbl .= "<td>$obj->Location</td>";
+                                                        $strTbl .= "<td>$obj->AvatarTour</td>";
+                                                        $strTbl .= "<td>$obj->Status</td>";
+                                                        $strTbl .= "<td>$obj->Description</td>";
+                                                    $strTbl .= "</tr>";
+                                                    
+                                                }
+                                                
+                                                echo $strTbl;
+                                                ?>
                                             </table>
                                         </div>
 
@@ -750,13 +1009,41 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">ID</th>
                                                     <th scope="col">TourID</th>
                                                     <th scope="col">MemberID</th>
-                                                    <th scope="col">AnonymousBookTour</th>
-                                                    <th scope="col">AnonymousEmail</th>
-                                                    <th scope="col">AnonymousAddress</th>
-                                                    <th scope="col">AnonymousPhone</th>
+                                                    <th scope="col">UserBookTour</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Address</th>
+                                                    <th scope="col">Phone</th>
                                                     <th scope="col">Status</th>
                                                     <th scope="col">Description</th>
                                                 </tr>
+                                                <?php 
+                                                
+                                                $a = new Booktour();
+                                                $arr = $a->getListBooktour();
+                                                $strTbl="";
+
+                                                $stt = 1;
+
+                                                for($i = 0; $i < count($arr); $i++) {
+                                                    $obj = $arr[$i];
+
+                                                    $strTbl .= "<tr>";
+                                                        $strTbl .= "<th>". $stt++ ."</th>";
+                                                        $strTbl .= "<td>$obj->BookTourID</td>";
+                                                        $strTbl .= "<td>$obj->TourID</td>";
+                                                        $strTbl .= "<td>$obj->MemberID</td>";
+                                                        $strTbl .= "<td>$obj->AnonymousBookTour</td>";
+                                                        $strTbl .= "<td>$obj->AnonymousEmail</td>";
+                                                        $strTbl .= "<td>$obj->AnonymousAddress</td>";
+                                                        $strTbl .= "<td>$obj->AnonymousPhone</td>";
+                                                        $strTbl .= "<td>$obj->Status</td>";
+                                                        $strTbl .= "<td>$obj->Description</td>";
+                                                    $strTbl .= "</tr>";
+                                                    
+                                                }
+                                                
+                                                echo $strTbl;
+                                                ?>
                                             </table>
                                         </div>
 
@@ -777,37 +1064,106 @@ if (!empty($_POST["flogout"])) {
                                         <div class="text-center pb-3">
                                             <h2>Add News</h2>
                                         </div>
-                                        <form>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Title:</label>
+                                                <input type="text" id="Title" name="fTitle" class="form-control" placeholder="Title" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Lead:</label>
+                                                <input type="text" id="Lead" name="fLead" class="form-control" placeholder="Lead" />
+                                            </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Category:</label>
-                                                <select class="form-select" id="CategoryID">
+                                                <select class="form-select" name="fCategory" id="CategoryID">
                                                     <option value="1">One</option>
                                                     <option value="2">Two</option>
                                                     <option value="3">Three</option>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Title:</label>
-                                                <input type="text" id="Title" class="form-control" placeholder="Title" />
-                                            </div>
-                                            <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Content:</label>
-                                                <input type="text" id="Content" class="form-control" placeholder="Content" />
+                                                <input type="text" id="Content" name="fContent" class="form-control" placeholder="Content" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">AvatarNews:</label>
-                                                <input type="file" id="AvatarNews" class="form-control" placeholder="AvatarNews" />
+                                                <input type="file" id="AvatarNews" name="fAvatarNews" class="form-control" placeholder="AvatarNews" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Author:</label>
-                                                <input type="text" id="Author" class="form-control" placeholder="Author" />
+                                                <input type="text" id="Author" name="fAuthor" class="form-control" placeholder="Author" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" class="form-control" placeholder="Description" />
+                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submitNews" id="btn" class="btn btn-primary" value="Submit" />
+                                            <input type="submit" id="btnnews" name="fnews" class="btn btn-primary" value="Submit" />
                                         </form>
+                                        <?php
+                                        $message = "";
+
+                                        if (isset($_POST['fnews']) && $_POST['fnews'] == 'Submit') {
+                                            if (isset($_FILES['fAvatarNews']) && $_FILES['fAvatarNews']['error'] === UPLOAD_ERR_OK) {
+                                
+                                                // lưu vào thư mục tạm webserver
+                                                $fileTmpPath = $_FILES['fAvatarNews']['tmp_name'];
+                                                //echo $fileTmpPath;
+                                
+                                                // thông tin file
+                                                $fileName = $_FILES['fAvatarNews']['name'];
+                                                $fileSize = $_FILES['fAvatarNews']['size'];
+                                                $fileType = $_FILES['fAvatarNews']['type'];
+                                
+                                                // lấy tên file và đuôi file
+                                                $fileNameCmps = explode(".", $fileName);
+                                
+                                                // chuẩn hóa lại tên file
+                                                $fileExtension = strtolower(end($fileNameCmps));
+                                
+                                                // thiết đặt filename để k bị trùng nhau 
+                                                $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+                                
+                                                // kiem tra phan mo rong cua file
+                                                $allowedfileExtensions = array('jpg', 'gif', 'png');
+                                
+                                                // kiểm tra đuôi file
+                                                if (in_array($fileExtension, $allowedfileExtensions)) {
+                                                    // thu muc file uploaded
+                                                    global $uploadFileDir;
+                                                    $uploadFileDir = '.admin/assets/img/News/';
+                                                    $dest_path = $uploadFileDir . $newFileName;
+                                
+                                                    if (move_uploaded_file($fileTmpPath, $dest_path)) {
+                                                        $message = 'Upload file success.';
+                                                    } else {
+                                                        $message = 'Kiem tra xem thu muc co quyen ghi.';
+                                                    }
+                                                } else {
+                                                    $message = 'Chi cho phep cac loai file: ' . implode(',', $allowedfileExtensions);
+                                                }
+                                            }
+                                        }
+                                        echo $message;
+
+                                        if(isset($_POST["fnews"])) {
+                                            $fCategory = $_POST["fCategory"];
+                                            $fTitle = $_POST["fTitle"];
+                                            $fContent = $_POST["fContent"];
+                                            // $fAvatarNews = $_POST["fAvatarNews"];
+                                            $fAuthor = $_POST["fAuthor"];
+                                            $fDescription = $_POST["fDescription"];
+
+                                            $a = new News();
+                                            $a->CategoryID = $fCategory;
+                                            $a->Title = $fTitle;
+                                            $a->Content = $fContent;
+                                            $a->AvatarNews = $uploadFileDir.$newFileName;
+                                            $a->Author = $fAuthor;
+                                            $a->Description = $fDescription;
+                                            $a->addNews();
+                                        }
+
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -832,6 +1188,32 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">Author</th>
                                                     <th scope="col">Description</th>
                                                 </tr>
+                                                <?php 
+                                                
+                                                $a = new News();
+                                                $arr = $a->getListNews();
+                                                $strTbl="";
+
+                                                $stt = 1;
+
+                                                for($i = 0; $i < count($arr); $i++) {
+                                                    $obj = $arr[$i];
+
+                                                    $strTbl .= "<tr>";
+                                                        $strTbl .= "<th>". $stt++ ."</th>";
+                                                        $strTbl .= "<td>$obj->NewsID</td>";
+                                                        $strTbl .= "<td>$obj->CategoryID</td>";
+                                                        $strTbl .= "<td>$obj->Title</td>";
+                                                        $strTbl .= "<td>$obj->Content</td>";
+                                                        $strTbl .= "<td>$obj->AvatarNews</td>";
+                                                        $strTbl .= "<td>$obj->Author</td>";
+                                                        $strTbl .= "<td>$obj->Description</td>";
+                                                    $strTbl .= "</tr>";
+                                                    
+                                                }
+                                                
+                                                echo $strTbl;
+                                                ?>
                                             </table>
                                         </div>
 
@@ -852,17 +1234,30 @@ if (!empty($_POST["flogout"])) {
                                         <div class="text-center pb-3">
                                             <h2>Add Library</h2>
                                         </div>
-                                        <form>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">LibraryName:</label>
-                                                <input type="text" id="LibraryName" class="form-control" placeholder="LibraryName" />
+                                                <input type="text" id="LibraryName" name="fLibraryName" class="form-control" placeholder="LibraryName" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" class="form-control" placeholder="Description" />
+                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submitlibrary" id="btn" class="btn btn-primary" value="Submit" />
+                                            <input type="submit" id="btnlibrary" name="flibrary" class="btn btn-primary" value="Submit" />
                                         </form>
+                                        <?php
+                                        
+                                        if(isset($_POST["flibrary"])) {
+                                            $fLibraryName = $_POST["fLibraryName"];
+                                            $fDescription = $_POST["fDescription"];
+
+                                            $a = new Library();
+                                            $a->libraryName = $fLibraryName;
+                                            $a->description = $fDescription;
+                                            $a->addLibrary();
+                                        }
+                                        
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -883,6 +1278,28 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">LibraryName</th>
                                                     <th scope="col">Description</th>
                                                 </tr>
+                                                <?php 
+                                                
+                                                $a = new Library();
+                                                $arr = $a->getListLibrary();
+                                                $strTbl="";
+
+                                                $stt = 1;
+
+                                                for($i = 0; $i < count($arr); $i++) {
+                                                    $obj = $arr[$i];
+
+                                                    $strTbl .= "<tr>";
+                                                        $strTbl .= "<th>". $stt++ ."</th>";
+                                                        $strTbl .= "<td>$obj->libraryID</td>";
+                                                        $strTbl .= "<td>$obj->libraryName</td>";
+                                                        $strTbl .= "<td>$obj->description</td>";
+                                                    $strTbl .= "</tr>";
+                                                    
+                                                }
+                                                
+                                                echo $strTbl;
+                                                ?>
                                             </table>
                                         </div>
 
@@ -903,21 +1320,36 @@ if (!empty($_POST["flogout"])) {
                                         <div class="text-center pb-3">
                                             <h2>Add Category</h2>
                                         </div>
-                                        <form>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">CategoryName:</label>
-                                                <input type="text" id="CategoryName" class="form-control" placeholder="CategoryName" />
+                                                <input type="text" id="CategoryName" name="fCategoryName" class="form-control" placeholder="CategoryName" />
                                             </div>
                                             <div class="mb-3 w-50">
                                                 <label class="form-label fw-bold text-secondary">ParentID:</label>
-                                                <input type="text" id="ParentID" class="form-control" placeholder="ParentID" />
+                                                <input type="text" id="ParentID" name="fParentID" class="form-control" placeholder="ParentID" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" class="form-control" placeholder="Description" />
+                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submitcategory" id="btn" class="btn btn-primary" value="Submit" />
+                                            <input type="submit" id="btncategory" name="fcategory" class="btn btn-primary" value="Submit" />
                                         </form>
+                                        <?php 
+                                        
+                                        if(isset($_POST["fcategory"])) {
+                                            $fCategoryName = $_POST["fCategoryName"];
+                                            $fParentID = $_POST["fParentID"];
+                                            $fDescription = $_POST["fDescription"];
+
+                                            $a = new Category();
+                                            $a->CategoryName = $fCategoryName;
+                                            $a->ParentID = $fParentID;
+                                            $a->Description = $fDescription;
+                                            $a->addCategory();
+                                        }
+                                        
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -939,6 +1371,29 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">ParentID</th>
                                                     <th scope="col">Description</th>
                                                 </tr>
+                                                <?php 
+                                                
+                                                $a = new Category();
+                                                $arr = $a->getListCategory();
+                                                $strTbl="";
+
+                                                $stt = 1;
+
+                                                for($i = 0; $i < count($arr); $i++) {
+                                                    $obj = $arr[$i];
+
+                                                    $strTbl .= "<tr>";
+                                                        $strTbl .= "<th>". $stt++ ."</th>";
+                                                        $strTbl .= "<td>$obj->CategoryID</td>";
+                                                        $strTbl .= "<td>$obj->CategoryName</td>";
+                                                        $strTbl .= "<td>$obj->ParentID</td>";
+                                                        $strTbl .= "<td>$obj->Description</td>";
+                                                    $strTbl .= "</tr>";
+                                                    
+                                                }
+                                                
+                                                echo $strTbl;
+                                                ?>
                                             </table>
                                         </div>
 
@@ -959,21 +1414,36 @@ if (!empty($_POST["flogout"])) {
                                         <div class="text-center pb-3">
                                             <h2>Add Categorytour</h2>
                                         </div>
-                                        <form>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">CategoryTourName:</label>
-                                                <input type="text" id="CategoryTourName" class="form-control" placeholder="CategoryTourName" />
+                                                <input type="text" id="CategoryTourName" name="fCategoryTourName" class="form-control" placeholder="CategoryTourName" />
                                             </div>
-                                            <div class="mb-3 w-50">
+                                            <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Status:</label>
-                                                <input type="text" id="Status" class="form-control" placeholder="Status" />
+                                                <input type="text" id="Status" name="fStatus" class="form-control" placeholder="Status" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" class="form-control" placeholder="Description" />
+                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submitcategorytour" id="btn" class="btn btn-primary" value="Submit" />
+                                            <input type="submit" id="btncategorytour" name="fcategorytour" class="btn btn-primary" value="Submit" />
                                         </form>
+                                        <?php 
+                                        
+                                        if(isset($_POST["fcategorytour"])) {
+                                            $fCategoryTourName = $_POST["fCategoryTourName"];
+                                            $fStatus = $_POST["fStatus"];
+                                            $fDescription = $_POST["fDescription"];
+
+                                            $a = new CategoryTour();
+                                            $a->CategoryTourName = $fCategoryTourName;
+                                            $a->Status = $fStatus;
+                                            $a->Description = $fDescription;
+                                            $a->addCategoryTour();
+                                        }
+                                        
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -995,6 +1465,29 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">Status</th>
                                                     <th scope="col">Description</th>
                                                 </tr>
+                                                <?php 
+                                                
+                                                $a = new CategoryTour();
+                                                $arr = $a->getListCategoryTour();
+                                                $strTbl="";
+
+                                                $stt = 1;
+
+                                                for($i = 0; $i < count($arr); $i++) {
+                                                    $obj = $arr[$i];
+
+                                                    $strTbl .= "<tr>";
+                                                        $strTbl .= "<th>". $stt++ ."</th>";
+                                                        $strTbl .= "<td>$obj->CategoryTourID</td>";
+                                                        $strTbl .= "<td>$obj->CategoryTourName</td>";
+                                                        $strTbl .= "<td>$obj->Status</td>";
+                                                        $strTbl .= "<td>$obj->Description</td>";
+                                                    $strTbl .= "</tr>";
+                                                    
+                                                }
+                                                
+                                                echo $strTbl;
+                                                ?>
                                             </table>
                                         </div>
 
@@ -1029,6 +1522,33 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">Message</th>
                                                     <th scope="col">description</th>
                                                 </tr>
+                                                <?php 
+                                                
+                                                $a = new Contact();
+                                                $arr = $a->getListContact();
+                                                $strTbl="";
+
+                                                $stt = 1;
+
+                                                for($i = 0; $i < count($arr); $i++) {
+                                                    $obj = $arr[$i];
+
+                                                    $strTbl .= "<tr>";
+                                                        $strTbl .= "<th>". $stt++ ."</th>";
+                                                        $strTbl .= "<td>$obj->contactID</td>";
+                                                        $strTbl .= "<td>$obj->MemberID</td>";
+                                                        $strTbl .= "<td>$obj->fullname</td>";
+                                                        $strTbl .= "<td>$obj->address</td>";
+                                                        $strTbl .= "<td>$obj->email</td>";
+                                                        $strTbl .= "<td>$obj->telephone</td>";
+                                                        $strTbl .= "<td>$obj->message</td>";
+                                                        $strTbl .= "<td>$obj->description</td>";
+                                                    $strTbl .= "</tr>";
+                                                    
+                                                }
+                                                
+                                                echo $strTbl;
+                                                ?>
                                             </table>
                                         </div>
 
@@ -1040,31 +1560,44 @@ if (!empty($_POST["flogout"])) {
                     </div>
 
                     <!-- item -->
-                    <div class="tab-pane fade" id="item">
+                    <!-- <div class="tab-pane fade" id="item">
                         <div class="container text-dark pb-5">
-                            <!-- form Add Item -->
+                            form Add Item
                             <div id="addItem">
                                 <div class="pt-5 pb-5 d-flex justify-content-center">
                                     <div style="width: 650px;">
                                         <div class="text-center pb-3">
                                             <h2>Add Item</h2>
                                         </div>
-                                        <form>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Type:</label>
-                                                <input type="text" id="Type" class="form-control" placeholder="Type" />
+                                                <input type="text" id="Type" name="fType" class="form-control" placeholder="Type" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" class="form-control" placeholder="Description" />
+                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submitItem" id="btn" class="btn btn-primary" value="Submit" />
+                                            <input type="submit" id="btnItem" name="fItem" class="btn btn-primary" value="Submit" />
                                         </form>
+                                        <?php 
+                                        
+                                        if(isset($_POST["fItem"])) {
+                                            $fType = $_POST["fType"];
+                                            $fDescription = $_POST["fDescription"];
+
+                                            $a = new Item();
+                                            $a->type = $fType;
+                                            $a->description = $fDescription;
+                                            $a->addItem();
+                                        }
+                                        
+                                        ?>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- table list Item -->
+                            table list Item
                             <div id="listItem">
                                 <div class="text-center">
                                     <h2>List Item</h2>
@@ -1080,6 +1613,28 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">Type</th>
                                                     <th scope="col">Description</th>
                                                 </tr>
+                                                <?php 
+                                                
+                                                $a = new Item();
+                                                $arr = $a->getListItem();
+                                                $strTbl="";
+
+                                                $stt = 1;
+
+                                                for($i = 0; $i < count($arr); $i++) {
+                                                    $obj = $arr[$i];
+
+                                                    $strTbl .= "<tr>";
+                                                        $strTbl .= "<th>". $stt++ ."</th>";
+                                                        $strTbl .= "<td>$obj->itemID</td>";
+                                                        $strTbl .= "<td>$obj->type</td>";
+                                                        $strTbl .= "<td>$obj->description</td>";
+                                                    $strTbl .= "</tr>";
+                                                    
+                                                }
+                                                
+                                                echo $strTbl;
+                                                ?>
                                             </table>
                                         </div>
 
@@ -1088,7 +1643,7 @@ if (!empty($_POST["flogout"])) {
                             </div>
 
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- itemlibrary -->
                     <div class="tab-pane fade" id="itemlibrary">
@@ -1100,21 +1655,47 @@ if (!empty($_POST["flogout"])) {
                                         <div class="text-center pb-3">
                                             <h2>Add Itemlibrary</h2>
                                         </div>
-                                        <form>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">ItemID:</label>
-                                                <input type="text" id="ItemID" class="form-control" placeholder="ItemID" />
+                                                <select class="form-select" id="ItemID" name="fItemID">
+                                                    <option value="1">Ảnh</option>
+                                                    <option value="2">Video</option>
+                                                </select>
+                                            </div>
+                                            <!-- <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">LibraryID:</label>
+                                                <input type="text" id="LibraryID" name="fLibraryID" class="form-control" placeholder="LibraryID" />
+                                            </div> -->
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Upload:</label>
+                                                <input type="text" id="Upload" name="fUpload" class="form-control" placeholder="Upload" />
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">LibraryID:</label>
-                                                <input type="text" id="LibraryID" class="form-control" placeholder="LibraryID" />
+                                                <label class="form-label fw-bold text-secondary">Alt:</label>
+                                                <input type="text" id="Alt" name="fAlt" class="form-control" placeholder="Alt" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" class="form-control" placeholder="Description" />
+                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submititemlibrary" id="btn" class="btn btn-primary" value="Submit" />
+                                            <input type="submit" id="btnitemlibrary" name="fitemlibrary" class="btn btn-primary" value="Submit" />
                                         </form>
+                                        <?php 
+                                        
+                                        if(isset($_POST["fitemlibrary"])) {
+                                            $fItemID = $_POST["fItemID"];
+                                            $fLibraryID = $_POST["fLibraryID"];
+                                            $fDescription = $_POST["fDescription"];
+
+                                            $a = new Itemlibrary();
+                                            $a->itemID = $fItemID;
+                                            $a->libraryID = $fLibraryID;
+                                            $a->description = $fDescription;
+                                            $a->addItemlibrary();
+                                        }
+                                        
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -1136,6 +1717,29 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">LibraryID</th>
                                                     <th scope="col">Description</th>
                                                 </tr>
+                                                <?php 
+                                                
+                                                $a = new Itemlibrary();
+                                                $arr = $a->getListItemLibrary();
+                                                $strTbl="";
+
+                                                $stt = 1;
+
+                                                for($i = 0; $i < count($arr); $i++) {
+                                                    $obj = $arr[$i];
+
+                                                    $strTbl .= "<tr>";
+                                                        $strTbl .= "<th>". $stt++ ."</th>";
+                                                        $strTbl .= "<td>$obj->itemLibraryID</td>";
+                                                        $strTbl .= "<td>$obj->itemID</td>";
+                                                        $strTbl .= "<td>$obj->libraryID</td>";
+                                                        $strTbl .= "<td>$obj->description</td>";
+                                                    $strTbl .= "</tr>";
+                                                    
+                                                }
+                                                
+                                                echo $strTbl;
+                                                ?>
                                             </table>
                                         </div>
 
@@ -1156,10 +1760,10 @@ if (!empty($_POST["flogout"])) {
                                         <div class="text-center pb-3">
                                             <h2>Add Locationandservice</h2>
                                         </div>
-                                        <form>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                                             <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Mountaineering:</label>
-                                                <select id="Mountaineering" class="form-select">
+                                                <label class="form-label fw-bold text-secondary">Location:</label>
+                                                <select id="Mountaineering" name="fMountaineeringID" class="form-select">
                                                     <option value="1">One</option>
                                                     <option value="2">Two</option>
                                                     <option value="3">Three</option>
@@ -1167,7 +1771,7 @@ if (!empty($_POST["flogout"])) {
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Service:</label>
-                                                <select id="Service" class="form-select">
+                                                <select id="Service" name="fServiceID" class="form-select">
                                                     <option value="1">One</option>
                                                     <option value="2">Two</option>
                                                     <option value="3">Three</option>
@@ -1175,10 +1779,25 @@ if (!empty($_POST["flogout"])) {
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" class="form-control" placeholder="Description" />
+                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submitlocationandservice" id="btn" class="btn btn-primary" value="Submit" />
+                                            <input type="submit" id="btnlocationandservice" name="flocationandservice" class="btn btn-primary" value="Submit" />
                                         </form>
+                                        <?php 
+                                        
+                                        if(isset($_POST["flocationandservice"])) {
+                                            $fMountaineeringID = $_POST["fMountaineeringID"];
+                                            $fServiceID = $_POST["fServiceID"];
+                                            $fDescription = $_POST["fDescription"];
+
+                                            $a = new Locationandservice();
+                                            $a->mountaineeringID = $fMountaineeringID;
+                                            $a->serviceID = $fServiceID;
+                                            $a->description = $fDescription;
+                                            $a->addLocationandservice();
+                                        }
+                                        
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -1200,6 +1819,29 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">ServiceID</th>
                                                     <th scope="col">Description</th>
                                                 </tr>
+                                                <?php 
+                                                
+                                                $a = new Locationandservice();
+                                                $arr = $a->getListLocationandservice();
+                                                $strTbl="";
+
+                                                $stt = 1;
+
+                                                for($i = 0; $i < count($arr); $i++) {
+                                                    $obj = $arr[$i];
+
+                                                    $strTbl .= "<tr>";
+                                                        $strTbl .= "<th>". $stt++ ."</th>";
+                                                        $strTbl .= "<td>$obj->locationAndServiceID</td>";
+                                                        $strTbl .= "<td>$obj->mountaineeringID</td>";
+                                                        $strTbl .= "<td>$obj->serviceID</td>";
+                                                        $strTbl .= "<td>$obj->description</td>";
+                                                    $strTbl .= "</tr>";
+                                                    
+                                                }
+                                                
+                                                echo $strTbl;
+                                                ?>
                                             </table>
                                         </div>
 
