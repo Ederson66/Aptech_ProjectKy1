@@ -306,9 +306,19 @@ if (!empty($_POST["flogout"])) {
                                 <!-- Box tổng lượng truy cập -->
                                 <div class="mt-3 col-md-6 col-xxl-3">
                                     <div class="bg-white shadow card">
-                                        <p class="p-2 pt-3 fs-6 fw-bold m-0">Total hits</p>
+                                        <p class="p-2 pt-3 fs-6 fw-bold m-0">Total booktour</p>
                                         <div class="p-3 text-center border-top">
-                                            <span class="m-3 fs-4 fw-bold m-0 text-secondary">1,2 Million</span>
+                                            <?php 
+                                            
+                                            $a = new Booktour();
+                                            $arr = $a->getUserBooktour();
+
+                                            for($i = 0; $i < count($arr); $i++) {
+                                                $obj = $arr[$i];
+                                                echo '<span class="m-3 fs-4 fw-bold text-secondary">' . $obj->totaluserbooktour . " " . 'User</span>';
+                                            }
+                                            
+                                            ?>
                                             <i class="fs-3 bi bi-reception-4 text-success"></i>
                                         </div>
                                     </div>
@@ -316,21 +326,21 @@ if (!empty($_POST["flogout"])) {
                                 <!-- Box lượng truy cập các kì thi -->
                                 <div class="mt-3 col-md-6 col-xxl-3">
                                     <div class="bg-white shadow card">
-                                        <p class="p-2 pt-3 fs-6 fw-bold m-0">Product traffic</p>
+                                        <p class="p-2 pt-3 fs-6 fw-bold m-0">Service traffic</p>
                                         <div class="text-center border-top" style="padding: 6px;">
                                             <div class="chart-access float-end m-2"></div>
                                             <ul class="m-2 p-0">
                                                 <li class="fs text-start">
                                                     <span class="dot-1 me-2"></span>
-                                                    Product 1 57%
+                                                    Service 1 57%
                                                 </li>
                                                 <li class="fs text-start">
                                                     <span class="dot-2 me-2"></span>
-                                                    Product 2 15%
+                                                    Service 2 15%
                                                 </li>
                                                 <li class="fs text-start">
                                                     <span class="dot-3 me-2"></span>
-                                                    Product 3 28%
+                                                    Service 3 28%
                                                 </li>
                                             </ul>
                                         </div>
@@ -338,151 +348,294 @@ if (!empty($_POST["flogout"])) {
                                 </div>
                                 <!-- Box thời tiết -->
                                 <div class="mt-3 col-md-6 col-xxl-3">
-                                    <div class="bg-white shadow card">
-                                        <p class="p-2 pt-3 fs-6 fw-bold m-0">Weather</p>
+                                    <div class="bg-white shadow card h-100">
+                                        <p class="p-2 pt-3 fs-6 fw-bold m-0">Promotion</p>
                                         <div class="text-center border-top p-3">
-                                            <span class="fs-4 fw-bold text-secondary">Ha noi 27° - 30°</span>
-                                            <img class="img-fluid" src="https://prium.github.io/falcon/v3.11.0/assets/img/icons/weather-icon.png" alt="thời tiết" style="width: 38px;">
+                                            <span class="fs-4 fw-bold text-secondary m-3">30 Promotion</span>
+                                            <i class="fs-3 bi bi-basket2 text-warning"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div class="row g-3 mb-3">
-                                <!-- biểu đồ chart_div -->
-                                <div class="col-lg-6 pe-lg-2">
-                                    <!-- <div class="card overflow-hidden shadow p-2">
-                                        <div class="chart_div"></div>
-                                    </div> -->
-                                    <div class="p-2 card shadow" style="height: 100%;">
-                                        <div>
-                                            <canvas id="myChart2"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- biểu đồ curve_chart -->
-                                <div class="col-lg-6 pe-lg-2">
-                                    <!-- <div class="card overflow-hidden shadow">
-                                        <div class="curve_chart"></div>
-                                    </div> -->
-                                    <div class="p-2 card shadow" style="height: 100%;">
-                                        <div>
-                                            <canvas id="myChart3"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="row g-3 mb-3">
-                                <div class="col-lg-6 col-xl-7 col-xxl-8 pe-lg-2">
-                                    <div class="p-2 card shadow">
-                                        <p class="p-2 m-0 fw-bold">Used 1775.06 MB out of 2 GB</p>
-                                        <div class="progress">
-                                            <div class="bar" style="width:45%">
-                                                <p class="percent">45%</p>
-                                            </div>
-                                            <div class="bar1" style="width:26%">
-                                                <p class="percent">26%</p>
-                                            </div>
-                                            <div class="bar2" style="width:17%">
-                                                <p class="percent">17%</p>
-                                            </div>
-                                        </div>
-                                        <ul class="m-1 p-0 d-flex">
-                                            <li class="pe-3 p-2">
-                                                <span class="dot-3"></span>
-                                                Image
-                                            </li>
-                                            <li class="pe-3 ps-3 p-2">
-                                                <span class="dot-1"></span>
-                                                Content
-                                            </li>
-                                            <li class="pe-3 ps-3 p-2">
-                                                <span class="dot-4"></span>
-                                                Other
-                                            </li>
-                                            <li class="pe-3 ps-3 p-2">
-                                                <span class="dot-5"></span>
-                                                Empty
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
 
-                                <div class="col-lg-6 col-xl-5 col-xxl-4 ps-lg-2">
-                                    <div class="p-2 card bg-holder shadow" style="background-image:url(https://prium.github.io/falcon/v3.11.0/assets/img/icons/spot-illustrations/corner-1.png);">
-                                        <p class="p-2 fs-5 m-0 fw-bold text-warning">Are you running out of space?</p>
-                                        <p class="p-2 m-0 fs-6">Your memory will be out of. Get more storage and powerful features.</p>
-                                        <a class="p-2 text-warning" href="#">Upgrade now ></a>
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="row pb-3">
 
-                            <div class="row mb-3 pb-5">
-                                <div class="col-sm-6 col-xxl-3 pe-sm-2 mb-3">
-                                    <div class="p-2 card shadow" style="min-height: 330.8px;">
-                                        <div class="d-flex justify-content-between">
-                                            <p class="p-1 m-0 fw-bold">Active</p>
-                                            <a class="p-1" href="#">View all ></a>
-                                        </div>
-                                        <div class="p-1">
-                                            <div class="position-relative p-2">
-                                                <img class="rounded-circle" src="./assets/img/default_avatar.png" alt="avatar" style="width: 36px;">
-                                                <div class="dot-6 position-absolute bottom-0 left-0"></div>
-                                                <span>Test 1</span>
-                                            </div>
-                                            <div class="position-relative p-2">
-                                                <img class="rounded-circle" src="./assets/img/default_avatar.png" alt="avatar" style="width: 36px;">
-                                                <div class="dot-6 position-absolute bottom-0 left-0"></div>
-                                                <span>Test 2</span>
-                                            </div>
-                                            <div class="position-relative p-2">
-                                                <img class="rounded-circle" src="./assets/img/default_avatar.png" alt="avatar" style="width: 36px;">
-                                                <div class="dot-6 position-absolute bottom-0 left-0"></div>
-                                                <span>Test 3</span>
-                                            </div>
-                                            <div class="position-relative p-2">
-                                                <img class="rounded-circle" src="./assets/img/default_avatar.png" alt="avatar" style="width: 36px;">
-                                                <div class="dot-6 position-absolute bottom-0 left-0"></div>
-                                                <span>Test 4</span>
-                                            </div>
-                                            <div class="position-relative p-2">
-                                                <img class="rounded-circle" src="./assets/img/default_avatar.png" alt="avatar" style="width: 36px;">
-                                                <div class="dot-6 position-absolute bottom-0 left-0"></div>
-                                                <span>Test 5</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-xxl-3 ps-sm-2 order-xxl-1 mb-3">
-                                    <div class="p-2 card shadow" style="min-height: 330.8px;">
-                                        <p class="p-1 m-0 fw-bold">Bandwidth</p>
-                                        <div class="d-flex justify-content-center">
-                                            <div id="donut_single"></div>
-                                        </div>
-                                        <div class="d-flex justify-content-center">
-                                            <i class="bi bi-check text-success fs-4"></i>
-                                            <p class="p-1 m-0 fw-bold text-center">35.75 GB saved</p>
-                                        </div>
-                                        <div class="d-flex justify-content-center">
-                                            <select class="form-select" aria-label="Default select example">
-                                                <option value="1">Last 6 Months</option>
-                                                <option value="2">Last Year</option>
-                                                <option value="3">Last 2 Year</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-xxl-6 px-xxl-2 mb-3">
+                                <div class="col-xxl-12 mb-3">
                                     <div class="p-2 card shadow" style="height: 100%;">
                                         <div>
                                             <canvas id="myChart1"></canvas>
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- booktour -->
+                    <div class="tab-pane fade" id="booktour">
+                        <div class="container text-dark pb-5 pt-5">
+                            <!-- table list booktour -->
+                            <div id="listbooktour">
+                                <div class="text-center">
+                                    <h2>List Booktour</h2>
+                                </div>
+                                <div class="pb-5 d-flex justify-content-center">
+                                    <div style="overflow-x: auto;">
+
+                                        <div id="tbl-kithi" class="mt-4 pb-5" >
+                                            <table class="table table-striped table-hover">
+                                                <tr>
+                                                    <th scope="col">STT</th>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">TourID</th>
+                                                    <th scope="col">MemberID</th>
+                                                    <th scope="col">UserBookTour</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Address</th>
+                                                    <th scope="col">Phone</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Description</th>
+                                                </tr>
+                                                <?php 
+                                                
+                                                $a = new Booktour();
+                                                $arr = $a->getListBooktour();
+                                                $strTbl="";
+
+                                                $stt = 1;
+
+                                                for($i = 0; $i < count($arr); $i++) {
+                                                    $obj = $arr[$i];
+
+                                                    $strTbl .= "<tr>";
+                                                        $strTbl .= "<th>". $stt++ ."</th>";
+                                                        $strTbl .= "<td>$obj->BookTourID</td>";
+                                                        $strTbl .= "<td>$obj->TourID</td>";
+                                                        $strTbl .= "<td>$obj->MemberID</td>";
+                                                        $strTbl .= "<td>$obj->AnonymousBookTour</td>";
+                                                        $strTbl .= "<td>$obj->AnonymousEmail</td>";
+                                                        $strTbl .= "<td>$obj->AnonymousAddress</td>";
+                                                        $strTbl .= "<td>$obj->AnonymousPhone</td>";
+                                                        $strTbl .= "<td>$obj->Status</td>";
+                                                        $strTbl .= "<td>$obj->Description</td>";
+                                                    $strTbl .= "</tr>";
+                                                    
+                                                }
+                                                
+                                                echo $strTbl;
+                                                ?>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- tour -->
+                    <div class="tab-pane fade" id="tour">
+                        <div class="container text-dark pb-5">
+                            <!-- form Add tour -->
+                            <div id="addtour">
+                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                    <div style="width: 650px;">
+                                        <div class="text-center pb-3">
+                                            <h2>Add Tour</h2>
+                                        </div>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">TourName:</label>
+                                                <input type="text" id="TourName" name="fTourName" class="form-control" placeholder="TourName" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">CategoryTour:</label>
+                                                <select class="form-select" name="fCategoryTour" id="CategoryTour">
+                                                    <option value="1">kHÁM PHÁ HANG ĐỘNG</option>
+                                                    <option value="2">Cắm trại</option>
+                                                    <option value="3">Chinh phục núi cao</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3 d-flex w-100">
+                                                <div class="w-50 pe-2">
+                                                    <label class="form-label fw-bold text-secondary">TimeStart:</label>
+                                                    <input type="date" id="TimeStart" name="fTimeStart" class="form-control" placeholder="TimeStart" />
+                                                </div>
+                                                <div class="w-50 ps-2">
+                                                    <label class="form-label fw-bold text-secondary">TimeEnd:</label>
+                                                    <input type="date" id="TimeLimit" name="fTimeLimit" class="form-control" placeholder="TimeLimit" />
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">TourPrice:</label>
+                                                <input type="text" id="TourPrice" name="fTourPrice" class="form-control" placeholder="TourPrice" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">TourPromotion:</label>
+                                                <input type="text" id="TourPromotion" name="fTourSale" class="form-control" placeholder="TourPromotion" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Location:</label>
+                                                <input type="text" id="Location" name="fLocation" class="form-control" placeholder="Location" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">AvatarTour:</label>
+                                                <input type="file" id="AvatarTour" name="fAvatarTour" class="form-control" placeholder="AvatarTour" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Status:</label>
+                                                <select class="form-select" id="Status" name="fStatus" >
+                                                    <option value="1">Đang hoạt động</option>
+                                                    <option value="2">Dừng hoạt động</option>
+                                                    <option value="3">Chưa kích hoạt</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Description:</label>
+                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                            </div>
+                                            <input type="submit" id="btntour" name="ftour" class="btn btn-primary" value="Submit" />
+                                        </form>
+                                        <?php
+                                        $message = "";
+
+                                        if (isset($_POST['ftour']) && $_POST['ftour'] == 'Submit') {
+                                            if (isset($_FILES['fAvatarTour']) && $_FILES['fAvatarTour']['error'] === UPLOAD_ERR_OK) {
+                                
+                                                // lưu vào thư mục tạm webserver
+                                                $fileTmpPath = $_FILES['fAvatarTour']['tmp_name'];
+                                                // echo $fileTmpPath;
+                                
+                                                // thông tin file
+                                                $fileName = $_FILES['fAvatarTour']['name'];
+                                                $fileSize = $_FILES['fAvatarTour']['size'];
+                                                $fileType = $_FILES['fAvatarTour']['type'];
+                                
+                                                // lấy tên file và đuôi file
+                                                $fileNameCmps = explode(".", $fileName);
+                                
+                                                // chuẩn hóa lại tên file
+                                                $fileExtension = strtolower(end($fileNameCmps));
+                                
+                                                // thiết đặt filename để k bị trùng nhau 
+                                                $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+                                
+                                                // kiem tra phan mo rong cua file
+                                                $allowedfileExtensions = array('jpg', 'gif', 'png');
+                                
+                                                // kiểm tra đuôi file
+                                                if (in_array($fileExtension, $allowedfileExtensions)) {
+                                                    // thu muc file uploaded
+                                                    $uploadFileDir = '../admin/assets/img/Tour/';
+                                                    $dest_path = $uploadFileDir . $newFileName;
+                                
+                                                    if (move_uploaded_file($fileTmpPath, $dest_path)) {
+                                                        $message = "";
+                                                    } else {
+                                                        $message = 'Check if the directory has write permissions.';
+                                                    }
+                                                } else {
+                                                    $message = 'Only file types allowed: ' . implode(',', $allowedfileExtensions);
+                                                }
+                                            }
+                                        }
+                                
+                                        echo $message;
+
+                                        if(isset($_POST["ftour"])) {
+                                            $fCategoryTour = $_POST["fCategoryTour"];
+                                            $fTourName = $_POST["fTourName"];
+                                            $fTimeStart = $_POST["fTimeStart"];
+                                            $fTimeLimit = $_POST["fTimeLimit"];
+                                            $fTourPrice = $_POST["fTourPrice"];
+                                            $fTourSale = $_POST["fTourSale"];
+                                            $fLocation = $_POST["fLocation"];
+                                            // $fAvatarTour = $_POST["fAvatarTour"];
+                                            $fStatus = $_POST["fStatus"];
+                                            $fDescription = $_POST["fDescription"];
+
+                                            $a = new Tour();
+                                            $a->CategoryTourID = $fCategoryTour;
+                                            $a->TourName = $fTourName;
+                                            $a->TimeStart = $fTimeStart;
+                                            $a->TimeLimit = $fTimeLimit;
+                                            $a->TourPrice = $fTourPrice;
+                                            $a->TourSale = $fTourSale;
+                                            $a->Location = $fLocation;
+                                            $a->AvatarTour = $uploadFileDir.$newFileName;
+                                            $a->Status = $fStatus;
+                                            $a->Description = $fDescription;
+                                            $a->addTour();
+                                        }
+
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- table list tour -->
+                            <div id="listtour">
+                                <div class="text-center">
+                                    <h2>List Tour</h2>
+                                </div>
+                                <div class="pb-5 d-flex justify-content-center">
+                                    <div style="overflow-x: auto;">
+
+                                        <div id="tbl-kithi" class="mt-4 pb-5" >
+                                            <table class="table table-striped table-hover">
+                                                <tr>
+                                                    <th scope="col">STT</th>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">CategoryTour</th>
+                                                    <th scope="col">TourName</th>
+                                                    <th scope="col">TimeStart</th>
+                                                    <th scope="col">TimeLimit</th>
+                                                    <th scope="col">TourPrice</th>
+                                                    <th scope="col">TourSale</th>
+                                                    <th scope="col">Location</th>
+                                                    <th scope="col">AvatarTour</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Description</th>
+                                                </tr>
+                                                <?php 
+                                                
+                                                $a = new Tour();
+                                                $arr = $a->getListTour();
+                                                $strTbl="";
+
+                                                $stt = 1;
+
+                                                for($i = 0; $i < count($arr); $i++) {
+                                                    $obj = $arr[$i];
+
+                                                    $strTbl .= "<tr>";
+                                                        $strTbl .= "<th>". $stt++ ."</th>";
+                                                        $strTbl .= "<td>$obj->TourID</td>";
+                                                        $strTbl .= "<td>$obj->CategoryTourID</td>";
+                                                        $strTbl .= "<td>$obj->TourName</td>";
+                                                        $strTbl .= "<td>$obj->TimeStart</td>";
+                                                        $strTbl .= "<td>$obj->TimeLimit</td>";
+                                                        $strTbl .= "<td>$obj->TourPrice</td>";
+                                                        $strTbl .= "<td>$obj->TourSale</td>";
+                                                        $strTbl .= "<td>$obj->Location</td>";
+                                                        $strTbl .= "<td><img src='$obj->AvatarTour' alt='banner' width='200' height='100'></td>";
+                                                        $strTbl .= "<td>$obj->Status</td>";
+                                                        $strTbl .= "<td>$obj->Description</td>";
+                                                    $strTbl .= "</tr>";
+                                                    
+                                                }
+                                                
+                                                echo $strTbl;
+                                                ?>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
@@ -551,7 +704,7 @@ if (!empty($_POST["flogout"])) {
                                 
                                                 // lưu vào thư mục tạm webserver
                                                 $fileTmpPath = $_FILES['fBanner']['tmp_name'];
-                                                //echo $fileTmpPath;
+                                                // echo $fileTmpPath;
                                 
                                                 // thông tin file
                                                 $fileName = $_FILES['fBanner']['name'];
@@ -573,20 +726,20 @@ if (!empty($_POST["flogout"])) {
                                                 // kiểm tra đuôi file
                                                 if (in_array($fileExtension, $allowedfileExtensions)) {
                                                     // thu muc file uploaded
-                                                    global $uploadFileDir;
-                                                    $uploadFileDir = './admin/assets/img/Mountaineering/';
+                                                    $uploadFileDir = '../admin/assets/img/Mountaineering/';
                                                     $dest_path = $uploadFileDir . $newFileName;
                                 
-                                                    // if (move_uploaded_file($fileTmpPath, $dest_path)) {
-                                                    //     $message = 'Upload file success.';
-                                                    // } else {
-                                                    //     $message = 'Kiem tra xem thu muc co quyen ghi.';
-                                                    // }
+                                                    if (move_uploaded_file($fileTmpPath, $dest_path)) {
+                                                        $message = "";
+                                                    } else {
+                                                        $message = 'Check if the directory has write permissions.';
+                                                    }
                                                 } else {
-                                                    $message = 'Chi cho phep cac loai file: ' . implode(',', $allowedfileExtensions);
+                                                    $message = 'Only file types allowed: ' . implode(',', $allowedfileExtensions);
                                                 }
                                             }
                                         }
+                                
                                         echo $message;
 
                                         if(isset($_POST["fMountaineering"])) {
@@ -657,7 +810,7 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->mountainName</td>";
                                                         $strTbl .= "<td>$obj->locationX</td>";
                                                         $strTbl .= "<td>$obj->locationY</td>";
-                                                        $strTbl .= "<td>$obj->banner</td>";
+                                                        $strTbl .= "<td><img src='$obj->banner' alt='banner' width='200' height='100'></td>";
                                                         $strTbl .= "<td>$obj->type</td>";
                                                         $strTbl .= "<td>$obj->level</td>";
                                                         $strTbl .= "<td>$obj->sheltering</td>";
@@ -787,273 +940,6 @@ if (!empty($_POST["flogout"])) {
                         </div>
                     </div>
 
-                    <!-- tour -->
-                    <div class="tab-pane fade" id="tour">
-                        <div class="container text-dark pb-5">
-                            <!-- form Add tour -->
-                            <div id="addtour">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
-                                    <div style="width: 650px;">
-                                        <div class="text-center pb-3">
-                                            <h2>Add Tour</h2>
-                                        </div>
-                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">TourName:</label>
-                                                <input type="text" id="TourName" name="fTourName" class="form-control" placeholder="TourName" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">CategoryTour:</label>
-                                                <select class="form-select" name="fCategoryTour" id="CategoryTour">
-                                                    <option value="1">kHÁM PHÁ HANG ĐỘNG</option>
-                                                    <option value="2">Cắm trại</option>
-                                                    <option value="3">Chinh phục núi cao</option>
-                                                </select>
-                                            </div>
-                                            <div class="mb-3 d-flex w-100">
-                                                <div class="w-50 pe-2">
-                                                    <label class="form-label fw-bold text-secondary">TimeStart:</label>
-                                                    <input type="date" id="TimeStart" name="fTimeStart" class="form-control" placeholder="TimeStart" />
-                                                </div>
-                                                <div class="w-50 ps-2">
-                                                    <label class="form-label fw-bold text-secondary">TimeEnd:</label>
-                                                    <input type="date" id="TimeLimit" name="fTimeLimit" class="form-control" placeholder="TimeLimit" />
-                                                </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">TourPrice:</label>
-                                                <input type="text" id="TourPrice" name="fTourPrice" class="form-control" placeholder="TourPrice" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">TourPromotion:</label>
-                                                <input type="text" id="TourPromotion" name="fTourSale" class="form-control" placeholder="TourPromotion" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Location:</label>
-                                                <input type="text" id="Location" name="fLocation" class="form-control" placeholder="Location" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">AvatarTour:</label>
-                                                <input type="file" id="AvatarTour" name="fAvatarTour" class="form-control" placeholder="AvatarTour" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Status:</label>
-                                                <select class="form-select" id="Status" name="fStatus" >
-                                                    <option value="1">Đang hoạt động</option>
-                                                    <option value="2">Dừng hoạt động</option>
-                                                    <option value="3">Chưa kích hoạt</option>
-                                                </select>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
-                                            </div>
-                                            <input type="submit" id="btntour" name="ftour" class="btn btn-primary" value="Submit" />
-                                        </form>
-                                        <?php
-                                        $message = "";
-
-                                        if (isset($_POST['ftour']) && $_POST['ftour'] == 'Submit') {
-                                            if (isset($_FILES['fAvatarTour']) && $_FILES['fAvatarTour']['error'] === UPLOAD_ERR_OK) {
-                                
-                                                // lưu vào thư mục tạm webserver
-                                                $fileTmpPath = $_FILES['fAvatarTour']['tmp_name'];
-                                                //echo $fileTmpPath;
-                                
-                                                // thông tin file
-                                                $fileName = $_FILES['fAvatarTour']['name'];
-                                                $fileSize = $_FILES['fAvatarTour']['size'];
-                                                $fileType = $_FILES['fAvatarTour']['type'];
-                                
-                                                // lấy tên file và đuôi file
-                                                $fileNameCmps = explode(".", $fileName);
-                                
-                                                // chuẩn hóa lại tên file
-                                                $fileExtension = strtolower(end($fileNameCmps));
-                                
-                                                // thiết đặt filename để k bị trùng nhau 
-                                                $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
-                                
-                                                // kiem tra phan mo rong cua file
-                                                $allowedfileExtensions = array('jpg', 'gif', 'png');
-                                
-                                                // kiểm tra đuôi file
-                                                if (in_array($fileExtension, $allowedfileExtensions)) {
-                                                    // thu muc file uploaded
-                                                    global $uploadFileDir;
-                                                    $uploadFileDir = '.admin/assets/img/Tour/';
-                                                    $dest_path = $uploadFileDir . $newFileName;
-                                
-                                                    // if (move_uploaded_file($fileTmpPath, $dest_path)) {
-                                                    //     $message = 'Upload file success.';
-                                                    // } else {
-                                                    //     $message = 'Kiem tra xem thu muc co quyen ghi.';
-                                                    // }
-                                                } else {
-                                                    $message = 'Chi cho phep cac loai file: ' . implode(',', $allowedfileExtensions);
-                                                }
-                                            }
-                                        }
-                                        echo $message;
-
-                                        if(isset($_POST["ftour"])) {
-                                            $fCategoryTour = $_POST["fCategoryTour"];
-                                            $fTourName = $_POST["fTourName"];
-                                            $fTimeStart = $_POST["fTimeStart"];
-                                            $fTimeLimit = $_POST["fTimeLimit"];
-                                            $fTourPrice = $_POST["fTourPrice"];
-                                            $fTourSale = $_POST["fTourSale"];
-                                            $fLocation = $_POST["fLocation"];
-                                            // $fAvatarTour = $_POST["fAvatarTour"];
-                                            $fStatus = $_POST["fStatus"];
-                                            $fDescription = $_POST["fDescription"];
-
-                                            $a = new Tour();
-                                            $a->CategoryTourID = $fCategoryTour;
-                                            $a->TourName = $fTourName;
-                                            $a->TimeStart = $fTimeStart;
-                                            $a->TimeLimit = $fTimeLimit;
-                                            $a->TourPrice = $fTourPrice;
-                                            $a->TourSale = $fTourSale;
-                                            $a->Location = $fLocation;
-                                            $a->AvatarTour = $uploadFileDir.$newFileName;
-                                            $a->Status = $fStatus;
-                                            $a->Description = $fDescription;
-                                            $a->addTour();
-                                        }
-
-                                        ?>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- table list tour -->
-                            <div id="listtour">
-                                <div class="text-center">
-                                    <h2>List Tour</h2>
-                                </div>
-                                <div class="pb-5 d-flex justify-content-center">
-                                    <div style="overflow-x: auto;">
-
-                                        <div id="tbl-kithi" class="mt-4 pb-5" >
-                                            <table class="table table-striped table-hover">
-                                                <tr>
-                                                    <th scope="col">STT</th>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">CategoryTour</th>
-                                                    <th scope="col">TourName</th>
-                                                    <th scope="col">TimeStart</th>
-                                                    <th scope="col">TimeLimit</th>
-                                                    <th scope="col">TourPrice</th>
-                                                    <th scope="col">TourSale</th>
-                                                    <th scope="col">Location</th>
-                                                    <th scope="col">AvatarTour</th>
-                                                    <th scope="col">Status</th>
-                                                    <th scope="col">Description</th>
-                                                </tr>
-                                                <?php 
-                                                
-                                                $a = new Tour();
-                                                $arr = $a->getListTour();
-                                                $strTbl="";
-
-                                                $stt = 1;
-
-                                                for($i = 0; $i < count($arr); $i++) {
-                                                    $obj = $arr[$i];
-
-                                                    $strTbl .= "<tr>";
-                                                        $strTbl .= "<th>". $stt++ ."</th>";
-                                                        $strTbl .= "<td>$obj->TourID</td>";
-                                                        $strTbl .= "<td>$obj->CategoryTourID</td>";
-                                                        $strTbl .= "<td>$obj->TourName</td>";
-                                                        $strTbl .= "<td>$obj->TimeStart</td>";
-                                                        $strTbl .= "<td>$obj->TimeLimit</td>";
-                                                        $strTbl .= "<td>$obj->TourPrice</td>";
-                                                        $strTbl .= "<td>$obj->TourSale</td>";
-                                                        $strTbl .= "<td>$obj->Location</td>";
-                                                        $strTbl .= "<td>$obj->AvatarTour</td>";
-                                                        $strTbl .= "<td>$obj->Status</td>";
-                                                        $strTbl .= "<td>$obj->Description</td>";
-                                                    $strTbl .= "</tr>";
-                                                    
-                                                }
-                                                
-                                                echo $strTbl;
-                                                ?>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- booktour -->
-                    <div class="tab-pane fade" id="booktour">
-                        <div class="container text-dark pb-5 pt-5">
-                            <!-- table list booktour -->
-                            <div id="listbooktour">
-                                <div class="text-center">
-                                    <h2>List Booktour</h2>
-                                </div>
-                                <div class="pb-5 d-flex justify-content-center">
-                                    <div style="overflow-x: auto;">
-
-                                        <div id="tbl-kithi" class="mt-4 pb-5" >
-                                            <table class="table table-striped table-hover">
-                                                <tr>
-                                                    <th scope="col">STT</th>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">TourID</th>
-                                                    <th scope="col">MemberID</th>
-                                                    <th scope="col">UserBookTour</th>
-                                                    <th scope="col">Email</th>
-                                                    <th scope="col">Address</th>
-                                                    <th scope="col">Phone</th>
-                                                    <th scope="col">Status</th>
-                                                    <th scope="col">Description</th>
-                                                </tr>
-                                                <?php 
-                                                
-                                                $a = new Booktour();
-                                                $arr = $a->getListBooktour();
-                                                $strTbl="";
-
-                                                $stt = 1;
-
-                                                for($i = 0; $i < count($arr); $i++) {
-                                                    $obj = $arr[$i];
-
-                                                    $strTbl .= "<tr>";
-                                                        $strTbl .= "<th>". $stt++ ."</th>";
-                                                        $strTbl .= "<td>$obj->BookTourID</td>";
-                                                        $strTbl .= "<td>$obj->TourID</td>";
-                                                        $strTbl .= "<td>$obj->MemberID</td>";
-                                                        $strTbl .= "<td>$obj->AnonymousBookTour</td>";
-                                                        $strTbl .= "<td>$obj->AnonymousEmail</td>";
-                                                        $strTbl .= "<td>$obj->AnonymousAddress</td>";
-                                                        $strTbl .= "<td>$obj->AnonymousPhone</td>";
-                                                        $strTbl .= "<td>$obj->Status</td>";
-                                                        $strTbl .= "<td>$obj->Description</td>";
-                                                    $strTbl .= "</tr>";
-                                                    
-                                                }
-                                                
-                                                echo $strTbl;
-                                                ?>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
                     <!-- News -->
                     <div class="tab-pane fade" id="news">
                         <div class="container text-dark pb-5">
@@ -1107,7 +993,7 @@ if (!empty($_POST["flogout"])) {
                                 
                                                 // lưu vào thư mục tạm webserver
                                                 $fileTmpPath = $_FILES['fAvatarNews']['tmp_name'];
-                                                //echo $fileTmpPath;
+                                                // echo $fileTmpPath;
                                 
                                                 // thông tin file
                                                 $fileName = $_FILES['fAvatarNews']['name'];
@@ -1129,20 +1015,20 @@ if (!empty($_POST["flogout"])) {
                                                 // kiểm tra đuôi file
                                                 if (in_array($fileExtension, $allowedfileExtensions)) {
                                                     // thu muc file uploaded
-                                                    global $uploadFileDir;
-                                                    $uploadFileDir = '.admin/assets/img/News/';
+                                                    $uploadFileDir = '../admin/assets/img/News/';
                                                     $dest_path = $uploadFileDir . $newFileName;
                                 
                                                     if (move_uploaded_file($fileTmpPath, $dest_path)) {
-                                                        $message = 'Upload file success.';
+                                                        $message = "";
                                                     } else {
-                                                        $message = 'Kiem tra xem thu muc co quyen ghi.';
+                                                        $message = 'Check if the directory has write permissions.';
                                                     }
                                                 } else {
-                                                    $message = 'Chi cho phep cac loai file: ' . implode(',', $allowedfileExtensions);
+                                                    $message = 'Only file types allowed: ' . implode(',', $allowedfileExtensions);
                                                 }
                                             }
                                         }
+                                
                                         echo $message;
 
                                         if(isset($_POST["fnews"])) {
@@ -1205,7 +1091,7 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->CategoryID</td>";
                                                         $strTbl .= "<td>$obj->Title</td>";
                                                         $strTbl .= "<td>$obj->Content</td>";
-                                                        $strTbl .= "<td>$obj->AvatarNews</td>";
+                                                        $strTbl .= "<td><img src='$obj->AvatarNews' alt='AvatarNews' width='200' height='100'></td>";
                                                         $strTbl .= "<td>$obj->Author</td>";
                                                         $strTbl .= "<td>$obj->Description</td>";
                                                     $strTbl .= "</tr>";
@@ -1293,6 +1179,111 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<th>". $stt++ ."</th>";
                                                         $strTbl .= "<td>$obj->libraryID</td>";
                                                         $strTbl .= "<td>$obj->libraryName</td>";
+                                                        $strTbl .= "<td>$obj->description</td>";
+                                                    $strTbl .= "</tr>";
+                                                    
+                                                }
+                                                
+                                                echo $strTbl;
+                                                ?>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- itemlibrary -->
+                    <div class="tab-pane fade" id="itemlibrary">
+                        <div class="container text-dark pb-5">
+                            <!-- form Add Itemlibrary -->
+                            <div id="addItemlibrary">
+                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                    <div style="width: 650px;">
+                                        <div class="text-center pb-3">
+                                            <h2>Add Itemlibrary</h2>
+                                        </div>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">ItemID:</label>
+                                                <select class="form-select" id="ItemID" name="fItemID">
+                                                    <option value="1">Ảnh</option>
+                                                    <option value="2">Video</option>
+                                                </select>
+                                            </div>
+                                            <!-- <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">LibraryID:</label>
+                                                <input type="text" id="LibraryID" name="fLibraryID" class="form-control" placeholder="LibraryID" />
+                                            </div> -->
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Upload:</label>
+                                                <input type="text" id="Upload" name="fUpload" class="form-control" placeholder="Upload" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Alt:</label>
+                                                <input type="text" id="Alt" name="fAlt" class="form-control" placeholder="Alt" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Description:</label>
+                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                            </div>
+                                            <input type="submit" id="btnitemlibrary" name="fitemlibrary" class="btn btn-primary" value="Submit" />
+                                        </form>
+                                        <?php 
+                                        
+                                        if(isset($_POST["fitemlibrary"])) {
+                                            $fItemID = $_POST["fItemID"];
+                                            $fLibraryID = $_POST["fLibraryID"];
+                                            $fDescription = $_POST["fDescription"];
+
+                                            $a = new Itemlibrary();
+                                            $a->itemID = $fItemID;
+                                            $a->libraryID = $fLibraryID;
+                                            $a->description = $fDescription;
+                                            $a->addItemlibrary();
+                                        }
+                                        
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- table list Itemlibrary -->
+                            <div id="listItemlibrary">
+                                <div class="text-center">
+                                    <h2>List Itemlibrary</h2>
+                                </div>
+                                <div class="pb-5 d-flex justify-content-center">
+                                    <div style="overflow-x: auto;">
+
+                                        <div id="tbl-kithi" class="mt-4 pb-5" >
+                                            <table class="table table-striped table-hover">
+                                                <tr>
+                                                    <th scope="col">STT</th>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">ItemID</th>
+                                                    <th scope="col">LibraryID</th>
+                                                    <th scope="col">Description</th>
+                                                </tr>
+                                                <?php 
+                                                
+                                                $a = new Itemlibrary();
+                                                $arr = $a->getListItemLibrary();
+                                                $strTbl="";
+
+                                                $stt = 1;
+
+                                                for($i = 0; $i < count($arr); $i++) {
+                                                    $obj = $arr[$i];
+
+                                                    $strTbl .= "<tr>";
+                                                        $strTbl .= "<th>". $stt++ ."</th>";
+                                                        $strTbl .= "<td>$obj->itemLibraryID</td>";
+                                                        $strTbl .= "<td>$obj->itemID</td>";
+                                                        $strTbl .= "<td>$obj->libraryID</td>";
                                                         $strTbl .= "<td>$obj->description</td>";
                                                     $strTbl .= "</tr>";
                                                     
@@ -1645,111 +1636,6 @@ if (!empty($_POST["flogout"])) {
                         </div>
                     </div> -->
 
-                    <!-- itemlibrary -->
-                    <div class="tab-pane fade" id="itemlibrary">
-                        <div class="container text-dark pb-5">
-                            <!-- form Add Itemlibrary -->
-                            <div id="addItemlibrary">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
-                                    <div style="width: 650px;">
-                                        <div class="text-center pb-3">
-                                            <h2>Add Itemlibrary</h2>
-                                        </div>
-                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">ItemID:</label>
-                                                <select class="form-select" id="ItemID" name="fItemID">
-                                                    <option value="1">Ảnh</option>
-                                                    <option value="2">Video</option>
-                                                </select>
-                                            </div>
-                                            <!-- <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">LibraryID:</label>
-                                                <input type="text" id="LibraryID" name="fLibraryID" class="form-control" placeholder="LibraryID" />
-                                            </div> -->
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Upload:</label>
-                                                <input type="text" id="Upload" name="fUpload" class="form-control" placeholder="Upload" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Alt:</label>
-                                                <input type="text" id="Alt" name="fAlt" class="form-control" placeholder="Alt" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
-                                            </div>
-                                            <input type="submit" id="btnitemlibrary" name="fitemlibrary" class="btn btn-primary" value="Submit" />
-                                        </form>
-                                        <?php 
-                                        
-                                        if(isset($_POST["fitemlibrary"])) {
-                                            $fItemID = $_POST["fItemID"];
-                                            $fLibraryID = $_POST["fLibraryID"];
-                                            $fDescription = $_POST["fDescription"];
-
-                                            $a = new Itemlibrary();
-                                            $a->itemID = $fItemID;
-                                            $a->libraryID = $fLibraryID;
-                                            $a->description = $fDescription;
-                                            $a->addItemlibrary();
-                                        }
-                                        
-                                        ?>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- table list Itemlibrary -->
-                            <div id="listItemlibrary">
-                                <div class="text-center">
-                                    <h2>List Itemlibrary</h2>
-                                </div>
-                                <div class="pb-5 d-flex justify-content-center">
-                                    <div style="overflow-x: auto;">
-
-                                        <div id="tbl-kithi" class="mt-4 pb-5" >
-                                            <table class="table table-striped table-hover">
-                                                <tr>
-                                                    <th scope="col">STT</th>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">ItemID</th>
-                                                    <th scope="col">LibraryID</th>
-                                                    <th scope="col">Description</th>
-                                                </tr>
-                                                <?php 
-                                                
-                                                $a = new Itemlibrary();
-                                                $arr = $a->getListItemLibrary();
-                                                $strTbl="";
-
-                                                $stt = 1;
-
-                                                for($i = 0; $i < count($arr); $i++) {
-                                                    $obj = $arr[$i];
-
-                                                    $strTbl .= "<tr>";
-                                                        $strTbl .= "<th>". $stt++ ."</th>";
-                                                        $strTbl .= "<td>$obj->itemLibraryID</td>";
-                                                        $strTbl .= "<td>$obj->itemID</td>";
-                                                        $strTbl .= "<td>$obj->libraryID</td>";
-                                                        $strTbl .= "<td>$obj->description</td>";
-                                                    $strTbl .= "</tr>";
-                                                    
-                                                }
-                                                
-                                                echo $strTbl;
-                                                ?>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
                     <!-- locationandservice -->
                     <div class="tab-pane fade" id="locationandservice">
                         <div class="container text-dark pb-5">
@@ -1859,6 +1745,10 @@ if (!empty($_POST["flogout"])) {
             <!-- BEGIN FOOTER -->
             <footer class="footer" id="footer"></footer>
             <!-- END FOOTER -->
+
+            <!-- BEGIN MODAL -->
+            
+            <!-- END MODAL -->
         </div>
 
         <!-- JQUERY 3.6.1 -->
@@ -1867,10 +1757,8 @@ if (!empty($_POST["flogout"])) {
         <script src="../assets/js/bootstrap.bundle.min.js"></script>
         <!-- chart js -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <!-- chart gg -->
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <!-- JS ME -->
         <script src="./assets/js/loadMenu.js"></script>
         <script src="./assets/js/admin.js"></script>
-    </body>
+    </body> 
 </html>
