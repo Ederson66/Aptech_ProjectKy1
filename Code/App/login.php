@@ -1,17 +1,17 @@
 <?php
 
-require_once './PhpSetting/User.php';
+require_once './PhpSetting/Member.php';
 require_once './PhpSetting/Common.php';
 
 if (!empty($_POST["flogin"])) {
     
-    if (isset($_POST["fusername"]) && isset($_POST["fpassword"])) {
-        $username = $_POST["fusername"];
+    if (isset($_POST["fmember"]) && isset($_POST["fpassword"])) {
+        $member = $_POST["fmember"];
         $password = $_POST["fpassword"];
         
         
-        $a = new User();
-        $a->Username=$username;
+        $a = new Member();
+        $a->MemberName=$member;
         $a->Password=md5($password);
         $arr = $a->login();
         
@@ -19,7 +19,7 @@ if (!empty($_POST["flogin"])) {
             // sử dụng ss
             session_start();
             // tạo ra ss
-            $_SESSION["Username"] = $username;
+            $_SESSION["MemberName"] = $member;
             redirect("index.php");
             
         } else {
@@ -64,7 +64,7 @@ if (!empty($_POST["flogin"])) {
                     </div>
                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" >
                         <div class="input-group d-flex flex-column pt-2 mb-3 position-relative">
-                            <input type="text" class="form-control rounded" id="logusername" name="fusername" required>
+                            <input type="text" class="form-control rounded" id="logusername" name="fmember" required>
                             <label class="text-shadow text-white">Username</label>
                         </div>
                         <div class="input-group d-flex flex-column pt-2 mb-3 position-relative">
