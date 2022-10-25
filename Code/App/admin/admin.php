@@ -257,21 +257,6 @@ if (!empty($_POST["flogout"])) {
                                     <li><a class="dropdown-item cl-1" href="#">List contact</a></li>
                                 </ul>
                             </div>
-                            <!-- item -->
-                            <!-- <li class="showmenu1">
-                                <span data-bs-target="#item" data-bs-toggle="tab" aria-selected="false">   
-                                    <a href="#" class="nav_link collapsed rounded" data-bs-toggle="collapse" data-bs-target="#menu9">
-                                        <i class="bx bi bi-stickies nav_icon"></i> <span class="nav_name float-start">Item <i class="bi bi-chevron-compact-down"></i></span>
-                                    </a>
-                                </span>
-                            </li> -->
-                            <!-- menu item -->
-                            <!-- <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu9">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                    <li><a class="dropdown-item cl-1" href="#">Add Item</a></li>
-                                    <li><a class="dropdown-item cl-1" href="#">List Item</a></li>
-                                </ul>
-                            </div> -->
                             <!-- locationandservice -->
                             <li class="showmenu1">
                                 <span data-bs-target="#locationandservice" data-bs-toggle="tab" aria-selected="false">   
@@ -1624,92 +1609,6 @@ if (!empty($_POST["flogout"])) {
                         </div>
                     </div>
 
-                    <!-- item -->
-                    <!-- <div class="tab-pane fade" id="item">
-                        <div class="container text-dark pb-5">
-                            form Add Item
-                            <div id="addItem">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
-                                    <div style="width: 650px;">
-                                        <div class="text-center pb-3">
-                                            <h2>Add Item</h2>
-                                        </div>
-                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Type:</label>
-                                                <input type="text" id="Type" name="fType" class="form-control" placeholder="Type" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
-                                            </div>
-                                            <input type="submit" id="btnItem" name="fItem" class="btn btn-primary" value="Save" />
-                                        </form>
-                                        <?php 
-                                        
-                                        if(isset($_POST["fItem"])) {
-                                            $fType = $_POST["fType"];
-                                            $fDescription = $_POST["fDescription"];
-
-                                            $a = new Item();
-                                            $a->type = $fType;
-                                            $a->description = $fDescription;
-                                            $a->addItem();
-                                        }
-                                        
-                                        ?>
-                                    </div>
-                                </div>
-                            </div>
-
-                            table list Item
-                            <div id="listItem">
-                                <div class="text-center">
-                                    <h2>List Item</h2>
-                                </div>
-                                <div class="pb-5">
-                                    <div style="overflow-x: auto;">
-
-                                        <div id="tbl-kithi" class="mt-4 pb-5" >
-                                            <table class="table table-striped table-hover">
-                                                <tr>
-                                                    <th scope="col">STT</th>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">Type</th>
-                                                    <th scope="col">Description</th>
-                                                </tr>
-                                                <?php 
-                                                
-                                                $a = new Item();
-                                                $arr = $a->getListItem();
-                                                $strTbl="";
-
-                                                $stt = 1;
-
-                                                for($i = 0; $i < count($arr); $i++) {
-                                                    $obj = $arr[$i];
-
-                                                    $strTbl .= "<tr>";
-                                                        $strTbl .= "<th>". $stt++ ."</th>";
-                                                        $strTbl .= "<td>$obj->itemID</td>";
-                                                        $strTbl .= "<td>$obj->type</td>";
-                                                        $strTbl .= "<td>$obj->description</td>";
-                                                    $strTbl .= "</tr>";
-                                                    
-                                                }
-                                                
-                                                echo $strTbl;
-                                                ?>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div> -->
-
                     <!-- locationandservice -->
                     <div class="tab-pane fade" id="locationandservice">
                         <div class="container text-dark pb-5">
@@ -1875,9 +1774,6 @@ if (!empty($_POST["flogout"])) {
                                             </div>
                                         </div>
                                     </form>
-                                    <div class="d-flex justify-content-center">
-                                                        <p class="p-2 text-success m-0">Done !</p>
-                                                    </div>
                                     <?php
 
                                     if(isset($_POST["fresetpass"])) {
