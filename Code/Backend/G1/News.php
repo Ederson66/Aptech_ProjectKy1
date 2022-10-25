@@ -8,7 +8,7 @@ class News {
 	public $content;
 	public $description;
 	public $flag;
-	public $lead;
+	public $leadcontent;
 	public $newsID;
 	public $title;
 
@@ -27,7 +27,7 @@ class News {
 					`Content`,
 					`Description`,
 					`Flag`,
-					`Lead`,
+					`leadcontent`,
 					`Title`
 				)
 				VALUES
@@ -38,7 +38,7 @@ class News {
 					:content,
 					:description,
 					:flag,
-					:lead,
+					:leadcontent,
 					:title
 				);";
 
@@ -53,7 +53,7 @@ class News {
 			":content" => $this->content,
 			":description" => $this->description,
 			":flag" => $this->flag,
-			":lead" => $this->lead,
+			":leadcontent" => $this->leadcontent,
 			":title" => $this->title));
 
 		// Get value of the auto increment column.
@@ -81,7 +81,7 @@ class News {
 						`Content` = :content,
 						`Description` = :description,
 						`Flag` = :flag,
-						`Lead` = :lead,
+						`leadcontent` = :leadcontent,
 						`Title` = :title
 				WHERE	`NewsID` = :newsID;";
 
@@ -96,7 +96,7 @@ class News {
 			":content" => $this->content,
 			":description" => $this->description,
 			":flag" => $this->flag,
-			":lead" => $this->lead,
+			":leadcontent" => $this->leadcontent,
 			":newsID" => $this->newsID,
 			":title" => $this->title));
 
@@ -137,7 +137,7 @@ class News {
 						`Content`,
 						`Description`,
 						`Flag`,
-						`Lead`,
+						`leadcontent`,
 						`NewsID`,
 						`Title`
 				FROM	`news`
@@ -159,7 +159,7 @@ class News {
 			$news->content = $row["Content"];
 			$news->description = $row["Description"];
 			$news->flag = $row["Flag"];
-			$news->lead = $row["Lead"];
+			$news->leadcontent = $row["leadcontent"];
 			$news->newsID = $row["NewsID"];
 			$news->title = $row["Title"];
 		}
@@ -178,7 +178,7 @@ class News {
 
 		// Validate sort column and order.
 		$defaultSortColumn = "`NewsID`";
-		$sortColumns = Array("AUTHOR", "AVATARNEWS", "CATEGORYID", "CONTENT", "DESCRIPTION", "FLAG", "LEAD", "NEWSID", "TITLE");
+		$sortColumns = Array("AUTHOR", "AVATARNEWS", "CATEGORYID", "CONTENT", "DESCRIPTION", "FLAG", "leadcontent", "NEWSID", "TITLE");
 		$sortColumn = in_array(strtoupper($sortColumn), $sortColumns) ? "`$sortColumn`" : $defaultSortColumn;
 		$sortOrder = strcasecmp($sortOrder, "DESC") == 0 ? "DESC" : "ASC";
 
@@ -215,7 +215,7 @@ class News {
 						`Content`,
 						`Description`,
 						`Flag`,
-						`Lead`,
+						`leadcontent`,
 						`NewsID`,
 						`Title`
 				FROM	`news`
@@ -238,7 +238,7 @@ class News {
 			$news->content = $row["Content"];
 			$news->description = $row["Description"];
 			$news->flag = $row["Flag"];
-			$news->lead = $row["Lead"];
+			$news->leadcontent = $row["leadcontent"];
 			$news->newsID = $row["NewsID"];
 			$news->title = $row["Title"];
 

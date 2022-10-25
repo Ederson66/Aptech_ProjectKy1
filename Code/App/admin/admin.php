@@ -1237,8 +1237,8 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->libraryName</td>";
                                                         $strTbl .= "<td>$obj->description</td>";
                                                         $strTbl .= "<td class='text-center'>
-                                                                        <button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalitemlibrary'>Add image</button>
-                                                                        <button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalitemlibrary'>Add video</button>
+                                                                        <button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalitemlibraryimg'>Add image</button>
+                                                                        <button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalitemlibraryvideo'>Add video</button>
                                                                     </td>";
                                                     $strTbl .= "</tr>";
                                                     
@@ -1270,7 +1270,7 @@ if (!empty($_POST["flogout"])) {
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">ItemID:</label>
                                                 <select class="form-select" id="ItemID" name="fItemID" onchange="showinfo(this.value)">
-                                                    <option value="0">Chọn</option>
+                                                    <option value="0" selected>Chọn</option>
                                                     <option value="1">Ảnh</option>
                                                     <option value="2">Video</option>
                                                 </select>
@@ -1567,7 +1567,7 @@ if (!empty($_POST["flogout"])) {
                             <!-- table list categorytour -->
                             <div id="listCategorytour">
                                 <div class="text-center">
-                                    <h2>List Categorytour</h2>
+                                    <h2>List Contact</h2>
                                 </div>
                                 <div class="pb-5">
                                     <div style="overflow-x: auto;">
@@ -1875,6 +1875,9 @@ if (!empty($_POST["flogout"])) {
                                             </div>
                                         </div>
                                     </form>
+                                    <div class="d-flex justify-content-center">
+                                                        <p class="p-2 text-success m-0">Done !</p>
+                                                    </div>
                                     <?php
 
                                     if(isset($_POST["fresetpass"])) {
@@ -1888,10 +1891,12 @@ if (!empty($_POST["flogout"])) {
 
                                         if($fnewpass === $cfpass) {
                                             $a = new Usersystem();
-                                            $a->password = $cfpass;
-                                            $a->userSystemID = $userID;
+                                            $a->Password = $cfpass;
+                                            $a->UserSystemID = $userID;
                                             $a->updatePass();
-                                            echo '<p class="p-2 text-danger m-0">Done!!!</p>';
+                                            echo '<div class="d-flex justify-content-center">
+                                                        <p class="p-2 text-success m-0">Done !</p>
+                                                    </div>';
                                         } else {
                                             echo '  <div class="d-flex justify-content-center">
                                                                 <p class="p-2 text-danger m-0">Passwords must match !</p>
@@ -1987,12 +1992,12 @@ if (!empty($_POST["flogout"])) {
                 </div>
             </div>
 
-            <!-- modal add itemlibrary -->
-            <div class="modal fade" id="modalitemlibrary" aria-hidden="true">
+            <!-- modal add itemlibrary add video -->
+            <div class="modal fade" id="modalitemlibraryvideo" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Img/Video</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Video</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -2004,13 +2009,14 @@ if (!empty($_POST["flogout"])) {
                                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                                         <div class="mb-3">
                                             <label class="form-label fw-bold text-secondary">ItemID:</label>
-                                            <select class="form-select" id="ItemID" name="fItemID" onchange="showinfo(this.value)">
-                                                <option value="0">Chọn</option>
-                                                <option value="1">Ảnh</option>
+                                            <select class="form-select" id="ItemID" name="fItemID">
                                                 <option value="2">Video</option>
                                             </select>
                                         </div>
-                                        <div id="txtHint"></div>
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold text-secondary">Link video:</label>
+                                            <input type="text" id="Alt" name="fUpload" class="form-control" placeholder="Link" />
+                                        </div>
                                         <div class="mb-3">
                                             <label class="form-label fw-bold text-secondary">Description:</label>
                                             <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
@@ -2034,12 +2040,74 @@ if (!empty($_POST["flogout"])) {
                                     ?>
                                 </div>
                             </div>
+                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- modal add itemlibrary add img -->
+            <div class="modal fade" id="modalitemlibraryimg" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Image</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="p-2 d-flex justify-content-center">
+                                <div style="width: 650px;">
+                                    <div class="text-center pb-3">
+                                        <h2>Add</h2>
+                                    </div>
+                                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold text-secondary">ItemID:</label>
+                                            <select class="form-select" id="ItemID" name="fItemID">
+                                                <option value="1">Ảnh</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold text-secondary">Upload img:</label>
+                                            <input type="file" id="Upload" name="fUpload" class="form-control"/>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold text-secondary">Alt:</label>
+                                            <input type="text" id="Alt" name="fAlt" class="form-control" placeholder="Alt" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold text-secondary">Description:</label>
+                                            <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                        </div>
+                                        <input type="submit" id="btnitemlibrary" name="fitemlibrary" class="btn btn-primary" value="Save" />
+                                    </form>
+                                    <?php 
+                                    
+                                    if(isset($_POST["fitemlibrary"])) {
+                                        $fItemID = $_POST["fItemID"];
+                                        $fLibraryID = $_POST["fLibraryID"];
+                                        $fDescription = $_POST["fDescription"];
+
+                                        $a = new Itemlibrary();
+                                        $a->itemID = $fItemID;
+                                        $a->libraryID = $fLibraryID;
+                                        $a->description = $fDescription;
+                                        $a->addItemlibrary();
+                                    }
+                                    
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <!-- END MODAL -->
         </div>
 

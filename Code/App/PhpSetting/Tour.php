@@ -88,7 +88,7 @@ class Tour {
 				CASE
 					WHEN Status = 1 THEN 'Đang hoạt động'
 					WHEN Status = 2 THEN 'Dừng hoạt động'
-					WHEN Status = 2 THEN 'Chưa kích hoạt'
+					WHEN Status = 3 THEN 'Chưa kích hoạt'
 					ELSE 'Error'
 				END
 				AS `Status`
