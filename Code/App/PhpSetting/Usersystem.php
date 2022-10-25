@@ -117,6 +117,7 @@ class Usersystem {
 			$s = new Usersystem();
 			$s->UserName = $row["UserName"];
 			$s->Role = $row["Role"];
+			$s->UserSystemID = $row["UserSystemID"];
 
 			array_push($list, $s);
 		}
@@ -131,8 +132,29 @@ class Usersystem {
 	public function logout() {
 		// xóa ss khi tạo ở login
 		session_destroy();
-		redirect("./login.php");
+		redirect("login.php");
 		//unset($_SESSION["Username"]);
+	}
+
+	public function updatePass() {
+		// Connect to database.
+		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDatabaseName() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+
+		// Update query.
+		$sql = "UPDATE `usersystem` SET Password = :Password WHERE UserSystemID = :UserSystemID;";
+
+		// Prepare statement.
+		$stmt = $conn->prepare($sql);
+
+		// Execute the statement.
+		$stmt->execute(array(
+			":Password" => $this->Password,
+			":UserSystemID" => $this->UserSystemID));
+
+		// Close the database connection.
+		$conn = NULL;
 	}
 
 	public function updateUsersystem() {

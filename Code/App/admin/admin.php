@@ -1830,12 +1830,13 @@ if (!empty($_POST["flogout"])) {
 
                                         for($i = 0; $i < count($list); $i++) {
                                             $obj = $list[$i];    
-                                            echo '  <div class="mt-2 mb-2 d-flex justify-content-between border-bottom"> ' .
-                                                        '<strong class="text-secondary">Username:</strong><span class="text-primary">'. $obj->UserName.'</span>' .
-                                                    '</div>'.
-                                                    '<div class="mt-2 mb-2 d-flex justify-content-between border-bottom">'.
-                                                        '<strong class="text-secondary">Role:</strong><span class="text-primary">'. $obj->Role.'</span>'.
-                                                    '</div>';
+                                            echo "  <div class='mt-2 mb-2 d-flex justify-content-between border-bottom'>
+                                                        <strong class='text-secondary'>Username:</strong><span class='text-primary'> $obj->UserName</span>
+                                                    </div>
+                                                    <div class='mt-2 mb-2 d-flex justify-content-between border-bottom'>
+                                                        <strong class='text-secondary'>Role:</strong><span class='text-primary'> $obj->Role</span>
+                                                    </div>
+                                                    ";
                                         }
 
                                         ?>
@@ -1846,23 +1847,59 @@ if (!empty($_POST["flogout"])) {
                                             <div>
                                                 <h4>Reset password:</h3>
                                             </div>
+                                            <?php 
+
+                                            $a = new Usersystem();
+                                            $list = $a->getProfile();
+
+                                            for($i = 0; $i < count($list); $i++) {
+                                                $obj = $list[$i];
+                                                echo '<input type="hidden" name="userID" value="'. $obj->UserSystemID .'"/>';
+                                            }
+
+                                            ?>
                                             <div class="mt-3 mb-3">
                                                 <label class="form-label fw-bold text-secondary">Current password:</label>
-                                                <input type="text" id="crpass" name="fcrpass" class="form-control" placeholder="Pass" />
+                                                <input type="password" id="crpass" name="fcrpass" class="form-control" placeholder="Pass" />
                                             </div>
                                             <div class="mt-3 mb-3">
                                                 <label class="form-label fw-bold text-secondary">New password:</label>
-                                                <input type="text" id="newpass" name="fnewpass" class="form-control" placeholder="Create pass" />
+                                                <input type="password" id="newpass" name="fnewpass" class="form-control" placeholder="Create pass" />
                                             </div>
                                             <div class="mt-3 mb-3">
                                                 <label class="form-label fw-bold text-secondary">Confirm password:</label>
-                                                <input type="text" id="cfpass" name="cfpass" class="form-control" placeholder="Create pass" />
+                                                <input type="password" id="cfpass" name="cfpass" class="form-control" placeholder="Confirm pass" />
                                             </div>
                                             <div class="mt-3 mb-3">
                                                 <input type="submit" class="btn btn-primary" name="fresetpass" value="Reset"/>
                                             </div>
                                         </div>
                                     </form>
+                                    <?php
+
+                                    if(isset($_POST["fresetpass"])) {
+                                        $fcrpass = $_POST["fcrpass"]; 
+                                        $fnewpass = $_POST["fnewpass"]; 
+                                        $cfpass = $_POST["cfpass"]; 
+                                        $userID = $_POST["userID"];
+
+                                        $fnewpass = md5($fnewpass);
+                                        $cfpass = md5($cfpass);
+
+                                        if($fnewpass === $cfpass) {
+                                            $a = new Usersystem();
+                                            $a->password = $cfpass;
+                                            $a->userSystemID = $userID;
+                                            $a->updatePass();
+                                            echo '<p class="p-2 text-danger m-0">Done!!!</p>';
+                                        } else {
+                                            echo '  <div class="d-flex justify-content-center">
+                                                                <p class="p-2 text-danger m-0">Passwords must match !</p>
+                                                            </div>';
+                                        }
+                                    }
+                                    
+                                    ?>
                                 </div>
                             </div>
                             
