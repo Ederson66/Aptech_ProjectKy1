@@ -1824,23 +1824,20 @@ if (!empty($_POST["flogout"])) {
                                 <div style="width: 650px;">
                                     <div class="p-3">
                                         <?php 
-                                        
-                                        // $a = new Usersystem();
-                                        // $arr = $a->getProfile();
 
-                                        // for($i = 0; $i < count($arr); $i++) {
-                                        //     $obj = $arr[$i];
+                                        $a = new Usersystem();
+                                        $list = $a->getProfile();
 
-                                        //     echo $obj->UserName;
+                                        for($i = 0; $i < count($list); $i++) {
+                                            $obj = $list[$i];    
+                                            echo '  <div class="mt-2 mb-2 d-flex justify-content-between border-bottom"> ' .
+                                                        '<strong class="text-secondary">Username:</strong><span class="text-primary">'. $obj->UserName.'</span>' .
+                                                    '</div>'.
+                                                    '<div class="mt-2 mb-2 d-flex justify-content-between border-bottom">'.
+                                                        '<strong class="text-secondary">Role:</strong><span class="text-primary">'. $obj->Role.'</span>'.
+                                                    '</div>';
+                                        }
 
-                                        //     echo '  <div class="mt-2 mb-2 d-flex justify-content-between border-bottom"> ' .
-                                        //                 '<strong class="text-secondary">Username:</strong><span class="text-primary">'. $obj->UserName.'</span>' .
-                                        //             '</div>'.
-                                        //             '<div class="mt-2 mb-2 d-flex justify-content-between border-bottom">'.
-                                        //                 '<strong class="text-secondary">Role:</strong><span class="text-primary">'. $obj->UserName.'</span>'.
-                                        //             '</div>';
-                                        // }
-                                        
                                         ?>
                                         
                                     </div>

@@ -8,13 +8,13 @@ $dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::ge
 $conn = new PDO($dsn, DBinfoConfig::getUsername(), DBinfoConfig::getPassword(), $options);
 
 class Usersystem {
-	public $description;
-	public $flag;
-	public $password;
-	public $role;
-	public $status;
-	public $userName;
-	public $userSystemID;
+	public $Description;
+	public $Flag;
+	public $Password;
+	public $Role;
+	public $Status;
+	public $UserName;
+	public $UserSystemID;
 
 	public function addUsersystem() {
 		// Connect to database.
@@ -101,31 +101,22 @@ class Usersystem {
 		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
 		$conn = new PDO($dsn, DBinfoConfig::getUsername(), DBinfoConfig::getPassword(), $options);
 
+		$user = $_SESSION["Username"];
+
 		// câu lệnh sql
-		$sql = "SELECT * FROM `usersystem`;";
+		$sql = "SELECT * FROM `usersystem` WHERE Username = '$user';";
 
 		// chuẩn bị câu lệnh SQL
 		$stmt = $conn->prepare($sql);
 
 		// thực hiện
-		$stmt->execute(array(
-			":description" => $this->description,
-			":flag" => $this->flag,
-			":password" => $this->password,
-			":role" => $this->role,
-			":status" => $this->status,
-			":userName" => $this->userName));
+		$stmt->execute();
 
 		$list = Array();
 		while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 			$s = new Usersystem();
-			$s->description = $row["Description"];
-			$s->flag = $row["Flag"];
-			$s->password = $row["Password"];
-			$s->role = $row["Role"];
-			$s->status = $row["Status"];
-			$s->userName = $row["UserName"];
-			$s->userSystemID = $row["UserSystemID"];
+			$s->UserName = $row["UserName"];
+			$s->Role = $row["Role"];
 
 			array_push($list, $s);
 		}
