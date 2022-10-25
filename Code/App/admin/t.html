@@ -5,17 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
 </head>
 <body>
-    <form>
-        <textarea name="editor1" id="editor1" rows="10" cols="80">                This is my textarea to be replaced with CKEditor.            </textarea>
+    
 
-
-        <script src="../assets/js/ckeditor/ckeditor.js"></script>
-        <script>
-            CKEDITOR.replace( 'editor1' );
-        </script>
-    </form>
+    <script>
+        function reverseGeocodingWithGoogle(latitude, longitude) {
+            fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyA5S2ZiMkkNi34ht_9DJ1W8gjVQ9zHvK0U`)
+                .then(res => res.json())
+                .then(response => {
+                    console.log("Vị trí người dùng: ", response)
+                })
+                .catch(status => {
+                    console.log('Request thất bại :', status)
+                })
+        }     
+        function geoFindMe() {
+            if (!navigator.geolocation) {
+                console.log("Geolocation không hỗ trợ");
+                return;
+            }
+        }
+        function success(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            reverseGeocodingWithGoogle(latitude,longitude)
+        }
+        function error() {
+            console.log("Không thể lấy được vị trí");
+        }
+            
+        geoFindMe();
+    </script>
 </body>
 </html>

@@ -108,15 +108,24 @@ class Usersystem {
 		$stmt = $conn->prepare($sql);
 
 		// thực hiện
-		$stmt->execute();
+		$stmt->execute(array(
+			":description" => $this->description,
+			":flag" => $this->flag,
+			":password" => $this->password,
+			":role" => $this->role,
+			":status" => $this->status,
+			":userName" => $this->userName));
 
 		$list = Array();
 		while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 			$s = new Usersystem();
-			$s->Username = $row["Username"];
-			$s->Password = $row["Password"];
-			$s->Description = $row["Description"];
-			$s->UserSystemID = $row["UserSystemID"];
+			$s->description = $row["Description"];
+			$s->flag = $row["Flag"];
+			$s->password = $row["Password"];
+			$s->role = $row["Role"];
+			$s->status = $row["Status"];
+			$s->userName = $row["UserName"];
+			$s->userSystemID = $row["UserSystemID"];
 
 			array_push($list, $s);
 		}

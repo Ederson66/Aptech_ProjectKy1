@@ -84,6 +84,8 @@ if (!empty($_POST["flogout"])) {
         <div class="app">
             <!-- BEGIN HEADER -->
             <header class="header" id="header">
+                <!-- <div id="abc">
+                </div> -->
                 <div class="header_toggle"><i class="bx bx-menu text-dark" id="header-toggle"></i></div>
                 <form class="w-50"><input type="search" class="form-control" placeholder="Search..." aria-label="Search" /></form>
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
@@ -426,7 +428,10 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->AnonymousPhone</td>";
                                                         $strTbl .= "<td>$obj->Status</td>";
                                                         $strTbl .= "<td>$obj->Description</td>";
-                                                        $strTbl .= "<td>...</td>";
+                                                        $strTbl .= "<td>
+                                                                        <button class='btn btn-danger'>Delete</button>
+                                                                        <button class='btn btn-primary'>Edit</button>
+                                                                    </td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -480,7 +485,7 @@ if (!empty($_POST["flogout"])) {
                                                 <label class="form-label fw-bold text-secondary">TourPrice:</label>
                                                 <div class="input-group">
                                                     <input type="text" id="TourPrice" name="fTourPrice" class="form-control" placeholder="TourPrice" />
-                                                    <span class="input-group-text">VND</span>
+                                                    <span class="input-group-text">USD</span>
                                                 </div>
                                             </div>
                                             <div class="mb-3">
@@ -504,9 +509,9 @@ if (!empty($_POST["flogout"])) {
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Status:</label>
                                                 <select class="form-select" id="Status" name="fStatus" >
+                                                    <option value="3">Chưa kích hoạt</option>
                                                     <option value="1">Đang hoạt động</option>
                                                     <option value="2">Dừng hoạt động</option>
-                                                    <option value="3">Chưa kích hoạt</option>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
@@ -656,7 +661,7 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->TourName</td>";
                                                         $strTbl .= "<td>$obj->TimeStart</td>";
                                                         $strTbl .= "<td>$obj->TimeLimit</td>";
-                                                        $strTbl .= "<td>$obj->TourPrice</td>";
+                                                        $strTbl .= "<td>".$obj->TourPrice." USD"."</td>";
                                                         $strTbl .= "<td><button class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#modaltour'>More</button></td>";
                                                     $strTbl .= "</tr>";
                                                     
@@ -886,18 +891,18 @@ if (!empty($_POST["flogout"])) {
                                                 <label class="form-label fw-bold text-secondary">Price:</label>
                                                 <div class="input-group">
                                                     <input type="text" id="Price" name="fPrice" class="form-control" placeholder="Price" />
-                                                    <span class="input-group-text">VND</span>
+                                                    <span class="input-group-text">USD</span>
                                                 </div>
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">VAT:</label>
+                                                <label class="form-label fw-bold text-secondary">TNTT(tax):</label>
                                                 <div class="input-group">
-                                                    <input type="text" id="VAT" name="fVAT" class="form-control" placeholder="VAT" value="8"/>
+                                                    <input type="text" id="VAT" name="fVAT" class="form-control" placeholder="VAT" value="10"/>
                                                     <span class="input-group-text">%</span>
                                                 </div>
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Sale:</label>
+                                                <label class="form-label fw-bold text-secondary">Sale on service:</label>
                                                 <div class="input-group">
                                                     <input type="text" id="Sale" name="fSale" class="form-control" placeholder="Sale" />
                                                     <span class="input-group-text">%</span>
@@ -947,7 +952,7 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">ID</th>
                                                     <th scope="col">ServiceName</th>
                                                     <th scope="col">Price</th>
-                                                    <th scope="col">VAT</th>
+                                                    <th scope="col">TNTT(tax)</th>
                                                     <th scope="col">Sale</th>
                                                     <th scope="col">Description</th>
                                                     <th scope="col">Action</th>
@@ -1213,7 +1218,7 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">ID</th>
                                                     <th scope="col">LibraryName</th>
                                                     <th scope="col">Description</th>
-                                                    <th scope="col">Action</th>
+                                                    <th class='text-center' scope="col">Action</th>
                                                 </tr>
                                                 <?php 
                                                 
@@ -1231,7 +1236,10 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->libraryID</td>";
                                                         $strTbl .= "<td>$obj->libraryName</td>";
                                                         $strTbl .= "<td>$obj->description</td>";
-                                                        $strTbl .= "<td>...</td>";
+                                                        $strTbl .= "<td class='text-center'>
+                                                                        <button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalitemlibrary'>Add image</button>
+                                                                        <button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalitemlibrary'>Add video</button>
+                                                                    </td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -1253,7 +1261,7 @@ if (!empty($_POST["flogout"])) {
                         <div class="container text-dark pb-5">
                             <!-- form Add Itemlibrary -->
                             <div id="addItemlibrary">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                            <div class="pt-5 pb-5 d-flex justify-content-center">
                                     <div style="width: 650px;">
                                         <div class="text-center pb-3">
                                             <h2>Add Itemlibrary</h2>
@@ -1261,22 +1269,20 @@ if (!empty($_POST["flogout"])) {
                                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">ItemID:</label>
-                                                <select class="form-select" id="ItemID" name="fItemID">
+                                                <select class="form-select" id="ItemID" name="fItemID" onchange="showinfo(this.value)">
+                                                    <option value="0">Chọn</option>
                                                     <option value="1">Ảnh</option>
                                                     <option value="2">Video</option>
                                                 </select>
                                             </div>
-                                            <!-- <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">LibraryID:</label>
-                                                <input type="text" id="LibraryID" name="fLibraryID" class="form-control" placeholder="LibraryID" />
-                                            </div> -->
+                                            <div id="txtHint"></div>
                                             <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Upload:</label>
-                                                <input type="file" id="Upload" name="fUpload" class="form-control" placeholder="Upload" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Alt:</label>
-                                                <input type="text" id="Alt" name="fAlt" class="form-control" placeholder="Alt" />
+                                                <label class="form-label fw-bold text-secondary">Library:</label>
+                                                <select class="form-select" id="LibraryID" name="fLibraryID">
+                                                    <option value="0">Chọn</option>
+                                                    <option value="1">thư viện 1</option>
+                                                    <option value="2">thư viện 2</option>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
@@ -1338,7 +1344,7 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->itemID</td>";
                                                         $strTbl .= "<td>$obj->libraryID</td>";
                                                         $strTbl .= "<td>$obj->description</td>";
-                                                        $strTbl .= "<td>...</td>";
+                                                        $strTbl .= "<td></td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -1372,7 +1378,11 @@ if (!empty($_POST["flogout"])) {
                                             </div>
                                             <div class="mb-3 w-50">
                                                 <label class="form-label fw-bold text-secondary">ParentID:</label>
-                                                <input type="text" id="ParentID" name="fParentID" class="form-control" placeholder="ParentID" />
+                                                <select class="form-select" id="ParentID" name="fParentID">
+                                                    <option value="1">tên của category</option>
+                                                    <option value="2">tên của category</option>
+                                                    <option value="3">tên của category</option>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
@@ -1468,7 +1478,11 @@ if (!empty($_POST["flogout"])) {
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Status:</label>
-                                                <input type="text" id="Status" name="fStatus" class="form-control" placeholder="Status" />
+                                                <select class="form-select" id="Status" name="fStatus" >
+                                                    <option value="3">Chưa kích hoạt</option>
+                                                    <option value="1">Đang hoạt động</option>
+                                                    <option value="2">Dừng hoạt động</option>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
@@ -1809,12 +1823,26 @@ if (!empty($_POST["flogout"])) {
                             <div class="d-flex justify-content-center">
                                 <div style="width: 650px;">
                                     <div class="p-3">
-                                        <div class="mt-2 mb-2 d-flex justify-content-between border-bottom">
-                                            <strong class="text-secondary">Username:</strong><span class="text-primary"> admin</span>
-                                        </div>
-                                        <div class="mt-2 mb-2 d-flex justify-content-between border-bottom">
-                                            <strong class="text-secondary">Role:</strong><span class="text-primary"> Admin</span>
-                                        </div>
+                                        <?php 
+                                        
+                                        // $a = new Usersystem();
+                                        // $arr = $a->getProfile();
+
+                                        // for($i = 0; $i < count($arr); $i++) {
+                                        //     $obj = $arr[$i];
+
+                                        //     echo $obj->UserName;
+
+                                        //     echo '  <div class="mt-2 mb-2 d-flex justify-content-between border-bottom"> ' .
+                                        //                 '<strong class="text-secondary">Username:</strong><span class="text-primary">'. $obj->UserName.'</span>' .
+                                        //             '</div>'.
+                                        //             '<div class="mt-2 mb-2 d-flex justify-content-between border-bottom">'.
+                                        //                 '<strong class="text-secondary">Role:</strong><span class="text-primary">'. $obj->UserName.'</span>'.
+                                        //             '</div>';
+                                        // }
+                                        
+                                        ?>
+                                        
                                     </div>
                                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                                         <div class="p-3">
@@ -1855,7 +1883,6 @@ if (!empty($_POST["flogout"])) {
             <!-- BEGIN MODAL -->
 
             <!-- modal tour -->
-            <!-- Modal -->
             <div class="modal fade" id="modaltour" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -1901,7 +1928,7 @@ if (!empty($_POST["flogout"])) {
                                                 $strTbl .= "<td>$obj->TourName</td>";
                                                 $strTbl .= "<td>$obj->TimeStart</td>";
                                                 $strTbl .= "<td>$obj->TimeLimit</td>";
-                                                $strTbl .= "<td>$obj->TourPrice</td>";
+                                                $strTbl .= "<td>".$obj->TourPrice." USD"."</td>";
                                                 $strTbl .= "<td>$obj->TourSale</td>";
                                                 $strTbl .= "<td>$obj->Location</td>";
                                                 $strTbl .= "<td><img src='$obj->AvatarTour' alt='banner' width='200' height='100'></td>";
@@ -1926,6 +1953,59 @@ if (!empty($_POST["flogout"])) {
                 </div>
             </div>
 
+            <!-- modal add itemlibrary -->
+            <div class="modal fade" id="modalitemlibrary" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Img/Video</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="p-2 d-flex justify-content-center">
+                                <div style="width: 650px;">
+                                    <div class="text-center pb-3">
+                                        <h2>Add</h2>
+                                    </div>
+                                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold text-secondary">ItemID:</label>
+                                            <select class="form-select" id="ItemID" name="fItemID" onchange="showinfo(this.value)">
+                                                <option value="0">Chọn</option>
+                                                <option value="1">Ảnh</option>
+                                                <option value="2">Video</option>
+                                            </select>
+                                        </div>
+                                        <div id="txtHint"></div>
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold text-secondary">Description:</label>
+                                            <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                        </div>
+                                        <input type="submit" id="btnitemlibrary" name="fitemlibrary" class="btn btn-primary" value="Save" />
+                                    </form>
+                                    <?php 
+                                    
+                                    if(isset($_POST["fitemlibrary"])) {
+                                        $fItemID = $_POST["fItemID"];
+                                        $fLibraryID = $_POST["fLibraryID"];
+                                        $fDescription = $_POST["fDescription"];
+
+                                        $a = new Itemlibrary();
+                                        $a->itemID = $fItemID;
+                                        $a->libraryID = $fLibraryID;
+                                        $a->description = $fDescription;
+                                        $a->addItemlibrary();
+                                    }
+                                    
+                                    ?>
+                                </div>
+                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- END MODAL -->
         </div>
 
@@ -1940,7 +2020,32 @@ if (!empty($_POST["flogout"])) {
         <script src="./assets/js/admin.js"></script>
         <script src="../assets/js/ckeditor/ckeditor.js"></script>
         <script>
+            // ck editer
             CKEDITOR.replace( 'editor1' );
+
+            function showinfo(str)
+            {
+                if (str == "0") {
+                    document.querySelector("#txtHint").innerHTML = "";
+                    return;
+                } else if(str == 1){
+                    document.querySelector("#txtHint").innerHTML = `<div class="mb-3">
+                                                                        <label class="form-label fw-bold text-secondary">Upload img:</label>
+                                                                        <input type="file" id="Upload" name="fUpload" class="form-control"/>
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label class="form-label fw-bold text-secondary">Alt:</label>
+                                                                        <input type="text" id="Alt" name="fAlt" class="form-control" placeholder="Alt" />
+                                                                    </div>`;
+                    return;
+                } else {
+                    document.querySelector("#txtHint").innerHTML = `<div class="mb-3">
+                                                                        <label class="form-label fw-bold text-secondary">Link video:</label>
+                                                                        <input type="text" id="Alt" name="fUpload" class="form-control" placeholder="Link" />
+                                                                    </div>`;
+                }
+
+            }
         </script>
     </body> 
 </html>

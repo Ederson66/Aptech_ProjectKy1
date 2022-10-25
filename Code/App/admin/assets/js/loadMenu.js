@@ -148,7 +148,6 @@ document.addEventListener('DOMContentLoaded', function () {
             // add padding to footer
             footerpd.classList.add("body-pd");
         });
-       
 
         // Ngăn chặn mọi sự lan truyền của cùng một sự kiện
         $('#nav-bar, #body-pd, #header, #footer, #header-toggle').click(function (e) {
