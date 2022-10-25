@@ -1,33 +1,33 @@
 <?php
 require_once("dbInfo.php");
 
-class Itemlibrary {
+class Item {
 	public $description;
 	public $flag;
 	public $itemID;
-	public $itemLibraryID;
-	public $libraryID;
+	public $path;
+	public $type;
 
-	public function addItemlibrary() {
+	public function addItem() {
 		// Connect to database.
 		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 		$dsn = "mysql:host=" . DatabaseInfo::getServer() . ";dbname=" . DatabaseInfo::getDatabaseName() . ";charset=utf8";
 		$conn = new PDO($dsn, DatabaseInfo::getUserName(), DatabaseInfo::getPassword(), $options);
 
 		// Insert query.
-		$sql = "INSERT INTO `itemlibrary`
+		$sql = "INSERT INTO `item`
 				(
 					`Description`,
 					`Flag`,
-					`ItemID`,
-					`LibraryID`
+					`Path`,
+					`Type`
 				)
 				VALUES
 				(
 					:description,
 					:flag,
-					:itemID,
-					:libraryID
+					:path,
+					:type
 				);";
 
 		// Prepare statement.
@@ -37,12 +37,12 @@ class Itemlibrary {
 		$stmt->execute(array(
 			":description" => $this->description,
 			":flag" => $this->flag,
-			":itemID" => $this->itemID,
-			":libraryID" => $this->libraryID));
+			":path" => $this->path,
+			":type" => $this->type));
 
 		// Get value of the auto increment column.
 		$newId = $conn->lastInsertId();
-		$this->itemLibraryID = $newId;
+		$this->itemID = $newId;
 
 		// Close the database connection.
 		$conn = NULL;
@@ -51,19 +51,19 @@ class Itemlibrary {
 		return $newId;
 	}
 
-	public function updateItemlibrary() {
+	public function updateItem() {
 		// Connect to database.
 		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 		$dsn = "mysql:host=" . DatabaseInfo::getServer() . ";dbname=" . DatabaseInfo::getDatabaseName() . ";charset=utf8";
 		$conn = new PDO($dsn, DatabaseInfo::getUserName(), DatabaseInfo::getPassword(), $options);
 
 		// Update query.
-		$sql = "UPDATE	`itemlibrary`
+		$sql = "UPDATE	`item`
 				SET		`Description` = :description,
 						`Flag` = :flag,
-						`ItemID` = :itemID,
-						`LibraryID` = :libraryID
-				WHERE	`ItemLibraryID` = :itemLibraryID;";
+						`Path` = :path,
+						`Type` = :type
+				WHERE	`ItemID` = :itemID;";
 
 		// Prepare statement.
 		$stmt = $conn->prepare($sql);
@@ -73,34 +73,34 @@ class Itemlibrary {
 			":description" => $this->description,
 			":flag" => $this->flag,
 			":itemID" => $this->itemID,
-			":itemLibraryID" => $this->itemLibraryID,
-			":libraryID" => $this->libraryID));
+			":path" => $this->path,
+			":type" => $this->type));
 
 		// Close the database connection.
 		$conn = NULL;
 	}
 
-	public static function deleteItemlibrary($itemLibraryID) {
+	public static function deleteItem($itemID) {
 		// Connect to database.
 		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 		$dsn = "mysql:host=" . DatabaseInfo::getServer() . ";dbname=" . DatabaseInfo::getDatabaseName() . ";charset=utf8";
 		$conn = new PDO($dsn, DatabaseInfo::getUserName(), DatabaseInfo::getPassword(), $options);
 
 		// Delete query.
-		$sql = "DELETE	FROM `itemlibrary`
-				WHERE	`ItemLibraryID` = :itemLibraryID;";
+		$sql = "DELETE	FROM `item`
+				WHERE	`ItemID` = :itemID;";
 
 		// Prepare statement.
 		$stmt = $conn->prepare($sql);
 
 		// Execute the statement.
-		$stmt->execute(array(":itemLibraryID" => $itemLibraryID));
+		$stmt->execute(array(":itemID" => $itemID));
 
 		// Close the database connection.
 		$conn = NULL;
 	}
 
-	public static function getItemlibrary($itemLibraryID) {
+	public static function getItem($itemID) {
 		// Connect to database.
 		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 		$dsn = "mysql:host=" . DatabaseInfo::getServer() . ";dbname=" . DatabaseInfo::getDatabaseName() . ";charset=utf8";
@@ -110,32 +110,32 @@ class Itemlibrary {
 		$sql = "SELECT	`Description`,
 						`Flag`,
 						`ItemID`,
-						`ItemLibraryID`,
-						`LibraryID`
-				FROM	`itemlibrary`
-				WHERE	`ItemLibraryID` = :itemLibraryID;";
+						`Path`,
+						`Type`
+				FROM	`item`
+				WHERE	`ItemID` = :itemID;";
 
 		// Prepare statement.
 		$stmt = $conn->prepare($sql);
 
 		// Execute the statement.
-		$stmt->execute(array(":itemLibraryID" => $itemLibraryID));
+		$stmt->execute(array(":itemID" => $itemID));
 
 		// Fetch record.
-		$itemlibrary = NULL;
+		$item = NULL;
 		if($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			$itemlibrary = new Itemlibrary();
-			$itemlibrary->description = $row["Description"];
-			$itemlibrary->flag = $row["Flag"];
-			$itemlibrary->itemID = $row["ItemID"];
-			$itemlibrary->itemLibraryID = $row["ItemLibraryID"];
-			$itemlibrary->libraryID = $row["LibraryID"];
+			$item = new Item();
+			$item->description = $row["Description"];
+			$item->flag = $row["Flag"];
+			$item->itemID = $row["ItemID"];
+			$item->path = $row["Path"];
+			$item->type = $row["Type"];
 		}
 
 		// Close the database connection.
 		$conn = NULL;
 
-		return $itemlibrary;
+		return $item;
 	}
 
 	public static function getAllRecords($pageNo, $pageSize, &$totalRecords, $sortColumn, $sortOrder) {
@@ -145,8 +145,8 @@ class Itemlibrary {
 		$conn = new PDO($dsn, DatabaseInfo::getUserName(), DatabaseInfo::getPassword(), $options);
 
 		// Validate sort column and order.
-		$defaultSortColumn = "`ItemLibraryID`";
-		$sortColumns = Array("DESCRIPTION", "FLAG", "ITEMID", "ITEMLIBRARYID", "LIBRARYID");
+		$defaultSortColumn = "`ItemID`";
+		$sortColumns = Array("DESCRIPTION", "FLAG", "ITEMID", "PATH", "TYPE");
 		$sortColumn = in_array(strtoupper($sortColumn), $sortColumns) ? "`$sortColumn`" : $defaultSortColumn;
 		$sortOrder = strcasecmp($sortOrder, "DESC") == 0 ? "DESC" : "ASC";
 
@@ -154,7 +154,7 @@ class Itemlibrary {
 		$pageSize = (int)$pageSize;
 
 		$sql = "SELECT	COUNT(*) AS Count
-				FROM	`itemlibrary`;";
+				FROM	`item`;";
 
 		// Prepare statement.
 		$stmt = $conn->prepare($sql);
@@ -180,9 +180,9 @@ class Itemlibrary {
 		$sql = "SELECT	`Description`,
 						`Flag`,
 						`ItemID`,
-						`ItemLibraryID`,
-						`LibraryID`
-				FROM	`itemlibrary`
+						`Path`,
+						`Type`
+				FROM	`item`
 				ORDER BY $sortColumn $sortOrder
 				LIMIT $start, $pageSize;";
 
@@ -195,14 +195,14 @@ class Itemlibrary {
 		// Fetch all records.
 		$list = Array();
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			$itemlibrary = new Itemlibrary();
-			$itemlibrary->description = $row["Description"];
-			$itemlibrary->flag = $row["Flag"];
-			$itemlibrary->itemID = $row["ItemID"];
-			$itemlibrary->itemLibraryID = $row["ItemLibraryID"];
-			$itemlibrary->libraryID = $row["LibraryID"];
+			$item = new Item();
+			$item->description = $row["Description"];
+			$item->flag = $row["Flag"];
+			$item->itemID = $row["ItemID"];
+			$item->path = $row["Path"];
+			$item->type = $row["Type"];
 
-			array_push($list, $itemlibrary);
+			array_push($list, $item);
 		}
 
 		// Close the database connection.

@@ -1,30 +1,48 @@
 <?php
 require_once("dbInfo.php");
 
-class Item {
+class Booktour {
+	public $anonymousAddress;
+	public $anonymousBookTour;
+	public $anonymousEmail;
+	public $anonymousPhone;
+	public $bookTourID;
 	public $description;
 	public $flag;
-	public $itemID;
-	public $type;
+	public $memberID;
+	public $status;
+	public $tourID;
 
-	public function addItem() {
+	public function addBooktour() {
 		// Connect to database.
 		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 		$dsn = "mysql:host=" . DatabaseInfo::getServer() . ";dbname=" . DatabaseInfo::getDatabaseName() . ";charset=utf8";
 		$conn = new PDO($dsn, DatabaseInfo::getUserName(), DatabaseInfo::getPassword(), $options);
 
 		// Insert query.
-		$sql = "INSERT INTO `item`
+		$sql = "INSERT INTO `booktour`
 				(
+					`AnonymousAddress`,
+					`AnonymousBookTour`,
+					`AnonymousEmail`,
+					`AnonymousPhone`,
 					`Description`,
 					`Flag`,
-					`Type`
+					`MemberID`,
+					`Status`,
+					`TourID`
 				)
 				VALUES
 				(
+					:anonymousAddress,
+					:anonymousBookTour,
+					:anonymousEmail,
+					:anonymousPhone,
 					:description,
 					:flag,
-					:type
+					:memberID,
+					:status,
+					:tourID
 				);";
 
 		// Prepare statement.
@@ -32,13 +50,19 @@ class Item {
 
 		// Execute the statement.
 		$stmt->execute(array(
+			":anonymousAddress" => $this->anonymousAddress,
+			":anonymousBookTour" => $this->anonymousBookTour,
+			":anonymousEmail" => $this->anonymousEmail,
+			":anonymousPhone" => $this->anonymousPhone,
 			":description" => $this->description,
 			":flag" => $this->flag,
-			":type" => $this->type));
+			":memberID" => $this->memberID,
+			":status" => $this->status,
+			":tourID" => $this->tourID));
 
 		// Get value of the auto increment column.
 		$newId = $conn->lastInsertId();
-		$this->itemID = $newId;
+		$this->bookTourID = $newId;
 
 		// Close the database connection.
 		$conn = NULL;
@@ -47,87 +71,111 @@ class Item {
 		return $newId;
 	}
 
-	public function updateItem() {
+	public function updateBooktour() {
 		// Connect to database.
 		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 		$dsn = "mysql:host=" . DatabaseInfo::getServer() . ";dbname=" . DatabaseInfo::getDatabaseName() . ";charset=utf8";
 		$conn = new PDO($dsn, DatabaseInfo::getUserName(), DatabaseInfo::getPassword(), $options);
 
 		// Update query.
-		$sql = "UPDATE	`item`
-				SET		`Description` = :description,
+		$sql = "UPDATE	`booktour`
+				SET		`AnonymousAddress` = :anonymousAddress,
+						`AnonymousBookTour` = :anonymousBookTour,
+						`AnonymousEmail` = :anonymousEmail,
+						`AnonymousPhone` = :anonymousPhone,
+						`Description` = :description,
 						`Flag` = :flag,
-						`Type` = :type
-				WHERE	`ItemID` = :itemID;";
+						`MemberID` = :memberID,
+						`Status` = :status,
+						`TourID` = :tourID
+				WHERE	`BookTourID` = :bookTourID;";
 
 		// Prepare statement.
 		$stmt = $conn->prepare($sql);
 
 		// Execute the statement.
 		$stmt->execute(array(
+			":anonymousAddress" => $this->anonymousAddress,
+			":anonymousBookTour" => $this->anonymousBookTour,
+			":anonymousEmail" => $this->anonymousEmail,
+			":anonymousPhone" => $this->anonymousPhone,
+			":bookTourID" => $this->bookTourID,
 			":description" => $this->description,
 			":flag" => $this->flag,
-			":itemID" => $this->itemID,
-			":type" => $this->type));
+			":memberID" => $this->memberID,
+			":status" => $this->status,
+			":tourID" => $this->tourID));
 
 		// Close the database connection.
 		$conn = NULL;
 	}
 
-	public static function deleteItem($itemID) {
+	public static function deleteBooktour($bookTourID) {
 		// Connect to database.
 		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 		$dsn = "mysql:host=" . DatabaseInfo::getServer() . ";dbname=" . DatabaseInfo::getDatabaseName() . ";charset=utf8";
 		$conn = new PDO($dsn, DatabaseInfo::getUserName(), DatabaseInfo::getPassword(), $options);
 
 		// Delete query.
-		$sql = "DELETE	FROM `item`
-				WHERE	`ItemID` = :itemID;";
+		$sql = "DELETE	FROM `booktour`
+				WHERE	`BookTourID` = :bookTourID;";
 
 		// Prepare statement.
 		$stmt = $conn->prepare($sql);
 
 		// Execute the statement.
-		$stmt->execute(array(":itemID" => $itemID));
+		$stmt->execute(array(":bookTourID" => $bookTourID));
 
 		// Close the database connection.
 		$conn = NULL;
 	}
 
-	public static function getItem($itemID) {
+	public static function getBooktour($bookTourID) {
 		// Connect to database.
 		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 		$dsn = "mysql:host=" . DatabaseInfo::getServer() . ";dbname=" . DatabaseInfo::getDatabaseName() . ";charset=utf8";
 		$conn = new PDO($dsn, DatabaseInfo::getUserName(), DatabaseInfo::getPassword(), $options);
 
 		// Select query.
-		$sql = "SELECT	`Description`,
+		$sql = "SELECT	`AnonymousAddress`,
+						`AnonymousBookTour`,
+						`AnonymousEmail`,
+						`AnonymousPhone`,
+						`BookTourID`,
+						`Description`,
 						`Flag`,
-						`ItemID`,
-						`Type`
-				FROM	`item`
-				WHERE	`ItemID` = :itemID;";
+						`MemberID`,
+						`Status`,
+						`TourID`
+				FROM	`booktour`
+				WHERE	`BookTourID` = :bookTourID;";
 
 		// Prepare statement.
 		$stmt = $conn->prepare($sql);
 
 		// Execute the statement.
-		$stmt->execute(array(":itemID" => $itemID));
+		$stmt->execute(array(":bookTourID" => $bookTourID));
 
 		// Fetch record.
-		$item = NULL;
+		$booktour = NULL;
 		if($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			$item = new Item();
-			$item->description = $row["Description"];
-			$item->flag = $row["Flag"];
-			$item->itemID = $row["ItemID"];
-			$item->type = $row["Type"];
+			$booktour = new Booktour();
+			$booktour->anonymousAddress = $row["AnonymousAddress"];
+			$booktour->anonymousBookTour = $row["AnonymousBookTour"];
+			$booktour->anonymousEmail = $row["AnonymousEmail"];
+			$booktour->anonymousPhone = $row["AnonymousPhone"];
+			$booktour->bookTourID = $row["BookTourID"];
+			$booktour->description = $row["Description"];
+			$booktour->flag = $row["Flag"];
+			$booktour->memberID = $row["MemberID"];
+			$booktour->status = $row["Status"];
+			$booktour->tourID = $row["TourID"];
 		}
 
 		// Close the database connection.
 		$conn = NULL;
 
-		return $item;
+		return $booktour;
 	}
 
 	public static function getAllRecords($pageNo, $pageSize, &$totalRecords, $sortColumn, $sortOrder) {
@@ -137,8 +185,8 @@ class Item {
 		$conn = new PDO($dsn, DatabaseInfo::getUserName(), DatabaseInfo::getPassword(), $options);
 
 		// Validate sort column and order.
-		$defaultSortColumn = "`ItemID`";
-		$sortColumns = Array("DESCRIPTION", "FLAG", "ITEMID", "TYPE");
+		$defaultSortColumn = "`BookTourID`";
+		$sortColumns = Array("ANONYMOUSADDRESS", "ANONYMOUSBOOKTOUR", "ANONYMOUSEMAIL", "ANONYMOUSPHONE", "BOOKTOURID", "DESCRIPTION", "FLAG", "MEMBERID", "STATUS", "TOURID");
 		$sortColumn = in_array(strtoupper($sortColumn), $sortColumns) ? "`$sortColumn`" : $defaultSortColumn;
 		$sortOrder = strcasecmp($sortOrder, "DESC") == 0 ? "DESC" : "ASC";
 
@@ -146,7 +194,7 @@ class Item {
 		$pageSize = (int)$pageSize;
 
 		$sql = "SELECT	COUNT(*) AS Count
-				FROM	`item`;";
+				FROM	`booktour`;";
 
 		// Prepare statement.
 		$stmt = $conn->prepare($sql);
@@ -169,11 +217,17 @@ class Item {
 			$start = 0;
 		}
 
-		$sql = "SELECT	`Description`,
+		$sql = "SELECT	`AnonymousAddress`,
+						`AnonymousBookTour`,
+						`AnonymousEmail`,
+						`AnonymousPhone`,
+						`BookTourID`,
+						`Description`,
 						`Flag`,
-						`ItemID`,
-						`Type`
-				FROM	`item`
+						`MemberID`,
+						`Status`,
+						`TourID`
+				FROM	`booktour`
 				ORDER BY $sortColumn $sortOrder
 				LIMIT $start, $pageSize;";
 
@@ -186,13 +240,19 @@ class Item {
 		// Fetch all records.
 		$list = Array();
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			$item = new Item();
-			$item->description = $row["Description"];
-			$item->flag = $row["Flag"];
-			$item->itemID = $row["ItemID"];
-			$item->type = $row["Type"];
+			$booktour = new Booktour();
+			$booktour->anonymousAddress = $row["AnonymousAddress"];
+			$booktour->anonymousBookTour = $row["AnonymousBookTour"];
+			$booktour->anonymousEmail = $row["AnonymousEmail"];
+			$booktour->anonymousPhone = $row["AnonymousPhone"];
+			$booktour->bookTourID = $row["BookTourID"];
+			$booktour->description = $row["Description"];
+			$booktour->flag = $row["Flag"];
+			$booktour->memberID = $row["MemberID"];
+			$booktour->status = $row["Status"];
+			$booktour->tourID = $row["TourID"];
 
-			array_push($list, $item);
+			array_push($list, $booktour);
 		}
 
 		// Close the database connection.

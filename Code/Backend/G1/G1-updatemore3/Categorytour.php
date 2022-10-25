@@ -1,36 +1,33 @@
 <?php
 require_once("dbInfo.php");
 
-class Service {
+class Categorytour {
+	public $categoryTourID;
+	public $categoryTourName;
 	public $description;
 	public $flag;
-	public $price;
-	public $serviceID;
-	public $serviceName;
-	public $vAT;
+	public $status;
 
-	public function addService() {
+	public function addCategorytour() {
 		// Connect to database.
 		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 		$dsn = "mysql:host=" . DatabaseInfo::getServer() . ";dbname=" . DatabaseInfo::getDatabaseName() . ";charset=utf8";
 		$conn = new PDO($dsn, DatabaseInfo::getUserName(), DatabaseInfo::getPassword(), $options);
 
 		// Insert query.
-		$sql = "INSERT INTO `service`
+		$sql = "INSERT INTO `categorytour`
 				(
+					`CategoryTourName`,
 					`Description`,
 					`Flag`,
-					`Price`,
-					`ServiceName`,
-					`VAT`
+					`Status`
 				)
 				VALUES
 				(
+					:categoryTourName,
 					:description,
 					:flag,
-					:price,
-					:serviceName,
-					:vAT
+					:status
 				);";
 
 		// Prepare statement.
@@ -38,15 +35,14 @@ class Service {
 
 		// Execute the statement.
 		$stmt->execute(array(
+			":categoryTourName" => $this->categoryTourName,
 			":description" => $this->description,
 			":flag" => $this->flag,
-			":price" => $this->price,
-			":serviceName" => $this->serviceName,
-			":vAT" => $this->vAT));
+			":status" => $this->status));
 
 		// Get value of the auto increment column.
 		$newId = $conn->lastInsertId();
-		$this->serviceID = $newId;
+		$this->categoryTourID = $newId;
 
 		// Close the database connection.
 		$conn = NULL;
@@ -55,95 +51,91 @@ class Service {
 		return $newId;
 	}
 
-	public function updateService() {
+	public function updateCategorytour() {
 		// Connect to database.
 		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 		$dsn = "mysql:host=" . DatabaseInfo::getServer() . ";dbname=" . DatabaseInfo::getDatabaseName() . ";charset=utf8";
 		$conn = new PDO($dsn, DatabaseInfo::getUserName(), DatabaseInfo::getPassword(), $options);
 
 		// Update query.
-		$sql = "UPDATE	`service`
-				SET		`Description` = :description,
+		$sql = "UPDATE	`categorytour`
+				SET		`CategoryTourName` = :categoryTourName,
+						`Description` = :description,
 						`Flag` = :flag,
-						`Price` = :price,
-						`ServiceName` = :serviceName,
-						`VAT` = :vAT
-				WHERE	`ServiceID` = :serviceID;";
+						`Status` = :status
+				WHERE	`CategoryTourID` = :categoryTourID;";
 
 		// Prepare statement.
 		$stmt = $conn->prepare($sql);
 
 		// Execute the statement.
 		$stmt->execute(array(
+			":categoryTourID" => $this->categoryTourID,
+			":categoryTourName" => $this->categoryTourName,
 			":description" => $this->description,
 			":flag" => $this->flag,
-			":price" => $this->price,
-			":serviceID" => $this->serviceID,
-			":serviceName" => $this->serviceName,
-			":vAT" => $this->vAT));
+			":status" => $this->status));
 
 		// Close the database connection.
 		$conn = NULL;
 	}
 
-	public static function deleteService($serviceID) {
+	public static function deleteCategorytour($categoryTourID) {
 		// Connect to database.
 		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 		$dsn = "mysql:host=" . DatabaseInfo::getServer() . ";dbname=" . DatabaseInfo::getDatabaseName() . ";charset=utf8";
 		$conn = new PDO($dsn, DatabaseInfo::getUserName(), DatabaseInfo::getPassword(), $options);
 
 		// Delete query.
-		$sql = "DELETE	FROM `service`
-				WHERE	`ServiceID` = :serviceID;";
+		$sql = "DELETE	FROM `categorytour`
+				WHERE	`CategoryTourID` = :categoryTourID;";
 
 		// Prepare statement.
 		$stmt = $conn->prepare($sql);
 
 		// Execute the statement.
-		$stmt->execute(array(":serviceID" => $serviceID));
+		$stmt->execute(array(":categoryTourID" => $categoryTourID));
 
 		// Close the database connection.
 		$conn = NULL;
 	}
 
-	public static function getService($serviceID) {
+	public static function getCategorytour($categoryTourID) {
 		// Connect to database.
 		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 		$dsn = "mysql:host=" . DatabaseInfo::getServer() . ";dbname=" . DatabaseInfo::getDatabaseName() . ";charset=utf8";
 		$conn = new PDO($dsn, DatabaseInfo::getUserName(), DatabaseInfo::getPassword(), $options);
 
 		// Select query.
-		$sql = "SELECT	`Description`,
+		$sql = "SELECT	`CategoryTourID`,
+						`CategoryTourName`,
+						`Description`,
 						`Flag`,
-						`Price`,
-						`ServiceID`,
-						`ServiceName`,
-						`VAT`
-				FROM	`service`
-				WHERE	`ServiceID` = :serviceID;";
+						`Status`
+				FROM	`categorytour`
+				WHERE	`CategoryTourID` = :categoryTourID;";
 
 		// Prepare statement.
 		$stmt = $conn->prepare($sql);
 
 		// Execute the statement.
-		$stmt->execute(array(":serviceID" => $serviceID));
+		$stmt->execute(array(":categoryTourID" => $categoryTourID));
 
 		// Fetch record.
-		$service = NULL;
+		$categorytour = NULL;
 		if($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			$service = new Service();
-			$service->description = $row["Description"];
-			$service->flag = $row["Flag"];
-			$service->price = $row["Price"];
-			$service->serviceID = $row["ServiceID"];
-			$service->serviceName = $row["ServiceName"];
-			$service->vAT = $row["VAT"];
+			$categorytour = new Categorytour();
+			$categorytour->categoryTourID = $row["CategoryTourID"];
+			$categorytour->categoryTourName = $row["CategoryTourName"];
+			$categorytour->description = $row["Description"];
+			$categorytour->flag = $row["Flag"];
+			$categorytour->status = $row["Status"];
 		}
 
 		// Close the database connection.
 		$conn = NULL;
 
-		return $service;
+		return $categorytour;
 	}
 
 	public static function getAllRecords($pageNo, $pageSize, &$totalRecords, $sortColumn, $sortOrder) {
@@ -153,8 +145,8 @@ class Service {
 		$conn = new PDO($dsn, DatabaseInfo::getUserName(), DatabaseInfo::getPassword(), $options);
 
 		// Validate sort column and order.
-		$defaultSortColumn = "`ServiceID`";
-		$sortColumns = Array("DESCRIPTION", "FLAG", "PRICE", "SERVICEID", "SERVICENAME", "VAT");
+		$defaultSortColumn = "`CategoryTourID`";
+		$sortColumns = Array("CATEGORYTOURID", "CATEGORYTOURNAME", "DESCRIPTION", "FLAG", "STATUS");
 		$sortColumn = in_array(strtoupper($sortColumn), $sortColumns) ? "`$sortColumn`" : $defaultSortColumn;
 		$sortOrder = strcasecmp($sortOrder, "DESC") == 0 ? "DESC" : "ASC";
 
@@ -162,7 +154,7 @@ class Service {
 		$pageSize = (int)$pageSize;
 
 		$sql = "SELECT	COUNT(*) AS Count
-				FROM	`service`;";
+				FROM	`categorytour`;";
 
 		// Prepare statement.
 		$stmt = $conn->prepare($sql);
@@ -185,13 +177,12 @@ class Service {
 			$start = 0;
 		}
 
-		$sql = "SELECT	`Description`,
+		$sql = "SELECT	`CategoryTourID`,
+						`CategoryTourName`,
+						`Description`,
 						`Flag`,
-						`Price`,
-						`ServiceID`,
-						`ServiceName`,
-						`VAT`
-				FROM	`service`
+						`Status`
+				FROM	`categorytour`
 				ORDER BY $sortColumn $sortOrder
 				LIMIT $start, $pageSize;";
 
@@ -204,15 +195,14 @@ class Service {
 		// Fetch all records.
 		$list = Array();
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			$service = new Service();
-			$service->description = $row["Description"];
-			$service->flag = $row["Flag"];
-			$service->price = $row["Price"];
-			$service->serviceID = $row["ServiceID"];
-			$service->serviceName = $row["ServiceName"];
-			$service->vAT = $row["VAT"];
+			$categorytour = new Categorytour();
+			$categorytour->categoryTourID = $row["CategoryTourID"];
+			$categorytour->categoryTourName = $row["CategoryTourName"];
+			$categorytour->description = $row["Description"];
+			$categorytour->flag = $row["Flag"];
+			$categorytour->status = $row["Status"];
 
-			array_push($list, $service);
+			array_push($list, $categorytour);
 		}
 
 		// Close the database connection.
