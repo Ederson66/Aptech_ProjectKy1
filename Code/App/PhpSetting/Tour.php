@@ -84,7 +84,7 @@ class Tour {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT TourID, CategoryTourID, TourName, TimeStart, TimeLimit, TourPrice, TourSale, Location, AvatarTour, Description, Flag,
+        $sql = "SELECT TourID, CategoryTourID, TourName ,TimeStart , DATE(TimeLimit) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, Description, Flag,
 				CASE
 					WHEN Status = 1 THEN 'Đang hoạt động'
 					WHEN Status = 2 THEN 'Dừng hoạt động'
@@ -106,8 +106,9 @@ class Tour {
             $s->TourID = $row["TourID"];
             $s->CategoryTourID = $row["CategoryTourID"];
             $s->TourName = $row["TourName"];
-			$s->TimeStart = $row["TimeStart"];
-			$s->TimeLimit = $row["TimeLimit"];
+            $s->Day = $row["Day"];
+			// $s->TimeStart = $row["TimeStart"];
+			// $s->TimeLimit = $row["TimeLimit"];
 			$s->TourPrice = $row["TourPrice"];
 			$s->TourSale = $row["TourSale"];
 			$s->Location = $row["Location"];

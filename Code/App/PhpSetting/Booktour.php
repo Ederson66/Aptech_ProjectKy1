@@ -21,7 +21,7 @@ class Booktour {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT * FROM `booktour`;";
+        $sql = "SELECT * FROM `booktour` WHERE Flag IS NULL;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
@@ -59,7 +59,7 @@ class Booktour {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT COUNT(BookTourID) AS totaluserbooktour FROM `booktour`;";
+        $sql = "SELECT COUNT(BookTourID) AS totaluserbooktour FROM `booktour` WHERE Flag IS NULL;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
@@ -80,5 +80,62 @@ class Booktour {
         
         return $list;
     }
+
+    public function updateListBooktour() {
+		// Connect to database.
+		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+
+		// Update query.
+		$sql = "UPDATE	`booktour` SET `Flag` = :Flag WHERE `BookTourID` = :BookTourID;";
+
+		// Prepare statement.
+		$stmt = $conn->prepare($sql);
+
+		// Execute the statement.
+		$stmt->execute(array(
+			":BookTourID" => $this->BookTourID,
+			":Flag" => $this->Flag));
+
+		// Close the database connection.
+		$conn = NULL;
+	}
+
+    public function editListBootour() {
+		// Connect to database.
+		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+
+		// Update query.
+		$sql = "UPDATE	`booktour`
+				SET		`TourID` = :TourID,
+						`AnonymousBookTour` = :AnonymousBookTour,
+						`AnonymousEmail` = :AnonymousEmail,
+						`AnonymousAddress` = :AnonymousAddress,
+						`AnonymousPhone` = :AnonymousPhone,
+						`Status` = :Status,
+						`Description` = :Description
+				WHERE	`BookTourID` = :BookTourID;";
+
+		// Prepare statement.
+		$stmt = $conn->prepare($sql);
+
+		// Execute the statement.
+		$stmt->execute(array(
+			":BookTourID" => $this->BookTourID,
+			":TourID" => $this->TourID,
+			":AnonymousBookTour" => $this->AnonymousBookTour,
+			":AnonymousEmail" => $this->AnonymousEmail,
+			":AnonymousAddress" => $this->AnonymousAddress,
+			":AnonymousPhone" => $this->AnonymousPhone,
+			":Status" => $this->Status,
+			":Description" => $this->Description));
+
+		// Close the database connection.
+		$conn = NULL;
+	}
+
 }
 ?>

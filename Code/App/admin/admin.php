@@ -72,11 +72,9 @@ if (!empty($_POST["flogout"])) {
                 font-weight: bold;
             }
 
-            @media (min-width: 576px){
-                .modal-dialog {
-                    max-width: 100%;
-                    margin: 1.75rem;
-                }
+            .modal-dialog {
+                max-width: 100%;
+                margin: 1.75rem;
             }
         </style>
     </head>
@@ -377,53 +375,73 @@ if (!empty($_POST["flogout"])) {
                                     <div style="overflow-x: auto;">
 
                                         <div id="tbl-kithi" class="mt-4 pb-5" >
-                                            <table class="table table-striped table-hover">
-                                                <tr>
-                                                    <th scope="col">STT</th>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">TourID</th>
-                                                    <th scope="col">MemberID</th>
-                                                    <th scope="col">UserBookTour</th>
-                                                    <th scope="col">Email</th>
-                                                    <th scope="col">Address</th>
-                                                    <th scope="col">Phone</th>
-                                                    <th scope="col">Status</th>
-                                                    <th scope="col">Description</th>
-                                                    <th scope="col">Action</th>
-                                                </tr>
-                                                <?php 
+                                        <table class="table table-striped table-hover">
+                                            <tr>
+                                                <th scope="col">STT</th>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">TourID</th>
+                                                <th scope="col">MemberID</th>
+                                                <th scope="col">UserBookTour</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Address</th>
+                                                <th scope="col">Phone</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Description</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                            <?php 
+
+                                            $a = new Booktour();
+                                            $arr = $a->getListBooktour();
+                                            $strTbl="";
+
+                                            $stt = 1;
+
+                                            for($i = 0; $i < count($arr); $i++) {
+                                                $obj = $arr[$i];
+
+                                                $strTbl .= "<tr>";
+                                                    $strTbl .= "<th>". $stt++ ."</th>";
+                                                    $strTbl .= "<td>$obj->BookTourID</td>";
+                                                    $strTbl .= "<td>$obj->TourID</td>";
+                                                    $strTbl .= "<td>$obj->MemberID</td>";
+                                                    $strTbl .= "<td>$obj->AnonymousBookTour</td>";
+                                                    $strTbl .= "<td>$obj->AnonymousEmail</td>";
+                                                    $strTbl .= "<td>$obj->AnonymousAddress</td>";
+                                                    $strTbl .= "<td>$obj->AnonymousPhone</td>";
+                                                    $strTbl .= "<td>$obj->Status</td>";
+                                                    $strTbl .= "<td>$obj->Description</td>";
+                                                    $strTbl .= "<td>
+                                                                    <div class='d-flex'>
+                                                                        <form class='m-1' action='' method='POST'>
+                                                                            <input type='hidden' name='fBookTourID' value='$obj->BookTourID'/>
+                                                                            <input type='hidden' name='fvalDel' value='d'/>
+                                                                            <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                        </form>
+                                                                        <input data-bs-toggle='modal' data-bs-target='#exampleModal' type='submit' class='btn btn-primary m-1' name='fedit' value='Edit'>
+                                                                    </div>    
+                                                                </td>";
+                                                $strTbl .= "</tr>";
                                                 
+                                            }
+                                            
+                                            echo $strTbl;
+
+
+                                            //delete => update
+
+                                            if(isset($_POST["fdelete"])) {
+                                                $fBookTourID = $_POST["fBookTourID"];
+                                                $fvalDel = $_POST["fvalDel"];
+
                                                 $a = new Booktour();
-                                                $arr = $a->getListBooktour();
-                                                $strTbl="";
-
-                                                $stt = 1;
-
-                                                for($i = 0; $i < count($arr); $i++) {
-                                                    $obj = $arr[$i];
-
-                                                    $strTbl .= "<tr>";
-                                                        $strTbl .= "<th>". $stt++ ."</th>";
-                                                        $strTbl .= "<td>$obj->BookTourID</td>";
-                                                        $strTbl .= "<td>$obj->TourID</td>";
-                                                        $strTbl .= "<td>$obj->MemberID</td>";
-                                                        $strTbl .= "<td>$obj->AnonymousBookTour</td>";
-                                                        $strTbl .= "<td>$obj->AnonymousEmail</td>";
-                                                        $strTbl .= "<td>$obj->AnonymousAddress</td>";
-                                                        $strTbl .= "<td>$obj->AnonymousPhone</td>";
-                                                        $strTbl .= "<td>$obj->Status</td>";
-                                                        $strTbl .= "<td>$obj->Description</td>";
-                                                        $strTbl .= "<td>
-                                                                        <button class='btn btn-danger'>Delete</button>
-                                                                        <button class='btn btn-primary'>Edit</button>
-                                                                    </td>";
-                                                    $strTbl .= "</tr>";
-                                                    
-                                                }
-                                                
-                                                echo $strTbl;
-                                                ?>
-                                            </table>
+                                                $a->Flag = $fvalDel;
+                                                $a->BookTourID = $fBookTourID;
+                                                $a->updateListBooktour();
+                                            }
+                                            
+                                            ?>
+                                        </table>
                                         </div>
 
                                     </div>
@@ -610,8 +628,8 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">STT</th>
                                                     <th scope="col">CategoryTour</th>
                                                     <th scope="col">TourName</th>
-                                                    <th scope="col">TimeStart</th>
-                                                    <th scope="col">TimeEnd</th>
+                                                    <th scope="col">Location</th>
+                                                    <th scope="col">Day</th>
                                                     <th scope="col">TourPrice</th>
                                                     <th scope="col">More</th>
                                                 </tr>
@@ -644,8 +662,8 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<th>". $stt++ ."</th>";
                                                         $strTbl .= "<td>$obj->CategoryTourID</td>";
                                                         $strTbl .= "<td>$obj->TourName</td>";
-                                                        $strTbl .= "<td>$obj->TimeStart</td>";
-                                                        $strTbl .= "<td>$obj->TimeLimit</td>";
+                                                        $strTbl .= "<td>$obj->Location</td>";
+                                                        $strTbl .= "<td>$obj->Day</td>";
                                                         $strTbl .= "<td>".$obj->TourPrice." USD"."</td>";
                                                         $strTbl .= "<td><button class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#modaltour'>More</button></td>";
                                                     $strTbl .= "</tr>";
@@ -1728,12 +1746,16 @@ if (!empty($_POST["flogout"])) {
                                         $list = $a->getProfile();
 
                                         for($i = 0; $i < count($list); $i++) {
-                                            $obj = $list[$i];    
+                                            $obj = $list[$i];
+
+                                            $name = $obj->UserName;
+                                            $role = ucfirst($obj->Role);
+
                                             echo "  <div class='mt-2 mb-2 d-flex justify-content-between border-bottom'>
-                                                        <strong class='text-secondary'>Username:</strong><span class='text-primary'> $obj->UserName</span>
+                                                        <strong class='text-secondary'>Username:</strong><span class='text-primary'> $name</span>
                                                     </div>
                                                     <div class='mt-2 mb-2 d-flex justify-content-between border-bottom'>
-                                                        <strong class='text-secondary'>Role:</strong><span class='text-primary'> $obj->Role</span>
+                                                        <strong class='text-secondary'>Role:</strong><span class='text-primary'> $role</span>
                                                     </div>
                                                     ";
                                         }
@@ -1818,7 +1840,7 @@ if (!empty($_POST["flogout"])) {
             <!-- BEGIN MODAL -->
 
             <!-- modal tour -->
-            <div class="modal fade" id="modaltour" aria-hidden="true">
+            <div class="modal fade" tabindex="-1" id="modaltour" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -1835,8 +1857,7 @@ if (!empty($_POST["flogout"])) {
                                             <th scope="col">ID</th>
                                             <th scope="col">CategoryTour</th>
                                             <th scope="col">TourName</th>
-                                            <th scope="col">TimeStart</th>
-                                            <th scope="col">TimeLimit</th>
+                                            <th scope="col">Day</th>
                                             <th scope="col">TourPrice</th>
                                             <th scope="col">TourSale</th>
                                             <th scope="col">Location</th>
@@ -1861,8 +1882,7 @@ if (!empty($_POST["flogout"])) {
                                                 $strTbl .= "<td>$obj->TourID</td>";
                                                 $strTbl .= "<td>$obj->CategoryTourID</td>";
                                                 $strTbl .= "<td>$obj->TourName</td>";
-                                                $strTbl .= "<td>$obj->TimeStart</td>";
-                                                $strTbl .= "<td>$obj->TimeLimit</td>";
+                                                $strTbl .= "<td>$obj->Day</td>";
                                                 $strTbl .= "<td>".$obj->TourPrice." USD"."</td>";
                                                 $strTbl .= "<td>$obj->TourSale</td>";
                                                 $strTbl .= "<td>$obj->Location</td>";
@@ -1888,8 +1908,99 @@ if (!empty($_POST["flogout"])) {
                 </div>
             </div>
 
+            <!-- modal updatebooktour -->
+            <div class="modal fade" tabindex="-1" id="exampleModal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Update Booktour</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="p-2 d-flex justify-content-center">
+                                <div style="width: 650px;">
+                                    <div class="text-center pb-3">
+                                        <h2>Update</h2>
+                                    </div>
+                                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                                        <?php
+
+                                        $a = new Booktour();
+                                        $arr = $a->getListBooktour();
+
+                                        for($i = 0; $i < count($arr); $i++) {
+                                            $obj = $arr[$i];
+
+                                            echo "<input type='hidden' name='fBookTourID' value='$obj->BookTourID'>";
+                                        }
+                                        ?>
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold text-secondary">TourID:</label>
+                                            <input type="text" id="TourID" name="fTourID" class="form-control" placeholder="TourID" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold text-secondary">AnonymousBookTour:</label>
+                                            <input type="text" id="AnonymousBookTour" name="fAnonymousBookTour" class="form-control" placeholder="AnonymousBookTour" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold text-secondary">AnonymousEmail:</label>
+                                            <input type="text" id="AnonymousEmail" name="fAnonymousEmail" class="form-control" placeholder="AnonymousEmail" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold text-secondary">AnonymousAddress:</label>
+                                            <input type="text" id="AnonymousAddress" name="fAnonymousAddress" class="form-control" placeholder="AnonymousAddress" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold text-secondary">AnonymousPhone:</label>
+                                            <input type="text" id="AnonymousPhone" name="fAnonymousPhone" class="form-control" placeholder="AnonymousPhone" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold text-secondary">Status:</label>
+                                            <input type="text" id="Status" name="fStatus" class="form-control" placeholder="Status" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold text-secondary">Description:</label>
+                                            <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                        </div>
+                                        <input type="submit" id="btnBookTour" name="fbtnBookTour" class="btn btn-primary" value="Save" />
+                                    </form>
+                                    <?php 
+                                    
+                                    if(isset($_POST["fbtnBookTour"])) {
+                                        $fBookTourID = $_POST["fBookTourID"];
+                                        $fTourID = $_POST["fTourID"];
+                                        $fAnonymousBookTour = $_POST["fAnonymousBookTour"];
+                                        $fAnonymousEmail = $_POST["fAnonymousEmail"];
+                                        $fAnonymousAddress = $_POST["fAnonymousAddress"];
+                                        $fAnonymousPhone = $_POST["fAnonymousPhone"];
+                                        $fStatus = $_POST["fStatus"];
+                                        $fDescription = $_POST["fDescription"];
+
+                                        $a = new Booktour();
+                                        $a->BookTourID = $fBookTourID;
+                                        $a->TourID = $fTourID;
+                                        $a->AnonymousBookTour = $fAnonymousBookTour;
+                                        $a->AnonymousEmail = $fAnonymousEmail;
+                                        $a->AnonymousAddress = $fAnonymousAddress;
+                                        $a->AnonymousPhone = $fAnonymousPhone;
+                                        $a->Status = $fStatus;
+                                        $a->Description = $fDescription;
+                                        $a->editListBootour();
+                                    }
+                                    
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- modal add itemlibrary add video -->
-            <div class="modal fade" id="modalitemlibraryvideo" aria-hidden="true">
+            <div class="modal fade" tabindex="-1" id="modalitemlibraryvideo" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -1945,7 +2056,7 @@ if (!empty($_POST["flogout"])) {
             </div>
 
             <!-- modal add itemlibrary add img -->
-            <div class="modal fade" id="modalitemlibraryimg" aria-hidden="true">
+            <div class="modal fade" tabindex="-1" id="modalitemlibraryimg" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
