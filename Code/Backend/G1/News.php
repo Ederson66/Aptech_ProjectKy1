@@ -27,7 +27,7 @@ class News {
 					`Content`,
 					`Description`,
 					`Flag`,
-					`leadcontent`,
+					`LeadContent`,
 					`Title`
 				)
 				VALUES
@@ -81,7 +81,7 @@ class News {
 						`Content` = :content,
 						`Description` = :description,
 						`Flag` = :flag,
-						`leadcontent` = :leadcontent,
+						`LeadContent` = :leadcontent,
 						`Title` = :title
 				WHERE	`NewsID` = :newsID;";
 
@@ -137,7 +137,7 @@ class News {
 						`Content`,
 						`Description`,
 						`Flag`,
-						`leadcontent`,
+						`LeadContent`,
 						`NewsID`,
 						`Title`
 				FROM	`news`
@@ -215,7 +215,7 @@ class News {
 						`Content`,
 						`Description`,
 						`Flag`,
-						`leadcontent`,
+						`LeadContent`,
 						`NewsID`,
 						`Title`
 				FROM	`news`

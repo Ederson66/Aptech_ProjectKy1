@@ -4,10 +4,13 @@ require_once '../PhpSetting/DBinfoConfig.php';
 
 class Itemlibrary {
 	public $description;
+	public $file;
+	public $alt;
 	public $flag;
-	public $itemID;
+	public $type; // db => itemID
 	public $itemLibraryID;
 	public $libraryID;
+	public $title;
 
 	public function addItemlibrary() {
 		// Connect to database.
@@ -19,14 +22,20 @@ class Itemlibrary {
 		$sql = "INSERT INTO `itemlibrary`
 				(
 					`Description`,
-					`ItemID`,
-					`LibraryID`
+					`File`,
+					`Type`,
+					`Alt`,
+					`LibraryID`,
+					`Title`
 				)
 				VALUES
 				(
 					:description,
-					:itemID,
-					:libraryID
+					:file,
+					:type,
+					:alt,
+					:libraryID,
+					:title
 				);";
 
 		// Prepare statement.
@@ -35,8 +44,11 @@ class Itemlibrary {
 		// Execute the statement.
 		$stmt->execute(array(
 			":description" => $this->description,
-			":itemID" => $this->itemID,
-			":libraryID" => $this->libraryID));
+			":file" => $this->file,
+			":type" => $this->type,
+			":alt" => $this->alt,
+			":libraryID" => $this->libraryID,
+			":title" => $this->title));
 
 		// Get value of the auto increment column.
 		$newId = $conn->lastInsertId();
@@ -56,7 +68,14 @@ class Itemlibrary {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT * FROM `itemlibrary`;";
+        $sql = "SELECT ItemLibraryID, LibraryID, Title, Alt, File, Description, Flag,
+				CASE
+					WHEN Type = 1 THEN 'Image'
+					WHEN Type = 2 THEN 'Video'
+					ELSE 'Erorr'
+				END
+				AS Type
+				FROM `itemlibrary`;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
@@ -68,10 +87,12 @@ class Itemlibrary {
         while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
             $s = new Itemlibrary();
             $s->description = $row["Description"];
-			$s->flag = $row["Flag"];
-			$s->itemID = $row["ItemID"];
-			$s->itemLibraryID = $row["ItemLibraryID"];
+			$s->file = $row["File"];
+			$s->type = $row["Type"];
+			$s->alt = $row["Alt"];
 			$s->libraryID = $row["LibraryID"];
+			$s->title = $row["Title"];
+			$s->itemLibraryID = $row["ItemLibraryID"];
             
             array_push($list, $s);
         }

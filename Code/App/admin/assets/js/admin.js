@@ -28,7 +28,7 @@ $(document).ready(function () {
     setInterval(showTime, 1000);
 
     showTime();
-    
+
     // chart js 1
     new Chart('myChart1', {
         type: 'bar',
@@ -64,5 +64,4 @@ $(document).ready(function () {
             }
         }
     });
-    
 });

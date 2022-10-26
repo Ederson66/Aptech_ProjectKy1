@@ -125,5 +125,51 @@ class Tour {
         
         return $list;
     }
+
+	public function getListTourById() {
+        // chuỗi kết nối đến DB
+        $options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+        
+        // câu lệnh sql
+        $sql = "SELECT TourID, CategoryTourID, TourName, DATE(TimeLimit) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, Description,
+				CASE
+					WHEN Status = 1 THEN 'Đang hoạt động'
+					WHEN Status = 2 THEN 'Dừng hoạt động'
+					WHEN Status = 3 THEN 'Chưa kích hoạt'
+					ELSE 'Error'
+				END
+				AS `Status`
+				FROM `tour`
+				WHERE TourID = :TourID";
+        
+        // chuẩn bị câu lệnh SQL
+        $stmt = $conn->prepare($sql);
+
+		$stmt->execute(array(":TourID" => $this->TourID));
+        
+        $list = Array();
+        while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
+            $s = new Tour();
+            $s->TourID = $row["TourID"];
+            $s->CategoryTourID = $row["CategoryTourID"];
+            $s->TourName = $row["TourName"];
+			$s->TourPrice = $row["TourPrice"];
+			$s->TourSale = $row["TourSale"];
+			$s->Location = $row["Location"];
+			$s->AvatarTour = $row["AvatarTour"];
+            $s->Status = $row["Status"];
+            $s->Description = $row["Description"];
+            $s->Day = $row["Day"];
+            
+            array_push($list, $s);
+        }
+        
+        // đóng kết nối
+        $conn = NULL;
+        
+        return $list;
+    }
 }
 ?>

@@ -40,6 +40,10 @@
     padding-bottom: 290px !important;
 }
 
+.mt-n190 {
+    margin-top: -190px !important;
+}
+
 .shape-parent {
     position: relative;
     z-index: 0;

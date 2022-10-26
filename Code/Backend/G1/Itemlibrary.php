@@ -5,7 +5,7 @@ class Itemlibrary {
 	public $description;
 	public $file;
 	public $flag;
-	public $itemID;
+	public $itemID; // db => type
 	public $itemLibraryID;
 	public $libraryID;
 	public $title;

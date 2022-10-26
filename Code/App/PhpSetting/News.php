@@ -3,14 +3,15 @@
 require_once '../PhpSetting/DBinfoConfig.php';
 
 class News {
-	public $NewsID;
-	public $CategoryID;
-	public $Title;
-	public $Content;
-	public $AvatarNews;
-	public $Author;
-	public $Description;
-	public $Flag;
+	public $author;
+	public $avatarNews;
+	public $categoryID;
+	public $content;
+	public $description;
+	public $flag;
+	public $leadcontent;
+	public $newsID;
+	public $title;
 
 	public function addNews() {
 		// Connect to database.
@@ -19,23 +20,29 @@ class News {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
 
 		// Insert query.
-		$sql = "INSERT INTO `news` 
+		$sql = "INSERT INTO `news`
 				(
-					`CategoryID`, 
-					`Title`,
-					`Content`, 
-					`AvatarNews`, 
-					`Author`, 
-					`Description`
-				) 
-				VALUES 
+					`author`,
+					`avatarNews`,
+					`categoryID`,
+					`content`,
+					`description`,
+					`flag`,
+					`leadcontent`,
+					`newsID`,
+					`title`
+				)
+				VALUES
 				(
-					:CategoryID, 
-					:Title, 
-					:Content, 
-					:AvatarNews, 
-					:Author, 
-					:Description
+					:author,
+					:avatarNews,
+					:categoryID,
+					:content,
+					:description,
+					:flag,
+					:leadcontent,
+					:newsID,
+					:title
 				);";
 
 		// Prepare statement.
@@ -43,16 +50,19 @@ class News {
 
 		// Execute the statement.
 		$stmt->execute(array(
-			":CategoryID" => $this->CategoryID,
-			":Title" => $this->Title,
-			":Content" => $this->Content,
-			":AvatarNews" => $this->AvatarNews,
-			":Author" => $this->Author,
-			":Description" => $this->Description));
+			":author" => $this->author,
+			":avatarNews" => $this->avatarNews,
+			":categoryID" => $this->categoryID,
+			":content" => $this->content,
+			":description" => $this->description,
+			":flag" => $this->flag,
+			":leadcontent" => $this->leadcontent,
+			":newsID" => $this->newsID,
+			":title" => $this->title));
 
 		// Get value of the auto increment column.
 		$newId = $conn->lastInsertId();
-		$this->serviceID = $newId;
+		$this->newsID = $newId;
 
 		// Close the database connection.
 		$conn = NULL;
@@ -79,14 +89,15 @@ class News {
         $list = Array();
         while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
             $s = new Tour();
-            $s->NewsID = $row["NewsID"];
-            $s->CategoryID = $row["CategoryID"];
-			$s->Title = $row["Title"];
-			$s->Content = $row["Content"];
-			$s->AvatarNews = $row["AvatarNews"];
-			$s->Author = $row["Author"];
-			$s->Description = $row["Description"];
-			$s->Flag = $row["Flag"];
+            $s->author = $row["Author"];
+            $s->avatarNews = $row["AvatarNews"];
+			$s->categoryID = $row["CategoryID"];
+			$s->content = $row["Content"];
+			$s->description = $row["Description"];
+			$s->flag = $row["Flag"];
+			$s->leadcontent = $row["LeadContent"];
+			$s->newsID = $row["NewsID"];
+			$s->title = $row["Title"];
             
             array_push($list, $s);
         }

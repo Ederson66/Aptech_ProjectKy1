@@ -81,7 +81,7 @@ if (!empty($_POST["flogout"])) {
     <body id="body-pd">
         <div class="app">
             <!-- BEGIN HEADER -->
-            <header class="header" id="header">
+            <header class="header body-pd" id="header">
                 <!-- <div id="abc">
                 </div> -->
                 <div class="header_toggle"><i class="bx bx-menu text-dark" id="header-toggle"></i></div>
@@ -94,7 +94,7 @@ if (!empty($_POST["flogout"])) {
             <!-- END HEADER -->
 
             <!-- BEGIN NAV -->
-            <div class="l-navbar" id="nav-bar">
+            <div class="l-navbar showsidebar" id="nav-bar">
                 <nav class="nav-sidebar" id="style-11">
                     <div class="">
                         <a href="#" class="nav_logo"> <i class="text-white bi bi-stack"></i> <span class="nav_logo-name">Manager</span> </a>
@@ -387,7 +387,7 @@ if (!empty($_POST["flogout"])) {
                                                 <th scope="col">Phone</th>
                                                 <th scope="col">Status</th>
                                                 <th scope="col">Description</th>
-                                                <th scope="col">Action</th>
+                                                <th class="text-center" scope="col">Action</th>
                                             </tr>
                                             <?php 
 
@@ -412,7 +412,7 @@ if (!empty($_POST["flogout"])) {
                                                     $strTbl .= "<td>$obj->Status</td>";
                                                     $strTbl .= "<td>$obj->Description</td>";
                                                     $strTbl .= "<td>
-                                                                    <div class='d-flex'>
+                                                                    <div class='d-flex justify-content-center'>
                                                                         <form class='m-1' action='' method='POST'>
                                                                             <input type='hidden' name='fBookTourID' value='$obj->BookTourID'/>
                                                                             <input type='hidden' name='fvalDel' value='d'/>
@@ -469,7 +469,7 @@ if (!empty($_POST["flogout"])) {
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">CategoryTour:</label>
                                                 <select class="form-select" name="fCategoryTour" id="CategoryTour">
-                                                    <option value="1">kHÁM PHÁ HANG ĐỘNG</option>
+                                                    <option value="1">Khám phá hang động</option>
                                                     <option value="2">Cắm trại</option>
                                                     <option value="3">Chinh phục núi cao</option>
                                                 </select>
@@ -611,20 +611,6 @@ if (!empty($_POST["flogout"])) {
                                         <div id="tbl-kithi" class="mt-4 pb-5" >
                                             <table class="table table-striped table-hover">
                                                 <tr>
-                                                    <!-- <th scope="col">STT</th>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">CategoryTour</th>
-                                                    <th scope="col">TourName</th>
-                                                    <th scope="col">TimeStart</th>
-                                                    <th scope="col">TimeLimit</th>
-                                                    <th scope="col">TourPrice</th>
-                                                    <th scope="col">TourSale</th>
-                                                    <th scope="col">Location</th>
-                                                    <th scope="col">AvatarTour</th>
-                                                    <th scope="col">Status</th>
-                                                    <th scope="col">Description</th>
-                                                    <th scope="col">Action</th> -->
-
                                                     <th scope="col">STT</th>
                                                     <th scope="col">CategoryTour</th>
                                                     <th scope="col">TourName</th>
@@ -645,27 +631,15 @@ if (!empty($_POST["flogout"])) {
                                                     $obj = $arr[$i];
 
                                                     $strTbl .= "<tr>";
-                                                        // $strTbl .= "<th>". $stt++ ."</th>";
-                                                        // $strTbl .= "<td>$obj->TourID</td>";
-                                                        // $strTbl .= "<td>$obj->CategoryTourID</td>";
-                                                        // $strTbl .= "<td>$obj->TourName</td>";
-                                                        // $strTbl .= "<td>$obj->TimeStart</td>";
-                                                        // $strTbl .= "<td>$obj->TimeLimit</td>";
-                                                        // $strTbl .= "<td>$obj->TourPrice</td>";
-                                                        // $strTbl .= "<td>$obj->TourSale</td>";
-                                                        // $strTbl .= "<td>$obj->Location</td>";
-                                                        // $strTbl .= "<td><img src='$obj->AvatarTour' alt='banner' width='200' height='100'></td>";
-                                                        // $strTbl .= "<td>$obj->Status</td>";
-                                                        // $strTbl .= "<td>$obj->Description</td>";
-                                                        // $strTbl .= "<td>...</td>";
-
                                                         $strTbl .= "<th>". $stt++ ."</th>";
                                                         $strTbl .= "<td>$obj->CategoryTourID</td>";
                                                         $strTbl .= "<td>$obj->TourName</td>";
                                                         $strTbl .= "<td>$obj->Location</td>";
                                                         $strTbl .= "<td>$obj->Day</td>";
                                                         $strTbl .= "<td>".$obj->TourPrice." USD"."</td>";
-                                                        $strTbl .= "<td><button class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#modaltour'>More</button></td>";
+                                                        $strTbl .= "<td>
+                                                                        <button onclick='ShowTourById(this.value)' class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#modaltour' value='$obj->TourID'>More</button>
+                                                                    </td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -834,7 +808,7 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">Sheltering</th>
                                                     <th scope="col">Techniques</th>
                                                     <th scope="col">Description</th>
-                                                    <th scope="col">Action</th>
+                                                    <th class="text-center" scope="col">Action</th>
                                                 </tr>
                                                 
                                                 <?php 
@@ -860,7 +834,16 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->sheltering</td>";
                                                         $strTbl .= "<td>$obj->techniques</td>";
                                                         $strTbl .= "<td>$obj->description</td>";
-                                                        $strTbl .= "<td>...</td>";
+                                                        $strTbl .= "<td>
+                                                                        <div class='d-flex'>
+                                                                            <form class='m-1' action='' method='POST'>
+                                                                                <input type='hidden' name='fmountaineeringID' value='$obj->mountaineeringID'/>
+                                                                                <input type='hidden' name='fvalDel' value='d'/>
+                                                                                <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                            </form>
+                                                                            <input data-bs-toggle='modal' data-bs-target='#exampleModal' type='submit' class='btn btn-primary m-1' name='fedit' value='Edit'>
+                                                                        </div>    
+                                                                    </td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -958,7 +941,7 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">TNTT(tax)</th>
                                                     <th scope="col">Sale</th>
                                                     <th scope="col">Description</th>
-                                                    <th scope="col">Action</th>
+                                                    <th class="text-center" scope="col">Action</th>
                                                 </tr>
                                                 <?php 
                                                 
@@ -979,7 +962,16 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->vAT</td>";
                                                         $strTbl .= "<td>$obj->sale</td>";
                                                         $strTbl .= "<td>$obj->description</td>";
-                                                        $strTbl .= "<td>...</td>";
+                                                        $strTbl .= "<td>
+                                                                        <div class='d-flex justify-content-center'>
+                                                                            <form class='m-1' action='' method='POST'>
+                                                                                <input type='hidden' name='fTourID' value='$obj->serviceID'/>
+                                                                                <input type='hidden' name='fvalDel' value='d'/>
+                                                                                <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                            </form>
+                                                                            <input data-bs-toggle='modal' data-bs-target='#exampleModal' type='submit' class='btn btn-primary m-1' name='fedit' value='Edit'>
+                                                                        </div>    
+                                                                    </td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -1088,20 +1080,22 @@ if (!empty($_POST["flogout"])) {
                                         echo $message;
 
                                         if(isset($_POST["fnews"])) {
-                                            $fCategory = $_POST["fCategory"];
                                             $fTitle = $_POST["fTitle"];
+                                            $fLead = $_POST["fLead"];
+                                            $fCategory = $_POST["fCategory"];
                                             $fContent = $_POST["fContent"];
                                             // $fAvatarNews = $_POST["fAvatarNews"];
                                             $fAuthor = $_POST["fAuthor"];
                                             $fDescription = $_POST["fDescription"];
 
                                             $a = new News();
-                                            $a->CategoryID = $fCategory;
-                                            $a->Title = $fTitle;
-                                            $a->Content = $fContent;
-                                            $a->AvatarNews = $uploadFileDir.$newFileName;
-                                            $a->Author = $fAuthor;
-                                            $a->Description = $fDescription;
+                                            $a->title = $fTitle;
+                                            $a->leadcontent = $fLead;
+                                            $a->categoryID = $fCategory;
+                                            $a->content = $fContent;
+                                            $a->avatarNews = $uploadFileDir.$newFileName;
+                                            $a->author = $fAuthor;
+                                            $a->description = $fDescription;
                                             $a->addNews();
                                         }
 
@@ -1125,11 +1119,12 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">ID</th>
                                                     <th scope="col">Category</th>
                                                     <th scope="col">Title</th>
+                                                    <th scope="col">LeadContent</th>
                                                     <th scope="col">Content</th>
                                                     <th scope="col">AvatarNews</th>
                                                     <th scope="col">Author</th>
                                                     <th scope="col">Description</th>
-                                                    <th scope="col">Action</th>
+                                                    <th class="text-center" scope="col">Action</th>
                                                 </tr>
                                                 <?php 
                                                 
@@ -1144,14 +1139,24 @@ if (!empty($_POST["flogout"])) {
 
                                                     $strTbl .= "<tr>";
                                                         $strTbl .= "<th>". $stt++ ."</th>";
-                                                        $strTbl .= "<td>$obj->NewsID</td>";
-                                                        $strTbl .= "<td>$obj->CategoryID</td>";
-                                                        $strTbl .= "<td>$obj->Title</td>";
-                                                        $strTbl .= "<td>$obj->Content</td>";
-                                                        $strTbl .= "<td><img src='$obj->AvatarNews' alt='AvatarNews' width='200' height='100'></td>";
-                                                        $strTbl .= "<td>$obj->Author</td>";
-                                                        $strTbl .= "<td>$obj->Description</td>";
-                                                        $strTbl .= "<td>...</td>";
+                                                        $strTbl .= "<td>$obj->newsID</td>";
+                                                        $strTbl .= "<td>$obj->categoryID</td>";
+                                                        $strTbl .= "<td>$obj->title</td>";
+                                                        $strTbl .= "<td>$obj->leadcontent</td>";
+                                                        $strTbl .= "<td>$obj->content</td>";
+                                                        $strTbl .= "<td><img src='$obj->avatarNews' alt='AvatarNews' width='200' height='100'></td>";
+                                                        $strTbl .= "<td>$obj->author</td>";
+                                                        $strTbl .= "<td>$obj->description</td>";
+                                                        $strTbl .= "<td>
+                                                                        <div class='d-flex'>
+                                                                            <form class='m-1' action='' method='POST'>
+                                                                                <input type='hidden' name='fnewsID' value='$obj->newsID'/>
+                                                                                <input type='hidden' name='fvalDel' value='d'/>
+                                                                                <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                            </form>
+                                                                            <input data-bs-toggle='modal' data-bs-target='#exampleModal' type='submit' class='btn btn-primary m-1' name='fedit' value='Edit'>
+                                                                        </div>    
+                                                                    </td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -1222,6 +1227,7 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">LibraryName</th>
                                                     <th scope="col">Description</th>
                                                     <th class='text-center' scope="col">Action</th>
+                                                    <th class='text-center' scope="col">Del - Edit</th>
                                                 </tr>
                                                 <?php 
                                                 
@@ -1242,6 +1248,16 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td class='text-center'>
                                                                         <button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalitemlibraryimg'>Add image</button>
                                                                         <button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalitemlibraryvideo'>Add video</button>
+                                                                    </td>";
+                                                        $strTbl .= "<td>
+                                                                        <div class='d-flex justify-content-center'>
+                                                                            <form class='m-1' action='' method='POST'>
+                                                                                <input type='hidden' name='fTourID' value='$obj->TourID'/>
+                                                                                <input type='hidden' name='fvalDel' value='d'/>
+                                                                                <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                            </form>
+                                                                            <input data-bs-toggle='modal' data-bs-target='#exampleModal' type='submit' class='btn btn-primary m-1' name='fedit' value='Edit'>
+                                                                        </div>    
                                                                     </td>";
                                                     $strTbl .= "</tr>";
                                                     
@@ -1269,12 +1285,12 @@ if (!empty($_POST["flogout"])) {
                                         <div class="text-center pb-3">
                                             <h2>Add Itemlibrary</h2>
                                         </div>
-                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
                                             <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">ItemID:</label>
-                                                <select class="form-select" id="ItemID" name="fItemID" onchange="showinfo(this.value)">
-                                                    <option value="0" selected>Chọn</option>
-                                                    <option value="1">Ảnh</option>
+                                                <label class="form-label fw-bold text-secondary">Type:</label>
+                                                <select class="form-select" id="Type" name="fType" onchange="showinfo(this.value)">
+                                                    <option value="0" selected>Select</option>
+                                                    <option value="1">Image</option>
                                                     <option value="2">Video</option>
                                                 </select>
                                             </div>
@@ -1282,10 +1298,23 @@ if (!empty($_POST["flogout"])) {
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Library:</label>
                                                 <select class="form-select" id="LibraryID" name="fLibraryID">
-                                                    <option value="0">Chọn</option>
-                                                    <option value="1">thư viện 1</option>
-                                                    <option value="2">thư viện 2</option>
+                                                    <option value="0">Select</option>
+                                                    <?php
+
+                                                    $a = new Library();
+                                                    $arr = $a->getListLibrary();
+
+                                                    for($i = 0; $i < count($arr); $i++){
+                                                        $obj = $arr[$i];
+
+                                                        echo "<option value='$obj->libraryID'>".$obj->libraryName . "</option>";
+                                                    }
+                                                    ?>
                                                 </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Title:</label>
+                                                <input type="text" id="Title" name="fTitle" class="form-control" placeholder="Title" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
@@ -1294,15 +1323,65 @@ if (!empty($_POST["flogout"])) {
                                             <input type="submit" id="btnitemlibrary" name="fitemlibrary" class="btn btn-primary" value="Save" />
                                         </form>
                                         <?php 
-                                        
+                                        $message = "";
+
+                                        if (isset($_POST['fitemlibrary']) && $_POST['fitemlibrary'] == 'Save') {
+                                            if (isset($_FILES['fUpload']) && $_FILES['fUpload']['error'] === UPLOAD_ERR_OK) {
+                                
+                                                // lưu vào thư mục tạm webserver
+                                                $fileTmpPath = $_FILES['fUpload']['tmp_name'];
+                                                // echo $fileTmpPath;
+                                
+                                                // thông tin file
+                                                $fileName = $_FILES['fUpload']['name'];
+                                                $fileSize = $_FILES['fUpload']['size'];
+                                                $fileType = $_FILES['fUpload']['type'];
+                                
+                                                // lấy tên file và đuôi file
+                                                $fileNameCmps = explode(".", $fileName);
+                                
+                                                // chuẩn hóa lại tên file
+                                                $fileExtension = strtolower(end($fileNameCmps));
+                                
+                                                // thiết đặt filename để k bị trùng nhau 
+                                                $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+                                
+                                                // kiem tra phan mo rong cua file
+                                                $allowedfileExtensions = array('jpg', 'gif', 'png');
+                                
+                                                // kiểm tra đuôi file
+                                                if (in_array($fileExtension, $allowedfileExtensions)) {
+                                                    // thu muc file uploaded
+                                                    $uploadFileDir = '../admin/assets/img/ItemLibrary/';
+                                                    $dest_path = $uploadFileDir . $newFileName;
+                                
+                                                    if (move_uploaded_file($fileTmpPath, $dest_path)) {
+                                                        $message = "";
+                                                    } else {
+                                                        $message = 'Check if the directory has write permissions.';
+                                                    }
+                                                } else {
+                                                    $message = 'Only file types allowed: ' . implode(',', $allowedfileExtensions);
+                                                }
+                                            }
+                                        }
+                                
+                                        echo $message;
+
                                         if(isset($_POST["fitemlibrary"])) {
-                                            $fItemID = $_POST["fItemID"];
+                                            $fType = $_POST["fType"];
                                             $fLibraryID = $_POST["fLibraryID"];
+                                            // $fUpload = $_POST["fUpload"];
+                                            $fAlt = $_POST["fAlt"];
+                                            $fTitle = $_POST["fTitle"];
                                             $fDescription = $_POST["fDescription"];
 
                                             $a = new Itemlibrary();
-                                            $a->itemID = $fItemID;
+                                            $a->type = $fType;
                                             $a->libraryID = $fLibraryID;
+                                            $a->file = $uploadFileDir.$newFileName;
+                                            $a->alt = $fAlt;
+                                            $a->title = $fTitle;
                                             $a->description = $fDescription;
                                             $a->addItemlibrary();
                                         }
@@ -1325,8 +1404,11 @@ if (!empty($_POST["flogout"])) {
                                                 <tr>
                                                     <th scope="col">STT</th>
                                                     <th scope="col">ID</th>
-                                                    <th scope="col">ItemID</th>
+                                                    <th scope="col">Type</th>
                                                     <th scope="col">LibraryID</th>
+                                                    <th scope="col">Title</th>
+                                                    <th scope="col">Alt</th>
+                                                    <th scope="col">File</th>
                                                     <th scope="col">Description</th>
                                                     <th scope="col">Action</th>
                                                 </tr>
@@ -1344,10 +1426,24 @@ if (!empty($_POST["flogout"])) {
                                                     $strTbl .= "<tr>";
                                                         $strTbl .= "<th>". $stt++ ."</th>";
                                                         $strTbl .= "<td>$obj->itemLibraryID</td>";
-                                                        $strTbl .= "<td>$obj->itemID</td>";
+                                                        $strTbl .= "<td>$obj->type</td>";
                                                         $strTbl .= "<td>$obj->libraryID</td>";
+                                                        $strTbl .= "<td>$obj->title</td>";
+                                                        $strTbl .= "<td>$obj->alt</td>";
+                                                        $strTbl .= "<td>
+                                                                        <img src='$obj->file' alt='$obj->alt' width='200' height='100'>
+                                                                    </td>";
                                                         $strTbl .= "<td>$obj->description</td>";
-                                                        $strTbl .= "<td></td>";
+                                                        $strTbl .= "<td>
+                                                                        <div class='d-flex'>
+                                                                            <form class='m-1' action='' method='POST'>
+                                                                                <input type='hidden' name='fTourID' value='$obj->itemLibraryID'/>
+                                                                                <input type='hidden' name='fvalDel' value='d'/>
+                                                                                <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                            </form>
+                                                                            <input data-bs-toggle='modal' data-bs-target='#exampleModal' type='submit' class='btn btn-primary m-1' name='fedit' value='Edit'>
+                                                                        </div>    
+                                                                    </td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -1428,7 +1524,7 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">CategoryName</th>
                                                     <th scope="col">ParentID</th>
                                                     <th scope="col">Description</th>
-                                                    <th scope="col">Action</th>
+                                                    <th class="text-center" scope="col">Action</th>
                                                 </tr>
                                                 <?php 
                                                 
@@ -1447,7 +1543,16 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->CategoryName</td>";
                                                         $strTbl .= "<td>$obj->ParentID</td>";
                                                         $strTbl .= "<td>$obj->Description</td>";
-                                                        $strTbl .= "<td>...</td>";
+                                                        $strTbl .= "<td>
+                                                                        <div class='d-flex justify-content-center'>
+                                                                            <form class='m-1' action='' method='POST'>
+                                                                                <input type='hidden' name='fTourID' value='$obj->CategoryID'/>
+                                                                                <input type='hidden' name='fvalDel' value='d'/>
+                                                                                <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                            </form>
+                                                                            <input data-bs-toggle='modal' data-bs-target='#exampleModal' type='submit' class='btn btn-primary m-1' name='fedit' value='Edit'>
+                                                                        </div>    
+                                                                    </td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -1528,7 +1633,7 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">CategoryTourName</th>
                                                     <th scope="col">Status</th>
                                                     <th scope="col">Description</th>
-                                                    <th scope="col">Action</th>
+                                                    <th class="text-center" scope="col">Action</th>
                                                 </tr>
                                                 <?php 
                                                 
@@ -1547,7 +1652,16 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->CategoryTourName</td>";
                                                         $strTbl .= "<td>$obj->Status</td>";
                                                         $strTbl .= "<td>$obj->Description</td>";
-                                                        $strTbl .= "<td>...</td>";
+                                                        $strTbl .= "<td>
+                                                                        <div class='d-flex'>
+                                                                            <form class='m-1' action='' method='POST'>
+                                                                                <input type='hidden' name='fCategoryTourID' value='$obj->CategoryTourID'/>
+                                                                                <input type='hidden' name='fvalDel' value='d'/>
+                                                                                <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                            </form>
+                                                                            <input data-bs-toggle='modal' data-bs-target='#exampleModal' type='submit' class='btn btn-primary m-1' name='fedit' value='Edit'>
+                                                                        </div>    
+                                                                    </td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -1587,7 +1701,7 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">Telephone</th>
                                                     <th scope="col">Message</th>
                                                     <th scope="col">Description</th>
-                                                    <th scope="col">Action</th>
+                                                    <th class="text-center" scope="col">Action</th>
                                                 </tr>
                                                 <?php 
                                                 
@@ -1610,7 +1724,16 @@ if (!empty($_POST["flogout"])) {
                                                         $strTbl .= "<td>$obj->telephone</td>";
                                                         $strTbl .= "<td>$obj->message</td>";
                                                         $strTbl .= "<td>$obj->description</td>";
-                                                        $strTbl .= "<td>...</td>";
+                                                        $strTbl .= "<td>
+                                                                        <div class='d-flex justify-content-center'>
+                                                                            <form class='m-1' action='' method='POST'>
+                                                                                <input type='hidden' name='fTourID' value='$obj->contactID'/>
+                                                                                <input type='hidden' name='fvalDel' value='d'/>
+                                                                                <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                            </form>
+                                                                            <input data-bs-toggle='modal' data-bs-target='#exampleModal' type='submit' class='btn btn-primary m-1' name='fedit' value='Edit'>
+                                                                        </div>    
+                                                                    </td>";
                                                     $strTbl .= "</tr>";
                                                     
                                                 }
@@ -1641,17 +1764,35 @@ if (!empty($_POST["flogout"])) {
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Mountaineering:</label>
                                                 <select id="Mountaineering" name="fMountaineeringID" class="form-select">
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
+                                                    <option value="0">Select</option>
+                                                    <?php
+
+                                                    $a = new Mountaineering();
+                                                    $arr = $a->getListMountaineering();
+
+                                                    for($i = 0; $i < count($arr); $i++){
+                                                        $obj = $arr[$i];
+
+                                                        echo "<option value='$obj->mountaineeringID'>".$obj->mountainName . "</option>";
+                                                    }
+                                                    ?>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Service:</label>
                                                 <select id="Service" name="fServiceID" class="form-select">
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
+                                                    <option value="0">Select</option>
+                                                    <?php
+
+                                                    $a = new Service();
+                                                    $arr = $a->getListService();
+
+                                                    for($i = 0; $i < count($arr); $i++){
+                                                        $obj = $arr[$i];
+
+                                                        echo "<option value='$obj->serviceID'>".$obj->serviceName . "</option>";
+                                                    }
+                                                    ?>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
@@ -1695,7 +1836,7 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">MountaineeringID</th>
                                                     <th scope="col">ServiceID</th>
                                                     <th scope="col">Description</th>
-                                                    <th scope="col">Action</th>
+                                                    <th class="text-center" scope="col">Action</th>
                                                 </tr>
                                                 <?php 
                                                 
@@ -1834,7 +1975,7 @@ if (!empty($_POST["flogout"])) {
             <!-- END MAIN -->
 
             <!-- BEGIN FOOTER -->
-            <footer class="footer" id="footer"></footer>
+            <footer class="footer body-pd" id="footer"></footer>
             <!-- END FOOTER -->
 
             <!-- BEGIN MODAL -->
@@ -1851,55 +1992,9 @@ if (!empty($_POST["flogout"])) {
                             <div style="overflow-x: auto;">
 
                                 <div id="tbl-kithi" class="mt-4 pb-5" >
-                                    <table class="table table-striped table-hover">
-                                        <tr>
-                                            <th scope="col">STT</th>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">CategoryTour</th>
-                                            <th scope="col">TourName</th>
-                                            <th scope="col">Day</th>
-                                            <th scope="col">TourPrice</th>
-                                            <th scope="col">TourSale</th>
-                                            <th scope="col">Location</th>
-                                            <th scope="col">AvatarTour</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col">Description</th>
-                                            <th scope="col">Action</th>
-                                        </tr>
-                                        <?php 
-                                        
-                                        $a = new Tour();
-                                        $arr = $a->getListTour();
-                                        $strTbl="";
-
-                                        $stt = 1;
-
-                                        for($i = 0; $i < count($arr); $i++) {
-                                            $obj = $arr[$i];
-
-                                            $strTbl .= "<tr>";
-                                                $strTbl .= "<th>". $stt++ ."</th>";
-                                                $strTbl .= "<td>$obj->TourID</td>";
-                                                $strTbl .= "<td>$obj->CategoryTourID</td>";
-                                                $strTbl .= "<td>$obj->TourName</td>";
-                                                $strTbl .= "<td>$obj->Day</td>";
-                                                $strTbl .= "<td>".$obj->TourPrice." USD"."</td>";
-                                                $strTbl .= "<td>$obj->TourSale</td>";
-                                                $strTbl .= "<td>$obj->Location</td>";
-                                                $strTbl .= "<td><img src='$obj->AvatarTour' alt='banner' width='200' height='100'></td>";
-                                                $strTbl .= "<td>$obj->Status</td>";
-                                                $strTbl .= "<td>$obj->Description</td>";
-                                                $strTbl .= "<td>...</td>";
-                                            $strTbl .= "</tr>";
-                                            
-                                        }
-                                        
-                                        echo $strTbl;
-                                        ?>
-                                    </table>
+                                    <div id="HintTour"></div>
                                 </div>
-
-                                </div>
+                                
                             </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
@@ -2128,30 +2223,57 @@ if (!empty($_POST["flogout"])) {
         <script src="./assets/js/loadMenu.js"></script>
         <script src="./assets/js/admin.js"></script>
         <script src="../assets/js/ckeditor/ckeditor.js"></script>
-        <script>
+        <script type="text/javascript">
             // ck editer
             CKEDITOR.replace( 'editor1' );
 
-            function showinfo(str)
-            {
+            // check select itemlibraryitem
+            function showinfo(str) {
                 if (str == "0") {
                     document.querySelector("#txtHint").innerHTML = "";
                     return;
-                } else if(str == 1){
+                } else if (str == 1) {
                     document.querySelector("#txtHint").innerHTML = `<div class="mb-3">
-                                                                        <label class="form-label fw-bold text-secondary">Upload img:</label>
-                                                                        <input type="file" id="Upload" name="fUpload" class="form-control"/>
-                                                                    </div>
-                                                                    <div class="mb-3">
-                                                                        <label class="form-label fw-bold text-secondary">Alt:</label>
-                                                                        <input type="text" id="Alt" name="fAlt" class="form-control" placeholder="Alt" />
-                                                                    </div>`;
+                                                                                <label class="form-label fw-bold text-secondary">Upload img:</label>
+                                                                                <input type="file" id="Upload" name="fUpload" class="form-control"/>
+                                                                            </div>
+                                                                            <div class="mb-3">
+                                                                                <label class="form-label fw-bold text-secondary">Alt:</label>
+                                                                                <input type="text" id="Alt" name="fAlt" class="form-control" placeholder="Alt" />
+                                                                            </div>`;
                     return;
                 } else {
                     document.querySelector("#txtHint").innerHTML = `<div class="mb-3">
-                                                                        <label class="form-label fw-bold text-secondary">Link video:</label>
-                                                                        <input type="text" id="Alt" name="fUpload" class="form-control" placeholder="Link" />
-                                                                    </div>`;
+                                                                                <label class="form-label fw-bold text-secondary">Link video:</label>
+                                                                                <input type="text" id="Alt" name="fUpload" class="form-control" placeholder="Link" />
+                                                                            </div>`;
+                }
+
+            }
+
+
+            // show data tour theo id
+            function ShowTourById(str)
+            {
+                if (str == "") {
+                    document.querySelector("#HintTour").innerHTML = "";
+                    return;
+                } else {
+                    if (window.XMLHttpRequest) {
+                        // code for IE7+, Firefox, Chrome, Opera, Safari
+                        xmlhttp = new XMLHttpRequest();
+                    } else {
+                        // code for IE6, IE5
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    xmlhttp.onreadystatechange = function () {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+                            document.querySelector("#HintTour").innerHTML = xmlhttp.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET", "ListTour.php?id=" + str, true);
+                    xmlhttp.send();
                 }
 
             }

@@ -56,7 +56,15 @@ class CategoryTour {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT * FROM `categorytour`;";
+        $sql = "SELECT CategoryTourID, CategoryTourName, Description, Flag,
+				CASE
+					WHEN Status = 1 THEN 'Đang hoạt động'
+					WHEN Status = 2 THEN 'Dừng hoạt động'
+					WHEN Status = 3 THEN 'Chưa kích hoạt'
+					ELSE 'Error'
+				END
+				AS `Status`
+				FROM `categorytour`;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
