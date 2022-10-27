@@ -8,6 +8,7 @@ class Service {
 	public $sale;
 	public $serviceID;
 	public $serviceName;
+	public $avatarService; // nếu code thì bên dưới phải thêm trường này, trường này mới thêm
 	public $vAT;
 
 	public function addService() {

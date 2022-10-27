@@ -47,7 +47,7 @@
                                         <input type='hidden' name='fvalDel' value='d'/>
                                         <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
                                     </form>
-                                    <input data-bs-toggle='modal' data-bs-target='#exampleModal' type='submit' class='btn btn-primary m-1' name='fedit' value='Edit'>
+                                    <input type='submit' class='btn btn-primary m-1' name='fedit' value='Edit'>
                                 </div>    
                             </td>";
         $strTbl .= "</tr>";

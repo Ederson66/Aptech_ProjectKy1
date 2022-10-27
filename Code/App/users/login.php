@@ -1,7 +1,7 @@
 <?php
 
-require_once './PhpSetting/Member.php';
-require_once './PhpSetting/Common.php';
+require_once '../PhpSetting/Member.php';
+require_once '../PhpSetting/Common.php';
 
 if (!empty($_POST["flogin"])) {
     

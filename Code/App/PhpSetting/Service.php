@@ -9,6 +9,7 @@ class Service {
 	public $price;
 	public $serviceID;
 	public $serviceName;
+	public $avatarService;
 	public $vAT;
 
 	public function addService() {
@@ -25,6 +26,7 @@ class Service {
 					`Sale`,
 					`Price`,
 					`ServiceName`,
+					`AvatarService`,
 					`VAT`
 				)
 				VALUES
@@ -34,6 +36,7 @@ class Service {
 					:sale,
 					:price,
 					:serviceName,
+					:avatarService,
 					:vAT
 				);";
 
@@ -47,6 +50,7 @@ class Service {
 			":sale" => $this->sale,
 			":price" => $this->price,
 			":serviceName" => $this->serviceName,
+			":avatarService" => $this->avatarService,
 			":vAT" => $this->vAT));
 
 		// Get value of the auto increment column.
@@ -84,6 +88,7 @@ class Service {
 			$s->price = $row["Price"];
 			$s->serviceID = $row["ServiceID"];
 			$s->serviceName = $row["ServiceName"];
+			$s->avatarService = $row["AvatarService"];
 			$s->vAT = $row["VAT"];
             
             array_push($list, $s);

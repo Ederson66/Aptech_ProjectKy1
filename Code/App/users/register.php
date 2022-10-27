@@ -1,7 +1,7 @@
 
 <?php
-require_once './PhpSetting/Member.php';
-require_once './PhpSetting/Common.php';
+require_once '../PhpSetting/Member.php';
+require_once '../PhpSetting/Common.php';
 
 if (isset($_POST["fregister"])) {
 //    $fmembername = $_POST['fmembername'];

@@ -111,23 +111,6 @@
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="#">History</a>
-                                <ul class="sub rounded p-0">
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">History 1</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">History 2</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">History 3</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">History 4</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item ps-3 pe-3 mt-2 dropdown">
                                 <a class="nav-link text-dark fw-bold hv-cl" href="#">Tour</a>
                                 <ul class="sub rounded p-0">
                                     <li>
@@ -154,10 +137,7 @@
                                         <a class="nav-link text-dark text-center hv-bg" href="#">Blog</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">News 3</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">News 4</a>
+                                        <a class="nav-link text-dark text-center hv-bg" href="#">History</a>
                                     </li>
                                 </ul>
                             </li>
@@ -179,21 +159,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 disabled">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="./Contact.php">Contact</a>
-                                <ul class="sub rounded p-0">
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Contact 1</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Contact 2</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Contact 3</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Contact 4</a>
-                                    </li>
-                                </ul>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="./contact.php">Contact</a>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 mb-2">
                                 <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="login.php">
@@ -218,7 +184,7 @@
             <!--BEGIN Footer -->
             <div class="footer bg-dark text-white pt-120 pb-5">
                 <div class="container">
-                    <div class="row g-5">
+                    <div class="row g-5" style=" margin-right: 0 !important;">
                         <div class="col-12 col-lg-3">
                             <a href="#" class="d-block mb-3">
                                 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -239,9 +205,9 @@
                                 </svg>
                             </a>
                             <p class="fs-6 mb-2">
-                                Them and one moving the won't  <br>
-                                may, moving saw wherein.
+                                Climbing inspires people and brings people closer together
                             </p>
+                            <!-- list icon -->
                             <ul class="nav text-white align-items-center mb-2" style="margin: 0 -14px;">
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">
@@ -278,49 +244,80 @@
                             <p class="font-6 text-muted m-0">© 2022 Designed by ndd.</p>
                         </div>
                         <!-- col 2 tạo khoảng cách -->
-                        <div class="col-2 d-none d-lg-block"></div>
-                        <div class="col-12 col-lg-7">
+                        <!-- <div class="col-2 d-none d-lg-block"></div> -->
+                        <!-- menu footer -->
+                        <div class="col-12 col-lg-9">
                             <div class="row g-5">
-                                <div class="col-6 col-md-4">
+                                <!-- column 1 -->
+                                <div class="col-lg-2 col-md-2 col-sm-2">
                                     <h6 class="display-6 text-white mb-3">Services</h6>
                                     <ul class="nav flex-column text-white">
                                         <li class="nav-item">
-                                            <a class="nav-link ps-0 text-muted" href="#">Consulting</a>
+                                            <a class="nav-link ps-0 text-muted" href="#">Services 1</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link ps-0 text-muted" href="#">Human Resources</a>
+                                            <a class="nav-link ps-0 text-muted" href="#">Services 2</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link ps-0 text-muted" href="#">Accounting</a>
+                                            <a class="nav-link ps-0 text-muted" href="#">Services 3</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link ps-0 text-muted" href="#">Marketing & SEO</a>
+                                            <a class="nav-link ps-0 text-muted" href="#">Services 4</a>
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="col-6 col-md-4">
-                                    <h6 class="display-6 text-white mb-3">About</h6>
+                                <!-- column 2 -->
+                                <div class="col-lg-2 col-md-2 col-sm-2">
+                                    <h6 class="display-6 text-white mb-3">Tour</h6>
                                     <ul class="nav flex-column text-white">
                                         <li class="nav-item">
-                                            <a class="nav-link ps-0 text-muted" href="#">About us</a>
+                                            <a class="nav-link ps-0 text-muted" href="#">Tour 1</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link ps-0 text-muted" href="#">Our Services</a>
+                                            <a class="nav-link ps-0 text-muted" href="#">Tour 2</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link ps-0 text-muted" href="#">Our Blog</a>
+                                            <a class="nav-link ps-0 text-muted" href="#">Tour 3</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link ps-0 text-muted" href="#">Contact us</a>
+                                            <a class="nav-link ps-0 text-muted" href="#">Tour 4</a>
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="col-6 col-md-4">
+                                <!-- column 3 -->
+                                <div class="col-lg-2 col-md-2 col-sm-2">
+                                    <h6 class="display-6 text-white mb-3">News</h6>
+                                    <ul class="nav flex-column text-white">
+                                        <li class="nav-item">
+                                            <a class="nav-link ps-0 text-muted" href="#">Sale</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link ps-0 text-muted" href="#">Blog</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link ps-0 text-muted" href="#">History</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- column 4 -->
+                                <div class="col-lg-2 col-md-2 col-sm-2">
+                                    <h6 class="display-6 text-white mb-3">Experience</h6>
+                                    <ul class="nav flex-column text-white">
+                                        <li class="nav-item">
+                                            <a class="nav-link ps-0 text-muted" href="#">Experience</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link ps-0 text-muted" href="#">Experience</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link ps-0 text-muted" href="#">Experience</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- column 5 -->
+                                <div class="col-lg-2 col-md-4 col-sm-4">
                                     <h6 class="display-6 text-white mb-3">Contact</h6>
                                     <ul class="nav flex-column text-white">
-                                        <li class="nav-item">
-                                            <a class="nav-link ps-0 text-muted" href="tel:0968590075">+84 968 590 075</a>
-                                        </li>
                                         <li class="nav-item">
                                             <a class="nav-link ps-0 text-muted" href="tel:0968590075">+84 968 590 075</a>
                                         </li>
