@@ -59,30 +59,34 @@ require_once '../PhpSetting/Common.php';
                                     <?php
 
                                     if (!empty($_POST["flogin"])) {
-                                        
-                                        if (isset($_POST["fusername"]) && isset($_POST["fpassword"])) {
-                                            $username = $_POST["fusername"];
-                                            $password = $_POST["fpassword"];
-                                            
-                                            $a = new Usersystem();
-                                            $a->Username=$username;
-                                            $a->Password=md5($password);
-                                            $arr = $a->login();
-                                            
-                                            if(count($arr) > 0) {
-                                                // sử dụng ss
-                                                session_start();
-                                                // tạo ra ss
-                                                $_SESSION["Username"] = $username;
-                                                redirect("admin.php");
+                                        if($_POST["fusername"] == "" && $_POST["fpassword"] == "") {
+                                            echo '<div class="mt-2 d-flex justify-content-center">
+                                                    <p class="p-2 text-danger m-0">Cannot be left blank !</p>
+                                                </div>';
+                                        } else {
+                                            if (isset($_POST["fusername"]) && isset($_POST["fpassword"])) {
+                                                $username = $_POST["fusername"];
+                                                $password = $_POST["fpassword"];
                                                 
-                                            } else {
-                                                echo '<div class="mt-2 d-flex justify-content-center">
-                                                        <p class="p-2 text-danger m-0">Wrong username or password !</p>
-                                                    </div>';
+                                                $a = new Usersystem();
+                                                $a->Username=$username;
+                                                $a->Password=md5($password);
+                                                $arr = $a->login();
+                                                
+                                                if(count($arr) > 0) {
+                                                    // sử dụng ss
+                                                    session_start();
+                                                    // tạo ra ss
+                                                    $_SESSION["Username"] = $username;
+                                                    redirect("admin.php");
+                                                    
+                                                } else {
+                                                    echo '<div class="mt-2 d-flex justify-content-center">
+                                                            <p class="p-2 text-danger m-0">Wrong username or password !</p>
+                                                        </div>';
+                                                }
                                             }
                                         }
-                                        
                                     }
 
                                     ?>
