@@ -55,11 +55,11 @@ if (!empty($_POST["flogout"])) {
         <meta content="Home" itemprop="description" property="og:description" />
         <!-- END META FOR FACEBOOK -->
         <!-- Reset CSS -->
-        <link rel="stylesheet" href="../assets/css/reset.min.css">
+        <link rel="stylesheet" href="../users/assets/css/reset.min.css">
         <!-- BOOTSTRAP ICON -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <!-- BOOTSTRAP 5.0.2 CSS -->
-        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../users/assets/css/bootstrap.min.css">
         <!-- Icon -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
         <!-- CSS ME -->
