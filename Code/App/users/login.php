@@ -95,10 +95,6 @@ if (!empty($_POST["flogin"])) {
                             <div>
                                 <a href="#" class="text-white rounded text-shadow">Reset password</a>
                             </div>
-<!--                            <div class="d-flex align-items-center">
-                                <span class="text-shadow me-2 text-white">Remember</span>
-                                <input type="checkbox" style="width: 16px !important; height: 16px; margin-top: 5px;">
-                            </div>-->
                         </div>
                         <div class="input-group d-flex justify-content-center mb-3">
                             <input class="p-2 rounded text-shadow bg-primary w-50" type="submit" id="btnpass" name="flogin" value="Login" >

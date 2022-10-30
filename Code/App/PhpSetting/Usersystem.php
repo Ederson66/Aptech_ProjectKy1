@@ -142,8 +142,10 @@ class Usersystem {
 		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
 
+		$fcrpass = md5($_POST["fcrpass"]); 
+
 		// Update query.
-		$sql = "UPDATE `usersystem` SET Password = :Password WHERE UserSystemID = :UserSystemID;";
+		$sql = "UPDATE `usersystem` SET Password = :Password WHERE UserSystemID = :UserSystemID AND Password = '$fcrpass';";
 
 		// Prepare statement.
 		$stmt = $conn->prepare($sql);

@@ -78,7 +78,7 @@ if (!empty($_POST["flogout"])) {
             }
         </style>
     </head>
-    <body id="body-pd">
+    <body id="body-pd" class="body-pd">
         <div class="app">
             <!-- BEGIN HEADER -->
             <header class="header body-pd" id="header">
@@ -2262,15 +2262,15 @@ if (!empty($_POST["flogout"])) {
         </div>
 
         <!-- JQUERY 3.6.1 -->
-        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../users/assets/js/jquery.min.js"></script>
         <!-- JS BOOTSTRAP -->
-        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../users/assets/js/bootstrap.bundle.min.js"></script>
         <!-- chart js -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <!-- JS ME -->
         <script src="./assets/js/loadMenu.js"></script>
         <script src="./assets/js/admin.js"></script>
-        <script src="../assets/js/ckeditor/ckeditor.js"></script>
+        <script src="../users/assets/js/ckeditor/ckeditor.js"></script>
         <script type="text/javascript">
             // ck editer
             CKEDITOR.replace( 'editor1' );
