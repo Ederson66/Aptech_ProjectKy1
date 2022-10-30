@@ -1,7 +1,7 @@
 <?php
 
-require_once '../PhpSetting/DBinfoConfig.php';
-require_once '../PhpSetting/Common.php';
+require_once 'DBinfoConfig.php';
+require_once 'Common.php';
 
 class Member {
 

@@ -9,9 +9,9 @@ session_start();
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <!-- Reset CSS -->
-            <link rel="stylesheet" href="./assets/css/reset.min.css" />
+            <link rel="stylesheet" href="./users/assets/css/reset.min.css" />
             <!-- BOOTSTRAP 5.0.2 CSS -->
-            <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+            <link rel="stylesheet" href="./users/assets/css/bootstrap.min.css" />
             <!-- BOOTSTRAP ICON -->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
             <!-- Icon -->
@@ -19,10 +19,10 @@ session_start();
             <!-- Swiper -->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
             <!-- CSS ME -->
-            <link rel="stylesheet" href="./assets/css/home.css" />
-            <link rel="stylesheet" href="./assets/css/base.css">
+            <link rel="stylesheet" href="./users/assets/css/home.css" />
+            <link rel="stylesheet" href="./users/assets/css/base.css">
             <!--favicon-->
-            <link rel="icon" type="image/x-icon" href="./assets/image/favicon.png" />
+            <link rel="icon" type="image/x-icon" href="./users/assets/image/favicon.png" />
             <title>Home</title>
         </head>
     </head>
@@ -147,18 +147,18 @@ session_start();
                                 <a class="nav-link text-dark fw-bold hv-cl" href="./contact.php">Contact</a>
                             </li>
                             <?php
-                            require_once '../PhpSetting/Member.php';
-                            require_once '../PhpSetting/Common.php';
+                            require_once './PhpSetting/Member.php';
+                            require_once './PhpSetting/Common.php';
 //                           
                             $checkin = IsAuthen();
                             if ($checkin != 1) {
                                 echo '<li class="nav-item ps-3 pe-3 mt-2 mb-2">
-                                <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="login.php">
+                                <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="./users/login.php">
                                     Login
                                 </a>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 mb-2">
-                                <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-primary rounded-pill" href="register.php">
+                                <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-primary rounded-pill" href="./users/register.php">
                                     Register
                                 </a>
                             </li>';
@@ -166,7 +166,7 @@ session_start();
                                 $member = (string) $_SESSION['MemberName'];
                                 echo '<li class="nav-item ps-3 pe-3 mt-2 mb-2">
                                     <form action="index.php" method="POST">
-                                    <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="login.php">
+                                    <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="./users/login.php">
                                     Logout
                                 </a>
                                     </form>
@@ -224,7 +224,7 @@ session_start();
                                 <div class="col-lg-5 m-4 activeShow">
                                     <a class="card border-0 text-decoration-none text-dark" href="#">
                                         <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <img class="img-fluid" src="./assets/image/home/item-img/im-1.png" alt="">
+                                            <img class="img-fluid" src="./users/assets/image/home/item-img/im-1.png" alt="">
                                         </span>
                                         <span class="card-body">
                                             <span class="card-title h4">tour</span>
@@ -234,28 +234,7 @@ session_start();
                                 <div class="col-lg-5 m-4 activeShow">
                                     <a class="card border-0 text-decoration-none text-dark" href="#">
                                         <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <img class="img-fluid" src="./assets/image/home/item-img/im-2.png" alt="">
-                                        </span>
-                                        <span class="card-body">
-                                            <span class="card-title h4">tour</span>
-                                        </span>
-                                    </a>
-                                </div>
-
-                                <div class="col-lg-5 m-4 activeShow">
-                                    <a class="card border-0 text-decoration-none text-dark" href="#">
-                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <img class="img-fluid" src="./assets/image/home/item-img/im-3.png" alt="">
-                                        </span>
-                                        <span class="card-body">
-                                            <span class="card-title h4">tour</span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="col-lg-5 m-4 activeShow">
-                                    <a class="card border-0 text-decoration-none text-dark" href="#">
-                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <img class="img-fluid" src="./assets/image/home/item-img/im-4.png" alt="">
+                                            <img class="img-fluid" src="./users/assets/image/home/item-img/im-2.png" alt="">
                                         </span>
                                         <span class="card-body">
                                             <span class="card-title h4">tour</span>
@@ -266,7 +245,7 @@ session_start();
                                 <div class="col-lg-5 m-4 activeShow">
                                     <a class="card border-0 text-decoration-none text-dark" href="#">
                                         <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <img class="img-fluid" src="./assets/image/home/item-img/im-5.png" alt="">
+                                            <img class="img-fluid" src="./users/assets/image/home/item-img/im-3.png" alt="">
                                         </span>
                                         <span class="card-body">
                                             <span class="card-title h4">tour</span>
@@ -276,7 +255,28 @@ session_start();
                                 <div class="col-lg-5 m-4 activeShow">
                                     <a class="card border-0 text-decoration-none text-dark" href="#">
                                         <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <img class="img-fluid" src="./assets/image/home/item-img/im-6.png" alt="">
+                                            <img class="img-fluid" src="./users/assets/image/home/item-img/im-4.png" alt="">
+                                        </span>
+                                        <span class="card-body">
+                                            <span class="card-title h4">tour</span>
+                                        </span>
+                                    </a>
+                                </div>
+
+                                <div class="col-lg-5 m-4 activeShow">
+                                    <a class="card border-0 text-decoration-none text-dark" href="#">
+                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
+                                            <img class="img-fluid" src="./users/assets/image/home/item-img/im-5.png" alt="">
+                                        </span>
+                                        <span class="card-body">
+                                            <span class="card-title h4">tour</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-lg-5 m-4 activeShow">
+                                    <a class="card border-0 text-decoration-none text-dark" href="#">
+                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
+                                            <img class="img-fluid" src="./users/assets/image/home/item-img/im-6.png" alt="">
                                         </span>
                                         <span class="card-body">
                                             <span class="card-title h4">tour</span>
@@ -306,42 +306,42 @@ session_start();
                                             <div class="swiper-slide">
                                                 <a class="card border-0 text-decoration-none text-dark" href="#">
                                                     <span class="card-img shadow-lg rounded-3 overflow-hidden">
-                                                        <img class="img-fluid" src="./assets/image/home/item-img/im-1.png" alt="">
+                                                        <img class="img-fluid" src="./users/assets/image/home/item-img/im-1.png" alt="">
                                                     </span>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide">
                                                 <a class="card border-0 text-decoration-none text-dark" href="#">
                                                     <span class="card-img shadow-lg rounded-3 overflow-hidden">
-                                                        <img class="img-fluid" src="./assets/image/home/item-img/im-2.png" alt="">
+                                                        <img class="img-fluid" src="./users/assets/image/home/item-img/im-2.png" alt="">
                                                     </span>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide">
                                                 <a class="card border-0 text-decoration-none text-dark" href="#">
                                                     <span class="card-img shadow-lg rounded-3 overflow-hidden">
-                                                        <img class="img-fluid" src="./assets/image/home/item-img/im-3.png" alt="">
+                                                        <img class="img-fluid" src="./users/assets/image/home/item-img/im-3.png" alt="">
                                                     </span>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide">
                                                 <a class="card border-0 text-decoration-none text-dark" href="#">
                                                     <span class="card-img shadow-lg rounded-3 overflow-hidden">
-                                                        <img class="img-fluid" src="./assets/image/home/item-img/im-4.png" alt="">
+                                                        <img class="img-fluid" src="./users/assets/image/home/item-img/im-4.png" alt="">
                                                     </span>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide">
                                                 <a class="card border-0 text-decoration-none text-dark" href="#">
                                                     <span class="card-img shadow-lg rounded-3 overflow-hidden">
-                                                        <img class="img-fluid" src="./assets/image/home/item-img/im-5.png" alt="">
+                                                        <img class="img-fluid" src="./users/assets/image/home/item-img/im-5.png" alt="">
                                                     </span>
                                                 </a>
                                             </div>
                                             <div class="swiper-slide">
                                                 <a class="card border-0 text-decoration-none text-dark" href="#">
                                                     <span class="card-img shadow-lg rounded-3 overflow-hidden">
-                                                        <img class="img-fluid" src="./assets/image/home/item-img/im-6.png" alt="">
+                                                        <img class="img-fluid" src="./users/assets/image/home/item-img/im-6.png" alt="">
                                                     </span>
                                                 </a>
                                             </div>
@@ -667,12 +667,12 @@ session_start();
         </div>
 
         <!-- JQUERY 3.6.1 -->
-        <script src="./assets/js/jquery.min.js"></script>
+        <script src="./users/assets/js/jquery.min.js"></script>
         <!-- JS BOOTSTRAP -->
-        <script src="./assets/js/bootstrap.bundle.min.js"></script>
+        <script src="./users/assets/js/bootstrap.bundle.min.js"></script>
         <!-- js swiper -->
         <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
         <!-- JS ME -->
-        <script src="./assets/js/home.js"></script>
+        <script src="./users/assets/js/home.js"></script>
     </body>
 </html>
