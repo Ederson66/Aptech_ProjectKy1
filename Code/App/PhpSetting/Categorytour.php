@@ -74,7 +74,7 @@ class CategoryTour {
         
         $list = Array();
         while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
-            $s = new Category();
+            $s = new CategoryTour();
             $s->CategoryTourID = $row["CategoryTourID"];
             $s->CategoryTourName = $row["CategoryTourName"];
 			$s->Status = $row["Status"];

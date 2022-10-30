@@ -1,3 +1,4 @@
+<?php require_once '../PhpSetting/Tour.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -175,22 +176,31 @@
             <div class="header-news bg-image">
             </div>
             <!-- Tour khám phá hang động -->
-            <h3 style="text-align:center;font-size:50px">Khám phá hang động</h3>
+            <?php 
+            
+            $s = new Tour();
+            
+            $list = $s->getListCategorytourName();
+
+            for($i = 0; $i < count($list); $i++) {
+                $obj = $list[$i];
+
+                echo "<h3 style='text-align:center;font-size:50px'>$obj->CategoryTourName</h3>";
+                echo "<input type='hidden' name='fCategoryTourID' value='$obj->CategoryTourID'>";
+
+            }
+
+            
+            ?>
             <div class="row large-columns-3 medium-columns-2 small-columns-1 text-center mb-5 a1">
                 <div class="container-tour">
                     <div class="container-tour_list col" style="height: auto;">
-                        <?php require_once './PhpSetting/Tour.php'; ?>
+                        
                         <?php
                         $s = new Tour();
-                        $a = new CategoryTour();
-
                         $arr = $s->getListTour();
-                        $arr1 = $a->getListCategoryTour();
                         ?>
-                        <?php foreach ($arr1 as $value1): ?>
-                            <h3 style="text-align:center;font-size:50px"><?php echo $value1->CategoryTourName; ?></h3>
-
-                        <?php endforeach; ?>
+                        
                         <?php foreach ($arr as $value): ?>
                         
                             <a href="#" class="d-inline-block tour-item">
