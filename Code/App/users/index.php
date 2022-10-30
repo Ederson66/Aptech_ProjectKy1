@@ -147,8 +147,8 @@ session_start();
                                 <a class="nav-link text-dark fw-bold hv-cl" href="./contact.php">Contact</a>
                             </li>
                             <?php
-                            require_once './PhpSetting/Member.php';
-                            require_once './PhpSetting/Common.php';
+                            require_once '../PhpSetting/Member.php';
+                            require_once '../PhpSetting/Common.php';
 //                           
                             $checkin = IsAuthen();
                             if ($checkin != 1) {
