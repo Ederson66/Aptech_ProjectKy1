@@ -18,7 +18,7 @@ require_once '../PhpSetting/Itemlibrary.php';
 require_once '../PhpSetting/Locationandservice.php';
 
 // check session
-$checkss = IsAuthen();
+$checkss = IsAuthen_1();
 if($checkss != 1) {
     redirect("login.php");
 }

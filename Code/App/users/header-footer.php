@@ -165,8 +165,8 @@ session_start();
                                 <a class="nav-link text-dark fw-bold hv-cl" href="./contact.php">Contact</a>
                             </li>
                             <?php
-                            require_once './PhpSetting/Member.php';
-                            require_once './PhpSetting/Common.php';
+                            require_once '../PhpSetting/Member.php';
+                            require_once '../PhpSetting/Common.php';
 //                           
                             $checkin = IsAuthen();
                             if ($checkin != 1) {
@@ -277,7 +277,7 @@ session_start();
                                 <!-- column 1 -->
                                 <div class="col-lg-2 col-md-2 col-sm-2">
                                     <h6 class="display-6 text-white mb-3">Services</h6>
-                                    <ul class="nav flex-column text-white">
+                                    <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link ps-0 text-muted" href="#">Services 1</a>
                                         </li>
@@ -295,7 +295,7 @@ session_start();
                                 <!-- column 2 -->
                                 <div class="col-lg-2 col-md-2 col-sm-2">
                                     <h6 class="display-6 text-white mb-3">Tour</h6>
-                                    <ul class="nav flex-column text-white">
+                                    <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link ps-0 text-muted" href="#">Tour 1</a>
                                         </li>
@@ -313,7 +313,7 @@ session_start();
                                 <!-- column 3 -->
                                 <div class="col-lg-2 col-md-2 col-sm-2">
                                     <h6 class="display-6 text-white mb-3">News</h6>
-                                    <ul class="nav flex-column text-white">
+                                    <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link ps-0 text-muted" href="#">Sale</a>
                                         </li>
@@ -328,7 +328,7 @@ session_start();
                                 <!-- column 4 -->
                                 <div class="col-lg-2 col-md-2 col-sm-2">
                                     <h6 class="display-6 text-white mb-3">Experience</h6>
-                                    <ul class="nav flex-column text-white">
+                                    <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link ps-0 text-muted" href="#">Experience</a>
                                         </li>
@@ -343,7 +343,7 @@ session_start();
                                 <!-- column 5 -->
                                 <div class="col-lg-2 col-md-4 col-sm-4">
                                     <h6 class="display-6 text-white mb-3">Contact</h6>
-                                    <ul class="nav flex-column text-white">
+                                    <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link ps-0 text-muted" href="tel:0968590075">+84 968 590 075</a>
                                         </li>
