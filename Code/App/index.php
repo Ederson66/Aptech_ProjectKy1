@@ -79,7 +79,7 @@ session_start();
                                 <a class="nav-link text-dark fw-bold hv-cl" href="index.php">Home</a>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="./service.php">Service</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="./users/service.php">Service</a>
                                 <ul class="sub rounded p-0">
                                     <li>
                                         <a class="nav-link text-dark text-center hv-bg" href="#">Service 1</a>
@@ -96,7 +96,7 @@ session_start();
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="#">Tour</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="./users/tour.php">Tour</a>
                                 <ul class="sub rounded p-0">
                                     <li>
                                         <a class="nav-link text-dark text-center hv-bg" href="#">Tour 1</a>
@@ -113,7 +113,7 @@ session_start();
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 link">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="./news.php">News</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="./users/news.php">News</a>
                                 <ul class="sub rounded p-0">
                                     <li>
                                         <a class="nav-link text-dark text-center hv-bg" href="#">Sale</a>
@@ -144,7 +144,7 @@ session_start();
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 disabled">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="./contact.php">Contact</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="./users/contact.php">Contact</a>
                             </li>
                             <?php
                             require_once './PhpSetting/Member.php';
