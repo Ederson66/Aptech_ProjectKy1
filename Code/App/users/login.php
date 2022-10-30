@@ -21,7 +21,7 @@ if (!empty($_POST["flogin"])) {
             // tạo ra ss
             $_SESSION["MemberName"] = $member;
             setcookie("MemberName",$member,time()+86400 *30);
-            Common::rederect('index.php');;
+            redirect('index.php');
             
         } else {
             echo '<script>alert("Login Faild !" + "\n" + "Review username & password")</script>';
