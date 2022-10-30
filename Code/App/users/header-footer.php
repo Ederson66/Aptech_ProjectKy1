@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -161,7 +164,13 @@
                             <li class="nav-item ps-3 pe-3 mt-2 disabled">
                                 <a class="nav-link text-dark fw-bold hv-cl" href="./contact.php">Contact</a>
                             </li>
-                            <li class="nav-item ps-3 pe-3 mt-2 mb-2">
+                            <?php
+                            require_once './PhpSetting/Member.php';
+                            require_once './PhpSetting/Common.php';
+//                           
+                            $checkin = IsAuthen();
+                            if ($checkin != 1) {
+                                echo '<li class="nav-item ps-3 pe-3 mt-2 mb-2">
                                 <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="login.php">
                                     Login
                                 </a>
@@ -170,7 +179,24 @@
                                 <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-primary rounded-pill" href="register.php">
                                     Register
                                 </a>
-                            </li>
+                            </li>';
+                            } else {
+                                $member = (string) $_SESSION['MemberName'];
+                                echo '<li class="nav-item ps-3 pe-3 mt-2 mb-2">
+                                    <form action="index.php" method="POST">
+                                    <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="login.php">
+                                    Logout
+                                </a>
+                                    </form>
+                                
+                                </li>';
+                                //Show tên người dùng đã đăng nhập.
+//                                $s = new Member();
+//                                $s->MemberName = $member;
+//                                $list = $s->GetUserByUsername();
+//                                echo 'Hello :' . $list[0]->Firstname . ' ' . $list[0]->Middlename . ' ' . $list[0]->Lastname;
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
