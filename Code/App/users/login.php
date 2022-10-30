@@ -20,7 +20,8 @@ if (!empty($_POST["flogin"])) {
             session_start();
             // tạo ra ss
             $_SESSION["MemberName"] = $member;
-            redirect("index.php");
+            setcookie("MemberName",$member,time()+86400 *30);
+            redirect('index.php');
             
         } else {
             echo '<script>alert("Login Faild !" + "\n" + "Review username & password")</script>';

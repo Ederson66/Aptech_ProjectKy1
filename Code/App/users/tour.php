@@ -176,96 +176,52 @@
             </div>
             <!-- Tour khám phá hang động -->
             <h3 style="text-align:center;font-size:50px">Khám phá hang động</h3>
-            <div class="row large-columns-3 medium-columns- small-columns-1 text-center mb-5 a1">
+            <div class="row large-columns-3 medium-columns-2 small-columns-1 text-center mb-5 a1">
                 <div class="container-tour">
-                    <div class="container-tour_list col">
-                        <a href="#" class="d-inline-block tour-item">
-                            <div class="container-tour_item col-lg-4 col-md-6 col-sm-12">
-                                <div class="box-img" style="width:75%">
-                                    <img src="./assets/image/News/Tư liệu hình ảnh/slide1.png" alt=""
-                                        style="width:350px;height: auto;border-radius: 10px;">
-                                </div>
-                                <div class="box-text text-center bg-light" style="width:300px;height: auto;">
-                                    <div class="box-text_sale text-white">
-                                        <div class="title">Sale</div>
-                                        <div class="avage">40%</div>
+                    <div class="container-tour_list col" style="height: auto;">
+                        <?php require_once './PhpSetting/Tour.php'; ?>
+                        <?php
+                        $s = new Tour();
+                        $a = new CategoryTour();
+
+                        $arr = $s->getListTour();
+                        $arr1 = $a->getListCategoryTour();
+                        ?>
+                        <?php foreach ($arr1 as $value1): ?>
+                            <h3 style="text-align:center;font-size:50px"><?php echo $value1->CategoryTourName; ?></h3>
+
+                        <?php endforeach; ?>
+                        <?php foreach ($arr as $value): ?>
+                        
+                            <a href="#" class="d-inline-block tour-item">
+                                <div class="container-tour_item col-lg-4 col-md-6 col-sm-12 mt-5 mb-5">
+                                    <div class="box-img" style="width:75%">
+                                        <img src="<?php echo $value->AvatarTour; ?>" alt="" style="width:350px;height: auto;border-radius: 10px;">
                                     </div>
-                                    <div class="box-text_img">
-                                        <img src="https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg"
-                                            alt="">
+                                    <div class="box-text text-center bg-light" style="width:300px;height: 400px;">
+                                        <div class="box-text_sale text-white">
+                                            <div class="title">Sale</div>
+                                            <div class="avage"><?php echo $value->TourSale; ?>%</div>
+                                        </div>
+                                        <div class="box-text_img">
+                                            <img src="https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg" alt="">
+                                        </div>
+                                        <h5><?php echo $value->TourName; ?></h5>
+                                        <div class="price_tour sales" style="color:red"><?php echo $value->TourPrice; ?>VND</div>
+                                        <div class="price_tour" style="color: #3da4ff">3.200.000 VNĐ</div>
+                                        <div class="date_go text-dark"><i class="bi bi-clock" style="color: #3da4ff"></i><?php echo $value->TimeLimit; ?></div>
+                                        <div class="hard_tour text-dark">Độ khó:Cao</div>
+                                        <div class="hard_tour text-dark"><?php echo $value->Status; ?></div>
+                                        <p class="from_the_blog_excerpt "><?php echo $value->Description; ?></p>
                                     </div>
-                                    <h5 class="post-title is-large text-dark">Tour Leo Núi Fansipan</h5>
-                                    <div class="price_tour sales" style="color:red">4.000.000 VNĐ</div>
-                                    <div class="price_tour" style="color: #3da4ff">3.200.000 VNĐ</div>
-                                    <div class="date_go text-dark"><i class="bi bi-clock" style="color: #3da4ff"></i> 2
-                                        ngày 3
-                                        đêm</div>
-                                    <div class="hard_tour text-dark">Độ khó:Cao</div>
-                                    <p class="from_the_blog_excerpt ">TOUR LEPAN Với độ cao 3143m so với mực
-                                        nước biển, nằm trong</p>
                                 </div>
-                            </div>
-                        </a>
-                        <a href="#" class="d-inline-block tour-item">
-                            <div class="container-tour_item col-lg-4 col-md-6 col-sm-12">
-                                <div class="box-img" style="width:75%">
-                                    <img src="./assets/image/News/Tư liệu hình ảnh/slide1.png" alt=""
-                                        style="width:350px;height: auto;border-radius: 10px;">
-                                </div>
-                                <div class="box-text text-center bg-light" style="width:300px;height: auto;">
-                                    <div class="box-text_sale text-white">
-                                        <div class="title">Sale</div>
-                                        <div class="avage">40%</div>
-                                    </div>
-                                    <div class="box-text_img">
-                                        <img src="https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg"
-                                            alt="">
-                                    </div>
-                                    <h5 class="post-title is-large text-dark">Tour Leo Núi Fansipan</h5>
-                                    <div class="price_tour sales" style="color:red">4.000.000 VNĐ</div>
-                                    <div class="price_tour" style="color: #3da4ff">3.200.000 VNĐ</div>
-                                    <div class="date_go text-dark"><i class="bi bi-clock" style="color: #3da4ff"></i> 2
-                                        ngày 3
-                                        đêm</div>
-                                    <div class="hard_tour text-dark">Độ khó:Cao</div>
-                                    <p class="from_the_blog_excerpt ">TOUR LEO NÚI FANSIPAN Với độ cao 3143m so với mực
-                                        nước biển, nằm trong</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="d-inline-block tour-item">
-                            <div class="container-tour_item col-lg-4 col-md-6 col-sm-12">
-                                <div class="box-img" style="width:75%">
-                                    <img src="./assets/image/News/Tư liệu hình ảnh/slide1.png" alt=""
-                                        style="width:350px;height: auto;border-radius: 10px;">
-                                </div>
-                                <div class="box-text text-center bg-light" style="width:300px;height: auto;">
-                                    <div class="box-text_sale text-white">
-                                        <div class="title">Sale</div>
-                                        <div class="avage">40%</div>
-                                    </div>
-                                    <div class="box-text_img">
-                                        <img src="https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg"
-                                            alt="">
-                                    </div>
-                                    <h5 class="post-title is-large text-dark">Tour Leo Núi Fansipan</h5>
-                                    <div class="price_tour sales" style="color:red">4.000.000 VNĐ</div>
-                                    <div class="price_tour" style="color: #3da4ff">3.200.000 VNĐ</div>
-                                    <div class="date_go text-dark"><i class="bi bi-clock" style="color: #3da4ff"></i> 2
-                                        ngày 3
-                                        đêm</div>
-                                    <div class="hard_tour text-dark">Độ khó:Cao</div>
-                                    <p class="from_the_blog_excerpt ">TOUR LEO NÚI FANSIPAN Với độ cao 3143m so với mực
-                                        nước biển, nằm trong</p>
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                        <?php endforeach; ?>
                     </div>
                 </div>
                 <div id="col-1696331777" class="col small-12 large-12">
                     <div class="col-inner text-center">
-                        <a href="./service1.html" target="_self" class="button primary lowercase"
-                            style="border-radius:99px;padding:0px 35px 0px 35px;">
+                        <a href="./tour1.php" target="_self" class="button primary lowercase" style="border-radius:99px;padding:0px 35px 0px 35px;">
                             <button type="button" class="btn btn-warning" style="border-radius:90px;">Xem thêm</button>
                         </a>
                     </div>
@@ -274,96 +230,46 @@
 
             <!-- Du lịch cắm trại -->
             <h3 style="text-align:center;font-size:50px">Du lịch cắm trại</h3>
-            <div class="row large-columns-3 medium-columns- small-columns-1 text-center mb-5 a1">
+            <div class="row large-columns-3 medium-columns- small-columns-1 text-center a1">
                 <div class="container-tour">
-                    <div class="container-tour_list col">
-                        <a href="#" class="d-inline-block tour-item">
-                            <div class="container-tour_item col-lg-4 col-md-6 col-sm-12">
-                                <div class="box-img" style="width:75%">
-                                    <img src="./assets/image/News/Tư liệu hình ảnh/slide1.png" alt=""
-                                        style="width:350px;height: auto;border-radius: 10px;">
-                                </div>
-                                <div class="box-text text-center bg-light" style="width:300px;height: auto;">
-                                    <div class="box-text_sale text-white">
-                                        <div class="title">Sale</div>
-                                        <div class="avage">40%</div>
+                <div class="container-tour_list col">
+                        <?php require_once './PhpSetting/Tour.php'; ?>
+                        <?php
+                        $s = new Tour();
+
+                        $arr = $s->getListTour();
+                        ?>
+                        <?php foreach ($arr as $value): ?>
+                            <a href="#" class="d-inline-block tour-item">
+                                <div class="container-tour_item col-lg-4 col-md-6 col-sm-12">
+                                    <div class="box-img" style="width:75%">
+                                        <img src="<?php echo $value->AvatarTour; ?>" alt="" style="width:350px;height: auto;border-radius: 10px;">
                                     </div>
-                                    <div class="box-text_img">
-                                        <img src="https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg"
-                                            alt="">
+                                    <div class="box-text text-center bg-light" style="width:300px;height: 400px;">
+                                        <div class="box-text_sale text-white">
+                                            <div class="title">Sale</div>
+                                            <div class="avage"><?php echo $value->TourSale; ?>%</div>
+                                        </div>
+                                        <div class="box-text_img">
+                                            <img src="https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg" alt="">
+                                        </div>
+                                        <h5><?php echo $value->TourName; ?></h5>
+                                        <div class="price_tour sales" style="color:red"><?php echo $value->TourPrice; ?>VND</div>
+                                        <div class="price_tour" style="color: #3da4ff">3.200.000 VNĐ</div>
+                                        <div class="date_go text-dark"><i class="bi bi-clock" style="color: #3da4ff"></i><?php echo $value->TimeLimit; ?></div>
+                                        <div class="hard_tour text-dark">Độ khó:Cao</div>
+                                        <div class="hard_tour text-dark"><?php echo $value->Status; ?></div>
+                                        <p class="from_the_blog_excerpt "><?php echo $value->Description; ?></p>
                                     </div>
-                                    <h5 class="post-title is-large text-dark">Tour Leo Núi Fansipan</h5>
-                                    <div class="price_tour sales" style="color:red">4.000.000 VNĐ</div>
-                                    <div class="price_tour" style="color: #3da4ff">3.200.000 VNĐ</div>
-                                    <div class="date_go text-dark"><i class="bi bi-clock" style="color: #3da4ff"></i> 2
-                                        ngày 3
-                                        đêm</div>
-                                    <div class="hard_tour text-dark">Độ khó:Cao</div>
-                                    <p class="from_the_blog_excerpt ">TOUR LEO NÚI FANSIPAN Với độ cao 3143m so với mực
-                                        nước biển, nằm trong</p>
                                 </div>
-                            </div>
-                        </a>
-                        <a href="#" class="d-inline-block tour-item">
-                            <div class="container-tour_item col-lg-4 col-md-6 col-sm-12">
-                                <div class="box-img" style="width:75%">
-                                    <img src="./assets/image/News/Tư liệu hình ảnh/slide1.png" alt=""
-                                        style="width:350px;height: auto;border-radius: 10px;">
-                                </div>
-                                <div class="box-text text-center bg-light" style="width:300px;height: auto;">
-                                    <div class="box-text_sale text-white">
-                                        <div class="title">Sale</div>
-                                        <div class="avage">40%</div>
-                                    </div>
-                                    <div class="box-text_img">
-                                        <img src="https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg"
-                                            alt="">
-                                    </div>
-                                    <h5 class="post-title is-large text-dark">Tour Leo Núi Fansipan</h5>
-                                    <div class="price_tour sales" style="color:red">4.000.000 VNĐ</div>
-                                    <div class="price_tour" style="color: #3da4ff">3.200.000 VNĐ</div>
-                                    <div class="date_go text-dark"><i class="bi bi-clock" style="color: #3da4ff"></i> 2
-                                        ngày 3
-                                        đêm</div>
-                                    <div class="hard_tour text-dark">Độ khó:Cao</div>
-                                    <p class="from_the_blog_excerpt ">TOUR LEO NÚI FANSIPAN Với độ cao 3143m so với mực
-                                        nước biển, nằm trong</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="d-inline-block tour-item">
-                            <div class="container-tour_item col-lg-4 col-md-6 col-sm-12">
-                                <div class="box-img" style="width:75%">
-                                    <img src="./assets/image/News/Tư liệu hình ảnh/slide1.png" alt=""
-                                        style="width:350px;height: auto;border-radius: 10px;">
-                                </div>
-                                <div class="box-text text-center bg-light" style="width:300px;height: auto;">
-                                    <div class="box-text_sale text-white">
-                                        <div class="title">Sale</div>
-                                        <div class="avage">40%</div>
-                                    </div>
-                                    <div class="box-text_img">
-                                        <img src="https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg"
-                                            alt="">
-                                    </div>
-                                    <h5 class="post-title is-large text-dark">Tour Leo Núi Fansipan</h5>
-                                    <div class="price_tour sales" style="color:red">4.000.000 VNĐ</div>
-                                    <div class="price_tour" style="color: #3da4ff">3.200.000 VNĐ</div>
-                                    <div class="date_go text-dark"><i class="bi bi-clock" style="color: #3da4ff"></i> 2
-                                        ngày 3
-                                        đêm</div>
-                                    <div class="hard_tour text-dark">Độ khó:Cao</div>
-                                    <p class="from_the_blog_excerpt ">TOUR LEO NÚI FANSIPAN Với độ cao 3143m so với mực
-                                        nước biển, nằm trong</p>
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                        <?php endforeach; ?>
                     </div>
+                    
                 </div>
                 <div id="col-1696331777" class="col small-12 large-12">
                     <div class="col-inner text-center">
-                        <a href="./service2.html" target="_self" class="button primary lowercase"
-                            style="border-radius:99px;padding:0px 35px 0px 35px;">
+                        <a href="./tour2.php" target="_self" class="button primary lowercase" style="border-radius:99px;padding:0px 35px 0px 35px;">
                             <button type="button" class="btn btn-warning" style="border-radius:90px;">Xem thêm</button>
                         </a>
                     </div>
@@ -372,104 +278,53 @@
 
 
             <!-- Chinh phục đỉnh cao -->
-            <h3 style="text-align:center;font-size:50px">Chinh phục đỉnh cao</h3>
-            <div class="row large-columns-3 medium-columns- small-columns-1 text-center mb-5">
+            <h3 style="text-align:center;font-size:50px">Khám phá hang động</h3>
+            <div class="row large-columns-3 medium-columns- small-columns-1 text-center mb-5 a1">
                 <div class="container-tour">
                     <div class="container-tour_list col">
-                        <a href="#" class="d-inline-block tour-item">
-                            <div class="container-tour_item col-lg-4 col-md-6 col-sm-12">
-                                <div class="box-img" style="width:75%">
-                                    <img src="./assets/image/News/Tư liệu hình ảnh/slide1.png" alt=""
-                                        style="width:350px;height: auto;border-radius: 10px;">
-                                </div>
-                                <div class="box-text text-center bg-light" style="width:300px;height: auto;">
-                                    <div class="box-text_sale text-white">
-                                        <div class="title">Sale</div>
-                                        <div class="avage">40%</div>
+                        <?php require_once './PhpSetting/Tour.php'; ?>
+                        <?php
+                        $s = new Tour();
+
+                        $arr = $s->getListTour();
+                        ?>
+                        <?php foreach ($arr as $value): ?>
+                            <a href="#" class="d-inline-block tour-item">
+                                <div class="container-tour_item col-lg-4 col-md-6 col-sm-12">
+                                    <div class="box-img" style="width:75%">
+                                        <img src="<?php echo $value->AvatarTour; ?>" alt="" style="width:350px;height: auto;border-radius: 10px;">
                                     </div>
-                                    <div class="box-text_img">
-                                        <img src="https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg"
-                                            alt="">
+                                    <div class="box-text text-center bg-light" style="width:300px;height: 400px;">
+                                        <div class="box-text_sale text-white">
+                                            <div class="title">Sale</div>
+                                            <div class="avage"><?php echo $value->TourSale; ?>%</div>
+                                        </div>
+                                        <div class="box-text_img">
+                                            <img src="https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg" alt="">
+                                        </div>
+                                        <h5><?php echo $value->TourName; ?></h5>
+                                        <div class="price_tour sales" style="color:red"><?php echo $value->TourPrice; ?>VND</div>
+                                        <div class="price_tour" style="color: #3da4ff">3.200.000 VNĐ</div>
+                                        <div class="date_go text-dark"><i class="bi bi-clock" style="color: #3da4ff"></i><?php echo $value->TimeLimit; ?></div>
+                                        <div class="hard_tour text-dark">Độ khó:Cao</div>
+                                        <div class="hard_tour text-dark"><?php echo $value->Status; ?></div>
+                                        <p class="from_the_blog_excerpt "><?php echo $value->Description; ?></p>
                                     </div>
-                                    <h5 class="post-title is-large text-dark">Tour Leo Núi Fansipan</h5>
-                                    <div class="price_tour sales" style="color:red">4.000.000 VNĐ</div>
-                                    <div class="price_tour" style="color: #3da4ff">3.200.000 VNĐ</div>
-                                    <div class="date_go text-dark"><i class="bi bi-clock" style="color: #3da4ff"></i> 2
-                                        ngày 3
-                                        đêm</div>
-                                    <div class="hard_tour text-dark">Độ khó:Cao</div>
-                                    <p class="from_the_blog_excerpt ">TOUR LEO NÚI FANSIPAN Với độ cao 3143m so với mực
-                                        nước biển, nằm trong</p>
                                 </div>
-                            </div>
-                        </a>
-                        <a href="#" class="d-inline-block tour-item">
-                            <div class="container-tour_item col-lg-4 col-md-6 col-sm-12">
-                                <div class="box-img" style="width:75%">
-                                    <img src="./assets/image/News/Tư liệu hình ảnh/slide1.png" alt=""
-                                        style="width:350px;height: auto;border-radius: 10px;">
-                                </div>
-                                <div class="box-text text-center bg-light" style="width:300px;height: auto;">
-                                    <div class="box-text_sale text-white">
-                                        <div class="title">Sale</div>
-                                        <div class="avage">40%</div>
-                                    </div>
-                                    <div class="box-text_img">
-                                        <img src="https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg"
-                                            alt="">
-                                    </div>
-                                    <h5 class="post-title is-large text-dark">Tour Leo Núi Fansipan</h5>
-                                    <div class="price_tour sales" style="color:red">4.000.000 VNĐ</div>
-                                    <div class="price_tour" style="color: #3da4ff">3.200.000 VNĐ</div>
-                                    <div class="date_go text-dark"><i class="bi bi-clock" style="color: #3da4ff"></i> 2
-                                        ngày 3
-                                        đêm</div>
-                                    <div class="hard_tour text-dark">Độ khó:Cao</div>
-                                    <p class="from_the_blog_excerpt ">TOUR LEO NÚI FANSIPAN Với độ cao 3143m so với mực
-                                        nước biển, nằm trong</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="d-inline-block tour-item">
-                            <div class="container-tour_item col-lg-4 col-md-6 col-sm-12">
-                                <div class="box-img" style="width:75%">
-                                    <img src="./assets/image/News/Tư liệu hình ảnh/slide1.png" alt=""
-                                        style="width:350px;height: auto;border-radius: 10px;">
-                                </div>
-                                <div class="box-text text-center bg-light" style="width:300px;height: auto;">
-                                    <div class="box-text_sale text-white">
-                                        <div class="title">Sale</div>
-                                        <div class="avage">40%</div>
-                                    </div>
-                                    <div class="box-text_img">
-                                        <img src="https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg"
-                                            alt="">
-                                    </div>
-                                    <h5 class="post-title is-large text-dark">Tour Leo Núi Fansipan</h5>
-                                    <div class="price_tour sales" style="color:red">4.000.000 VNĐ</div>
-                                    <div class="price_tour" style="color: #3da4ff">3.200.000 VNĐ</div>
-                                    <div class="date_go text-dark"><i class="bi bi-clock" style="color: #3da4ff"></i> 2
-                                        ngày 3
-                                        đêm</div>
-                                    <div class="hard_tour text-dark">Độ khó:Cao</div>
-                                    <p class="from_the_blog_excerpt ">TOUR LEO NÚI FANSIPAN Với độ cao 3143m so với mực
-                                        nước biển, nằm trong</p>
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                        <?php endforeach; ?>
                     </div>
                 </div>
                 <div id="col-1696331777" class="col small-12 large-12">
                     <div class="col-inner text-center">
-                        <a href="./service3.html" target="_self" class="button primary lowercase"
-                            style="border-radius:99px;padding:0px 35px 0px 35px;">
+                        <a href="./tour3.php" target="_self" class="button primary lowercase" style="border-radius:99px;padding:0px 35px 0px 35px;">
                             <button type="button" class="btn btn-warning" style="border-radius:90px;">Xem thêm</button>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- END Main -->
+            <!-- END Main -->
 
         <!--BEGIN Footer -->
         <div class="footer bg-dark text-white pt-120 pb-5">
