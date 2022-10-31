@@ -159,7 +159,7 @@ class Member {
         $conn = new PDO($dsn, DBinfoConfig::getUsername(), DBinfoConfig::getPassword(), $options);
 
         // câu lệnh sql
-        $sql = "SELECT * FROM `User` WHERE Username = :Username;";
+        $sql = "SELECT * FROM `member` WHERE Username = :Username;";
 
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
@@ -169,7 +169,8 @@ class Member {
 
         $list = Array();
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $s = new User();
+            $s = new Member();
+            $s->MemberID = $row["MemberID"];
             $s->Username = $row["Username"];
             $s->Lastname = $row["Lastname"];
             $s->Middlename = $row["Middlename"];

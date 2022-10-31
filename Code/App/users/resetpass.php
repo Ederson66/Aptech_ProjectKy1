@@ -1,34 +1,7 @@
 <?php
-
+session_start();
 require_once '../PhpSetting/Member.php';
 require_once '../PhpSetting/Common.php';
-
-if (!empty($_POST["flogin"])) {
-    
-    if (isset($_POST["fmember"]) && isset($_POST["fpassword"])) {
-        $member = $_POST["fmember"];
-        $password = $_POST["fpassword"];
-        
-        
-        $a = new Member();
-        $a->MemberName=$member;
-        $a->Password=md5($password);
-        $arr = $a->login();
-        
-        if(count($arr) > 0) {
-            // sử dụng ss
-            session_start();
-            // tạo ra ss
-            $_SESSION["MemberName"] = $member;
-            setcookie("MemberName",$member,time()+86400 *30);
-            redirect('../index.php');
-            
-        } else {
-            echo '<script>alert("Login Faild !" + "\n" + "Review username & password")</script>';
-        }
-    }
-    
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,33 +51,25 @@ if (!empty($_POST["flogin"])) {
                 
                 <div class="m-5" style="width: 500px;">
                     <div class="mb-4 d-flex justify-content-between">
-                        <h2 class="h1 text-shadow text-white">Login</h2>
-                        <h2 class="h1 text-shadow text-white">
-                            <a onclick="alert('You will still go to the homepage but anonymously !!!')" href="../index.php">Home</a>
-                        </h2>
+                        <h2 class="h1 text-shadow text-white">Reset Password</h2>
                     </div>
                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" >
                         <div class="input-group d-flex flex-column pt-2 mb-3 position-relative">
-                            <input type="text" class="form-control rounded" id="logusername" name="fmember" required>
-                            <label class="text-shadow text-white">Username</label>
+                            <input type="password" class="form-control rounded" id="logpassword" name="fcurrentpass" required>
+                            <label class="text-shadow text-white">Current Password</label>
                         </div>
                         <div class="input-group d-flex flex-column pt-2 mb-3 position-relative">
-                            <input type="password" class="form-control rounded" id="logpassword" name="fpassword" required>
-                            <label class="text-shadow text-white">Password</label>
+                            <input type="password" class="form-control rounded" id="logpassword" name="fnewpass" required>
+                            <label class="text-shadow text-white">New Password</label>
                         </div>
-                        <div class="mb-3 d-flex align-items-center justify-content-between">
-                            <div>
-                                <a href="#" class="text-white rounded text-shadow">Reset password</a>
-                            </div>
+                        <div class="input-group d-flex flex-column pt-2 mb-3 position-relative">
+                            <input type="password" class="form-control rounded" id="logpassword" name="fconfirm" required>
+                            <label class="text-shadow text-white">Confirm Password</label>
                         </div>
                         <div class="input-group d-flex justify-content-center mb-3">
-                            <input class="p-2 rounded text-shadow bg-primary w-50" type="submit" id="btnpass" name="flogin" value="Login" >
+                            <input class="p-2 rounded text-shadow bg-primary w-50" type="submit" name="freset" value="Reset" >
                         </div>
                     </form>
-                    <div class="mb-3 d-flex justify-content-center">
-                        <span class="text-shadow text-white">No account?</span>
-                        <a href="register.php" class=" text-shadow text-white">Register</a>
-                    </div>
                 </div>
             </div>
             <!--END Main -->

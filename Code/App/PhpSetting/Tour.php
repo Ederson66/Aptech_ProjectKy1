@@ -84,15 +84,17 @@ class Tour {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT TourID, CategoryTourID, TourName ,TimeStart , DATE(TimeLimit) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, Description, Flag,
+        $sql = "SELECT TourID, `T`.CategoryTourID, `C`.CategoryTourName, TourName ,TimeStart , DATE(TimeLimit) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, `T`.Description, `T`.Flag,
 				CASE
-					WHEN Status = 1 THEN 'Đang hoạt động'
-					WHEN Status = 2 THEN 'Dừng hoạt động'
-					WHEN Status = 3 THEN 'Chưa kích hoạt'
+					WHEN `T`.Status = 1 THEN 'Đang hoạt động'
+					WHEN `T`.Status = 2 THEN 'Dừng hoạt động'
+					WHEN `T`.Status = 3 THEN 'Chưa kích hoạt'
 					ELSE 'Error'
 				END
 				AS `Status`
-				FROM `tour`;";
+				FROM `tour` `T`
+				INNER JOIN `categorytour` `C` ON `T`.CategoryTourID = `C`.CategoryTourID
+				WHERE `T`.Flag IS NULL;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
@@ -105,6 +107,7 @@ class Tour {
             $s = new Tour();
             $s->TourID = $row["TourID"];
             $s->CategoryTourID = $row["CategoryTourID"];
+            $s->CategoryTourName = $row["CategoryTourName"];
             $s->TourName = $row["TourName"];
             $s->Day = $row["Day"];
 			// $s->TimeStart = $row["TimeStart"];
@@ -133,16 +136,17 @@ class Tour {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT TourID, CategoryTourID, TourName, DATE(TimeLimit) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, Description,
+        $sql = "SELECT TourID, `T`.CategoryTourID, `C`.CategoryTourName, TourName ,TimeStart , DATE(TimeLimit) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, `T`.Description, `T`.Flag,
 				CASE
-					WHEN Status = 1 THEN 'Đang hoạt động'
-					WHEN Status = 2 THEN 'Dừng hoạt động'
-					WHEN Status = 3 THEN 'Chưa kích hoạt'
+					WHEN `T`.Status = 1 THEN 'Đang hoạt động'
+					WHEN `T`.Status = 2 THEN 'Dừng hoạt động'
+					WHEN `T`.Status = 3 THEN 'Chưa kích hoạt'
 					ELSE 'Error'
 				END
 				AS `Status`
-				FROM `tour`
-				WHERE TourID = :TourID";
+				FROM `tour` `T`
+				INNER JOIN `categorytour` `C` ON `T`.CategoryTourID = `C`.CategoryTourID
+				WHERE TourID = :TourID;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
@@ -153,7 +157,7 @@ class Tour {
         while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
             $s = new Tour();
             $s->TourID = $row["TourID"];
-            $s->CategoryTourID = $row["CategoryTourID"];
+            $s->CategoryTourName = $row["CategoryTourName"];
             $s->TourName = $row["TourName"];
 			$s->TourPrice = $row["TourPrice"];
 			$s->TourSale = $row["TourSale"];
@@ -221,5 +225,27 @@ class Tour {
         
         return $list;
     }
+
+	// function delete
+	public function updateListTour() {
+		// Connect to database.
+		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+
+		// Update query.
+		$sql = "UPDATE	`tour` SET `Flag` = :Flag WHERE `TourID` = :TourID;";
+
+		// Prepare statement.
+		$stmt = $conn->prepare($sql);
+
+		// Execute the statement.
+		$stmt->execute(array(
+			":TourID" => $this->TourID,
+			":Flag" => $this->Flag));
+
+		// Close the database connection.
+		$conn = NULL;
+	}
 }
 ?>
