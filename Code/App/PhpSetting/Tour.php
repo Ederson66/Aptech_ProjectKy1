@@ -84,7 +84,7 @@ class Tour {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT TourID, `T`.CategoryTourID, `C`.CategoryTourName, TourName ,TimeStart , DATE(TimeLimit) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, `T`.Description, `T`.Flag,
+        $sql = "SELECT TourID, `T`.CategoryTourID, `C`.CategoryTourName, TourName ,TimeStart , TimeLimit,DATE(TimeLimit) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, `T`.Description, `T`.Flag,
 				CASE
 					WHEN `T`.Status = 1 THEN 'Đang hoạt động'
 					WHEN `T`.Status = 2 THEN 'Dừng hoạt động'
@@ -110,8 +110,8 @@ class Tour {
             $s->CategoryTourName = $row["CategoryTourName"];
             $s->TourName = $row["TourName"];
             $s->Day = $row["Day"];
-			// $s->TimeStart = $row["TimeStart"];
-			// $s->TimeLimit = $row["TimeLimit"];
+			$s->TimeStart = $row["TimeStart"];
+			$s->TimeLimit = $row["TimeLimit"];
 			$s->TourPrice = $row["TourPrice"];
 			$s->TourSale = $row["TourSale"];
 			$s->Location = $row["Location"];
@@ -293,6 +293,49 @@ class Tour {
 		$stmt->execute(array(
 			":TourID" => $this->TourID,
 			":Flag" => $this->Flag));
+
+		// Close the database connection.
+		$conn = NULL;
+	}
+
+	public function updateTour() {
+		// Connect to database.
+		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DatabaseInfo::getServer() . ";dbname=" . DatabaseInfo::getDatabaseName() . ";charset=utf8";
+		$conn = new PDO($dsn, DatabaseInfo::getUserName(), DatabaseInfo::getPassword(), $options);
+
+		// Update query.
+		$sql = "UPDATE	`tour`
+				SET		`AvatarTour` = :avatarTour,
+						`CategoryTourID` = :categoryTourID,
+						`Description` = :description,
+						`Flag` = :flag,
+						`Location` = :location,
+						`Status` = :status,
+						`TimeLimit` = :timeLimit,
+						`TimeStart` = STR_TO_DATE(:timeStart, '%m/%d/%Y %h:%i %p'),
+						`TourName` = :tourName,
+						`TourPrice` = :tourPrice,
+						`TourSale` = :tourSale
+				WHERE	`TourID` = :tourID;";
+
+		// Prepare statement.
+		$stmt = $conn->prepare($sql);
+
+		// Execute the statement.
+		$stmt->execute(array(
+			":avatarTour" => $this->avatarTour,
+			":categoryTourID" => $this->categoryTourID,
+			":description" => $this->description,
+			":flag" => $this->flag,
+			":location" => $this->location,
+			":status" => $this->status,
+			":timeLimit" => $this->timeLimit,
+			":timeStart" => $this->timeStart,
+			":tourID" => $this->tourID,
+			":tourName" => $this->tourName,
+			":tourPrice" => $this->tourPrice,
+			":tourSale" => $this->tourSale));
 
 		// Close the database connection.
 		$conn = NULL;

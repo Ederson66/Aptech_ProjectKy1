@@ -31,7 +31,7 @@
             $strTbl .= "<th>". $stt++ ."</th>";
             $strTbl .= "<td id='TourID'>$obj->TourID</td>";
             $strTbl .= "<td id='CategoryTourName'>$obj->CategoryTourName</td>";
-            $strTbl .= "<td id='TourName'>$obj->TourName</td>";
+            $strTbl .= "<td id='fTourName'>$obj->TourName</td>";
             $strTbl .= "<td id='Day'>$obj->Day</td>";
             $strTbl .= "<td id='TourPrice'>".$obj->TourPrice." USD"."</td>";
             $strTbl .= "<td id='TourSale'>".$obj->TourSale." %"."</td>";

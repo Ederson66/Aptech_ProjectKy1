@@ -66,9 +66,9 @@ $(document).ready(function () {
     });
 
     // editbooktour
-    $('[name="fedit"]').click(function(){
+    $('[name="feditbooktour"]').click(function(){
         $('#editbooktour').removeClass("d-none");
-        var $row = $(this).closest('tr');
+        let $row = $(this).closest('tr');
         $('input[name="fTourID"]').val($('#TourID',$row).text());
         $('input[name="fAnonymousBookTour"]').val($('#AnonymousBookTour',$row).text());
         $('input[name="fAnonymousEmail"]').val($('#AnonymousEmail',$row).text());
@@ -79,18 +79,18 @@ $(document).ready(function () {
     });
 
     // edittour
-    $('[name="fedit"]').click(function(){
+    $('[name="fedittour"]').click(function(){
         $('#edittour').removeClass("d-none");
-        var $row = $(this).closest('tr');
-        $('input[name="TourName"]').val($('#TourName',$row).text());
-        // $('input[name="CategoryTourName"]').val($('#CategoryTourName',$row).text());
-        // $('input[name="Day"]').val($('#Day',$row).text());
-        // $('input[name="TourPrice"]').val($('#TourPrice',$row).text());
-        // $('input[name="TourSale"]').val($('#TourSale',$row).text());
-        // $('input[name="Location"]').val($('#Location',$row).text());
-        // $('input[name="AvatarTour"]').val($('#AvatarTour',$row).text());
-        // $('input[name="Status"]').val($('#Status',$row).text());
-        // $('input[name="Description"]').val($('#Description',$row).text());
+        let $row = $(this).closest('tr');
+        $('input[name="fTourName"]').val($('#fTourName',$row).text());
+        $('input[name="fCategoryTour"]').val($('#CategoryTourName',$row).text());
+        $('input[name="fTimeStart"]').val($('#fTimeStart',$row).text());
+        $('input[name="fTimeLimit"]').val($('#fTimeLimit',$row).text());
+        $('input[name="fTourPrice"]').val($('#TourPrice',$row).text());
+        $('input[name="fTourSale"]').val($('#TourSale',$row).text());
+        $('input[name="fLocation"]').val($('#Location',$row).text());
+        $('input[name="fStatus"]').val($('#Status',$row).text());
+        $('input[name="fDescription"]').val($('#Description',$row).text());
     });
 
     // add img itemlibrary
@@ -98,4 +98,5 @@ $(document).ready(function () {
         var $row = $(this).closest('tr');
         $('input[id="LibraryID"]').val($('#libraryName',$row).text());
     });
+
 });

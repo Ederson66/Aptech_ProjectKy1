@@ -1,0 +1,38 @@
+// booktour
+UPDATE `booktour` SET `Flag` = :Flag WHERE `BookTourID` = :BookTourID;
+
+// Category
+UPDATE `category` SET `Flag` = :Flag WHERE `CategoryID` = :CategoryID;
+
+// categorytour
+UPDATE `categorytour` SET `Flag` = :Flag WHERE `CategoryTourID` = :CategoryTourID;
+
+// contact
+UPDATE `contact` SET `Flag` = :Flag WHERE `contactID` = :contactID;
+
+// itemlibrary
+UPDATE `itemlibrary` SET `Flag` = :Flag WHERE `ItemLibraryID` = :ItemLibraryID;
+
+// library
+UPDATE `library` SET `Flag` = :Flag WHERE `LibraryID` = :LibraryID;
+
+// locationandservice
+UPDATE `locationandservice` SET `Flag` = :Flag WHERE `LocationAndServiceID` = :LocationAndServiceID;
+
+// member
+UPDATE `member` SET `Flag` = :Flag WHERE `MemberID` = :MemberID;
+
+// mountaineering
+UPDATE `mountaineering` SET `Flag` = :Flag WHERE `MountaineeringID` = :MountaineeringID;
+
+// news
+UPDATE `news` SET `Flag` = :Flag WHERE `NewsID` = :NewsID;
+
+// service
+UPDATE `service` SET `Flag` = :Flag WHERE `ServiceID` = :ServiceID;
+
+// tour
+UPDATE `tour` SET `Flag` = :Flag WHERE `TourID` = :TourID;
+
+// usersystem
+UPDATE `usersystem` SET `Flag` = :Flag WHERE `UserSystemID` = :UserSystemID;

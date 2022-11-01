@@ -413,7 +413,7 @@ if (!empty($_POST["flogout"])) {
                                                                             <input type='hidden' name='fvalDel' value='d'/>
                                                                             <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
                                                                         </form>
-                                                                        <input type='button' class='btn-editbooktour btn btn-primary m-1' name='fedit' value='Edit'>
+                                                                        <input type='button' class='btn-editbooktour btn btn-primary m-1' name='feditbooktour' value='Edit'>
                                                                     </div>    
                                                                 </td>";
                                                 $strTbl .= "</tr>";
@@ -534,20 +534,13 @@ if (!empty($_POST["flogout"])) {
                                                 <label class="form-label fw-bold text-secondary">CategoryTour:</label>
                                                 <select class="form-select" name="fCategoryTour" id="CategoryTour">
                                                     <?php
-
                                                     $a = new CategoryTour();
                                                     $arr = $a->getListCategoryTour();
-
                                                     for($i = 0; $i < count($arr); $i++) {
                                                         $obj = $arr[$i];
-
                                                         echo "<option value='$obj->CategoryTourID'>$obj->CategoryTourName</option>";
                                                     }
-
                                                     ?>
-                                                    <!-- <option value="1">Khám phá hang động</option>
-                                                    <option value="2">Cắm trại</option>
-                                                    <option value="3">Chinh phục núi cao</option> -->
                                                 </select>
                                             </div>
                                             <div class="mb-3 d-flex w-100">
@@ -706,8 +699,8 @@ if (!empty($_POST["flogout"])) {
 
                                                     $strTbl .= "<tr>";
                                                     $strTbl .= "<th>" . $stt++ . "</th>";
-                                                    $strTbl .= "<td>$obj->CategoryTourName</td>";
-                                                    $strTbl .= "<td>$obj->TourName</td>";
+                                                    $strTbl .= "<td id='CategoryTourName'>$obj->CategoryTourName</td>";
+                                                    $strTbl .= "<td id='fTourName'>$obj->TourName</td>";
                                                     $strTbl .= "<td>$obj->Location</td>";
                                                     $strTbl .= "<td>$obj->Day</td>";
                                                     $strTbl .= "<td>" . $obj->TourPrice . " USD" . "</td>";
@@ -718,13 +711,23 @@ if (!empty($_POST["flogout"])) {
                                                                             <input type='hidden' name='fvalDel' value='d'/>
                                                                             <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
                                                                         </form>
-                                                                        <input type='button' class='btn btn-primary m-1' name='fedit' value='Edit'>
+                                                                        <input type='button' class='btn btn-primary m-1' name='fedittour' value='Edit'>
                                                                     </div>    
                                                                 </td>";
                                                     $strTbl .= "<td>
                                                                 <button onclick='ShowTourById(this.value)' class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#modaltour' value='$obj->TourID'>More</button>
                                                             </td>";
+
+                                                    // các trường ẩn lấy vào form edit
+                                                    $strTbl .= "<td class='d-none' id='fTimeStart'>$obj->TimeStart</td>";
+                                                    $strTbl .= "<td class='d-none' id='fTimeLimit'>$obj->TimeLimit</td>";
+                                                    $strTbl .= "<td class='d-none' id='TourPrice'>$obj->TourPrice</td>";
+                                                    $strTbl .= "<td class='d-none' id='TourSale'>$obj->TourSale</td>";
+                                                    $strTbl .= "<td class='d-none' id='Location'>$obj->Location</td>";
+                                                    $strTbl .= "<td class='d-none' id='Status'>$obj->Status</td>";
+                                                    $strTbl .= "<td class='d-none' id='Description'>$obj->Description</td>";
                                                     $strTbl .= "</tr>";
+
                                                 }
 
                                                 echo $strTbl;
@@ -753,29 +756,33 @@ if (!empty($_POST["flogout"])) {
                                 <div class="pt-5 pb-5 d-flex justify-content-center">
                                 <div style="width: 650px;">
                                         <div class="text-center pb-3">
-                                            <h2>Add Tour</h2>
+                                            <h2>Edit</h2>
                                         </div>
-                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">TourName:</label>
                                                 <input type="text" id="TourName" name="fTourName" class="form-control" placeholder="TourName" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">CategoryTour:</label>
-                                                <select class="form-select" name="fCategoryTour" id="CategoryTour">
-                                                    <option value="1">Khám phá hang động</option>
-                                                    <option value="2">Cắm trại</option>
-                                                    <option value="3">Chinh phục núi cao</option>
-                                                </select>
+                                                <input type="text" id="CategoryTour" name="fCategoryTour" class="form-control" placeholder="CategoryTour" />
+                                                <?php
+                                                $a = new CategoryTour();
+                                                $arr = $a->getListCategoryTour();
+                                                for($i = 0; $i < count($arr); $i++) {
+                                                    $obj = $arr[$i];
+                                                    echo "<input type='hidden' name='fCategoryTour' value='$obj->CategoryTourID'/>";
+                                                }
+                                                ?>
                                             </div>
                                             <div class="mb-3 d-flex w-100">
                                                 <div class="w-50 pe-2">
                                                     <label class="form-label fw-bold text-secondary">TimeStart:</label>
-                                                    <input type="date" id="TimeStart" name="fTimeStart" class="form-control" placeholder="TimeStart" />
+                                                    <input type="text" id="TimeStart" name="fTimeStart" class="form-control" placeholder="TimeStart" />
                                                 </div>
                                                 <div class="w-50 ps-2">
                                                     <label class="form-label fw-bold text-secondary">TimeEnd:</label>
-                                                    <input type="date" id="TimeLimit" name="fTimeLimit" class="form-control" placeholder="TimeLimit" />
+                                                    <input type="text" id="TimeLimit" name="fTimeLimit" class="form-control" placeholder="TimeLimit" />
                                                 </div>
                                             </div>
                                             <div class="mb-3">
@@ -800,16 +807,8 @@ if (!empty($_POST["flogout"])) {
                                                 </div>
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">AvatarTour:</label>
-                                                <input type="file" id="AvatarTour" name="fAvatarTour" class="form-control" placeholder="AvatarTour" />
-                                            </div>
-                                            <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Status:</label>
-                                                <select class="form-select" id="Status" name="fStatus" >
-                                                    <option value="3">Chưa kích hoạt</option>
-                                                    <option value="1">Đang hoạt động</option>
-                                                    <option value="2">Dừng hoạt động</option>
-                                                </select>
+                                                <input type="text" id="Status" name="fStatus" class="form-control" placeholder="Status" />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
@@ -818,50 +817,7 @@ if (!empty($_POST["flogout"])) {
                                             <input type="submit" id="btntour" name="fedittour" class="btn btn-primary" value="Save" />
                                         </form>
                                         <?php
-                                        $message = "";
-
-                                        if (isset($_POST['fedittour']) && $_POST['fedittour'] == 'Save') {
-                                            if (isset($_FILES['fAvatarTour']) && $_FILES['fAvatarTour']['error'] === UPLOAD_ERR_OK) {
-                                                // lưu vào thư mục tạm webserver
-                                                $fileTmpPath = $_FILES['fAvatarTour']['tmp_name'];
-                                                // echo $fileTmpPath;
-
-                                                // thông tin file
-                                                $fileName = $_FILES['fAvatarTour']['name'];
-                                                $fileSize = $_FILES['fAvatarTour']['size'];
-                                                $fileType = $_FILES['fAvatarTour']['type'];
-
-                                                // lấy tên file và đuôi file
-                                                $fileNameCmps = explode(".", $fileName);
-
-                                                // chuẩn hóa lại tên file
-                                                $fileExtension = strtolower(end($fileNameCmps));
-
-                                                // thiết đặt filename để k bị trùng nhau
-                                                $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
-
-                                                // kiem tra phan mo rong cua file
-                                                $allowedfileExtensions = ['jpg', 'gif', 'png'];
-
-                                                // kiểm tra đuôi file
-                                                if (in_array($fileExtension, $allowedfileExtensions)) {
-                                                    // thu muc file uploaded
-                                                    $uploadFileDir = '../admin/assets/img/Tour/';
-                                                    $dest_path = $uploadFileDir . $newFileName;
-
-                                                    if (move_uploaded_file($fileTmpPath, $dest_path)) {
-                                                        $message = "";
-                                                    } else {
-                                                        $message = 'Check if the directory has write permissions.';
-                                                    }
-                                                } else {
-                                                    $message = 'Only file types allowed: ' . implode(',', $allowedfileExtensions);
-                                                }
-                                            }
-                                        }
-
-                                        echo $message;
-
+                                        
                                         if (isset($_POST["fedittour"])) {
                                             $fCategoryTour = $_POST["fCategoryTour"];
                                             $fTourName = $_POST["fTourName"];
@@ -882,7 +838,6 @@ if (!empty($_POST["flogout"])) {
                                             $a->TourPrice = $fTourPrice;
                                             $a->TourSale = $fTourSale;
                                             $a->Location = $fLocation;
-                                            $a->AvatarTour = $uploadFileDir . $newFileName;
                                             $a->Status = $fStatus;
                                             $a->Description = $fDescription;
                                             $a->addTour();
@@ -1740,13 +1695,12 @@ if (!empty($_POST["flogout"])) {
                                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Type:</label>
-                                                <select class="form-select" id="Type" name="fType" onchange="showinfo(this.value); getValueType(this.value);">
+                                                <select class="form-select" id="ValueType" name="fType" onchange="showinfo(this.value);">
                                                     <option value="0" selected>Select</option>
                                                     <option value="1">Image</option>
                                                     <option value="2">Video</option>
                                                 </select>
                                             </div>
-                                            <div id="hintitemlibraryitem"></div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Library:</label>
                                                 <select class="form-select" id="LibraryID" name="fLibraryID">
@@ -1754,10 +1708,10 @@ if (!empty($_POST["flogout"])) {
                                                     <?php
                                                     $a = new Library();
                                                     $arr = $a->getListLibrary();
-
+                                                    
                                                     for ($i = 0; $i < count($arr); $i++) {
                                                         $obj = $arr[$i];
-
+                                                        
                                                         echo "<option value='$obj->libraryID'>" . $obj->libraryName . "</option>";
                                                     }
                                                     ?>
@@ -1771,88 +1725,85 @@ if (!empty($_POST["flogout"])) {
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
                                                 <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submit" id="btnitemlibrary" name="fitemlibrary" class="btn btn-primary" value="Save" />
+                                            <div id="hintitemlibraryitem"></div>
                                         </form>
-                                        <div id="#somewhere"></div>
                                         <?php
+                                        // add img
+                                        $message = "";
+                                        if (isset($_POST['fitemimg']) && $_POST['fitemimg'] == 'Save') {
+                                            if (isset($_FILES['fUpload']) && $_FILES['fUpload']['error'] === UPLOAD_ERR_OK) {
+                                                // lưu vào thư mục tạm webserver
+                                                $fileTmpPath = $_FILES['fUpload']['tmp_name'];
+                                                // echo $fileTmpPath;
+                                                // thông tin file
+                                                $fileName = $_FILES['fUpload']['name'];
+                                                $fileSize = $_FILES['fUpload']['size'];
+                                                $fileType = $_FILES['fUpload']['type'];
 
-                                        // $message = "";
+                                                // lấy tên file và đuôi file
+                                                $fileNameCmps = explode(".", $fileName);
 
-                                        // if (isset($_POST['fitemlibrary']) && $_POST['fitemlibrary'] == 'Save') {
-                                        //     if (isset($_FILES['fUpload']) && $_FILES['fUpload']['error'] === UPLOAD_ERR_OK) {
-                                        //         // lưu vào thư mục tạm webserver
-                                        //         $fileTmpPath = $_FILES['fUpload']['tmp_name'];
-                                        //         // echo $fileTmpPath;
-                                        //         // thông tin file
-                                        //         $fileName = $_FILES['fUpload']['name'];
-                                        //         $fileSize = $_FILES['fUpload']['size'];
-                                        //         $fileType = $_FILES['fUpload']['type'];
+                                                // chuẩn hóa lại tên file
+                                                $fileExtension = strtolower(end($fileNameCmps));
 
-                                        //         // lấy tên file và đuôi file
-                                        //         $fileNameCmps = explode(".", $fileName);
+                                                // thiết đặt filename để k bị trùng nhau
+                                                $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
 
-                                        //         // chuẩn hóa lại tên file
-                                        //         $fileExtension = strtolower(end($fileNameCmps));
+                                                // kiem tra phan mo rong cua file
+                                                $allowedfileExtensions = ['jpg', 'gif', 'png'];
 
-                                        //         // thiết đặt filename để k bị trùng nhau
-                                        //         $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+                                                // kiểm tra đuôi file
+                                                if (in_array($fileExtension, $allowedfileExtensions)) {
+                                                    // thu muc file uploaded
+                                                    $uploadFileDir = './assets/img/ItemLibrary/';
+                                                    $dest_path = $uploadFileDir . $newFileName;
 
-                                        //         // kiem tra phan mo rong cua file
-                                        //         $allowedfileExtensions = ['jpg', 'gif', 'png'];
+                                                    if (move_uploaded_file($fileTmpPath, $dest_path)) {
+                                                        $message = "";
+                                                    } else {
+                                                        $message = 'Check if the directory has write permissions.';
+                                                    }
+                                                } else {
+                                                    $message = 'Only file types allowed: ' . implode(',', $allowedfileExtensions);
+                                                }
+                                            }
+                                        }
+                                        echo $message;
+                                        if (isset($_POST["fitemimg"])) {
+                                            $fType = $_POST["fType"];
+                                            $fLibraryID = $_POST["fLibraryID"];
+                                            $fTitle = $_POST["fTitle"];
+                                            $fFile = $_POST["fFile"];
+                                            $fDescription = $_POST["fDescription"];
+                                            $fAlt = $_POST["fAlt"];
 
-                                        //         // kiểm tra đuôi file
-                                        //         if (in_array($fileExtension, $allowedfileExtensions)) {
-                                        //             // thu muc file uploaded
-                                        //             $uploadFileDir = './assets/img/ItemLibrary/';
-                                        //             $dest_path = $uploadFileDir . $newFileName;
-
-                                        //             if (move_uploaded_file($fileTmpPath, $dest_path)) {
-                                        //                 $message = "";
-                                        //             } else {
-                                        //                 $message = 'Check if the directory has write permissions.';
-                                        //             }
-                                        //         } else {
-                                        //             $message = 'Only file types allowed: ' . implode(',', $allowedfileExtensions);
-                                        //         }
-                                        //     }
-                                        // }
-
-                                        // echo $message;
-
-                                        // if (isset($_POST["fitemlibrary"])) {
-                                        //     $fType = $_POST["fType"];
-                                        //     $fLibraryID = $_POST["fLibraryID"];
-                                        //     $fTitle = $_POST["fTitle"];
-                                        //     // $fFile = $_POST["fFile"];
-                                        //     $fDescription = $_POST["fDescription"];
-                                        //     $fAlt = $_POST["fAlt"];
-
-                                        //     $a = new Itemlibrary();
-                                        //     $a->type = $fType;
-                                        //     $a->libraryID = $fLibraryID;
-                                        //     $a->title = $fTitle;
-                                        //     $a->description = $fDescription;
-                                        //     $a->alt = $fAlt;
-                                        //     $a->file = $uploadFileDir.$newFileName;
-                                        //     $a->addImglibrary();
-                                        // }
+                                            $a = new Itemlibrary();
+                                            $a->type = $fType;
+                                            $a->libraryID = $fLibraryID;
+                                            $a->title = $fTitle;
+                                            $a->description = $fDescription;
+                                            $a->alt = $fAlt;
+                                            $a->file = $uploadFileDir.$newFileName;
+                                            $a->addImglibrary();
+                                        }
 
 
-                                        // if (isset($_POST["fitemlibrary"])) {
-                                        //     $fType = $_POST["fType"];
-                                        //     $fLibraryID = $_POST["fLibraryID"];
-                                        //     $fTitle = $_POST["fTitle"];
-                                        //     $fFile = $_POST["fFile"];
-                                        //     $fDescription = $_POST["fDescription"];
+                                        // add video
+                                        if (isset($_POST["fitemvideo"])) {
+                                            $fType = $_POST["fType"];
+                                            $fLibraryID = $_POST["fLibraryID"];
+                                            $fTitle = $_POST["fTitle"];
+                                            $fFile = $_POST["fFile"];
+                                            $fDescription = $_POST["fDescription"];
 
-                                        //     $a = new Itemlibrary();
-                                        //     $a->type = $fType;
-                                        //     $a->libraryID = $fLibraryID;
-                                        //     $a->title = $fTitle;
-                                        //     $a->file = $fFile;
-                                        //     $a->description = $fDescription;
-                                        //     $a->addVideolibrary();
-                                        // }
+                                            $a = new Itemlibrary();
+                                            $a->type = $fType;
+                                            $a->libraryID = $fLibraryID;
+                                            $a->title = $fTitle;
+                                            $a->file = $fFile;
+                                            $a->description = $fDescription;
+                                            $a->addVideolibrary();
+                                        }
                                         ?>
                                     </div>
                                 </div>
@@ -2468,20 +2419,22 @@ if (!empty($_POST["flogout"])) {
                     return;
                 } else if (str == 1) {
                     document.querySelector("#hintitemlibraryitem").innerHTML = `<div class="mb-3">
-                                                                                <label class="form-label fw-bold text-secondary">Upload img:</label>
-                                                                                <input type="file" id="Upload" name="fUpload" class="form-control"/>
-                                                                            </div>
-                                                                            <div class="mb-3">
-                                                                                <label class="form-label fw-bold text-secondary">Alt:</label>
-                                                                                <input type="text" id="Alt" name="fAlt" class="form-control" placeholder="Alt" />
-                                                                            </div>`;
+                                                                                    <label class="form-label fw-bold text-secondary">Upload img:</label>
+                                                                                    <input type="file" id="Upload" name="fUpload" class="form-control"/>
+                                                                                </div>
+                                                                                <div class="mb-3">
+                                                                                    <label class="form-label fw-bold text-secondary">Alt:</label>
+                                                                                    <input type="text" id="Alt" name="fAlt" class="form-control" placeholder="Alt" />
+                                                                                </div>
+                                                                                <input type="submit" name="fitemimg" class="btn btn-primary" value="Save" />`;
                     return;
                 } else {
                     document.querySelector("#hintitemlibraryitem").innerHTML = `<div class="mb-3">
                                                                                     <label class="form-label fw-bold text-secondary">Id youtube:</label>
                                                                                     <input type="text" id="Alt" name="fFile" class="form-control" placeholder="id video youtube" />
                                                                                     Demo: <span class="text-primary">https://www.youtube.com/watch?v=<span class="text-danger">sGxw7ipTrq8 </span></span><= id color red
-                                                                                </div>`;
+                                                                                </div>
+                                                                                <input type="submit" name="fitemvideo" class="btn btn-primary" value="Save" />`;
                 }
 
             }
@@ -2513,16 +2466,9 @@ if (!empty($_POST["flogout"])) {
 
             }
 
-            function getValueType(str) {
-                $.ajax({
-                    type: "GET",
-                    url: "admin.php",
-                    data: "id =" + str,
-                    success: function(result) {
-                        $("#somewhere").html(result);
-                    }
-                });
-            }
+            $('#ValueType').on('change', function() {
+                var a = this.value;
+            });
         </script>
     </body> 
 </html>
