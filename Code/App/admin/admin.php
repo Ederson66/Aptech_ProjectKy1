@@ -205,7 +205,7 @@ if (!empty($_POST["flogout"])) {
                             <!-- menu itemlibrary -->
                             <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu10">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                    <li><a class="dropdown-item cl-1" href="#">Add Itemlibrary</a></li>
+                                    <li><a class="dropdown-item cl-1" href="a.php">Add Itemlibrary</a></li>
                                     <li><a class="dropdown-item cl-1" href="#">List Itemlibrary</a></li>
                                 </ul>
                             </div>
@@ -533,9 +533,21 @@ if (!empty($_POST["flogout"])) {
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">CategoryTour:</label>
                                                 <select class="form-select" name="fCategoryTour" id="CategoryTour">
-                                                    <option value="1">Khám phá hang động</option>
+                                                    <?php
+
+                                                    $a = new CategoryTour();
+                                                    $arr = $a->getListCategoryTour();
+
+                                                    for($i = 0; $i < count($arr); $i++) {
+                                                        $obj = $arr[$i];
+
+                                                        echo "<option value='$obj->CategoryTourID'>$obj->CategoryTourName</option>";
+                                                    }
+
+                                                    ?>
+                                                    <!-- <option value="1">Khám phá hang động</option>
                                                     <option value="2">Cắm trại</option>
-                                                    <option value="3">Chinh phục núi cao</option>
+                                                    <option value="3">Chinh phục núi cao</option> -->
                                                 </select>
                                             </div>
                                             <div class="mb-3 d-flex w-100">
@@ -803,12 +815,12 @@ if (!empty($_POST["flogout"])) {
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
                                                 <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <input type="submit" id="btntour" name="ftour" class="btn btn-primary" value="Save" />
+                                            <input type="submit" id="btntour" name="fedittour" class="btn btn-primary" value="Save" />
                                         </form>
                                         <?php
                                         $message = "";
 
-                                        if (isset($_POST['ftour']) && $_POST['ftour'] == 'Save') {
+                                        if (isset($_POST['fedittour']) && $_POST['fedittour'] == 'Save') {
                                             if (isset($_FILES['fAvatarTour']) && $_FILES['fAvatarTour']['error'] === UPLOAD_ERR_OK) {
                                                 // lưu vào thư mục tạm webserver
                                                 $fileTmpPath = $_FILES['fAvatarTour']['tmp_name'];
@@ -850,7 +862,7 @@ if (!empty($_POST["flogout"])) {
 
                                         echo $message;
 
-                                        if (isset($_POST["ftour"])) {
+                                        if (isset($_POST["fedittour"])) {
                                             $fCategoryTour = $_POST["fCategoryTour"];
                                             $fTourName = $_POST["fTourName"];
                                             $fTimeStart = $_POST["fTimeStart"];
@@ -2233,16 +2245,18 @@ if (!empty($_POST["flogout"])) {
                                             <label class="form-label fw-bold text-secondary">Description:</label>
                                             <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                         </div>
-                                        <input type="submit" id="btnitemlibrary" name="fitemlibrary" class="btn btn-primary" value="Save" />
+                                        <input type="submit" id="btnitemlibrary" name="fitemlibraryvideo" class="btn btn-primary" value="Save" />
                                     </form>
-                                    <?php if (isset($_POST["fitemlibrary"])) {
+                                    <?php if (isset($_POST["fitemlibraryvideo"])) {
                                         $fItemID = $_POST["fItemID"];
                                         $fLibraryID = $_POST["fLibraryID"];
+                                        $fUpload = $_POST["fUpload"];
                                         $fDescription = $_POST["fDescription"];
 
                                         $a = new Itemlibrary();
                                         $a->itemID = $fItemID;
                                         $a->libraryID = $fLibraryID;
+                                        $a->file = $$fUpload;
                                         $a->description = $fDescription;
                                         $a->addItemlibrary();
                                     } ?>
@@ -2289,9 +2303,9 @@ if (!empty($_POST["flogout"])) {
                                             <label class="form-label fw-bold text-secondary">Description:</label>
                                             <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                         </div>
-                                        <input type="submit" id="btnitemlibrary" name="fitemlibrary" class="btn btn-primary" value="Save" />
+                                        <input type="submit" id="btnitemlibrary" name="fitemlibraryimg" class="btn btn-primary" value="Save" />
                                     </form>
-                                    <?php if (isset($_POST["fitemlibrary"])) {
+                                    <?php if (isset($_POST["fitemlibraryimg"])) {
                                         $fItemID = $_POST["fItemID"];
                                         $fLibraryID = $_POST["fLibraryID"];
                                         $fDescription = $_POST["fDescription"];
@@ -2311,92 +2325,6 @@ if (!empty($_POST["flogout"])) {
                     </div>
                 </div>
             </div>
-
-            <!-- modal updatebooktour XEM LẠI ĐỂ XÓA-->
-            <!-- <div class="modal fade" id="editbooktour">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Update Booktour</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="p-2 d-flex justify-content-center">
-                                <div style="width: 650px;">
-                                    <div class="text-center pb-3">
-                                        <h2>Update</h2>
-                                    </div>
-                                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                                        <?php
-                                        $a = new Booktour();
-                                        $arr = $a->getListBooktour();
-
-                                        for ($i = 0; $i < count($arr); $i++) {
-                                            $obj = $arr[$i];
-
-                                            echo "<input type='hidden' name='fBookTourID' value='$obj->BookTourID'>";
-                                        }
-                                        ?>
-                                        <div class="mb-3">
-                                            <label class="form-label fw-bold text-secondary">TourID:</label>
-                                            <input type="text" id="TourID" name="fTourID" class="form-control" placeholder="TourID" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label fw-bold text-secondary">AnonymousBookTour:</label>
-                                            <input type="text" id="AnonymousBookTour" name="fAnonymousBookTour" class="form-control" placeholder="AnonymousBookTour" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label fw-bold text-secondary">AnonymousEmail:</label>
-                                            <input type="text" id="AnonymousEmail" name="fAnonymousEmail" class="form-control" placeholder="AnonymousEmail" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label fw-bold text-secondary">AnonymousAddress:</label>
-                                            <input type="text" id="AnonymousAddress" name="fAnonymousAddress" class="form-control" placeholder="AnonymousAddress" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label fw-bold text-secondary">AnonymousPhone:</label>
-                                            <input type="text" id="AnonymousPhone" name="fAnonymousPhone" class="form-control" placeholder="AnonymousPhone" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label fw-bold text-secondary">Status:</label>
-                                            <input type="text" id="Status" name="fStatus" class="form-control" placeholder="Status" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label fw-bold text-secondary">Description:</label>
-                                            <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
-                                        </div>
-                                        <input type="submit" id="btnBookTour" name="fbtnBookTour" class="btn btn-primary" value="Save" />
-                                    </form>
-                                    <?php if (isset($_POST["fbtnBookTour"])) {
-                                        $fBookTourID = $_POST["fBookTourID"];
-                                        $fTourID = $_POST["fTourID"];
-                                        $fAnonymousBookTour = $_POST["fAnonymousBookTour"];
-                                        $fAnonymousEmail = $_POST["fAnonymousEmail"];
-                                        $fAnonymousAddress = $_POST["fAnonymousAddress"];
-                                        $fAnonymousPhone = $_POST["fAnonymousPhone"];
-                                        $fStatus = $_POST["fStatus"];
-                                        $fDescription = $_POST["fDescription"];
-
-                                        $a = new Booktour();
-                                        $a->BookTourID = $fBookTourID;
-                                        $a->TourID = $fTourID;
-                                        $a->AnonymousBookTour = $fAnonymousBookTour;
-                                        $a->AnonymousEmail = $fAnonymousEmail;
-                                        $a->AnonymousAddress = $fAnonymousAddress;
-                                        $a->AnonymousPhone = $fAnonymousPhone;
-                                        $a->Status = $fStatus;
-                                        $a->Description = $fDescription;
-                                        $a->editListBootour();
-                                    } ?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
 
             <!-- modal tour -->
             <div class="modal fade" id="modaltour">

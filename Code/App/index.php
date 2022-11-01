@@ -149,7 +149,7 @@ session_start();
                             <?php
                             require_once './PhpSetting/Member.php';
                             require_once './PhpSetting/Common.php';
-//                           
+
                             $checkin = IsAuthen();
                             if ($checkin != 1) {
                                 echo '<li class="nav-item ps-3 pe-3 mt-2 mb-2">
@@ -173,10 +173,10 @@ session_start();
                                 
                                 </li>';
                                 //Show tên người dùng đã đăng nhập.
-//                                $s = new Member();
-//                                $s->MemberName = $member;
-//                                $list = $s->GetUserByUsername();
-//                                echo 'Hello :' . $list[0]->Firstname . ' ' . $list[0]->Middlename . ' ' . $list[0]->Lastname;
+                            //    $s = new Member();
+                            //    $s->MemberName = $member;
+                            //    $list = $s->GetUserByUsername();
+                            //    echo 'Hello :' . $list[0]->Firstname . ' ' . $list[0]->Middlename . ' ' . $list[0]->Lastname;
                             }
                             ?>
                         </ul>
@@ -189,29 +189,28 @@ session_start();
             <div class="main">
                 <!-- note 1 --> 
                 <div class="content-wrap position-relative mw-100">
-
+                    
                     <!-- giới thiệu -->
-                    <div class="pt-180 pb-290 bg-linear-gradient-1 shape-parent text-center">
+                    <div class="pt-180 pb-290 bg-linear-gradient-1 shape-parent text-center auto-height">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8 text-white">
-                                    
                                     <h1 class="mb-3 px-lg-3 fs-fw text-shadow activeShow">
-                                        <span class="highlight">
-                                            Climb the mountain
-                                        </span>
+                                        Climb the mountain
                                     </h1>
-                                    
                                     <p class="mb-0 fw-normal fs-5 px-lg-5 text-shadow activeShow">
                                         Climbing is the activity and sport in which participants strive to reach the highest point of a mountain mountain. Climbing techniques greatly depend on the location.
                                     </p>
                                 </div>
                             </div>
                         </div>
+                        <div class="mt-4 mb-4">
+                            <a title="click" href="#scroll-service" class="text-decoration-none"><i class="fs-2 text-white bi bi-arrow-down-circle"></i></a>
+                        </div>
                     </div>
 
                     <!-- service -->
-                    <div class="pb-130 pt-100 text-center bg-gradient bg-body">
+                    <div class="pb-130 pt-100 text-center bg-gradient bg-body" id="scroll-service">
                         <!-- class pending mt-n190 -->
                         <div class="container">
 

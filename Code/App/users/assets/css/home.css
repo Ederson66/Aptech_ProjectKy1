@@ -140,25 +140,6 @@ body {
     opacity: 1;
 } */
 
-span.highlight {
-    position: relative;
-    z-index: 1;
-}
-
-span.highlight::after {
-    content: "";
-    position: absolute;
-    top: calc(100% - 7.5px);
-    right: 0;
-    left: 0;
-    height: 15px;
-    background-image: url(../image/home/underline.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    z-index: -1;
-}
-
 /* swiper */
 .swiper {
     width: 100%;
