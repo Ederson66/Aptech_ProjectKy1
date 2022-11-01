@@ -62,7 +62,7 @@ class Library {
         
         $list = Array();
         while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
-            $s = new Tour();
+            $s = new Library();
             $s->description = $row["Description"];
             $s->flag = $row["Flag"];
 			$s->libraryID = $row["LibraryID"];

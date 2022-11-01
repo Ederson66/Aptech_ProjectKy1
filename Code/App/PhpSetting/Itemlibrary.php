@@ -12,7 +12,7 @@ class Itemlibrary {
 	public $libraryID;
 	public $title;
 
-	public function addItemlibrary() {
+	public function addImglibrary() {
 		// Connect to database.
 		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
@@ -48,7 +48,55 @@ class Itemlibrary {
 			":type" => $this->type,
 			":alt" => $this->alt,
 			":libraryID" => $this->libraryID,
-			":title" => $this->title));
+			":title" => $this->title
+		));
+
+		// Get value of the auto increment column.
+		$newId = $conn->lastInsertId();
+		$this->itemLibraryID = $newId;
+
+		// Close the database connection.
+		$conn = NULL;
+
+		// Return the id.
+		return $newId;
+	}
+
+	public function addVideolibrary() {
+		// Connect to database.
+		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+
+		// Insert query.
+		$sql = "INSERT INTO `itemlibrary`
+				(
+					`Description`,
+					`File`,
+					`Type`,
+					`LibraryID`,
+					`Title`
+				)
+				VALUES
+				(
+					:description,
+					:file,
+					:type,
+					:libraryID,
+					:title
+				);";
+
+		// Prepare statement.
+		$stmt = $conn->prepare($sql);
+
+		// Execute the statement.
+		$stmt->execute(array(
+			":description" => $this->description,
+			":file" => $this->file,
+			":type" => $this->type,
+			":libraryID" => $this->libraryID,
+			":title" => $this->title
+		));
 
 		// Get value of the auto increment column.
 		$newId = $conn->lastInsertId();
@@ -68,14 +116,15 @@ class Itemlibrary {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT ItemLibraryID, LibraryID, Title, Alt, File, Description, Flag,
+        $sql = "SELECT `L`.LibraryName,ItemLibraryID, `I`.LibraryID, Title, Alt, File, `I`.Description, `I`.Flag,
 				CASE
-					WHEN Type = 1 THEN 'Image'
-					WHEN Type = 2 THEN 'Video'
+					WHEN `I`.Type = 1 THEN 'Image'
+					WHEN `I`.Type = 2 THEN 'Video'
 					ELSE 'Erorr'
 				END
-				AS Type
-				FROM `itemlibrary`;";
+				AS `Type`
+				FROM `itemlibrary` `I`
+				INNER JOIN `library` `L` ON `I`.LibraryID = `L`.LibraryID;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
@@ -87,6 +136,7 @@ class Itemlibrary {
         while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
             $s = new Itemlibrary();
             $s->description = $row["Description"];
+            $s->LibraryName = $row["LibraryName"];
 			$s->file = $row["File"];
 			$s->type = $row["Type"];
 			$s->alt = $row["Alt"];

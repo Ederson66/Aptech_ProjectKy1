@@ -1515,11 +1515,13 @@ if (!empty($_POST["flogout"])) {
                                                     $strTbl .= "<tr>";
                                                     $strTbl .= "<th>" . $stt++ . "</th>";
                                                     $strTbl .= "<td>$obj->libraryID</td>";
-                                                    $strTbl .= "<td>$obj->libraryName</td>";
+                                                    $strTbl .= "<td id='libraryName'>$obj->libraryName</td>";
                                                     $strTbl .= "<td>$obj->description</td>";
                                                     $strTbl .= "<td class='text-center'>
-                                                                        <button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalitemlibraryimg'>Add image</button>
-                                                                        <button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalitemlibraryvideo'>Add video</button>
+                                                                    <div class='nav d-block' id='myTab'>
+                                                                        <button class='btn btn-primary' data-bs-target='#add-img' data-bs-toggle='tab' name='additemlibrary' aria-selected='false'>Add image</button>
+                                                                        <button class='btn btn-primary' data-bs-target='#add-video' data-bs-toggle='tab' name='additemlibrary' aria-selected='false'>Add video</button>
+                                                                    </div>
                                                                     </td>";
                                                     $strTbl .= "<td>
                                                                         <div class='d-flex justify-content-center'>
@@ -1543,6 +1545,185 @@ if (!empty($_POST["flogout"])) {
                                 </div>
                             </div>
 
+                            <!-- 2 tab add img and video -->
+                            <div class="tab-content" id="nav-tabContent">
+                                <!-- add img -->
+                                <div class="tab-pane fade" id="add-img" role="tabpanel">
+                                    <div class="container text-dark pb-5">
+                                        <div class="p-2 d-flex justify-content-center">
+                                            <div style="width: 650px;">
+                                                <div class="text-center pb-3">
+                                                    <h2>Add</h2>
+                                                </div>
+                                                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+                                                    <div class="mb-3">
+                                                        <label class="form-label fw-bold text-secondary">Type:</label>
+                                                        <select class="form-select" id="Type" name="fType">
+                                                            <option value="1">Ảnh</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label fw-bold text-secondary">Title:</label>
+                                                        <input type="text" id="title" name="ftitle" class="form-control" placeholder="Title"/>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label fw-bold text-secondary">Upload img:</label>
+                                                        <input type="file" id="File" name="fFile" class="form-control"/>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label fw-bold text-secondary">LibraryName:</label>
+                                                        <input type="text" id="LibraryID" class="form-control" placeholder="LibraryName"/>
+                                                        <?php
+                                                        $a = new Library();
+                                                        $arr = $a->getListLibrary();
+                                                        for($i = 0; $i < count($arr); $i++) {
+                                                            $obj = $arr[$i];
+                                                            echo "<input type='hidden' value='$obj->libraryID' name='fLibraryID'/>";
+                                                        }
+                                                        ?>
+                                                        
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label fw-bold text-secondary">Alt:</label>
+                                                        <input type="text" id="Alt" name="fAlt" class="form-control" placeholder="Alt" />
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label fw-bold text-secondary">Description:</label>
+                                                        <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                                    </div>
+                                                    <input type="submit" id="btnitemlibrary" name="fitemlibraryimg" class="btn btn-primary" value="Save" />
+                                                </form>
+                                                <?php
+                                                $message = "";
+
+                                                if (isset($_POST['fitemlibraryimg']) && $_POST['fitemlibraryimg'] == 'Save') {
+                                                    if (isset($_FILES['fFile']) && $_FILES['fFile']['error'] === UPLOAD_ERR_OK) {
+                                                        // lưu vào thư mục tạm webserver
+                                                        $fileTmpPath = $_FILES['fFile']['tmp_name'];
+                                                        // echo $fileTmpPath;
+                                                        // thông tin file
+                                                        $fileName = $_FILES['fFile']['name'];
+                                                        $fileSize = $_FILES['fFile']['size'];
+                                                        $fileType = $_FILES['fFile']['type'];
+
+                                                        // lấy tên file và đuôi file
+                                                        $fileNameCmps = explode(".", $fileName);
+
+                                                        // chuẩn hóa lại tên file
+                                                        $fileExtension = strtolower(end($fileNameCmps));
+
+                                                        // thiết đặt filename để k bị trùng nhau
+                                                        $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+
+                                                        // kiem tra phan mo rong cua file
+                                                        $allowedfileExtensions = ['jpg', 'gif', 'png'];
+
+                                                        // kiểm tra đuôi file
+                                                        if (in_array($fileExtension, $allowedfileExtensions)) {
+                                                            // thu muc file uploaded
+                                                            $uploadFileDir = './assets/img/ItemLibrary/';
+                                                            $dest_path = $uploadFileDir . $newFileName;
+
+                                                            if (move_uploaded_file($fileTmpPath, $dest_path)) {
+                                                                $message = "";
+                                                            } else {
+                                                                $message = 'Check if the directory has write permissions.';
+                                                            }
+                                                        } else {
+                                                            $message = 'Only file types allowed: ' . implode(',', $allowedfileExtensions);
+                                                        }
+                                                    }
+                                                }
+
+                                                echo $message;
+
+                                                if (isset($_POST["fitemlibraryimg"])) {
+                                                    $fType = $_POST["fType"];
+                                                    $ftitle = $_POST["ftitle"];
+                                                    $fFile = $_POST["fFile"];
+                                                    $fLibraryID = $_POST["fLibraryID"];
+                                                    $fAlt = $_POST["fAlt"];
+                                                    $fDescription = $_POST["fDescription"];
+
+                                                    $a = new Itemlibrary();
+                                                    $a->type = $fType;
+                                                    $a->title = $ftitle;
+                                                    $a->file = $uploadFileDir.$newFileName;
+                                                    $a->libraryID = $fLibraryID;
+                                                    $a->alt = $fAlt;
+                                                    $a->description = $fDescription;
+                                                    $a->addImglibrary();
+                                                }
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- add video -->
+                                <div class="tab-pane fade" id="add-video" role="tabpanel">
+                                    <div class="container text-dark pb-5">
+                                            <div class="p-2 d-flex justify-content-center">
+                                                <div style="width: 650px;">
+                                                    <div class="text-center pb-3">
+                                                        <h2>Add</h2>
+                                                    </div>
+                                                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                                                        <div class="mb-3">
+                                                            <label class="form-label fw-bold text-secondary">Type:</label>
+                                                            <select class="form-select" id="Type" name="fType">
+                                                                <option value="2">Video</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label fw-bold text-secondary">LibraryName:</label>
+                                                            <input type="text" id="LibraryID" class="form-control" placeholder="LibraryName"/>
+                                                            <?php
+                                                            require_once '../PhpSetting/Library.php';
+                                                            $a = new Library();
+                                                            $arr = $a->getListLibrary();
+                                                            for($i = 0; $i < count($arr); $i++) {
+                                                                $obj = $arr[$i];
+                                                                echo "<input type='hidden' value='$obj->libraryID' name='fLibraryID'/>";
+                                                            }
+                                                            ?>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label fw-bold text-secondary">Title:</label>
+                                                            <input type="text" id="title" name="ftitle" class="form-control" placeholder="Title"/>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label fw-bold text-secondary">Id youtube:</label>
+                                                            <input type="text" id="Alt" name="fFile" class="form-control" placeholder="id video youtube" />
+                                                            Demo: <span class="text-primary">https://www.youtube.com/watch?v=<span class="text-danger">sGxw7ipTrq8 </span></span><= id color red
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label fw-bold text-secondary">Description:</label>
+                                                            <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                                        </div>
+                                                        <input type="submit" id="btnitemlibrary" name="fitemlibraryvideo" class="btn btn-primary" value="Save" />
+                                                    </form>
+                                                    <?php if (isset($_POST["fitemlibraryvideo"])) {
+                                                        $fType = $_POST["fType"];
+                                                        $fLibraryID = $_POST["fLibraryID"];
+                                                        $fFile = $_POST["fFile"];
+                                                        $ftitle = $_POST["ftitle"];
+                                                        $fDescription = $_POST["fDescription"];
+
+                                                        $a = new Itemlibrary();
+                                                        $a->type = $fType;
+                                                        $a->libraryID = $fLibraryID;
+                                                        $a->file = $fFile;
+                                                        $a->title = $ftitle;
+                                                        $a->description = $fDescription;
+                                                        $a->addVideolibrary();
+                                                    } ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
@@ -1559,7 +1740,7 @@ if (!empty($_POST["flogout"])) {
                                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Type:</label>
-                                                <select class="form-select" id="Type" name="fType" onchange="showinfo(this.value)">
+                                                <select class="form-select" id="Type" name="fType" onchange="showinfo(this.value); getValueType(this.value);">
                                                     <option value="0" selected>Select</option>
                                                     <option value="1">Image</option>
                                                     <option value="2">Video</option>
@@ -1592,68 +1773,86 @@ if (!empty($_POST["flogout"])) {
                                             </div>
                                             <input type="submit" id="btnitemlibrary" name="fitemlibrary" class="btn btn-primary" value="Save" />
                                         </form>
+                                        <div id="#somewhere"></div>
                                         <?php
-                                        $message = "";
 
-                                        if (isset($_POST['fitemlibrary']) && $_POST['fitemlibrary'] == 'Save') {
-                                            if (isset($_FILES['fUpload']) && $_FILES['fUpload']['error'] === UPLOAD_ERR_OK) {
-                                                // lưu vào thư mục tạm webserver
-                                                $fileTmpPath = $_FILES['fUpload']['tmp_name'];
-                                                // echo $fileTmpPath;
+                                        // $message = "";
 
-                                                // thông tin file
-                                                $fileName = $_FILES['fUpload']['name'];
-                                                $fileSize = $_FILES['fUpload']['size'];
-                                                $fileType = $_FILES['fUpload']['type'];
+                                        // if (isset($_POST['fitemlibrary']) && $_POST['fitemlibrary'] == 'Save') {
+                                        //     if (isset($_FILES['fUpload']) && $_FILES['fUpload']['error'] === UPLOAD_ERR_OK) {
+                                        //         // lưu vào thư mục tạm webserver
+                                        //         $fileTmpPath = $_FILES['fUpload']['tmp_name'];
+                                        //         // echo $fileTmpPath;
+                                        //         // thông tin file
+                                        //         $fileName = $_FILES['fUpload']['name'];
+                                        //         $fileSize = $_FILES['fUpload']['size'];
+                                        //         $fileType = $_FILES['fUpload']['type'];
 
-                                                // lấy tên file và đuôi file
-                                                $fileNameCmps = explode(".", $fileName);
+                                        //         // lấy tên file và đuôi file
+                                        //         $fileNameCmps = explode(".", $fileName);
 
-                                                // chuẩn hóa lại tên file
-                                                $fileExtension = strtolower(end($fileNameCmps));
+                                        //         // chuẩn hóa lại tên file
+                                        //         $fileExtension = strtolower(end($fileNameCmps));
 
-                                                // thiết đặt filename để k bị trùng nhau
-                                                $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+                                        //         // thiết đặt filename để k bị trùng nhau
+                                        //         $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
 
-                                                // kiem tra phan mo rong cua file
-                                                $allowedfileExtensions = ['jpg', 'gif', 'png'];
+                                        //         // kiem tra phan mo rong cua file
+                                        //         $allowedfileExtensions = ['jpg', 'gif', 'png'];
 
-                                                // kiểm tra đuôi file
-                                                if (in_array($fileExtension, $allowedfileExtensions)) {
-                                                    // thu muc file uploaded
-                                                    $uploadFileDir = '../admin/assets/img/ItemLibrary/';
-                                                    $dest_path = $uploadFileDir . $newFileName;
+                                        //         // kiểm tra đuôi file
+                                        //         if (in_array($fileExtension, $allowedfileExtensions)) {
+                                        //             // thu muc file uploaded
+                                        //             $uploadFileDir = './assets/img/ItemLibrary/';
+                                        //             $dest_path = $uploadFileDir . $newFileName;
 
-                                                    if (move_uploaded_file($fileTmpPath, $dest_path)) {
-                                                        $message = "";
-                                                    } else {
-                                                        $message = 'Check if the directory has write permissions.';
-                                                    }
-                                                } else {
-                                                    $message = 'Only file types allowed: ' . implode(',', $allowedfileExtensions);
-                                                }
-                                            }
-                                        }
+                                        //             if (move_uploaded_file($fileTmpPath, $dest_path)) {
+                                        //                 $message = "";
+                                        //             } else {
+                                        //                 $message = 'Check if the directory has write permissions.';
+                                        //             }
+                                        //         } else {
+                                        //             $message = 'Only file types allowed: ' . implode(',', $allowedfileExtensions);
+                                        //         }
+                                        //     }
+                                        // }
 
-                                        echo $message;
+                                        // echo $message;
 
-                                        if (isset($_POST["fitemlibrary"])) {
-                                            $fType = $_POST["fType"];
-                                            $fLibraryID = $_POST["fLibraryID"];
-                                            // $fUpload = $_POST["fUpload"];
-                                            $fAlt = $_POST["fAlt"];
-                                            $fTitle = $_POST["fTitle"];
-                                            $fDescription = $_POST["fDescription"];
+                                        // if (isset($_POST["fitemlibrary"])) {
+                                        //     $fType = $_POST["fType"];
+                                        //     $fLibraryID = $_POST["fLibraryID"];
+                                        //     $fTitle = $_POST["fTitle"];
+                                        //     // $fFile = $_POST["fFile"];
+                                        //     $fDescription = $_POST["fDescription"];
+                                        //     $fAlt = $_POST["fAlt"];
 
-                                            $a = new Itemlibrary();
-                                            $a->type = $fType;
-                                            $a->libraryID = $fLibraryID;
-                                            $a->file = $uploadFileDir . $newFileName;
-                                            $a->alt = $fAlt;
-                                            $a->title = $fTitle;
-                                            $a->description = $fDescription;
-                                            $a->addItemlibrary();
-                                        }
+                                        //     $a = new Itemlibrary();
+                                        //     $a->type = $fType;
+                                        //     $a->libraryID = $fLibraryID;
+                                        //     $a->title = $fTitle;
+                                        //     $a->description = $fDescription;
+                                        //     $a->alt = $fAlt;
+                                        //     $a->file = $uploadFileDir.$newFileName;
+                                        //     $a->addImglibrary();
+                                        // }
+
+
+                                        // if (isset($_POST["fitemlibrary"])) {
+                                        //     $fType = $_POST["fType"];
+                                        //     $fLibraryID = $_POST["fLibraryID"];
+                                        //     $fTitle = $_POST["fTitle"];
+                                        //     $fFile = $_POST["fFile"];
+                                        //     $fDescription = $_POST["fDescription"];
+
+                                        //     $a = new Itemlibrary();
+                                        //     $a->type = $fType;
+                                        //     $a->libraryID = $fLibraryID;
+                                        //     $a->title = $fTitle;
+                                        //     $a->file = $fFile;
+                                        //     $a->description = $fDescription;
+                                        //     $a->addVideolibrary();
+                                        // }
                                         ?>
                                     </div>
                                 </div>
@@ -1694,12 +1893,18 @@ if (!empty($_POST["flogout"])) {
                                                     $strTbl .= "<th>" . $stt++ . "</th>";
                                                     $strTbl .= "<td>$obj->itemLibraryID</td>";
                                                     $strTbl .= "<td>$obj->type</td>";
-                                                    $strTbl .= "<td>$obj->libraryID</td>";
+                                                    $strTbl .= "<td>$obj->LibraryName</td>";
                                                     $strTbl .= "<td>$obj->title</td>";
                                                     $strTbl .= "<td>$obj->alt</td>";
-                                                    $strTbl .= "<td>
-                                                                        <img src='$obj->file' alt='$obj->alt' width='200' height='100'>
+                                                    if($obj->type == "Image") {
+                                                        $strTbl .= "<td>
+                                                                    <img src='$obj->file' alt='$obj->alt' width='200' height='100'>
+                                                                </td>";
+                                                    } else {
+                                                        $strTbl .= "<td>
+                                                                        <iframe style='padding-top: 5%;' src='https://www.youtube.com/embed/$obj->file' title='$obj->title'></iframe>
                                                                     </td>";
+                                                    }
                                                     $strTbl .= "<td>$obj->description</td>";
                                                     $strTbl .= "<td>
                                                                         <div class='d-flex'>
@@ -2216,116 +2421,6 @@ if (!empty($_POST["flogout"])) {
 
             <!-- BEGIN MODAL -->
 
-            <!-- modal add itemlibrary add video -->
-            <div class="modal fade" id="modalitemlibraryvideo">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Video</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="p-2 d-flex justify-content-center">
-                                <div style="width: 650px;">
-                                    <div class="text-center pb-3">
-                                        <h2>Add</h2>
-                                    </div>
-                                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                                        <div class="mb-3">
-                                            <label class="form-label fw-bold text-secondary">ItemID:</label>
-                                            <select class="form-select" id="ItemID" name="fItemID">
-                                                <option value="2">Video</option>
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label fw-bold text-secondary">Link video:</label>
-                                            <input type="text" id="Alt" name="fUpload" class="form-control" placeholder="Link" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label fw-bold text-secondary">Description:</label>
-                                            <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
-                                        </div>
-                                        <input type="submit" id="btnitemlibrary" name="fitemlibraryvideo" class="btn btn-primary" value="Save" />
-                                    </form>
-                                    <?php if (isset($_POST["fitemlibraryvideo"])) {
-                                        $fItemID = $_POST["fItemID"];
-                                        $fLibraryID = $_POST["fLibraryID"];
-                                        $fUpload = $_POST["fUpload"];
-                                        $fDescription = $_POST["fDescription"];
-
-                                        $a = new Itemlibrary();
-                                        $a->itemID = $fItemID;
-                                        $a->libraryID = $fLibraryID;
-                                        $a->file = $$fUpload;
-                                        $a->description = $fDescription;
-                                        $a->addItemlibrary();
-                                    } ?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- modal add itemlibrary add img -->
-            <div class="modal fade" id="modalitemlibraryimg">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Image</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="p-2 d-flex justify-content-center">
-                                <div style="width: 650px;">
-                                    <div class="text-center pb-3">
-                                        <h2>Add</h2>
-                                    </div>
-                                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                                        <div class="mb-3">
-                                            <label class="form-label fw-bold text-secondary">ItemID:</label>
-                                            <select class="form-select" id="ItemID" name="fItemID">
-                                                <option value="1">Ảnh</option>
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label fw-bold text-secondary">Upload img:</label>
-                                            <input type="file" id="Upload" name="fUpload" class="form-control"/>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label fw-bold text-secondary">Alt:</label>
-                                            <input type="text" id="Alt" name="fAlt" class="form-control" placeholder="Alt" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label fw-bold text-secondary">Description:</label>
-                                            <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
-                                        </div>
-                                        <input type="submit" id="btnitemlibrary" name="fitemlibraryimg" class="btn btn-primary" value="Save" />
-                                    </form>
-                                    <?php if (isset($_POST["fitemlibraryimg"])) {
-                                        $fItemID = $_POST["fItemID"];
-                                        $fLibraryID = $_POST["fLibraryID"];
-                                        $fDescription = $_POST["fDescription"];
-
-                                        $a = new Itemlibrary();
-                                        $a->itemID = $fItemID;
-                                        $a->libraryID = $fLibraryID;
-                                        $a->description = $fDescription;
-                                        $a->addItemlibrary();
-                                    } ?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- modal tour -->
             <div class="modal fade" id="modaltour">
                 <div class="modal-dialog modal-dialog-centered">
@@ -2383,9 +2478,10 @@ if (!empty($_POST["flogout"])) {
                     return;
                 } else {
                     document.querySelector("#hintitemlibraryitem").innerHTML = `<div class="mb-3">
-                                                                                <label class="form-label fw-bold text-secondary">Link video:</label>
-                                                                                <input type="text" id="Alt" name="fUpload" class="form-control" placeholder="Link" />
-                                                                            </div>`;
+                                                                                    <label class="form-label fw-bold text-secondary">Id youtube:</label>
+                                                                                    <input type="text" id="Alt" name="fFile" class="form-control" placeholder="id video youtube" />
+                                                                                    Demo: <span class="text-primary">https://www.youtube.com/watch?v=<span class="text-danger">sGxw7ipTrq8 </span></span><= id color red
+                                                                                </div>`;
                 }
 
             }
@@ -2415,6 +2511,17 @@ if (!empty($_POST["flogout"])) {
                     xmlhttp.send();
                 }
 
+            }
+
+            function getValueType(str) {
+                $.ajax({
+                    type: "GET",
+                    url: "admin.php",
+                    data: "id =" + str,
+                    success: function(result) {
+                        $("#somewhere").html(result);
+                    }
+                });
             }
         </script>
     </body> 

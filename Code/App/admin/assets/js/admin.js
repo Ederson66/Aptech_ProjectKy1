@@ -93,4 +93,9 @@ $(document).ready(function () {
         // $('input[name="Description"]').val($('#Description',$row).text());
     });
 
+    // add img itemlibrary
+    $('[name="additemlibrary"]').click(function(){
+        var $row = $(this).closest('tr');
+        $('input[id="LibraryID"]').val($('#libraryName',$row).text());
+    });
 });
