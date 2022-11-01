@@ -1,4 +1,5 @@
 <?php require_once '../PhpSetting/Tour.php'; ?>
+<?php require_once '../PhpSetting/Categorytour.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +20,7 @@
     <!-- CSS ME -->
     <link rel="stylesheet" href="./assets/css/header-footer.css" />
     <link rel="stylesheet" href="./assets/css/base.css" />
-    <link rel="stylesheet" href="./assets/css/service.css">
+    <link rel="stylesheet" href="./assets/css/tour.css">
     <!--favicon-->
     <link rel="icon" type="image/x-icon" href="./assets/image/favicon.png" />
     <title>Tour</title>
@@ -31,11 +32,8 @@
         <nav class="navbar navbar-expand-lg position-fixed">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="500.000000pt" height="500.000000pt"
-                        viewBox="0 0 500.000000 500.000000" preserveAspectRatio="xMidYMid meet"
-                        style="height: 40px; width: 40px;">
-                        <g transform="translate(0.000000,500.000000) scale(0.100000,-0.100000)" fill="#00000"
-                            stroke="none">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="500.000000pt" height="500.000000pt" viewBox="0 0 500.000000 500.000000" preserveAspectRatio="xMidYMid meet" style="height: 40px; width: 40px;">
+                        <g transform="translate(0.000000,500.000000) scale(0.100000,-0.100000)" fill="#00000" stroke="none">
                             <path d="M2650 4978 c0 -3 9 -31 20 -64 26 -74 64 -226 82 -324 8 -48 13 -151
                         12 -285 0 -178 -4 -226 -23 -315 -70 -331 -210 -586 -460 -843 -97 -100 -318
                         -287 -339 -287 -15 0 -92 104 -137 184 -71 128 -125 346 -125 509 0 42 -3 77
@@ -47,8 +45,7 @@
                         </g>
                     </svg>
                 </a>
-                <a id="bg-show-mobile" class="navbar-toggler text-dark" data-bs-toggle="collapse"
-                    data-bs-target="#navbarsExampleXxl">
+                <a id="bg-show-mobile" class="navbar-toggler text-dark" data-bs-toggle="collapse" data-bs-target="#navbarsExampleXxl">
                     <i class="bi bi-list navbar-toggler-icon text-dark" style="padding: 4px;"></i>
                 </a>
 
@@ -120,7 +117,7 @@
                             </ul>
                         </li>
                         <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                            <a href="./news.php" class="nav-link text-dark fw-bold hv-cl" >News</a>
+                            <a href="./news.php" class="nav-link text-dark fw-bold hv-cl">News</a>
                             <ul class="sub rounded p-0">
                                 <li>
                                     <a class="nav-link text-dark text-center hv-bg" href="#">Dropdown 1</a>
@@ -154,14 +151,12 @@
                             </ul>
                         </li>
                         <li class="nav-item ps-3 pe-3 mt-2 mb-2">
-                            <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill"
-                                href="login.php">
+                            <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="login.php">
                                 Login
                             </a>
                         </li>
                         <li class="nav-item ps-3 pe-3 mt-2 mb-2">
-                            <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-primary rounded-pill"
-                                href="register.php">
+                            <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-primary rounded-pill" href="register.php">
                                 Register
                             </a>
                         </li>
@@ -176,165 +171,47 @@
             <div class="header-news bg-image">
             </div>
             <!-- Tour khám phá hang động -->
-            <?php 
-            
-            $s = new Tour();
-            
-            $list = $s->getListCategorytourName();
+            <?php
 
-            for($i = 0; $i < count($list); $i++) {
-                $obj = $list[$i];
+            $s = new CategoryTour();
 
-                echo "<h3 style='text-align:center;font-size:50px'>$obj->CategoryTourName</h3>";
-                echo "<input type='hidden' name='fCategoryTourID' value='$obj->CategoryTourID'>";
-
-            }
-
-            
+            $list = $s->getListCategoryTour();
             ?>
-            <div class="row large-columns-3 medium-columns-2 small-columns-1 text-center mb-5 a1">
-                <div class="container-tour">
-                    <div class="container-tour_list col" style="height: auto;">
-                        
-                        <?php
-                        $s = new Tour();
-                        $arr = $s->getListTour();
-                        ?>
-                        
-                        <?php foreach ($arr as $value): ?>
-                        
-                            <a href="#" class="d-inline-block tour-item">
-                                <div class="container-tour_item col-lg-4 col-md-6 col-sm-12 mt-5 mb-5">
-                                    <div class="box-img" style="width:75%">
-                                        <img src="<?php echo $value->AvatarTour; ?>" alt="" style="width:350px;height: auto;border-radius: 10px;">
-                                    </div>
-                                    <div class="box-text text-center bg-light" style="width:300px;height: 400px;">
-                                        <div class="box-text_sale text-white">
-                                            <div class="title">Sale</div>
-                                            <div class="avage"><?php echo $value->TourSale; ?>%</div>
-                                        </div>
-                                        <div class="box-text_img">
-                                            <img src="https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg" alt="">
-                                        </div>
-                                        <h5><?php echo $value->TourName; ?></h5>
-                                        <div class="price_tour sales" style="color:red"><?php echo $value->TourPrice; ?>VND</div>
-                                        <div class="price_tour" style="color: #3da4ff">3.200.000 VNĐ</div>
-                                        <div class="date_go text-dark"><i class="bi bi-clock" style="color: #3da4ff"></i><?php echo $value->TimeLimit; ?></div>
-                                        <div class="hard_tour text-dark">Độ khó:Cao</div>
-                                        <div class="hard_tour text-dark"><?php echo $value->Status; ?></div>
-                                        <p class="from_the_blog_excerpt "><?php echo $value->Description; ?></p>
-                                    </div>
+            <?php foreach ($list as $value) : ?>
+                <h3 style='text-align:center;font-size:50px'><?php echo $value->CategoryTourName ?></h3>
+                <?php
+                $s = new Tour();
+                // $arr = $s->getListTour($value->CategoryTourID);
+                $arr = $s -> getListTourToCategory($value->CategoryTourID);
+                ?>
+                <?php foreach ($arr as $value) : ?>
+                    <a href="#" class="d-inline-block tour-item">
+                        <div class="container-tour_item col-lg-4 col-md-6 col-sm-12 mt-5 mb-5">
+                            <div class="box-img" style="width:75%">
+                                <img src="<?php echo $value->AvatarTour; ?>" alt="" style="width:350px;height: auto;border-radius: 10px;">
+                            </div>
+                            <div class="box-text text-center bg-light" style="width:300px;height: 400px;">
+                                <div class="box-text_sale text-white">
+                                    <div class="title">Sale</div>
+                                    <div class="avage"><?php echo $value->TourSale; ?>%</div>
                                 </div>
-                            </a>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-                <div id="col-1696331777" class="col small-12 large-12">
-                    <div class="col-inner text-center">
-                        <a href="./tour1.php" target="_self" class="button primary lowercase" style="border-radius:99px;padding:0px 35px 0px 35px;">
-                            <button type="button" class="btn btn-warning" style="border-radius:90px;">Xem thêm</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Du lịch cắm trại -->
-            <h3 style="text-align:center;font-size:50px">Du lịch cắm trại</h3>
-            <div class="row large-columns-3 medium-columns- small-columns-1 text-center a1">
-                <div class="container-tour">
-                <div class="container-tour_list col">
-                        <?php require_once './PhpSetting/Tour.php'; ?>
-                        <?php
-                        $s = new Tour();
-
-                        $arr = $s->getListTour();
-                        ?>
-                        <?php foreach ($arr as $value): ?>
-                            <a href="#" class="d-inline-block tour-item">
-                                <div class="container-tour_item col-lg-4 col-md-6 col-sm-12">
-                                    <div class="box-img" style="width:75%">
-                                        <img src="<?php echo $value->AvatarTour; ?>" alt="" style="width:350px;height: auto;border-radius: 10px;">
-                                    </div>
-                                    <div class="box-text text-center bg-light" style="width:300px;height: 400px;">
-                                        <div class="box-text_sale text-white">
-                                            <div class="title">Sale</div>
-                                            <div class="avage"><?php echo $value->TourSale; ?>%</div>
-                                        </div>
-                                        <div class="box-text_img">
-                                            <img src="https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg" alt="">
-                                        </div>
-                                        <h5><?php echo $value->TourName; ?></h5>
-                                        <div class="price_tour sales" style="color:red"><?php echo $value->TourPrice; ?>VND</div>
-                                        <div class="price_tour" style="color: #3da4ff">3.200.000 VNĐ</div>
-                                        <div class="date_go text-dark"><i class="bi bi-clock" style="color: #3da4ff"></i><?php echo $value->TimeLimit; ?></div>
-                                        <div class="hard_tour text-dark">Độ khó:Cao</div>
-                                        <div class="hard_tour text-dark"><?php echo $value->Status; ?></div>
-                                        <p class="from_the_blog_excerpt "><?php echo $value->Description; ?></p>
-                                    </div>
+                                <div class="box-text_img">
+                                    <img src="https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg" alt="">
                                 </div>
-                            </a>
-                        <?php endforeach; ?>
-                    </div>
-                    
-                </div>
-                <div id="col-1696331777" class="col small-12 large-12">
-                    <div class="col-inner text-center">
-                        <a href="./tour2.php" target="_self" class="button primary lowercase" style="border-radius:99px;padding:0px 35px 0px 35px;">
-                            <button type="button" class="btn btn-warning" style="border-radius:90px;">Xem thêm</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Chinh phục đỉnh cao -->
-            <h3 style="text-align:center;font-size:50px">Khám phá hang động</h3>
-            <div class="row large-columns-3 medium-columns- small-columns-1 text-center mb-5 a1">
-                <div class="container-tour">
-                    <div class="container-tour_list col">
-                        <?php require_once './PhpSetting/Tour.php'; ?>
-                        <?php
-                        $s = new Tour();
-
-                        $arr = $s->getListTour();
-                        ?>
-                        <?php foreach ($arr as $value): ?>
-                            <a href="#" class="d-inline-block tour-item">
-                                <div class="container-tour_item col-lg-4 col-md-6 col-sm-12">
-                                    <div class="box-img" style="width:75%">
-                                        <img src="<?php echo $value->AvatarTour; ?>" alt="" style="width:350px;height: auto;border-radius: 10px;">
-                                    </div>
-                                    <div class="box-text text-center bg-light" style="width:300px;height: 400px;">
-                                        <div class="box-text_sale text-white">
-                                            <div class="title">Sale</div>
-                                            <div class="avage"><?php echo $value->TourSale; ?>%</div>
-                                        </div>
-                                        <div class="box-text_img">
-                                            <img src="https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg" alt="">
-                                        </div>
-                                        <h5><?php echo $value->TourName; ?></h5>
-                                        <div class="price_tour sales" style="color:red"><?php echo $value->TourPrice; ?>VND</div>
-                                        <div class="price_tour" style="color: #3da4ff">3.200.000 VNĐ</div>
-                                        <div class="date_go text-dark"><i class="bi bi-clock" style="color: #3da4ff"></i><?php echo $value->TimeLimit; ?></div>
-                                        <div class="hard_tour text-dark">Độ khó:Cao</div>
-                                        <div class="hard_tour text-dark"><?php echo $value->Status; ?></div>
-                                        <p class="from_the_blog_excerpt "><?php echo $value->Description; ?></p>
-                                    </div>
-                                </div>
-                            </a>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-                <div id="col-1696331777" class="col small-12 large-12">
-                    <div class="col-inner text-center">
-                        <a href="./tour3.php" target="_self" class="button primary lowercase" style="border-radius:99px;padding:0px 35px 0px 35px;">
-                            <button type="button" class="btn btn-warning" style="border-radius:90px;">Xem thêm</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
+                                <h5><?php echo $value->TourName; ?></h5>
+                                <div class="price_tour sales" style="color:red"><?php echo $value->TourPrice; ?>VND</div>
+                                <div class="price_tour" style="color: #3da4ff">3.200.000 VNĐ</div>
+                                <div class="date_go text-dark"><i class="bi bi-clock" style="color: #3da4ff"></i><?php echo $value->TimeLimit; ?></div>
+                                <div class="hard_tour text-dark">Độ khó:Cao</div>
+                                <div class="hard_tour text-dark"><?php echo $value->Status; ?></div>
+                                <p class="from_the_blog_excerpt "><?php echo $value->Description; ?></p>
+                            </div>
+                        </div>
+                    </a>
+                <?php endforeach; ?>
+            <?php endforeach; ?>
         </div>
-            <!-- END Main -->
+        <!-- END Main -->
 
         <!--BEGIN Footer -->
         <div class="footer bg-dark text-white pt-120 pb-5">
@@ -342,12 +219,9 @@
                 <div class="row g-5">
                     <div class="col-12 col-lg-3">
                         <a href="#" class="d-block mb-3">
-                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="500.000000pt"
-                                height="500.000000pt" viewBox="0 0 500.000000 500.000000"
-                                preserveAspectRatio="xMidYMid meet" style="height: 40px; width: 40px;">
+                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="500.000000pt" height="500.000000pt" viewBox="0 0 500.000000 500.000000" preserveAspectRatio="xMidYMid meet" style="height: 40px; width: 40px;">
 
-                                <g transform="translate(0.000000,500.000000) scale(0.100000,-0.100000)" fill="#fff"
-                                    stroke="none">
+                                <g transform="translate(0.000000,500.000000) scale(0.100000,-0.100000)" fill="#fff" stroke="none">
                                     <path d="M2650 4978 c0 -3 9 -31 20 -64 26 -74 64 -226 82 -324 8 -48 13 -151
                                 12 -285 0 -178 -4 -226 -23 -315 -70 -331 -210 -586 -460 -843 -97 -100 -318
                                 -287 -339 -287 -15 0 -92 104 -137 184 -71 128 -125 346 -125 509 0 42 -3 77
@@ -367,8 +241,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="8" height="17" fill="none">
-                                        <path fill="#fff"
-                                            d="M6.318 2.8h1.391V.202A16.842 16.842 0 0 0 5.683.088c-2.006 0-3.38 1.353-3.38 3.837v2.287H.089v2.902h2.214v7.303h2.713V9.114H7.14l.338-2.902H5.016v-2c0-.839.21-1.413 1.302-1.413Z">
+                                        <path fill="#fff" d="M6.318 2.8h1.391V.202A16.842 16.842 0 0 0 5.683.088c-2.006 0-3.38 1.353-3.38 3.837v2.287H.089v2.902h2.214v7.303h2.713V9.114H7.14l.338-2.902H5.016v-2c0-.839.21-1.413 1.302-1.413Z">
                                         </path>
                                     </svg>
                                 </a>
@@ -377,8 +250,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="21" height="15" fill="none">
-                                        <path fill="#fff"
-                                            d="M19.687 2.485A2.472 2.472 0 0 0 17.953.73C16.423.313 10.29.313 10.29.313s-6.133 0-7.662.416A2.473 2.473 0 0 0 .895 2.485c-.41 1.55-.41 4.782-.41 4.782s0 3.233.41 4.782c.226.855.89 1.5 1.734 1.729 1.53.415 7.662.415 7.662.415s6.132 0 7.662-.415a2.435 2.435 0 0 0 1.734-1.729c.41-1.549.41-4.782.41-4.782s0-3.232-.41-4.782ZM8.285 10.203v-5.87l5.126 2.934-5.126 2.936Z">
+                                        <path fill="#fff" d="M19.687 2.485A2.472 2.472 0 0 0 17.953.73C16.423.313 10.29.313 10.29.313s-6.133 0-7.662.416A2.473 2.473 0 0 0 .895 2.485c-.41 1.55-.41 4.782-.41 4.782s0 3.233.41 4.782c.226.855.89 1.5 1.734 1.729 1.53.415 7.662.415 7.662.415s6.132 0 7.662-.415a2.435 2.435 0 0 0 1.734-1.729c.41-1.549.41-4.782.41-4.782s0-3.232-.41-4.782ZM8.285 10.203v-5.87l5.126 2.934-5.126 2.936Z">
                                         </path>
                                     </svg>
                                 </a>
@@ -387,8 +259,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="none">
-                                        <path fill="#fff"
-                                            d="M17.477 4.484c.012.165.012.329.012.493 0 5.014-3.817 10.792-10.792 10.792-2.149 0-4.145-.623-5.824-1.703.305.035.599.047.916.047a7.596 7.596 0 0 0 4.709-1.62 3.8 3.8 0 0 1-3.547-2.63c.235.034.47.058.717.058.34 0 .68-.047.998-.13A3.793 3.793 0 0 1 1.625 6.07v-.047a3.82 3.82 0 0 0 1.714.482 3.79 3.79 0 0 1-1.691-3.159c0-.704.188-1.35.517-1.914a10.781 10.781 0 0 0 7.82 3.97 4.282 4.282 0 0 1-.094-.87c0-2.09 1.691-3.793 3.793-3.793 1.092 0 2.079.458 2.771 1.198a7.466 7.466 0 0 0 2.408-.916c-.282.88-.881 1.62-1.668 2.09a7.604 7.604 0 0 0 2.184-.587 8.153 8.153 0 0 1-1.902 1.961Z">
+                                        <path fill="#fff" d="M17.477 4.484c.012.165.012.329.012.493 0 5.014-3.817 10.792-10.792 10.792-2.149 0-4.145-.623-5.824-1.703.305.035.599.047.916.047a7.596 7.596 0 0 0 4.709-1.62 3.8 3.8 0 0 1-3.547-2.63c.235.034.47.058.717.058.34 0 .68-.047.998-.13A3.793 3.793 0 0 1 1.625 6.07v-.047a3.82 3.82 0 0 0 1.714.482 3.79 3.79 0 0 1-1.691-3.159c0-.704.188-1.35.517-1.914a10.781 10.781 0 0 0 7.82 3.97 4.282 4.282 0 0 1-.094-.87c0-2.09 1.691-3.793 3.793-3.793 1.092 0 2.079.458 2.771 1.198a7.466 7.466 0 0 0 2.408-.916c-.282.88-.881 1.62-1.668 2.09a7.604 7.604 0 0 0 2.184-.587 8.153 8.153 0 0 1-1.902 1.961Z">
                                         </path>
                                     </svg>
                                 </a>
@@ -397,8 +268,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="none">
-                                        <path fill="#fff"
-                                            d="M8.788 4.097C6.47 4.097 4.6 5.95 4.6 8.25c0 2.298 1.87 4.153 4.188 4.153 2.318 0 4.188-1.855 4.188-4.153 0-2.3-1.87-4.153-4.188-4.153Zm0 6.853c-1.498 0-2.723-1.211-2.723-2.7 0-1.49 1.221-2.7 2.723-2.7 1.502 0 2.723 1.21 2.723 2.7 0 1.489-1.225 2.7-2.723 2.7Zm5.336-7.023a.97.97 0 0 1-.977.968.97.97 0 0 1-.976-.968c0-.535.437-.969.976-.969.54 0 .977.434.977.969Zm2.774.983c-.062-1.298-.36-2.447-1.32-3.394C14.624.569 13.465.272 12.156.207c-1.349-.076-5.39-.076-6.74 0C4.113.27 2.954.565 1.995 1.512 1.035 2.46.74 3.61.674 4.906c-.076 1.338-.076 5.346 0 6.683.063 1.298.361 2.447 1.32 3.394.959.947 2.114 1.244 3.423 1.309 1.348.076 5.39.076 6.739 0 1.308-.062 2.468-.358 3.422-1.309.956-.947 1.254-2.096 1.32-3.394.076-1.337.076-5.342 0-6.68Zm-1.742 8.114a2.745 2.745 0 0 1-1.553 1.54c-1.075.423-3.627.325-4.815.325-1.188 0-3.743.095-4.815-.325a2.746 2.746 0 0 1-1.552-1.54c-.427-1.066-.329-3.596-.329-4.774 0-1.179-.094-3.712.329-4.775a2.745 2.745 0 0 1 1.552-1.54C5.048 1.512 7.6 1.61 8.788 1.61c1.188 0 3.743-.094 4.815.325a2.745 2.745 0 0 1 1.553 1.54c.426 1.066.328 3.596.328 4.775 0 1.178.098 3.712-.328 4.774Z">
+                                        <path fill="#fff" d="M8.788 4.097C6.47 4.097 4.6 5.95 4.6 8.25c0 2.298 1.87 4.153 4.188 4.153 2.318 0 4.188-1.855 4.188-4.153 0-2.3-1.87-4.153-4.188-4.153Zm0 6.853c-1.498 0-2.723-1.211-2.723-2.7 0-1.49 1.221-2.7 2.723-2.7 1.502 0 2.723 1.21 2.723 2.7 0 1.489-1.225 2.7-2.723 2.7Zm5.336-7.023a.97.97 0 0 1-.977.968.97.97 0 0 1-.976-.968c0-.535.437-.969.976-.969.54 0 .977.434.977.969Zm2.774.983c-.062-1.298-.36-2.447-1.32-3.394C14.624.569 13.465.272 12.156.207c-1.349-.076-5.39-.076-6.74 0C4.113.27 2.954.565 1.995 1.512 1.035 2.46.74 3.61.674 4.906c-.076 1.338-.076 5.346 0 6.683.063 1.298.361 2.447 1.32 3.394.959.947 2.114 1.244 3.423 1.309 1.348.076 5.39.076 6.739 0 1.308-.062 2.468-.358 3.422-1.309.956-.947 1.254-2.096 1.32-3.394.076-1.337.076-5.342 0-6.68Zm-1.742 8.114a2.745 2.745 0 0 1-1.553 1.54c-1.075.423-3.627.325-4.815.325-1.188 0-3.743.095-4.815-.325a2.746 2.746 0 0 1-1.552-1.54c-.427-1.066-.329-3.596-.329-4.774 0-1.179-.094-3.712.329-4.775a2.745 2.745 0 0 1 1.552-1.54C5.048 1.512 7.6 1.61 8.788 1.61c1.188 0 3.743-.094 4.815.325a2.745 2.745 0 0 1 1.553 1.54c.426 1.066.328 3.596.328 4.775 0 1.178.098 3.712-.328 4.774Z">
                                         </path>
                                     </svg>
                                 </a>
@@ -454,8 +324,7 @@
                                         <a class="nav-link ps-0 text-muted" href="tel:0968590075">+84 968 590 075</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link ps-0 text-muted"
-                                            href="mailto:nduydu66@gmail.com">nduydu66@gmail.com</a>
+                                        <a class="nav-link ps-0 text-muted" href="mailto:nduydu66@gmail.com">nduydu66@gmail.com</a>
                                     </li>
                                 </ul>
                             </div>
