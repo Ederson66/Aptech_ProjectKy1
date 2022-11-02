@@ -487,6 +487,9 @@ if (!empty($_POST["flogout"])) {
                                                 <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
                                             <input type="submit" id="btnBookTour" name="fbtnBookTour" class="btn btn-primary" value="Save" />
+                                            <div class="mb-3">
+                                                <span class="text-danger">If you need to fix other fields, please contact admin for support: <a href="mailto:nduydu66@gmail.com">nduydu66@gmail.com</a></span>
+                                            </div>
                                         </form>
                                         <?php if (isset($_POST["fbtnBookTour"])) {
                                             $fBookTourID = $_POST["fBookTourID"];
@@ -699,7 +702,7 @@ if (!empty($_POST["flogout"])) {
 
                                                     $strTbl .= "<tr>";
                                                     $strTbl .= "<th>" . $stt++ . "</th>";
-                                                    $strTbl .= "<td id='CategoryTourName'>$obj->CategoryTourName</td>";
+                                                    $strTbl .= "<td>$obj->CategoryTourName</td>";
                                                     $strTbl .= "<td id='fTourName'>$obj->TourName</td>";
                                                     $strTbl .= "<td>$obj->Location</td>";
                                                     $strTbl .= "<td>$obj->Day</td>";
@@ -719,12 +722,12 @@ if (!empty($_POST["flogout"])) {
                                                             </td>";
 
                                                     // các trường ẩn lấy vào form edit
+                                                    $strTbl .= "<td class='d-none' id='TourID'>$obj->TourID</td>";
                                                     $strTbl .= "<td class='d-none' id='fTimeStart'>$obj->TimeStart</td>";
                                                     $strTbl .= "<td class='d-none' id='fTimeLimit'>$obj->TimeLimit</td>";
                                                     $strTbl .= "<td class='d-none' id='TourPrice'>$obj->TourPrice</td>";
                                                     $strTbl .= "<td class='d-none' id='TourSale'>$obj->TourSale</td>";
                                                     $strTbl .= "<td class='d-none' id='Location'>$obj->Location</td>";
-                                                    $strTbl .= "<td class='d-none' id='Status'>$obj->Status</td>";
                                                     $strTbl .= "<td class='d-none' id='Description'>$obj->Description</td>";
                                                     $strTbl .= "</tr>";
 
@@ -754,97 +757,83 @@ if (!empty($_POST["flogout"])) {
                             <!-- edit list tour -->
                             <div id="edittour" class="d-none">
                                 <div class="pt-5 pb-5 d-flex justify-content-center">
-                                <div style="width: 650px;">
+                                    <div style="width: 650px;">
                                         <div class="text-center pb-3">
                                             <h2>Edit</h2>
                                         </div>
                                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                                            <input type="hidden" id="TourID" name="fTourID" class="form-control" placeholder="TourID" value="35"/>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">TourName:</label>
-                                                <input type="text" id="TourName" name="fTourName" class="form-control" placeholder="TourName" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">CategoryTour:</label>
-                                                <input type="text" id="CategoryTour" name="fCategoryTour" class="form-control" placeholder="CategoryTour" />
-                                                <?php
-                                                $a = new CategoryTour();
-                                                $arr = $a->getListCategoryTour();
-                                                for($i = 0; $i < count($arr); $i++) {
-                                                    $obj = $arr[$i];
-                                                    echo "<input type='hidden' name='fCategoryTour' value='$obj->CategoryTourID'/>";
-                                                }
-                                                ?>
+                                                <input type="text" id="TourName" name="fTourName" class="form-control" placeholder="TourName" value="duydu"/>
                                             </div>
                                             <div class="mb-3 d-flex w-100">
                                                 <div class="w-50 pe-2">
                                                     <label class="form-label fw-bold text-secondary">TimeStart:</label>
-                                                    <input type="text" id="TimeStart" name="fTimeStart" class="form-control" placeholder="TimeStart" />
+                                                    <input type="text" id="TimeStart" name="fTimeStart" class="form-control" placeholder="TimeStart" value="2022-11-02 00:00:00"/>
                                                 </div>
                                                 <div class="w-50 ps-2">
                                                     <label class="form-label fw-bold text-secondary">TimeEnd:</label>
-                                                    <input type="text" id="TimeLimit" name="fTimeLimit" class="form-control" placeholder="TimeLimit" />
+                                                    <input type="text" id="TimeLimit" name="fTimeLimit" class="form-control" placeholder="TimeLimit" value="2022-11-05"/>
                                                 </div>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">TourPrice:</label>
                                                 <div class="input-group">
-                                                    <input type="text" id="TourPrice" name="fTourPrice" class="form-control" placeholder="TourPrice" />
+                                                    <input type="text" id="TourPrice" name="fTourPrice" class="form-control" placeholder="TourPrice" value="3000"/>
                                                     <span class="input-group-text">USD</span>
                                                 </div>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">TourPromotion:</label>
                                                 <div class="input-group">
-                                                    <input type="text" id="TourPromotion" name="fTourSale" class="form-control" placeholder="TourPromotion" />
+                                                    <input type="text" id="TourPromotion" name="fTourSale" class="form-control" placeholder="TourPromotion" value="20"/>
                                                     <span class="input-group-text">%</span>
                                                 </div>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Location:</label>
                                                 <div class="input-group">
-                                                    <input type="text" id="Location" name="fLocation" class="form-control" placeholder="Location" />
+                                                    <input type="text" id="Location" name="fLocation" class="form-control" placeholder="Location" value="Quảng Ninh"/>
                                                     <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
                                                 </div>
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Status:</label>
-                                                <input type="text" id="Status" name="fStatus" class="form-control" placeholder="Status" />
-                                            </div>
-                                            <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" value="vcb"/>
                                             </div>
                                             <input type="submit" id="btntour" name="fedittour" class="btn btn-primary" value="Save" />
+                                            <div class="mb-3">
+                                                <span class="text-danger">If you need to fix other fields, please contact admin for support: <a href="mailto:nduydu66@gmail.com">nduydu66@gmail.com</a></span>
+                                            </div>
                                         </form>
                                         <?php
+                                        require_once '../PhpSetting/Tour.php';
                                         
                                         if (isset($_POST["fedittour"])) {
-                                            $fCategoryTour = $_POST["fCategoryTour"];
+                                            $fTourID = $_POST["fTourID"];
                                             $fTourName = $_POST["fTourName"];
                                             $fTimeStart = $_POST["fTimeStart"];
                                             $fTimeLimit = $_POST["fTimeLimit"];
                                             $fTourPrice = $_POST["fTourPrice"];
                                             $fTourSale = $_POST["fTourSale"];
                                             $fLocation = $_POST["fLocation"];
-                                            // $fAvatarTour = $_POST["fAvatarTour"];
-                                            $fStatus = $_POST["fStatus"];
                                             $fDescription = $_POST["fDescription"];
 
                                             $a = new Tour();
-                                            $a->CategoryTourID = $fCategoryTour;
+                                            $a->TourID = $fTourID;
                                             $a->TourName = $fTourName;
                                             $a->TimeStart = $fTimeStart;
                                             $a->TimeLimit = $fTimeLimit;
                                             $a->TourPrice = $fTourPrice;
                                             $a->TourSale = $fTourSale;
                                             $a->Location = $fLocation;
-                                            $a->Status = $fStatus;
                                             $a->Description = $fDescription;
-                                            $a->addTour();
+                                            $a->updateTour();
                                         }
                                         ?>
                                     </div>
-                                </div>  
+                                </div> 
                             </div>
                         </div>
                     </div>
@@ -2465,10 +2454,6 @@ if (!empty($_POST["flogout"])) {
                 }
 
             }
-
-            $('#ValueType').on('change', function() {
-                var a = this.value;
-            });
         </script>
     </body> 
 </html>

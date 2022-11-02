@@ -301,41 +301,34 @@ class Tour {
 	public function updateTour() {
 		// Connect to database.
 		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-		$dsn = "mysql:host=" . DatabaseInfo::getServer() . ";dbname=" . DatabaseInfo::getDatabaseName() . ";charset=utf8";
-		$conn = new PDO($dsn, DatabaseInfo::getUserName(), DatabaseInfo::getPassword(), $options);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
 
 		// Update query.
 		$sql = "UPDATE	`tour`
-				SET		`AvatarTour` = :avatarTour,
-						`CategoryTourID` = :categoryTourID,
-						`Description` = :description,
-						`Flag` = :flag,
-						`Location` = :location,
-						`Status` = :status,
-						`TimeLimit` = :timeLimit,
-						`TimeStart` = STR_TO_DATE(:timeStart, '%m/%d/%Y %h:%i %p'),
-						`TourName` = :tourName,
-						`TourPrice` = :tourPrice,
-						`TourSale` = :tourSale
-				WHERE	`TourID` = :tourID;";
+				SET		`Description` = :Description,
+						`Location` = :Location,
+						`TimeLimit` = :TimeLimit,
+						`TimeStart` = :TimeStart,
+						`TourName` = :TourName,
+						`TourPrice` = :TourPrice,
+						`TourSale` = :TourSale
+				WHERE	`TourID` = :TourID;";
+
 
 		// Prepare statement.
 		$stmt = $conn->prepare($sql);
 
 		// Execute the statement.
 		$stmt->execute(array(
-			":avatarTour" => $this->avatarTour,
-			":categoryTourID" => $this->categoryTourID,
-			":description" => $this->description,
-			":flag" => $this->flag,
-			":location" => $this->location,
-			":status" => $this->status,
-			":timeLimit" => $this->timeLimit,
-			":timeStart" => $this->timeStart,
-			":tourID" => $this->tourID,
-			":tourName" => $this->tourName,
-			":tourPrice" => $this->tourPrice,
-			":tourSale" => $this->tourSale));
+			":TourID" => $this->TourID,
+			":TourName" => $this->TourName,
+			":TimeStart" => $this->TimeStart,
+			":TimeLimit" => $this->TimeLimit,
+			":TourPrice" => $this->TourPrice,
+			":TourSale" => $this->TourSale,
+			":Location" => $this->Location,
+			":Description" => $this->Description));
 
 		// Close the database connection.
 		$conn = NULL;

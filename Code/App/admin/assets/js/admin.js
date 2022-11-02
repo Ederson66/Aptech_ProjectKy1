@@ -83,14 +83,13 @@ $(document).ready(function () {
         $('#edittour').removeClass("d-none");
         let $row = $(this).closest('tr');
         $('input[name="fTourName"]').val($('#fTourName',$row).text());
-        $('input[name="fCategoryTour"]').val($('#CategoryTourName',$row).text());
         $('input[name="fTimeStart"]').val($('#fTimeStart',$row).text());
         $('input[name="fTimeLimit"]').val($('#fTimeLimit',$row).text());
         $('input[name="fTourPrice"]').val($('#TourPrice',$row).text());
         $('input[name="fTourSale"]').val($('#TourSale',$row).text());
         $('input[name="fLocation"]').val($('#Location',$row).text());
-        $('input[name="fStatus"]').val($('#Status',$row).text());
         $('input[name="fDescription"]').val($('#Description',$row).text());
+        $('input[name="fTourID"]').val($('#TourID',$row).text());
     });
 
     // add img itemlibrary
