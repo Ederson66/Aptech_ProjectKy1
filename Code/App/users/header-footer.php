@@ -1,5 +1,9 @@
 <?php
-session_start();
+    session_start();
+    require_once '../PhpSetting/Member.php';
+    require_once '../PhpSetting/Common.php';
+    require_once '../PhpSetting/Tour.php'; 
+    require_once '../PhpSetting/Categorytour.php'; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -114,22 +118,21 @@ session_start();
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="tour.php">Tour</a>
-                                <ul class="sub rounded p-0">
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Tour 1</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Tour 2</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Tour 3</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Tour 4</a>
-                                    </li>
-                                </ul>
-                            </li>
+                            <a class="nav-link text-dark fw-bold hv-cl" href="tour.php">Tour</a>
+                            <ul class="sub rounded p-0">
+                            <?php
+
+                                $s = new CategoryTour();
+
+                                $list = $s->getListCategoryTour();
+                            ?>
+                            <?php foreach ($list as $value) : ?>
+                                <li>
+                                    <a class="nav-link text-dark text-center hv-bg" href="#"><?php echo $value->CategoryTourName ?></a>
+                                </li>
+                            <?php endforeach; ?>
+                            </ul>
+                        </li>
                             <li class="nav-item ps-3 pe-3 mt-2 link">
                                 <a class="nav-link text-dark fw-bold hv-cl" href="news.php">News</a>
                                 <ul class="sub rounded p-0">
@@ -165,9 +168,6 @@ session_start();
                                 <a class="nav-link text-dark fw-bold hv-cl" href="contact.php">Contact</a>
                             </li>
                             <?php
-                            require_once '../PhpSetting/Member.php';
-                            require_once '../PhpSetting/Common.php';
-                      
                             $checkin = IsAuthen();
                             if ($checkin != 1) {
                                 echo '<li class="nav-item ps-3 pe-3 mt-2 mb-2">
@@ -184,7 +184,7 @@ session_start();
                                 $member = (string) $_SESSION['MemberName'];
                                 echo '<li class="nav-item ps-3 pe-3 mt-2 mb-2">
                                         <form action="index.php" method="POST">
-                                        <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="login.php">
+                                        <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="../index.php">
                                         Logout
                                     </a>
                                         </form>
