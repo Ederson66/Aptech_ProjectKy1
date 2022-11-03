@@ -128,6 +128,36 @@ class Tour {
         
         return $list;
     }
+
+	// total tour
+	public function getTotalTour() {
+        // chuỗi kết nối đến DB
+        $options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+        
+        // câu lệnh sql
+        $sql = "SELECT COUNT(TourID) AS totaltour FROM `tour` WHERE Flag IS NULL;";
+        
+        // chuẩn bị câu lệnh SQL
+        $stmt = $conn->prepare($sql);
+        
+        // thực hiện
+        $stmt->execute();
+        
+        $list = Array();
+        while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
+            $s = new Tour();
+            $s->totaltour = $row["totaltour"];
+            
+            array_push($list, $s);
+        }
+        
+        // đóng kết nối
+        $conn = NULL;
+        
+        return $list;
+    }
 	
 	// Get list tour to categorytour
 	public function getListTourToCategory($CategoryTourID) {

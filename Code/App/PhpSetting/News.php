@@ -88,7 +88,7 @@ class News {
         
         $list = Array();
         while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
-            $s = new Tour();
+            $s = new News();
             $s->author = $row["Author"];
             $s->avatarNews = $row["AvatarNews"];
 			$s->categoryID = $row["CategoryID"];

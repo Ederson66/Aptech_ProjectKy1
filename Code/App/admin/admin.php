@@ -282,6 +282,42 @@ if (!empty($_POST["flogout"])) {
                     <div class="tab-pane fade show active" id="dashboard">
                         <div class="container text-dark">
                             <div class="row mt-3 mb-3 g-3">
+                                <!-- Box Total booktour -->
+                                <div class="mt-3 col-md-6 col-xxl-3">
+                                    <div class="bg-white shadow card h-100">
+                                        <p class="p-2 pt-3 fs-6 fw-bold m-0">Total booktour</p>
+                                        <div class="p-3 text-center border-top">
+                                            <?php
+                                            $a = new Booktour();
+                                            $arr = $a->getUserBooktour();
+
+                                            for ($i = 0; $i < count($arr); $i++) {
+                                                $obj = $arr[$i];
+                                                echo '<span class="m-3 fs-4 fw-bold text-secondary">' . $obj->totaluserbooktour . " " . 'User</span>';
+                                            }
+                                            ?>
+                                            <i class="fs-3 bi bi-reception-4 text-success"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Box amount Tour -->
+                                <div class="mt-3 col-md-6 col-xxl-3">
+                                    <div class="bg-white shadow card h-100">
+                                        <p class="p-2 pt-3 fs-6 fw-bold m-0">Amount Tour</p>
+                                        <div class="text-center border-top p-3">
+                                            <?php
+                                            // demo 
+                                            $a = new Tour();
+                                            $arr = $a->getTotalTour();
+                                            for($i = 0; $i < count($arr); $i++) {
+                                                $obj = $arr[$i];
+                                                echo "<span class='fs-4 fw-bold text-secondary m-3'>$obj->totaltour Tour</span>";
+                                            }
+                                            ?>
+                                            <i class="fs-3 text-warning bi bi-signpost-2"></i>
+                                        </div>
+                                    </div>
+                                </div>
                                 <!-- Box Item Library -->
                                 <div class="mt-3 col-md-6 col-xxl-3">
                                     <div class="bg-white shadow card h-100">
@@ -297,25 +333,7 @@ if (!empty($_POST["flogout"])) {
                                                 echo "<span class='m-1 fs-4 fw-bold m-0 text-secondary' id='now-clock'>$obj->TotalItemLibrary ItemLibrary</span>";
                                             }
                                             ?>
-                                            <i class="fs-3 bi bi-wallet2 text-danger"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Box tổng lượng truy cập -->
-                                <div class="mt-3 col-md-6 col-xxl-3">
-                                    <div class="bg-white shadow card h-100">
-                                        <p class="p-2 pt-3 fs-6 fw-bold m-0">Total booktour</p>
-                                        <div class="p-3 text-center border-top">
-                                            <?php
-                                            $a = new Booktour();
-                                            $arr = $a->getUserBooktour();
-
-                                            for ($i = 0; $i < count($arr); $i++) {
-                                                $obj = $arr[$i];
-                                                echo '<span class="m-3 fs-4 fw-bold text-secondary">' . $obj->totaluserbooktour . " " . 'User</span>';
-                                            }
-                                            ?>
-                                            <i class="fs-3 bi bi-reception-4 text-success"></i>
+                                            <i class="fs-3 bi bi-folder text-danger"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -341,16 +359,6 @@ if (!empty($_POST["flogout"])) {
                                                 ?>
                                             </div>
                                             <i class="fs-3 bi bi-activity text-info"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Box Promotion -->
-                                <div class="mt-3 col-md-6 col-xxl-3">
-                                    <div class="bg-white shadow card h-100">
-                                        <p class="p-2 pt-3 fs-6 fw-bold m-0">Promotion</p>
-                                        <div class="text-center border-top p-3">
-                                            <span class="fs-4 fw-bold text-secondary m-3">30 Promotion</span>
-                                            <i class="fs-3 bi bi-basket2 text-warning"></i>
                                         </div>
                                     </div>
                                 </div>

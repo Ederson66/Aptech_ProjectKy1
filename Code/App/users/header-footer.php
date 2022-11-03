@@ -53,7 +53,7 @@
             <!--BEGIN nav -->
             <nav class="navbar navbar-expand-lg position-fixed">
                 <div class="container">
-                    <a class="navbar-brand" href="index.php">
+                    <a class="navbar-brand" href="../index.php">
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 56.68 55.66" style="width: 50px; height: 50px;" xml:space="preserve">
                             <style type="text/css">
@@ -367,6 +367,6 @@
         <!-- js swiper -->
         <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
         <!-- JS ME -->
-        <script src="./assets/js/home.js"></script>
+        <script src="./assets/js/header-footer.js"></script>
     </body>
 </html>

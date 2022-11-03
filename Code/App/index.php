@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once './PhpSetting/Service.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +21,7 @@ session_start();
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
             <!-- CSS ME -->
             <link rel="stylesheet" href="./users/assets/css/home.css" />
+            <link rel="stylesheet" href="./users/assets/css/header-footer.css" />
             <link rel="stylesheet" href="./users/assets/css/base.css">
             <!--favicon-->
             <link rel="icon" type="image/x-icon" href="./users/assets/image/favicon.png" />
@@ -31,7 +33,7 @@ session_start();
             <!--BEGIN nav -->
             <nav class="navbar navbar-expand-lg position-fixed">
                 <div class="container">
-                    <a class="navbar-brand" href="index.php">
+                    <a class="navbar-brand" href="../index.php">
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 56.68 55.66" style="width: 50px; height: 50px;" xml:space="preserve">
                             <style type="text/css">
@@ -76,10 +78,10 @@ session_start();
                     <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleXxl">
                         <ul class="navbar-nav">
                             <li class="nav-item ps-3 pe-3 mt-2 home">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="index.php">Home</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="../index.php">Home</a>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="./users/service.php">Service</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="service.php">Service</a>
                                 <ul class="sub rounded p-0">
                                     <li>
                                         <a class="nav-link text-dark text-center hv-bg" href="#">Service 1</a>
@@ -96,24 +98,23 @@ session_start();
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="./users/tour.php">Tour</a>
-                                <ul class="sub rounded p-0">
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Tour 1</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Tour 2</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Tour 3</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Tour 4</a>
-                                    </li>
-                                </ul>
-                            </li>
+                            <a class="nav-link text-dark fw-bold hv-cl" href="tour.php">Tour</a>
+                            <ul class="sub rounded p-0">
+                            <?php
+
+                                $s = new CategoryTour();
+
+                                $list = $s->getListCategoryTour();
+                            ?>
+                            <?php foreach ($list as $value) : ?>
+                                <li>
+                                    <a class="nav-link text-dark text-center hv-bg" href="#"><?php echo $value->CategoryTourName ?></a>
+                                </li>
+                            <?php endforeach; ?>
+                            </ul>
+                        </li>
                             <li class="nav-item ps-3 pe-3 mt-2 link">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="./users/news.php">News</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="news.php">News</a>
                                 <ul class="sub rounded p-0">
                                     <li>
                                         <a class="nav-link text-dark text-center hv-bg" href="#">Sale</a>
@@ -144,34 +145,31 @@ session_start();
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 disabled">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="./users/contact.php">Contact</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="contact.php">Contact</a>
                             </li>
                             <?php
-                            require_once './PhpSetting/Member.php';
-                            require_once './PhpSetting/Common.php';
-
                             $checkin = IsAuthen();
                             if ($checkin != 1) {
                                 echo '<li class="nav-item ps-3 pe-3 mt-2 mb-2">
-                                <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="./users/login.php">
-                                    Login
-                                </a>
-                            </li>
-                            <li class="nav-item ps-3 pe-3 mt-2 mb-2">
-                                <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-primary rounded-pill" href="./users/register.php">
-                                    Register
-                                </a>
-                            </li>';
+                                        <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="login.php">
+                                            Login
+                                        </a>
+                                    </li>
+                                    <li class="nav-item ps-3 pe-3 mt-2 mb-2">
+                                        <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-primary rounded-pill" href="register.php">
+                                            Register
+                                        </a>
+                                    </li>';
                             } else {
                                 $member = (string) $_SESSION['MemberName'];
                                 echo '<li class="nav-item ps-3 pe-3 mt-2 mb-2">
-                                    <form action="index.php" method="POST">
-                                    <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="./users/login.php">
-                                    Logout
-                                </a>
-                                    </form>
-                                
-                                </li>';
+                                        <form action="index.php" method="POST">
+                                        <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="../index.php">
+                                        Logout
+                                    </a>
+                                        </form>
+                                    
+                                    </li>';
                                 //Show tên người dùng đã đăng nhập.
                             //    $s = new Member();
                             //    $s->MemberName = $member;
@@ -205,83 +203,38 @@ session_start();
                             </div>
                         </div>
                         <div class="mt-4 mb-4">
-                            <a title="click" href="#scroll-service" class="text-decoration-none"><i class="fs-2 text-white bi bi-arrow-down-circle"></i></a>
+                            <a title="click" href="#scroll-down" class="text-decoration-none"><i class="fs-2 text-white bi bi-arrow-down-circle"></i></a>
                         </div>
                     </div>
 
-                    <!-- service -->
-                    <div class="pb-130 pt-100 text-center bg-gradient bg-body" id="scroll-service">
+                    <!-- service Outstanding -->
+                    <div class="pb-130 pt-100 text-center bg-gradient bg-body" id="scroll-down">
                         <!-- class pending mt-n190 -->
                         <div class="container">
 
                             <h2 class="text-center mb-90 fs-1 fw-bold activeShow">
-                                Mountain climbing tour
+                                Outstanding service
                             </h2>
 
                             <div class="row justify-content-center">
-
-                                <div class="col-lg-5 m-4 activeShow">
-                                    <a class="card border-0 text-decoration-none text-dark" href="#">
-                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <img class="img-fluid" src="./users/assets/image/home/item-img/im-1.png" alt="">
-                                        </span>
-                                        <span class="card-body">
-                                            <span class="card-title h4">tour</span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="col-lg-5 m-4 activeShow">
-                                    <a class="card border-0 text-decoration-none text-dark" href="#">
-                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <img class="img-fluid" src="./users/assets/image/home/item-img/im-2.png" alt="">
-                                        </span>
-                                        <span class="card-body">
-                                            <span class="card-title h4">tour</span>
-                                        </span>
-                                    </a>
-                                </div>
-
-                                <div class="col-lg-5 m-4 activeShow">
-                                    <a class="card border-0 text-decoration-none text-dark" href="#">
-                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <img class="img-fluid" src="./users/assets/image/home/item-img/im-3.png" alt="">
-                                        </span>
-                                        <span class="card-body">
-                                            <span class="card-title h4">tour</span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="col-lg-5 m-4 activeShow">
-                                    <a class="card border-0 text-decoration-none text-dark" href="#">
-                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <img class="img-fluid" src="./users/assets/image/home/item-img/im-4.png" alt="">
-                                        </span>
-                                        <span class="card-body">
-                                            <span class="card-title h4">tour</span>
-                                        </span>
-                                    </a>
-                                </div>
-
-                                <div class="col-lg-5 m-4 activeShow">
-                                    <a class="card border-0 text-decoration-none text-dark" href="#">
-                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <img class="img-fluid" src="./users/assets/image/home/item-img/im-5.png" alt="">
-                                        </span>
-                                        <span class="card-body">
-                                            <span class="card-title h4">tour</span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="col-lg-5 m-4 activeShow">
-                                    <a class="card border-0 text-decoration-none text-dark" href="#">
-                                        <span class="card-img shadow-lg rounded-3 overflow-hidden hv-box-lg">
-                                            <img class="img-fluid" src="./users/assets/image/home/item-img/im-6.png" alt="">
-                                        </span>
-                                        <span class="card-body">
-                                            <span class="card-title h4">tour</span>
-                                        </span>
-                                    </a>
-                                </div>
+                                <?php
+                                $a = new Service();
+                                $arr = $a->getListOutstandingservice();
+                                for($i = 0; $i < count($arr); $i++) {
+                                    $obj = $arr[$i];
+                                    $imgservice = substr($obj->avatarService, 1);
+                                    echo "<div class='col-lg-5 m-4 activeShow'>
+                                            <a class='card border-0 text-decoration-none text-dark' href='#'>
+                                                <span class='card-img shadow-lg rounded-3 overflow-hidden hv-box-lg'>
+                                                    <img class='img-fluid' src='$imgservice' alt=''>
+                                                </span>
+                                                <span class='card-body'>
+                                                    <span class='card-title h4'>$obj->serviceName</span>
+                                                </span>
+                                            </a>
+                                        </div>";
+                                }
+                                ?>
                             </div>
 
                             <div class="m-3 mt-5 activeShow">
@@ -295,7 +248,7 @@ session_start();
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-6">
-                                    <h2 class="m-0 text-white fs-1 fw-bold text-shadow activeShow">Hình ảnh thực tế khách trải nghiệm</h2>
+                                    <h2 class="m-0 text-white fs-1 fw-bold text-shadow activeShow">Actual customer experience images</h2>
                                 </div>
 
                                 <!-- Swiper -->
@@ -661,8 +614,6 @@ session_start();
                 </div>
             </div>
             <!--END Footer -->
-
-            <div id="demo"></div>
         </div>
 
         <!-- JQUERY 3.6.1 -->
@@ -673,5 +624,6 @@ session_start();
         <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
         <!-- JS ME -->
         <script src="./users/assets/js/home.js"></script>
+        <script src="./users/assets/js/header-footer.js"></script>
     </body>
 </html>

@@ -139,3 +139,8 @@
         max-width: 1140px;
     }
 }
+
+/* selection */
+::selection {background:#f02d2d;color:#ffffff;}
+::-moz-selection {background:#f02d2d;color:#ffffff;}
+::-webkit-selection {background:#f02d2d;color:#ffffff;}

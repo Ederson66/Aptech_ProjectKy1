@@ -10,12 +10,13 @@
     left: 0;
     right: 0;
     transition: top 0.2s ease-in-out;
+    height: 66px;
 }
 /* end header-navbar */
 
 /* css main */
 .main {
-    margin-top: 65px;
+    /* margin-top: 65px; */
     /* height: 2000px; */
 }
 /* css main */
