@@ -128,7 +128,7 @@ require_once '../PhpSetting/News.php';
                             </ul>
                         </li>
                         <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                            <a class="nav-link text-dark fw-bold hv-cl" href="#">Experience</a>
+                            <a class="nav-link text-dark fw-bold hv-cl" href="experiences.php">Experience</a>
                             <ul class="sub rounded p-0">
                                 <li>
                                     <a class="nav-link text-dark text-center hv-bg" href="#">Experience 1</a>
@@ -202,14 +202,16 @@ require_once '../PhpSetting/News.php';
             </div>
 
             <!-- content -->
-            <div class="pt-120 pb-130" id="scroll-down">
+            <div class="pt-120 pb-130" id="scroll-down" style="background-color: aliceblue;">
                 <div class="container">
                     <?php
                     $a = new News();
-                    $arr = $a->getListNews();
+                    $arr = $a->getListExperiences();
                     for($i = 0; $i < count($arr); $i++) {
                         $obj = $arr[$i];
+                        echo "<h3 class='text-center fw-bold mb-4'>$obj->title</h3>";
                         echo $obj->content;
+                        echo "<span class='fw-bold text-danger'>By </span><span>@$obj->author</span>";
                     }
                     ?>
                 </div>

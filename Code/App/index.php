@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once './PhpSetting/Service.php';
+require_once './PhpSetting/Common.php';
+require_once './PhpSetting/CategoryTour.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +35,7 @@ require_once './PhpSetting/Service.php';
             <!--BEGIN nav -->
             <nav class="navbar navbar-expand-lg position-fixed">
                 <div class="container">
-                    <a class="navbar-brand" href="../index.php">
+                    <a class="navbar-brand" href="index.php">
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 56.68 55.66" style="width: 50px; height: 50px;" xml:space="preserve">
                             <style type="text/css">
@@ -78,7 +80,7 @@ require_once './PhpSetting/Service.php';
                     <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleXxl">
                         <ul class="navbar-nav">
                             <li class="nav-item ps-3 pe-3 mt-2 home">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="../index.php">Home</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="index.php">Home</a>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
                                 <a class="nav-link text-dark fw-bold hv-cl" href="service.php">Service</a>
@@ -98,7 +100,7 @@ require_once './PhpSetting/Service.php';
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                            <a class="nav-link text-dark fw-bold hv-cl" href="tour.php">Tour</a>
+                            <a class="nav-link text-dark fw-bold hv-cl" href="./users/tour.php">Tour</a>
                             <ul class="sub rounded p-0">
                             <?php
 
@@ -114,7 +116,7 @@ require_once './PhpSetting/Service.php';
                             </ul>
                         </li>
                             <li class="nav-item ps-3 pe-3 mt-2 link">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="news.php">News</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="./users/news.php">News</a>
                                 <ul class="sub rounded p-0">
                                     <li>
                                         <a class="nav-link text-dark text-center hv-bg" href="#">Sale</a>
@@ -128,7 +130,7 @@ require_once './PhpSetting/Service.php';
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="#">Experience</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="./users/experiences.php">Experience</a>
                                 <ul class="sub rounded p-0">
                                     <li>
                                         <a class="nav-link text-dark text-center hv-bg" href="#">Experience 1</a>
@@ -145,7 +147,7 @@ require_once './PhpSetting/Service.php';
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 disabled">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="contact.php">Contact</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="./users/contact.php">Contact</a>
                             </li>
                             <?php
                             $checkin = IsAuthen();
@@ -238,7 +240,9 @@ require_once './PhpSetting/Service.php';
                             </div>
 
                             <div class="m-3 mt-5 activeShow">
-                                <button class="btn btn-danger rounded-pill p-3 hv-box">See More</button>
+                                <button class="btn btn-danger rounded-pill p-3 hv-box">
+                                    <a href="./users/service.php" class="text-white text-decoration-none" style="padding: 16px 10px;">See More</a>
+                                </button>
                             </div>
                         </div>
                     </div>

@@ -148,7 +148,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="#">Experience</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="experiences.php">Experience</a>
                                 <ul class="sub rounded p-0">
                                     <li>
                                         <a class="nav-link text-dark text-center hv-bg" href="#">Experience 1</a>

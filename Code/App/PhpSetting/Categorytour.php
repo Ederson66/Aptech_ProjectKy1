@@ -1,6 +1,6 @@
 <?php
 
-require_once '../PhpSetting/DBinfoConfig.php';
+require_once 'DBinfoConfig.php';
 
 class CategoryTour {
 	public $CategoryTourID;
