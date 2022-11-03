@@ -64,7 +64,8 @@ class CategoryTour {
 					ELSE 'Error'
 				END
 				AS `Status`
-				FROM `categorytour`;";
+				FROM `categorytour`
+				WHERE Flag IS NULL;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
@@ -89,5 +90,55 @@ class CategoryTour {
         
         return $list;
     }
+
+	// function delete
+	public function updateListCategoryTour() {
+		// Connect to database.
+		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+
+		// Update query.
+		$sql = "UPDATE `categorytour` SET `Flag` = :Flag WHERE `CategoryTourID` = :CategoryTourID;";
+
+		// Prepare statement.
+		$stmt = $conn->prepare($sql);
+
+		// Execute the statement.
+		$stmt->execute(array(
+			":CategoryTourID" => $this->CategoryTourID,
+			":Flag" => $this->Flag
+		));
+
+		// Close the database connection.
+		$conn = NULL;
+	}
+
+	// function edit
+	public function updateCategorytour() {
+		// Connect to database.
+		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+
+		// Update query.
+		$sql = "UPDATE	`categorytour`
+				SET		`CategoryTourName` = :CategoryTourName,
+						`Description` = :Description
+				WHERE	`CategoryTourID` = :CategoryTourID;";
+
+		// Prepare statement.
+		$stmt = $conn->prepare($sql);
+
+		// Execute the statement.
+		$stmt->execute(array(
+			":CategoryTourID" => $this->CategoryTourID,
+			":CategoryTourName" => $this->CategoryTourName,
+			":Description" => $this->Description
+		));
+
+		// Close the database connection.
+		$conn = NULL;
+	}
 }
 ?>

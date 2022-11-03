@@ -282,19 +282,28 @@ if (!empty($_POST["flogout"])) {
                     <div class="tab-pane fade show active" id="dashboard">
                         <div class="container text-dark">
                             <div class="row mt-3 mb-3 g-3">
-                                <!-- Box giờ hiện tại -->
+                                <!-- Box Item Library -->
                                 <div class="mt-3 col-md-6 col-xxl-3">
-                                    <div class="bg-white shadow card">
-                                        <p class="p-2 pt-3 fs-6 fw-bold m-0">The present time</p>
+                                    <div class="bg-white shadow card h-100">
+                                        <p class="p-2 pt-3 fs-6 fw-bold m-0">Item Library</p>
                                         <div class="p-3 text-center border-top">
-                                            <span class="m-1 fs-4 fw-bold m-0 text-secondary" id="now-clock"></span>
-                                            <i class="fs-3 bi bi-alarm text-danger"></i>
+                                            <?php
+                                            $a = new Itemlibrary();
+                                            $arr = $a->getTotalItemlibrary();
+                                            $stt=0;
+                                            for($i = 0; $i < count($arr); $i++) {
+                                                $stt++;
+                                                $obj = $arr[$i];
+                                                echo "<span class='m-1 fs-4 fw-bold m-0 text-secondary' id='now-clock'>$obj->TotalItemLibrary ItemLibrary</span>";
+                                            }
+                                            ?>
+                                            <i class="fs-3 bi bi-wallet2 text-danger"></i>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Box tổng lượng truy cập -->
                                 <div class="mt-3 col-md-6 col-xxl-3">
-                                    <div class="bg-white shadow card">
+                                    <div class="bg-white shadow card h-100">
                                         <p class="p-2 pt-3 fs-6 fw-bold m-0">Total booktour</p>
                                         <div class="p-3 text-center border-top">
                                             <?php
@@ -310,30 +319,32 @@ if (!empty($_POST["flogout"])) {
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Box lượng truy cập các kì thi -->
+                                <!-- Box lượng top 3 Service -->
                                 <div class="mt-3 col-md-6 col-xxl-3">
                                     <div class="bg-white shadow card">
                                         <p class="p-2 pt-3 fs-6 fw-bold m-0">Service traffic</p>
-                                        <div class="text-center border-top" style="padding: 6px;">
-                                            <div class="chart-access float-end m-2"></div>
-                                            <ul class="m-2 p-0">
-                                                <li class="fs text-start">
-                                                    <span class="dot-1 me-2"></span>
-                                                    Service 1
-                                                </li>
-                                                <li class="fs text-start">
-                                                    <span class="dot-2 me-2"></span>
-                                                    Service 2
-                                                </li>
-                                                <li class="fs text-start">
-                                                    <span class="dot-3 me-2"></span>
-                                                    Service 3
-                                                </li>
-                                            </ul>
+                                        <div class="text-center border-top p-3 d-flex justify-content-between">
+                                            <div class="d-flex flex-column">
+                                                <?php
+                                                $a = new Service();
+                                                $arr = $a->getListServiceTraffic();
+                                                if(count($arr) > 0) {
+                                                    $stt=0;
+                                                    for($i = 0; $i < count($arr); $i++) {
+                                                        $stt++;
+                                                        $obj = $arr[$i];
+                                                        echo "<span class='fs fw-bold text-start text-secondary'>$stt. $obj->serviceName</span>";
+                                                    }
+                                                } else {
+                                                    echo "<span class='m-3 fs-4 fw-bold text-secondary'>0 Service</span>";
+                                                }
+                                                ?>
+                                            </div>
+                                            <i class="fs-3 bi bi-activity text-info"></i>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Box thời tiết -->
+                                <!-- Box Promotion -->
                                 <div class="mt-3 col-md-6 col-xxl-3">
                                     <div class="bg-white shadow card h-100">
                                         <p class="p-2 pt-3 fs-6 fw-bold m-0">Promotion</p>
@@ -488,7 +499,7 @@ if (!empty($_POST["flogout"])) {
                                             </div>
                                             <input type="submit" id="btnBookTour" name="fbtnBookTour" class="btn btn-primary" value="Save" />
                                             <div class="mb-3">
-                                                <span class="text-danger">If you need to fix other fields, please contact admin for support: <a href="mailto:nduydu66@gmail.com">nduydu66@gmail.com</a></span>
+                                                <i class="text-warning bi bi-exclamation-triangle pe-1"></i><span class="text-danger">If you need to fix other fields, please contact admin for support: <a href="mailto:nduydu66@gmail.com">nduydu66@gmail.com</a></span>
                                             </div>
                                         </form>
                                         <?php if (isset($_POST["fbtnBookTour"])) {
@@ -553,7 +564,7 @@ if (!empty($_POST["flogout"])) {
                                                 </div>
                                                 <div class="w-50 ps-2">
                                                     <label class="form-label fw-bold text-secondary">TimeEnd:</label>
-                                                    <input type="date" id="TimeLimit" name="fTimeLimit" class="form-control" placeholder="TimeLimit" />
+                                                    <input type="date" id="TimeEnd" name="fTimeEnd" class="form-control" placeholder="TimeEnd" />
                                                 </div>
                                             </div>
                                             <div class="mb-3">
@@ -644,7 +655,7 @@ if (!empty($_POST["flogout"])) {
                                             $fCategoryTour = $_POST["fCategoryTour"];
                                             $fTourName = $_POST["fTourName"];
                                             $fTimeStart = $_POST["fTimeStart"];
-                                            $fTimeLimit = $_POST["fTimeLimit"];
+                                            $fTimeEnd = $_POST["fTimeEnd"];
                                             $fTourPrice = $_POST["fTourPrice"];
                                             $fTourSale = $_POST["fTourSale"];
                                             $fLocation = $_POST["fLocation"];
@@ -656,7 +667,7 @@ if (!empty($_POST["flogout"])) {
                                             $a->CategoryTourID = $fCategoryTour;
                                             $a->TourName = $fTourName;
                                             $a->TimeStart = $fTimeStart;
-                                            $a->TimeLimit = $fTimeLimit;
+                                            $a->TimeEnd = $fTimeEnd;
                                             $a->TourPrice = $fTourPrice;
                                             $a->TourSale = $fTourSale;
                                             $a->Location = $fLocation;
@@ -724,7 +735,7 @@ if (!empty($_POST["flogout"])) {
                                                     // các trường ẩn lấy vào form edit
                                                     $strTbl .= "<td class='d-none' id='TourID'>$obj->TourID</td>";
                                                     $strTbl .= "<td class='d-none' id='fTimeStart'>$obj->TimeStart</td>";
-                                                    $strTbl .= "<td class='d-none' id='fTimeLimit'>$obj->TimeLimit</td>";
+                                                    $strTbl .= "<td class='d-none' id='fTimeEnd'>$obj->TimeEnd</td>";
                                                     $strTbl .= "<td class='d-none' id='TourPrice'>$obj->TourPrice</td>";
                                                     $strTbl .= "<td class='d-none' id='TourSale'>$obj->TourSale</td>";
                                                     $strTbl .= "<td class='d-none' id='Location'>$obj->Location</td>";
@@ -774,7 +785,7 @@ if (!empty($_POST["flogout"])) {
                                                 </div>
                                                 <div class="w-50 ps-2">
                                                     <label class="form-label fw-bold text-secondary">TimeEnd:</label>
-                                                    <input type="text" id="TimeLimit" name="fTimeLimit" class="form-control" placeholder="TimeLimit" value="2022-11-05"/>
+                                                    <input type="text" id="TimeEnd" name="fTimeEnd" class="form-control" placeholder="TimeEnd" value="2022-11-05"/>
                                                 </div>
                                             </div>
                                             <div class="mb-3">
@@ -804,17 +815,16 @@ if (!empty($_POST["flogout"])) {
                                             </div>
                                             <input type="submit" id="btntour" name="fedittour" class="btn btn-primary" value="Save" />
                                             <div class="mb-3">
-                                                <span class="text-danger">If you need to fix other fields, please contact admin for support: <a href="mailto:nduydu66@gmail.com">nduydu66@gmail.com</a></span>
+                                                <i class="text-warning bi bi-exclamation-triangle pe-1"></i><span class="text-danger">If you need to fix other fields, please contact admin for support: <a href="mailto:nduydu66@gmail.com">nduydu66@gmail.com</a></span>
                                             </div>
                                         </form>
                                         <?php
-                                        require_once '../PhpSetting/Tour.php';
                                         
                                         if (isset($_POST["fedittour"])) {
                                             $fTourID = $_POST["fTourID"];
                                             $fTourName = $_POST["fTourName"];
                                             $fTimeStart = $_POST["fTimeStart"];
-                                            $fTimeLimit = $_POST["fTimeLimit"];
+                                            $fTimeEnd = $_POST["fTimeEnd"];
                                             $fTourPrice = $_POST["fTourPrice"];
                                             $fTourSale = $_POST["fTourSale"];
                                             $fLocation = $_POST["fLocation"];
@@ -824,7 +834,7 @@ if (!empty($_POST["flogout"])) {
                                             $a->TourID = $fTourID;
                                             $a->TourName = $fTourName;
                                             $a->TimeStart = $fTimeStart;
-                                            $a->TimeLimit = $fTimeLimit;
+                                            $a->TimeEnd = $fTimeEnd;
                                             $a->TourPrice = $fTourPrice;
                                             $a->TourSale = $fTourSale;
                                             $a->Location = $fLocation;
@@ -976,7 +986,7 @@ if (!empty($_POST["flogout"])) {
                                 <div class="pb-5">
                                     <div style="overflow-x: auto;">
                                         <div id="tbl-kithi" class="mt-4 pb-5">
-                                            <table class="table table-striped table-hover">
+                                        <table class="table table-striped table-hover">
                                                 <tr>
                                                     <th scope="col">STT</th>
                                                     <th scope="col">ID</th>
@@ -1004,16 +1014,16 @@ if (!empty($_POST["flogout"])) {
 
                                                     $strTbl .= "<tr>";
                                                     $strTbl .= "<th>" . $stt++ . "</th>";
-                                                    $strTbl .= "<td>$obj->mountaineeringID</td>";
-                                                    $strTbl .= "<td>$obj->mountainName</td>";
-                                                    $strTbl .= "<td>$obj->locationX</td>";
-                                                    $strTbl .= "<td>$obj->locationY</td>";
+                                                    $strTbl .= "<td id='mountaineeringID'>$obj->mountaineeringID</td>";
+                                                    $strTbl .= "<td id='mountainName'>$obj->mountainName</td>";
+                                                    $strTbl .= "<td id='locationX'>$obj->locationX</td>";
+                                                    $strTbl .= "<td id='locationY'>$obj->locationY</td>";
                                                     $strTbl .= "<td><img src='$obj->banner' alt='banner' width='200' height='100'></td>";
                                                     $strTbl .= "<td>$obj->type</td>";
                                                     $strTbl .= "<td>$obj->level</td>";
-                                                    $strTbl .= "<td>$obj->sheltering</td>";
-                                                    $strTbl .= "<td>$obj->techniques</td>";
-                                                    $strTbl .= "<td>$obj->description</td>";
+                                                    $strTbl .= "<td id='sheltering'>$obj->sheltering</td>";
+                                                    $strTbl .= "<td id='techniques'>$obj->techniques</td>";
+                                                    $strTbl .= "<td id='description'>$obj->description</td>";
                                                     $strTbl .= "<td>
                                                                         <div class='d-flex'>
                                                                             <form class='m-1' action='' method='POST'>
@@ -1021,19 +1031,95 @@ if (!empty($_POST["flogout"])) {
                                                                                 <input type='hidden' name='fvalDel' value='d'/>
                                                                                 <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
                                                                             </form>
-                                                                            <input type='submit' class='btn btn-primary m-1' name='fedit' value='Edit'>
+                                                                            <input type='submit' class='btn btn-primary m-1' name='feditMountaineering' value='Edit'>
                                                                         </div>    
                                                                     </td>";
                                                     $strTbl .= "</tr>";
                                                 }
 
                                                 echo $strTbl;
+
+                                                //delete => update
+                                                if (isset($_POST["fdelete"])) {
+                                                    $fmountaineeringID = $_POST["fmountaineeringID"];
+                                                    $fvalDel = $_POST["fvalDel"];
+
+                                                    $a = new Mountaineering();
+                                                    $a->flag = $fvalDel;
+                                                    $a->mountaineeringID = $fmountaineeringID;
+                                                    $a->updateListMountaineering();
+                                                }
                                                 ?>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- edit list Mountaineering -->
+                            <div id="editMountaineering" class="d-none">
+                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                    <div style="width: 650px;">
+                                    <div class="text-center pb-3">
+                                            <h2 class="">Edit</h2>
+                                        </div>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+                                            <input type="hidden" name="fmountaineeringID">
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">MountainName:</label>
+                                                <input type="text" id="MountainName" name="fMountainName" class="form-control" placeholder="MountainName" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">LocationX:</label>
+                                                <input type="text" id="LocationX" name="fLocationX" class="form-control" placeholder="LocationX" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">LocationY:</label>
+                                                <input type="text" id="LocationY" name="fLocationY" class="form-control" placeholder="LocationY" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Sheltering:</label>
+                                                <input type="text" id="Sheltering" name="fSheltering" class="form-control" placeholder="Sheltering" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Techniques:</label>
+                                                <input type="text" id="Techniques" name="fTechniques" class="form-control" placeholder="Techniques" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Description:</label>
+                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                            </div>
+                                            <input type="submit" id="btnMountaineering" name="fMountaineeringEdit" class="btn btn-primary" value="Save" />
+                                            <div class="mb-3">
+                                                <i class="text-warning bi bi-exclamation-triangle pe-1"></i><span class="text-danger">If you need to fix other fields, please contact admin for support: <a href="mailto:nduydu66@gmail.com">nduydu66@gmail.com</a></span>
+                                            </div>
+                                        </form>
+                                        <?php
+                                        
+                                        if (isset($_POST["fMountaineeringEdit"])) {
+                                            $fmountaineeringID = $_POST["fmountaineeringID"];
+                                            $fMountainName = $_POST["fMountainName"];
+                                            $fLocationX = $_POST["fLocationX"];
+                                            $fLocationY = $_POST["fLocationY"];
+                                            $fSheltering = $_POST["fSheltering"];
+                                            $fTechniques = $_POST["fTechniques"];
+                                            $fDescription = $_POST["fDescription"];
+
+                                            $a = new Mountaineering();
+                                            $a->mountaineeringID = $fmountaineeringID;
+                                            $a->mountainName = $fMountainName;
+                                            $a->locationX = $fLocationX;
+                                            $a->locationY = $fLocationY;
+                                            $a->sheltering = $fSheltering;
+                                            $a->techniques = $fTechniques;
+                                            $a->description = $fDescription;
+                                            $a->updateMountaineering();
+                                        }
+                                        ?>
+                                    </div>
+                                </div> 
+                            </div>
+
                         </div>
                     </div>
 
@@ -1181,27 +1267,45 @@ if (!empty($_POST["flogout"])) {
 
                                                     $strTbl .= "<tr>";
                                                     $strTbl .= "<th>" . $stt++ . "</th>";
-                                                    $strTbl .= "<td>$obj->serviceID</td>";
-                                                    $strTbl .= "<td>$obj->serviceName</td>";
+                                                    $strTbl .= "<td id='serviceID'>$obj->serviceID</td>";
+                                                    $strTbl .= "<td id='serviceName'>$obj->serviceName</td>";
                                                     $strTbl .= "<td><img src='$obj->avatarService' alt='banner' width='200' height='100'></td>";
                                                     $strTbl .= "<td>$obj->price USD</td>";
                                                     $strTbl .= "<td>$obj->vAT %</td>";
                                                     $strTbl .= "<td>$obj->sale %</td>";
-                                                    $strTbl .= "<td>$obj->description</td>";
+                                                    $strTbl .= "<td id='description'>$obj->description</td>";
                                                     $strTbl .= "<td>
                                                                         <div class='d-flex justify-content-center'>
                                                                             <form class='m-1' action='' method='POST'>
-                                                                                <input type='hidden' name='fTourID' value='$obj->serviceID'/>
+                                                                                <input type='hidden' name='fserviceID' value='$obj->serviceID'/>
                                                                                 <input type='hidden' name='fvalDel' value='d'/>
                                                                                 <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
                                                                             </form>
-                                                                            <input type='submit' class='btn btn-primary m-1' name='fedit' value='Edit'>
+                                                                            <input type='submit' class='btn btn-primary m-1' name='feditService' value='Edit'>
                                                                         </div>    
                                                                     </td>";
+
+                                                    // trường ẩn để lấy value edit
+                                                    $strTbl .= "<td class='d-none' id='price'>$obj->price</td>";
+                                                    $strTbl .= "<td class='d-none' id='vAT'>$obj->vAT</td>";
+                                                    $strTbl .= "<td class='d-none' id='sale'>$obj->sale</td>";
+
                                                     $strTbl .= "</tr>";
+
                                                 }
 
                                                 echo $strTbl;
+
+                                                //delete => update
+                                                if (isset($_POST["fdelete"])) {
+                                                    $fserviceID = $_POST["fserviceID"];
+                                                    $fvalDel = $_POST["fvalDel"];
+
+                                                    $a = new Service();
+                                                    $a->flag = $fvalDel;
+                                                    $a->serviceID = $fserviceID;
+                                                    $a->updateListService();
+                                                }
                                                 ?>
                                             </table>
                                         </div>
@@ -1209,6 +1313,73 @@ if (!empty($_POST["flogout"])) {
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- edit list service -->
+                            <div id="editService" class="d-none">
+                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                    <div style="width: 650px;">
+                                        <div class="text-center pb-3">
+                                            <h2>Edit</h2>
+                                        </div>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+                                            <input type="hidden" name="fserviceID">
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">ServiceName:</label>
+                                                <input type="text" id="ServiceName" name="fServiceName" class="form-control" placeholder="ServiceName" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Price:</label>
+                                                <div class="input-group">
+                                                    <input type="text" id="Price" name="fPrice" class="form-control" placeholder="Price" />
+                                                    <span class="input-group-text">USD</span>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">TNTT(tax):</label>
+                                                <div class="input-group">
+                                                    <input type="text" id="VAT" name="fVAT" class="form-control" placeholder="VAT" value="10"/>
+                                                    <span class="input-group-text">%</span>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Sale on service:</label>
+                                                <div class="input-group">
+                                                    <input type="text" id="Sale" name="fSale" class="form-control" placeholder="Sale" />
+                                                    <span class="input-group-text">%</span>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Description:</label>
+                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                            </div>
+                                            <input type="submit" id="btnservice" name="fserviceEdit" class="btn btn-primary" value="Save" />
+                                            <div class="mb-3">
+                                                <i class="text-warning bi bi-exclamation-triangle pe-1"></i><span class="text-danger">If you need to fix other fields, please contact admin for support: <a href="mailto:nduydu66@gmail.com">nduydu66@gmail.com</a></span>
+                                            </div>
+                                        </form>
+                                        <?php
+                                        
+                                        if (isset($_POST["fserviceEdit"])) {
+                                            $fserviceID = $_POST["fserviceID"];
+                                            $fServiceName = $_POST["fServiceName"];
+                                            $fPrice = $_POST["fPrice"];
+                                            $fVAT = $_POST["fVAT"];
+                                            $fSale = $_POST["fSale"];
+                                            $fDescription = $_POST["fDescription"];
+
+                                            $a = new Service();
+                                            $a->serviceID = $fserviceID;
+                                            $a->serviceName = $fServiceName;
+                                            $a->price = $fPrice;
+                                            $a->vAT = $fVAT;
+                                            $a->sale = $fSale;
+                                            $a->description = $fDescription;
+                                            $a->updateService();
+                                        }
+                                        ?>
+                                    </div>
+                                </div> 
+                            </div>                    
 
                         </div>
                     </div>
@@ -1235,9 +1406,14 @@ if (!empty($_POST["flogout"])) {
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Category:</label>
                                                 <select class="form-select" name="fCategory" id="CategoryID">
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
+                                                    <?php
+                                                    $a = new Category();
+                                                    $arr = $a->getListCategory();
+                                                    for($i = 0; $i < count($arr); $i++) {
+                                                        $obj = $arr[$i];
+                                                        echo "<option value='$obj->CategoryID'>$obj->CategoryName</option>";
+                                                    }
+                                                    ?>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
@@ -1361,14 +1537,14 @@ if (!empty($_POST["flogout"])) {
 
                                                     $strTbl .= "<tr>";
                                                     $strTbl .= "<th>" . $stt++ . "</th>";
-                                                    $strTbl .= "<td>$obj->newsID</td>";
+                                                    $strTbl .= "<td id='newsID'>$obj->newsID</td>";
                                                     $strTbl .= "<td>$obj->categoryID</td>";
-                                                    $strTbl .= "<td>$obj->title</td>";
-                                                    $strTbl .= "<td>$obj->leadcontent</td>";
+                                                    $strTbl .= "<td id='title'>$obj->title</td>";
+                                                    $strTbl .= "<td id='leadcontent'>$obj->leadcontent</td>";
                                                     $strTbl .= "<td>$obj->content</td>";
                                                     $strTbl .= "<td><img src='$obj->avatarNews' alt='AvatarNews' width='200' height='100'></td>";
-                                                    $strTbl .= "<td>$obj->author</td>";
-                                                    $strTbl .= "<td>$obj->description</td>";
+                                                    $strTbl .= "<td id='author'>$obj->author</td>";
+                                                    $strTbl .= "<td id='description'>$obj->description</td>";
                                                     $strTbl .= "<td>
                                                                         <div class='d-flex'>
                                                                             <form class='m-1' action='' method='POST'>
@@ -1376,13 +1552,24 @@ if (!empty($_POST["flogout"])) {
                                                                                 <input type='hidden' name='fvalDel' value='d'/>
                                                                                 <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
                                                                             </form>
-                                                                            <input type='submit' class='btn btn-primary m-1' name='fedit' value='Edit'>
+                                                                            <input type='submit' class='btn btn-primary m-1' name='feditNews' value='Edit'>
                                                                         </div>    
                                                                     </td>";
                                                     $strTbl .= "</tr>";
                                                 }
 
                                                 echo $strTbl;
+
+                                                //delete => update
+                                                if (isset($_POST["fdelete"])) {
+                                                    $fnewsID = $_POST["fnewsID"];
+                                                    $fvalDel = $_POST["fvalDel"];
+
+                                                    $a = new News();
+                                                    $a->flag = $fvalDel;
+                                                    $a->newsID = $fnewsID;
+                                                    $a->updateListNews();
+                                                }
                                                 ?>
                                             </table>
                                         </div>
@@ -1390,6 +1577,58 @@ if (!empty($_POST["flogout"])) {
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- edit list News -->
+                            <div id="editNews" class="d-none">
+                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                    <div style="width: 650px;">
+                                        <div class="text-center pb-3">
+                                            <h2>Edit</h2>
+                                        </div>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+                                            <input type="hidden" name="fnewsID">
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Title:</label>
+                                                <input type="text" id="Title" name="fTitle" class="form-control" placeholder="Title" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Lead:</label>
+                                                <input type="text" id="Lead" name="fLead" class="form-control" placeholder="Lead" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Author:</label>
+                                                <input type="text" id="Author" name="fAuthor" class="form-control" placeholder="Author" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Description:</label>
+                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                            </div>
+                                            <input type="submit" id="btnnews" name="fnewsEdit" class="btn btn-primary" value="Save" />
+                                            <div class="mb-3">
+                                                <i class="text-warning bi bi-exclamation-triangle pe-1"></i><span class="text-danger">If you need to fix other fields, please contact admin for support: <a href="mailto:nduydu66@gmail.com">nduydu66@gmail.com</a></span>
+                                            </div>
+                                        </form>
+                                        <?php
+                                        
+                                        if (isset($_POST["fnewsEdit"])) {
+                                            $fnewsID = $_POST["fnewsID"];
+                                            $fTitle = $_POST["fTitle"];
+                                            $fLead = $_POST["fLead"];
+                                            $fAuthor = $_POST["fAuthor"];
+                                            $fDescription = $_POST["fDescription"];
+
+                                            $a = new News();
+                                            $a->newsID = $fnewsID;
+                                            $a->title = $fTitle;
+                                            $a->leadcontent = $fLead;
+                                            $a->author = $fAuthor;
+                                            $a->description = $fDescription;
+                                            $a->updateNews();
+                                        }
+                                        ?>
+                                    </div>
+                                </div> 
+                            </div>      
 
                         </div>
                     </div>
@@ -1458,9 +1697,9 @@ if (!empty($_POST["flogout"])) {
 
                                                     $strTbl .= "<tr>";
                                                     $strTbl .= "<th>" . $stt++ . "</th>";
-                                                    $strTbl .= "<td>$obj->libraryID</td>";
+                                                    $strTbl .= "<td id='libraryID'>$obj->libraryID</td>";
                                                     $strTbl .= "<td id='libraryName'>$obj->libraryName</td>";
-                                                    $strTbl .= "<td>$obj->description</td>";
+                                                    $strTbl .= "<td id='description'>$obj->description</td>";
                                                     $strTbl .= "<td class='text-center'>
                                                                     <div class='nav d-block' id='myTab'>
                                                                         <button class='btn btn-primary' data-bs-target='#add-img' data-bs-toggle='tab' name='additemlibrary' aria-selected='false'>Add image</button>
@@ -1470,17 +1709,28 @@ if (!empty($_POST["flogout"])) {
                                                     $strTbl .= "<td>
                                                                         <div class='d-flex justify-content-center'>
                                                                             <form class='m-1' action='' method='POST'>
-                                                                                <input type='hidden' name='flibraryIDs' value='$obj->libraryID'/>
+                                                                                <input type='hidden' name='flibraryID' value='$obj->libraryID'/>
                                                                                 <input type='hidden' name='fvalDel' value='d'/>
                                                                                 <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
                                                                             </form>
-                                                                            <input type='submit' class='btn btn-primary m-1' name='fedit' value='Edit'>
+                                                                            <input type='submit' class='btn btn-primary m-1' name='feditLibraryID' value='Edit'>
                                                                         </div>    
                                                                     </td>";
                                                     $strTbl .= "</tr>";
                                                 }
 
                                                 echo $strTbl;
+
+                                                //delete => update
+                                                if (isset($_POST["fdelete"])) {
+                                                    $flibraryID = $_POST["flibraryID"];
+                                                    $fvalDel = $_POST["fvalDel"];
+
+                                                    $a = new Library();
+                                                    $a->flag = $fvalDel;
+                                                    $a->libraryID = $flibraryID;
+                                                    $a->updateListLibrary();
+                                                }
                                                 ?>
                                             </table>
                                         </div>
@@ -1668,6 +1918,46 @@ if (!empty($_POST["flogout"])) {
                                 </div>
                             </div>
 
+                            
+                            <!-- edit list library -->
+                            <div id="editlibrary" class="d-none">
+                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                    <div style="width: 650px;">
+                                        <div class="text-center pb-3">
+                                            <h2>Edit</h2>
+                                        </div>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                                            <input type="hidden" name="fLibraryID">
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">LibraryName:</label>
+                                                <input type="text" id="LibraryName" name="fLibraryName" class="form-control" placeholder="LibraryName" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Description:</label>
+                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                            </div>
+                                            <input type="submit" id="btnlibrary" name="flibraryEdit" class="btn btn-primary" value="Save" />
+                                            <div class="mb-3">
+                                                <i class="text-warning bi bi-exclamation-triangle pe-1"></i><span class="text-danger">If you need to fix other fields, please contact admin for support: <a href="mailto:nduydu66@gmail.com">nduydu66@gmail.com</a></span>
+                                            </div>
+                                        </form>
+                                        <?php
+                                        
+                                        if (isset($_POST["flibraryEdit"])) {
+                                            $fLibraryID = $_POST["fLibraryID"];
+                                            $fLibraryName = $_POST["fLibraryName"];
+                                            $fDescription = $_POST["fDescription"];
+
+                                            $a = new Library();
+                                            $a->libraryID = $fLibraryID;
+                                            $a->libraryName = $fLibraryName;
+                                            $a->description = $fDescription;
+                                            $a->updateLibrary();
+                                        }
+                                        ?>
+                                    </div>
+                                </div> 
+                            </div>  
                         </div>
                     </div>
 
@@ -1684,7 +1974,7 @@ if (!empty($_POST["flogout"])) {
                                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Type:</label>
-                                                <select class="form-select" id="ValueType" name="fType" onchange="showinfo(this.value);">
+                                                <select class="form-select" id="ValueType" name="fType" onchange="showByType(this.value);">
                                                     <option value="0" selected>Select</option>
                                                     <option value="1">Image</option>
                                                     <option value="2">Video</option>
@@ -1831,11 +2121,11 @@ if (!empty($_POST["flogout"])) {
 
                                                     $strTbl .= "<tr>";
                                                     $strTbl .= "<th>" . $stt++ . "</th>";
-                                                    $strTbl .= "<td>$obj->itemLibraryID</td>";
+                                                    $strTbl .= "<td id='itemLibraryID'>$obj->itemLibraryID</td>";
                                                     $strTbl .= "<td>$obj->type</td>";
                                                     $strTbl .= "<td>$obj->LibraryName</td>";
-                                                    $strTbl .= "<td>$obj->title</td>";
-                                                    $strTbl .= "<td>$obj->alt</td>";
+                                                    $strTbl .= "<td id='title'>$obj->title</td>";
+                                                    $strTbl .= "<td id='alt'>$obj->alt</td>";
                                                     if($obj->type == "Image") {
                                                         $strTbl .= "<td>
                                                                     <img src='$obj->file' alt='$obj->alt' width='200' height='100'>
@@ -1845,21 +2135,32 @@ if (!empty($_POST["flogout"])) {
                                                                         <iframe style='padding-top: 5%;' src='https://www.youtube.com/embed/$obj->file' title='$obj->title'></iframe>
                                                                     </td>";
                                                     }
-                                                    $strTbl .= "<td>$obj->description</td>";
+                                                    $strTbl .= "<td id='description'>$obj->description</td>";
                                                     $strTbl .= "<td>
                                                                         <div class='d-flex'>
                                                                             <form class='m-1' action='' method='POST'>
-                                                                                <input type='hidden' name='fTourID' value='$obj->itemLibraryID'/>
+                                                                                <input type='hidden' name='fitemLibraryID' value='$obj->itemLibraryID'/>
                                                                                 <input type='hidden' name='fvalDel' value='d'/>
                                                                                 <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
                                                                             </form>
-                                                                            <input type='submit' class='btn btn-primary m-1' name='fedit' value='Edit'>
+                                                                            <input type='submit' class='btn btn-primary m-1' name='feditItemlibrary' value='Edit'>
                                                                         </div>    
                                                                     </td>";
                                                     $strTbl .= "</tr>";
                                                 }
-
+ 
                                                 echo $strTbl;
+
+                                                //delete => update
+                                                if (isset($_POST["fdelete"])) {
+                                                    $fitemLibraryID = $_POST["fitemLibraryID"];
+                                                    $fvalDel = $_POST["fvalDel"];
+
+                                                    $a = new Itemlibrary();
+                                                    $a->flag = $fvalDel;
+                                                    $a->itemLibraryID = $fitemLibraryID;
+                                                    $a->updateListItemlibrary();
+                                                }
                                                 ?>
                                             </table>
                                         </div>
@@ -1867,6 +2168,67 @@ if (!empty($_POST["flogout"])) {
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- edit list Itemlibrary -->
+                            <div id="editItemlibrary" class="d-none">
+                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                    <div style="width: 650px;">
+                                        <div class="text-center pb-3">
+                                            <h2>Edit</h2>
+                                        </div>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+                                            <input type="hidden" name="fItemlibraryID">
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Title:</label>
+                                                <input type="text" id="Title" name="fTitle" class="form-control" placeholder="Title" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Description:</label>
+                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                            </div>
+                                            <!-- chờ làm -->
+                                            <?php
+                                            echo "<div class='mb-3'>
+                                                    <label class='form-label fw-bold text-secondary'>Alt:</label>
+                                                    <input type='text' id='Alt' name='fAlt' class='form-control' placeholder='Alt' />
+                                                </div>
+                                                <input type='submit' name='fitemimgEdit' class='btn btn-primary' value='Save' />";
+                                            echo "<div class='mb-3'>
+                                                    <label class='form-label fw-bold text-secondary'>Id youtube:</label>
+                                                    <input type='text' id='Alt' name='fFile' class='form-control' placeholder='id video youtube' />
+                                                    Demo: <span class='text-primary'>https://www.youtube.com/watch?v=<span class='text-danger'>sGxw7ipTrq8 </span></span><= id color red
+                                                </div>
+                                                <input type='submit' name='fitemvideoEdit' class='btn btn-primary' value='Save' />";
+                                            ?>
+                                        </form>
+                                        <?php
+                                        // edit img
+                                        if (isset($_POST["fitemimgEdit"])) {
+                                            $fItemlibraryID = $_POST["fItemlibraryID"];
+                                            $fTitle = $_POST["fTitle"];
+                                            $fDescription = $_POST["fDescription"];
+                                            $fAlt = $_POST["fAlt"];
+
+                                            $a = new Itemlibrary();
+                                            $a->itemLibraryID = $fItemlibraryID;
+                                            $a->title = $fTitle;
+                                            $a->description = $fDescription;
+                                            $a->alt = $fAlt;
+                                            $a->updateImageItemlibrary();
+                                        }
+
+                                        // edit video
+                                        if (isset($_POST["fitemvideoEdit"])) {
+                                            $fLibraryID = $_POST["fLibraryID"];
+
+                                            $a = new Itemlibrary();
+                                            $a->libraryID = $fLibraryID;
+                                            $a->updateLibrary();
+                                        }
+                                        ?>
+                                    </div>
+                                </div> 
+                            </div>  
 
                         </div>
                     </div>
@@ -1889,9 +2251,14 @@ if (!empty($_POST["flogout"])) {
                                             <div class="mb-3 w-50">
                                                 <label class="form-label fw-bold text-secondary">ParentID:</label>
                                                 <select class="form-select" id="ParentID" name="fParentID">
-                                                    <option value="1">tên của category</option>
-                                                    <option value="2">tên của category</option>
-                                                    <option value="3">tên của category</option>
+                                                    <?php
+                                                    $a = new Category();
+                                                    $arr = $a->getListCategory();
+                                                    for($i = 0; $i < count($arr); $i++) {
+                                                        $obj = $arr[$i];
+                                                        echo "<option value='$obj->CategoryID'>$obj->CategoryName</option>";
+                                                    }
+                                                    ?>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
@@ -1945,24 +2312,35 @@ if (!empty($_POST["flogout"])) {
 
                                                     $strTbl .= "<tr>";
                                                     $strTbl .= "<th>" . $stt++ . "</th>";
-                                                    $strTbl .= "<td>$obj->CategoryID</td>";
-                                                    $strTbl .= "<td>$obj->CategoryName</td>";
+                                                    $strTbl .= "<td id='CategoryID'>$obj->CategoryID</td>";
+                                                    $strTbl .= "<td id='CategoryName'>$obj->CategoryName</td>";
                                                     $strTbl .= "<td>$obj->ParentID</td>";
-                                                    $strTbl .= "<td>$obj->Description</td>";
+                                                    $strTbl .= "<td id='Description'>$obj->Description</td>";
                                                     $strTbl .= "<td>
                                                                         <div class='d-flex justify-content-center'>
                                                                             <form class='m-1' action='' method='POST'>
-                                                                                <input type='hidden' name='fTourID' value='$obj->CategoryID'/>
+                                                                                <input type='hidden' name='fCategoryID' value='$obj->CategoryID'/>
                                                                                 <input type='hidden' name='fvalDel' value='d'/>
                                                                                 <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
                                                                             </form>
-                                                                            <input type='submit' class='btn btn-primary m-1' name='fedit' value='Edit'>
+                                                                            <input type='submit' class='btn btn-primary m-1' name='feditCategory' value='Edit'>
                                                                         </div>    
                                                                     </td>";
                                                     $strTbl .= "</tr>";
                                                 }
 
                                                 echo $strTbl;
+
+                                                //delete => update
+                                                if (isset($_POST["fdelete"])) {
+                                                    $fCategoryID = $_POST["fCategoryID"];
+                                                    $fvalDel = $_POST["fvalDel"];
+
+                                                    $a = new Category();
+                                                    $a->Flag = $fvalDel;
+                                                    $a->CategoryID = $fCategoryID;
+                                                    $a->updateListCategory();
+                                                }
                                                 ?>
                                             </table>
                                         </div>
@@ -1970,6 +2348,46 @@ if (!empty($_POST["flogout"])) {
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- edit list category -->
+                            <div id="editcategory" class="d-none">
+                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                    <div style="width: 650px;">
+                                        <div class="text-center pb-3">
+                                            <h2>Edit</h2>
+                                        </div>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                                            <input type="hidden" name="fCategoryID">
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">CategoryName:</label>
+                                                <input type="text" name="fCategoryName" class="form-control" placeholder="CategoryName" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Description:</label>
+                                                <input type="text" name="fDescription" class="form-control" placeholder="Description" />
+                                            </div>
+                                            <input type="submit" name="fcategoryEdit" class="btn btn-primary" value="Save" />
+                                            <div class="mb-3">
+                                                <i class="text-warning bi bi-exclamation-triangle pe-1"></i><span class="text-danger">If you need to fix other fields, please contact admin for support: <a href="mailto:nduydu66@gmail.com">nduydu66@gmail.com</a></span>
+                                            </div>
+                                        </form>
+                                        <?php
+                                        
+                                        if (isset($_POST["fcategoryEdit"])) {
+                                            $fCategoryID = $_POST["fCategoryID"];
+                                            $fCategoryName = $_POST["fCategoryName"];
+                                            $fDescription = $_POST["fDescription"];
+
+                                            $a = new Category();
+                                            $a->CategoryID = $fCategoryID;
+                                            $a->CategoryName = $fCategoryName;
+                                            $a->Description = $fDescription;
+                                            $a->updateCategory();
+                                        }
+                                        ?>
+                                    </div>
+                                </div> 
+                            </div>  
 
                         </div>
                     </div>
@@ -2048,10 +2466,10 @@ if (!empty($_POST["flogout"])) {
 
                                                     $strTbl .= "<tr>";
                                                     $strTbl .= "<th>" . $stt++ . "</th>";
-                                                    $strTbl .= "<td>$obj->CategoryTourID</td>";
-                                                    $strTbl .= "<td>$obj->CategoryTourName</td>";
+                                                    $strTbl .= "<td id='CategoryTourID'>$obj->CategoryTourID</td>";
+                                                    $strTbl .= "<td id='CategoryTourName'>$obj->CategoryTourName</td>";
                                                     $strTbl .= "<td>$obj->Status</td>";
-                                                    $strTbl .= "<td>$obj->Description</td>";
+                                                    $strTbl .= "<td id='Description'>$obj->Description</td>";
                                                     $strTbl .= "<td>
                                                                         <div class='d-flex'>
                                                                             <form class='m-1' action='' method='POST'>
@@ -2059,13 +2477,24 @@ if (!empty($_POST["flogout"])) {
                                                                                 <input type='hidden' name='fvalDel' value='d'/>
                                                                                 <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
                                                                             </form>
-                                                                            <input type='submit' class='btn btn-primary m-1' name='fedit' value='Edit'>
+                                                                            <input type='submit' class='btn btn-primary m-1' name='feditCategorytour' value='Edit'>
                                                                         </div>    
                                                                     </td>";
                                                     $strTbl .= "</tr>";
                                                 }
 
                                                 echo $strTbl;
+
+                                                //delete => update
+                                                if (isset($_POST["fdelete"])) {
+                                                    $fCategoryTourID = $_POST["fCategoryTourID"];
+                                                    $fvalDel = $_POST["fvalDel"];
+
+                                                    $a = new CategoryTour();
+                                                    $a->Flag = $fvalDel;
+                                                    $a->CategoryTourID = $fCategoryTourID;
+                                                    $a->updateListCategoryTour();
+                                                }
                                                 ?>
                                             </table>
                                         </div>
@@ -2073,6 +2502,47 @@ if (!empty($_POST["flogout"])) {
                                     </div>
                                 </div>
                             </div>
+
+
+                            <!-- edit list categorytour -->
+                            <div id="editcategorytour" class="d-none">
+                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                    <div style="width: 650px;">
+                                        <div class="text-center pb-3">
+                                            <h2>Edit</h2>
+                                        </div>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                                            <input type="hidden" name="fCategorytourID">
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">CategoryTourName:</label>
+                                                <input type="text" id="CategoryTourName" name="fCategoryTourName" class="form-control" placeholder="CategoryTourName" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Description:</label>
+                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                            </div>
+                                            <input type="submit" id="btncategorytour" name="fcategorytourEdit" class="btn btn-primary" value="Save" />
+                                            <div class="mb-3">
+                                                <i class="text-warning bi bi-exclamation-triangle pe-1"></i><span class="text-danger">If you need to fix other fields, please contact admin for support: <a href="mailto:nduydu66@gmail.com">nduydu66@gmail.com</a></span>
+                                            </div>
+                                        </form>
+                                        <?php
+                                        
+                                        if (isset($_POST["fcategorytourEdit"])) {
+                                            $fCategorytourID = $_POST["fCategorytourID"];
+                                            $fCategoryTourName = $_POST["fCategoryTourName"];
+                                            $fDescription = $_POST["fDescription"];
+
+                                            $a = new CategoryTour();
+                                            $a->CategoryTourID = $fCategorytourID;
+                                            $a->CategoryTourName = $fCategoryTourName;
+                                            $a->Description = $fDescription;
+                                            $a->updateCategorytour();
+                                        }
+                                        ?>
+                                    </div>
+                                </div> 
+                            </div>  
 
                         </div>
                     </div>
@@ -2100,7 +2570,6 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">Telephone</th>
                                                     <th scope="col">Message</th>
                                                     <th scope="col">Description</th>
-                                                    <th class="text-center" scope="col">Action</th>
                                                 </tr>
                                                 <?php
                                                 $a = new Contact();
@@ -2122,17 +2591,6 @@ if (!empty($_POST["flogout"])) {
                                                     $strTbl .= "<td>$obj->telephone</td>";
                                                     $strTbl .= "<td>$obj->message</td>";
                                                     $strTbl .= "<td>$obj->description</td>";
-                                                    $strTbl .= "<td>
-                                                                        <div class='d-flex justify-content-center'>
-                                                                            <form class='m-1' action='' method='POST'>
-                                                                                <input type='hidden' name='fTourID' value='$obj->contactID'/>
-                                                                                <input type='hidden' name='fvalDel' value='d'/>
-                                                                                <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
-                                                                            </form>
-                                                                            <input type='submit' class='btn btn-primary m-1' name='fedit' value='Edit'>
-                                                                        </div>    
-                                                                    </td>";
-                                                    $strTbl .= "</tr>";
                                                 }
 
                                                 echo $strTbl;
@@ -2241,15 +2699,34 @@ if (!empty($_POST["flogout"])) {
 
                                                     $strTbl .= "<tr>";
                                                     $strTbl .= "<th>" . $stt++ . "</th>";
-                                                    $strTbl .= "<td>$obj->locationAndServiceID</td>";
+                                                    $strTbl .= "<td id='locationAndServiceID'>$obj->locationAndServiceID</td>";
                                                     $strTbl .= "<td>$obj->mountaineeringID</td>";
                                                     $strTbl .= "<td>$obj->serviceID</td>";
-                                                    $strTbl .= "<td>$obj->description</td>";
-                                                    $strTbl .= "<td>...</td>";
+                                                    $strTbl .= "<td id='description'>$obj->description</td>";
+                                                    $strTbl .= "<td>
+                                                                    <div class='d-flex'>
+                                                                        <form class='m-1' action='' method='POST'>
+                                                                            <input type='hidden' name='flocationAndServiceID' value='$obj->locationAndServiceID'/>
+                                                                            <input type='hidden' name='fvalDel' value='d'/>
+                                                                            <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                        </form>
+                                                                        <input type='submit' class='btn btn-primary m-1' name='feditlocationandservice' value='Edit'>
+                                                                    </div>    
+                                                                </td>";
                                                     $strTbl .= "</tr>";
                                                 }
 
                                                 echo $strTbl;
+                                                //delete => update
+                                                if (isset($_POST["fdelete"])) {
+                                                    $flocationAndServiceID = $_POST["flocationAndServiceID"];
+                                                    $fvalDel = $_POST["fvalDel"];
+
+                                                    $a = new Locationandservice();
+                                                    $a->flag = $fvalDel;
+                                                    $a->locationAndServiceID = $flocationAndServiceID;
+                                                    $a->updateListLocationandservice();
+                                                }
                                                 ?>
                                             </table>
                                         </div>
@@ -2257,6 +2734,40 @@ if (!empty($_POST["flogout"])) {
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- edit list locationandservice -->
+                            <div id="editlocationandservice" class="d-none">
+                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                    <div style="width: 650px;">
+                                        <div class="text-center pb-3">
+                                            <h2>Edit</h2>
+                                        </div>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                                            <input type="hidden" name="flocationandserviceID">
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Description:</label>
+                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                            </div>
+                                            <input type="submit" id="btnlocationandservice" name="flocationandserviceEdit" class="btn btn-primary" value="Save" />
+                                            <div class="mb-3">
+                                                <i class="text-warning bi bi-exclamation-triangle pe-1"></i><span class="text-danger">If you need to fix other fields, please contact admin for support: <a href="mailto:nduydu66@gmail.com">nduydu66@gmail.com</a></span>
+                                            </div>
+                                        </form>
+                                        <?php
+                                        
+                                        if (isset($_POST["flocationandserviceEdit"])) {
+                                            $flocationandserviceID = $_POST["flocationandserviceID"];
+                                            $fDescription = $_POST["fDescription"];
+
+                                            $a = new Locationandservice();
+                                            $a->locationAndServiceID = $flocationandserviceID;
+                                            $a->description = $fDescription;
+                                            $a->updateLocationandservice();
+                                        }
+                                        ?>
+                                    </div>
+                                </div> 
+                            </div>  
 
                         </div>
                     </div>
@@ -2402,7 +2913,7 @@ if (!empty($_POST["flogout"])) {
             CKEDITOR.replace( 'editor1' );
 
             // check select itemlibraryitem
-            function showinfo(str) {
+            function showByType(str) {
                 if (str == "0") {
                     document.querySelector("#hintitemlibraryitem").innerHTML = "";
                     return;
@@ -2428,6 +2939,28 @@ if (!empty($_POST["flogout"])) {
 
             }
 
+            // check select itemlirary edit
+            function showByTypeEdit(str) {
+                if (str == "0") {
+                    document.querySelector("#hintitemlibraryitem").innerHTML = "";
+                    return;
+                } else if (str == 1) {
+                    document.querySelector("#hintitemlibraryitem").innerHTML = `<div class="mb-3">
+                                                                                    <label class="form-label fw-bold text-secondary">Alt:</label>
+                                                                                    <input type="text" id="Alt" name="fAlt" class="form-control" placeholder="Alt" />
+                                                                                </div>
+                                                                                <input type="submit" name="fitemimgEdit" class="btn btn-primary" value="Save" />`;
+                    return;
+                } else {
+                    document.querySelector("#hintitemlibraryitem").innerHTML = `<div class="mb-3">
+                                                                                    <label class="form-label fw-bold text-secondary">Id youtube:</label>
+                                                                                    <input type="text" id="Alt" name="fFile" class="form-control" placeholder="id video youtube" />
+                                                                                    Demo: <span class="text-primary">https://www.youtube.com/watch?v=<span class="text-danger">sGxw7ipTrq8 </span></span><= id color red
+                                                                                </div>
+                                                                                <input type="submit" name="fitemvideoEdit" class="btn btn-primary" value="Save" />`;
+                }
+
+            }
 
             // show data tour theo id
             function ShowTourById(str)

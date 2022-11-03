@@ -124,7 +124,8 @@ class Itemlibrary {
 				END
 				AS `Type`
 				FROM `itemlibrary` `I`
-				INNER JOIN `library` `L` ON `I`.LibraryID = `L`.LibraryID;";
+				INNER JOIN `library` `L` ON `I`.LibraryID = `L`.LibraryID
+				WHERE `I`.Flag IS NULL;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
@@ -153,7 +154,36 @@ class Itemlibrary {
         return $list;
     }
 
-	public function updateItemlibrary() {
+	public function getTotalItemlibrary() {
+        // chuỗi kết nối đến DB
+        $options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+        
+        // câu lệnh sql
+        $sql = "SELECT COUNT(ItemLibraryID) AS TotalItemLibrary FROM `itemlibrary`;";
+        
+        // chuẩn bị câu lệnh SQL
+        $stmt = $conn->prepare($sql);
+        
+        // thực hiện
+        $stmt->execute();
+        
+        $list = Array();
+        while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
+            $s = new Itemlibrary();
+            $s->TotalItemLibrary = $row["TotalItemLibrary"];
+            
+            array_push($list, $s);
+        }
+        
+        // đóng kết nối
+        $conn = NULL;
+        
+        return $list;
+    }
+
+	public function updateImageItemlibrary() {
 		// Connect to database.
 		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
@@ -162,9 +192,8 @@ class Itemlibrary {
 		// Update query.
 		$sql = "UPDATE	`itemlibrary`
 				SET		`Description` = :description,
-						`Flag` = :flag,
-						`ItemID` = :itemID,
-						`LibraryID` = :libraryID
+						`Title` = :title,
+						`Alt` = :alt
 				WHERE	`ItemLibraryID` = :itemLibraryID;";
 
 		// Prepare statement.
@@ -172,11 +201,11 @@ class Itemlibrary {
 
 		// Execute the statement.
 		$stmt->execute(array(
-			":description" => $this->description,
-			":flag" => $this->flag,
-			":itemID" => $this->itemID,
 			":itemLibraryID" => $this->itemLibraryID,
-			":libraryID" => $this->libraryID));
+			":description" => $this->description,
+			":title" => $this->title,
+			":alt" => $this->alt
+		));
 
 		// Close the database connection.
 		$conn = NULL;
@@ -311,6 +340,29 @@ class Itemlibrary {
 		$conn = NULL;
 
 		return $list;
+	}
+
+	// function delete
+	public function updateListItemlibrary() {
+		// Connect to database.
+		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+
+		// Update query.
+		$sql = "UPDATE `itemlibrary` SET `Flag` = :flag WHERE `ItemLibraryID` = :itemLibraryID;";
+
+		// Prepare statement.
+		$stmt = $conn->prepare($sql);
+
+		// Execute the statement.
+		$stmt->execute(array(
+			":itemLibraryID" => $this->itemLibraryID,
+			":flag" => $this->flag
+		));
+
+		// Close the database connection.
+		$conn = NULL;
 	}
 }
 ?>

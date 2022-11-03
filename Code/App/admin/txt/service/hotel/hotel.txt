@@ -1,0 +1,5 @@
+tên: Hotel
+địa điểm: ba vì
+content: Set in ten acres of peaceful gardens, with a pool, comfortable, airy rooms, and excellent food, it’s the perfect place to recover after a long flight. The 15 guest rooms are situated between 11 individual cottages, taking advantage of the gardens, some have a private patio or terrace to enjoy your morning coffee.
+price: 4000000
+sale:5

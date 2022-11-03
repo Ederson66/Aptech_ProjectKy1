@@ -56,7 +56,7 @@ class Category {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT * FROM `category`;";
+        $sql = "SELECT * FROM `category` WHERE Flag IS NULL;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
@@ -81,6 +81,56 @@ class Category {
         
         return $list;
     }
+
+	// function delete
+	public function updateListCategory() {
+		// Connect to database.
+		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+
+		// Update query.
+		$sql = "UPDATE `category` SET `Flag` = :Flag WHERE `CategoryID` = :CategoryID;";
+
+		// Prepare statement.
+		$stmt = $conn->prepare($sql);
+
+		// Execute the statement.
+		$stmt->execute(array(
+			":CategoryID" => $this->CategoryID,
+			":Flag" => $this->Flag
+		));
+
+		// Close the database connection.
+		$conn = NULL;
+	}
+
+	// function edit
+	public function updateCategory() {
+		// Connect to database.
+		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+
+		// Update query.
+		$sql = "UPDATE	`category`
+				SET		`CategoryName` = :CategoryName,
+						`Description` = :Description
+				WHERE	`CategoryID` = :CategoryID;";
+
+		// Prepare statement.
+		$stmt = $conn->prepare($sql);
+
+		// Execute the statement.
+		$stmt->execute(array(
+			":CategoryID" => $this->CategoryID,
+			":CategoryName" => $this->CategoryName,
+			":Description" => $this->Description
+		));
+
+		// Close the database connection.
+		$conn = NULL;
+	}
 }
 
 ?>

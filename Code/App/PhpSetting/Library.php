@@ -52,7 +52,7 @@ class Library {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT * FROM `library`;";
+        $sql = "SELECT * FROM `library` WHERE Flag IS NULL;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
@@ -86,7 +86,6 @@ class Library {
 		// Update query.
 		$sql = "UPDATE	`library`
 				SET		`Description` = :description,
-						`Flag` = :flag,
 						`LibraryName` = :libraryName
 				WHERE	`LibraryID` = :libraryID;";
 
@@ -96,9 +95,9 @@ class Library {
 		// Execute the statement.
 		$stmt->execute(array(
 			":description" => $this->description,
-			":flag" => $this->flag,
 			":libraryID" => $this->libraryID,
-			":libraryName" => $this->libraryName));
+			":libraryName" => $this->libraryName
+		));
 
 		// Close the database connection.
 		$conn = NULL;
@@ -229,6 +228,29 @@ class Library {
 		$conn = NULL;
 
 		return $list;
+	}
+
+	// function delete
+	public function updateListLibrary() {
+		// Connect to database.
+		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+
+		// Update query.
+		$sql = "UPDATE `library` SET `Flag` = :Flag WHERE `LibraryID` = :LibraryID;";
+
+		// Prepare statement.
+		$stmt = $conn->prepare($sql);
+
+		// Execute the statement.
+		$stmt->execute(array(
+			":LibraryID" => $this->libraryID,
+			":Flag" => $this->flag
+		));
+
+		// Close the database connection.
+		$conn = NULL;
 	}
 }
 ?>

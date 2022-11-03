@@ -7,7 +7,7 @@ class Tour {
 	public $CategoryTourID;
 	public $TourName;
 	public $TimeStart;
-	public $TimeLimit;
+	public $TimeEnd;
 	public $TourPrice;
 	public $TourSale;
 	public $Location;
@@ -28,7 +28,7 @@ class Tour {
 					`CategoryTourID`, 
 					`TourName`, 
 					`TimeStart`, 
-					`TimeLimit`, 
+					`TimeEnd`, 
 					`TourPrice`, 
 					`TourSale`, 
 					`Location`, 
@@ -41,7 +41,7 @@ class Tour {
 					:CategoryTourID, 
 					:TourName, 
 					:TimeStart, 
-					:TimeLimit, 
+					:TimeEnd, 
 					:TourPrice, 
 					:TourSale, 
 					:Location, 
@@ -58,7 +58,7 @@ class Tour {
 			":CategoryTourID" => $this->CategoryTourID,
 			":TourName" => $this->TourName,
 			":TimeStart" => $this->TimeStart,
-			":TimeLimit" => $this->TimeLimit,
+			":TimeEnd" => $this->TimeEnd,
 			":TourPrice" => $this->TourPrice,
 			":TourSale" => $this->TourSale,
 			":Location" => $this->Location,
@@ -84,7 +84,7 @@ class Tour {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT TourID, `T`.CategoryTourID, `C`.CategoryTourName, TourName ,TimeStart , TimeLimit,DATE(TimeLimit) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, `T`.Description, `T`.Flag,
+        $sql = "SELECT TourID, `T`.CategoryTourID, `C`.CategoryTourName, TourName ,TimeStart , TimeEnd,DATE(TimeEnd) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, `T`.Description, `T`.Flag,
 				CASE
 					WHEN `T`.Status = 1 THEN 'Đang hoạt động'
 					WHEN `T`.Status = 2 THEN 'Dừng hoạt động'
@@ -111,7 +111,7 @@ class Tour {
             $s->TourName = $row["TourName"];
             $s->Day = $row["Day"];
 			$s->TimeStart = $row["TimeStart"];
-			$s->TimeLimit = $row["TimeLimit"];
+			$s->TimeEnd = $row["TimeEnd"];
 			$s->TourPrice = $row["TourPrice"];
 			$s->TourSale = $row["TourSale"];
 			$s->Location = $row["Location"];
@@ -137,7 +137,7 @@ class Tour {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT TourID, CategoryTourID, TourName ,TimeStart , DATE(TimeLimit) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, Description, Flag,
+        $sql = "SELECT TourID, CategoryTourID, TourName ,TimeStart , DATE(TimeEnd) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, Description, Flag,
 				CASE
 					WHEN Status = 1 THEN 'Đang hoạt động'
 					WHEN Status = 2 THEN 'Dừng hoạt động'
@@ -161,7 +161,7 @@ class Tour {
             $s->TourName = $row["TourName"];
             $s->Day = $row["Day"];
 			// $s->TimeStart = $row["TimeStart"];
-			// $s->TimeLimit = $row["TimeLimit"];
+			// $s->TimeEnd = $row["TimeEnd"];
 			$s->TourPrice = $row["TourPrice"];
 			$s->TourSale = $row["TourSale"];
 			$s->Location = $row["Location"];
@@ -186,7 +186,7 @@ class Tour {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT TourID, `T`.CategoryTourID, `C`.CategoryTourName, TourName ,TimeStart , DATE(TimeLimit) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, `T`.Description, `T`.Flag,
+        $sql = "SELECT TourID, `T`.CategoryTourID, `C`.CategoryTourName, TourName ,TimeStart , DATE(TimeEnd) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, `T`.Description, `T`.Flag,
 				CASE
 					WHEN `T`.Status = 1 THEN 'Đang hoạt động'
 					WHEN `T`.Status = 2 THEN 'Dừng hoạt động'
@@ -233,7 +233,7 @@ class Tour {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT `C`.CategoryTourName, TourID, `T`.CategoryTourID, TourName ,TimeStart , DATE(TimeLimit) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, `T`.Description, `T`.Flag,
+        $sql = "SELECT `C`.CategoryTourName, TourID, `T`.CategoryTourID, TourName ,TimeStart , DATE(TimeEnd) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, `T`.Description, `T`.Flag,
 				CASE
 					WHEN `T`.Status = 1 THEN 'Đang hoạt động'
 					WHEN `T`.Status = 2 THEN 'Dừng hoạt động'
@@ -308,7 +308,7 @@ class Tour {
 		$sql = "UPDATE	`tour`
 				SET		`Description` = :Description,
 						`Location` = :Location,
-						`TimeLimit` = :TimeLimit,
+						`TimeEnd` = :TimeEnd,
 						`TimeStart` = :TimeStart,
 						`TourName` = :TourName,
 						`TourPrice` = :TourPrice,
@@ -324,7 +324,7 @@ class Tour {
 			":TourID" => $this->TourID,
 			":TourName" => $this->TourName,
 			":TimeStart" => $this->TimeStart,
-			":TimeLimit" => $this->TimeLimit,
+			":TimeEnd" => $this->TimeEnd,
 			":TourPrice" => $this->TourPrice,
 			":TourSale" => $this->TourSale,
 			":Location" => $this->Location,

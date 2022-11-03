@@ -71,7 +71,7 @@ class Service {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT * FROM `service`;";
+        $sql = "SELECT * FROM `service` WHERE Flag IS NULL;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
@@ -81,7 +81,7 @@ class Service {
         
         $list = Array();
         while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
-            $s = new Mountaineering();
+            $s = new Service();
             $s->description = $row["Description"];
             $s->flag = $row["Flag"];
 			$s->sale = $row["Sale"];
@@ -100,6 +100,43 @@ class Service {
         return $list;
     }
 
+	public function getListServiceTraffic() {
+        // chuỗi kết nối đến DB
+        $options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+        
+        // câu lệnh sql
+        $sql = "SELECT * FROM `service` WHERE Flag IS NULL ORDER BY Price DESC LIMIT 3;";
+        
+        // chuẩn bị câu lệnh SQL
+        $stmt = $conn->prepare($sql);
+        
+        // thực hiện
+        $stmt->execute();
+        
+        $list = Array();
+        while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
+            $s = new Service();
+            $s->description = $row["Description"];
+            $s->flag = $row["Flag"];
+			$s->sale = $row["Sale"];
+			$s->price = $row["Price"];
+			$s->serviceID = $row["ServiceID"];
+			$s->serviceName = $row["ServiceName"];
+			$s->avatarService = $row["AvatarService"];
+			$s->vAT = $row["VAT"];
+            
+            array_push($list, $s);
+        }
+        
+        // đóng kết nối
+        $conn = NULL;
+        
+        return $list;
+    }
+
+	// function edit
 	public function updateService() {
 		// Connect to database.
 		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
@@ -109,8 +146,8 @@ class Service {
 		// Update query.
 		$sql = "UPDATE	`service`
 				SET		`Description` = :description,
-						`Flag` = :flag,
 						`Price` = :price,
+						`Sale` = :sale,
 						`ServiceName` = :serviceName,
 						`VAT` = :vAT
 				WHERE	`ServiceID` = :serviceID;";
@@ -121,11 +158,12 @@ class Service {
 		// Execute the statement.
 		$stmt->execute(array(
 			":description" => $this->description,
-			":flag" => $this->flag,
 			":price" => $this->price,
-			":serviceID" => $this->serviceID,
+			":sale" => $this->sale,
 			":serviceName" => $this->serviceName,
-			":vAT" => $this->vAT));
+			":vAT" => $this->vAT,
+			":serviceID" => $this->serviceID
+		));
 
 		// Close the database connection.
 		$conn = NULL;
@@ -264,6 +302,29 @@ class Service {
 		$conn = NULL;
 
 		return $list;
+	}
+
+	// function delete
+	public function updateListService() {
+		// Connect to database.
+		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+
+		// Update query.
+		$sql = "UPDATE `service` SET `Flag` = :Flag WHERE `ServiceID` = :ServiceID;";
+
+		// Prepare statement.
+		$stmt = $conn->prepare($sql);
+
+		// Execute the statement.
+		$stmt->execute(array(
+			":ServiceID" => $this->serviceID,
+			":Flag" => $this->flag
+		));
+
+		// Close the database connection.
+		$conn = NULL;
 	}
 }
 ?>

@@ -78,7 +78,7 @@ class News {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT * FROM `news`;";
+        $sql = "SELECT * FROM `news` WHERE Flag IS NULL;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
@@ -107,5 +107,58 @@ class News {
         
         return $list;
     }
+
+	// function delete
+	public function updateListNews() {
+		// Connect to database.
+		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+
+		// Update query.
+		$sql = "UPDATE `news` SET `Flag` = :Flag WHERE `NewsID` = :NewsID;";
+
+		// Prepare statement.
+		$stmt = $conn->prepare($sql);
+
+		// Execute the statement.
+		$stmt->execute(array(
+			":NewsID" => $this->newsID,
+			":Flag" => $this->flag
+		));
+
+		// Close the database connection.
+		$conn = NULL;
+	}
+
+	// function edit
+	public function updateNews() {
+		// Connect to database.
+		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+
+		// Update query.
+		$sql = "UPDATE	`news`
+				SET		`Author` = :author,
+						`Description` = :description,
+						`LeadContent` = :leadcontent,
+						`Title` = :title
+				WHERE	`NewsID` = :newsID;";
+
+		// Prepare statement.
+		$stmt = $conn->prepare($sql);
+
+		// Execute the statement.
+		$stmt->execute(array(
+			":author" => $this->author,
+			":description" => $this->description,
+			":leadcontent" => $this->leadcontent,
+			":newsID" => $this->newsID,
+			":title" => $this->title));
+
+		// Close the database connection.
+		$conn = NULL;
+	}
 }
 ?>

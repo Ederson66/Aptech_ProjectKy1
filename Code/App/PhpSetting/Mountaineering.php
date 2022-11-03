@@ -94,7 +94,8 @@ class Mountaineering {
 					ELSE 'Erorr'
 				END
 				AS `Level`
-				FROM `mountaineering`;";
+				FROM `mountaineering`
+				WHERE Flag IS NULL;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
@@ -125,6 +126,7 @@ class Mountaineering {
         return $list;
     }
 
+	// chức năng edit
 	public function updateMountaineering() {
 		// Connect to database.
 		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
@@ -133,16 +135,12 @@ class Mountaineering {
 
 		// Update query.
 		$sql = "UPDATE	`mountaineering`
-				SET		`Banner` = :banner,
-						`Description` = :description,
-						`Flag` = :flag,
-						`Level` = :level,
-						`LocationX` = :locationX,
-						`LocationY` = :locationY,
-						`MountainName` = :mountainName,
-						`Sheltering` = :sheltering,
-						`Techniques` = :techniques,
-						`Type` = :type
+				SET	`Description` = :description,
+					`LocationX` = :locationX,
+					`LocationY` = :locationY,
+					`MountainName` = :mountainName,
+					`Sheltering` = :sheltering,
+					`Techniques` = :techniques
 				WHERE	`MountaineeringID` = :mountaineeringID;";
 
 		// Prepare statement.
@@ -150,17 +148,14 @@ class Mountaineering {
 
 		// Execute the statement.
 		$stmt->execute(array(
-			":banner" => $this->banner,
 			":description" => $this->description,
-			":flag" => $this->flag,
-			":level" => $this->level,
 			":locationX" => $this->locationX,
 			":locationY" => $this->locationY,
 			":mountaineeringID" => $this->mountaineeringID,
 			":mountainName" => $this->mountainName,
 			":sheltering" => $this->sheltering,
-			":techniques" => $this->techniques,
-			":type" => $this->type));
+			":techniques" => $this->techniques
+		));
 
 		// Close the database connection.
 		$conn = NULL;
@@ -319,6 +314,29 @@ class Mountaineering {
 		$conn = NULL;
 
 		return $list;
+	}
+
+	// function delete
+	public function updateListMountaineering() {
+		// Connect to database.
+		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+
+		// Update query.
+		$sql = "UPDATE `mountaineering` SET `Flag` = :flag WHERE `MountaineeringID` = :mountaineeringID;";
+
+		// Prepare statement.
+		$stmt = $conn->prepare($sql);
+
+		// Execute the statement.
+		$stmt->execute(array(
+			":mountaineeringID" => $this->mountaineeringID,
+			":flag" => $this->flag
+		));
+
+		// Close the database connection.
+		$conn = NULL;
 	}
 }
 ?>

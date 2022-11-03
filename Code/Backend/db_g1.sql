@@ -180,7 +180,7 @@ CREATE TABLE `tour` (
 	`CategoryTourID` INT(10) NOT NULL,
 	`TourName` VARCHAR(1000) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
 	`TimeStart` DATETIME NOT NULL,
-	`TimeLimit` VARCHAR(100) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`TimeEnd` VARCHAR(100) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
 	`TourPrice` DECIMAL(10,0) NOT NULL,
 	`TourSale` DECIMAL(10,0) NULL DEFAULT NULL,
 	`Location` VARCHAR(1000) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
