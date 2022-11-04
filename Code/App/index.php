@@ -83,7 +83,7 @@ require_once './PhpSetting/CategoryTour.php';
                                 <a class="nav-link text-dark fw-bold hv-cl" href="index.php">Home</a>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="service.php">Service</a>
+                                <a class="nav-link text-dark fw-bold hv-cl" href="./users/service.php">Service</a>
                                 <ul class="sub rounded p-0">
                                     <li>
                                         <a class="nav-link text-dark text-center hv-bg" href="#">Service 1</a>
@@ -153,12 +153,12 @@ require_once './PhpSetting/CategoryTour.php';
                             $checkin = IsAuthen();
                             if ($checkin != 1) {
                                 echo '<li class="nav-item ps-3 pe-3 mt-2 mb-2">
-                                        <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="login.php">
+                                        <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="./users/login.php">
                                             Login
                                         </a>
                                     </li>
                                     <li class="nav-item ps-3 pe-3 mt-2 mb-2">
-                                        <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-primary rounded-pill" href="register.php">
+                                        <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-primary rounded-pill" href="./users/register.php">
                                             Register
                                         </a>
                                     </li>';

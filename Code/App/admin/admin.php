@@ -296,7 +296,7 @@ if (!empty($_POST["flogout"])) {
                                                 echo '<span class="m-3 fs-4 fw-bold text-secondary">' . $obj->totaluserbooktour . " " . 'User</span>';
                                             }
                                             ?>
-                                            <i class="fs-3 bi bi-reception-4 text-success"></i>
+                                            <i class="fs-3 bi bi-person text-success"></i>
                                         </div>
                                     </div>
                                 </div>
