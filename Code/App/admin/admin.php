@@ -96,7 +96,7 @@ if (!empty($_POST["flogout"])) {
                 <nav class="nav-sidebar" id="style-11">
                     <div class="">
                         <a href="#" class="nav_logo"> <i class="text-white bi bi-stack"></i> <span class="nav_logo-name">Manager</span> </a>
-                        <ul class="nav_list nav" id="myTab" role="tablist">
+                        <ul class="nav_list nav">
                             <!-- showdashboard -->
                             <li class="showmenu1">
                                 <a href="#dashboard" class="nav_link active" data-bs-toggle="tab" aria-selected="true"> <i class="bx bx-grid-alt nav_icon"></i> <span class="nav_name">Dashboard</span> </a>
@@ -129,9 +129,9 @@ if (!empty($_POST["flogout"])) {
                             </li>
                             <!-- menu tour -->
                             <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu2">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                    <li><a class="dropdown-item cl-1" href="#">Add Tour</a></li>
-                                    <li><a class="dropdown-item cl-1" href="#">List Tour</a></li>
+                                <ul class="btn-toggle-nav list-unstyled fw-normal small d-block nav">
+                                    <li><a class="dropdown-item cl-1" href="#addtour" data-bs-toggle="tab" aria-selected="false">Add Tour</a></li>
+                                    <li><a class="dropdown-item cl-1" href="#listtour" data-bs-toggle="tab" aria-selected="false">List Tour</a></li>
                                 </ul>
                             </div>
                             <!-- mountaineering -->
@@ -144,9 +144,9 @@ if (!empty($_POST["flogout"])) {
                             </li>
                             <!-- menu mountaineering -->
                             <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu0">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                    <li><a class="dropdown-item cl-1" href="#">Add Mountaineering</a></li>
-                                    <li><a class="dropdown-item cl-1" href="#">List Mountaineering</a></li>
+                                <ul class="btn-toggle-nav list-unstyled fw-normal small d-block nav">
+                                    <li><a class="dropdown-item cl-1" href="#addMountaineering" data-bs-toggle="tab" aria-selected="false">Add Mountaineering</a></li>
+                                    <li><a class="dropdown-item cl-1" href="#listMountaineering" data-bs-toggle="tab" aria-selected="false">List Mountaineering</a></li>
                                 </ul>
                             </div>
                             <!-- service -->
@@ -159,9 +159,9 @@ if (!empty($_POST["flogout"])) {
                             </li>
                             <!-- menu service -->
                             <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu1">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                    <li><a class="dropdown-item cl-1" href="#">Add Service</a></li>
-                                    <li><a class="dropdown-item cl-1" href="#">List Service</a></li>
+                                <ul class="btn-toggle-nav list-unstyled fw-normal small d-block nav">
+                                    <li><a class="dropdown-item cl-1" href="#addservice" data-bs-toggle="tab" aria-selected="false">Add Service</a></li>
+                                    <li><a class="dropdown-item cl-1" href="#listservice" data-bs-toggle="tab" aria-selected="false">List Service</a></li>
                                 </ul>
                             </div>
                             <!-- news -->
@@ -174,9 +174,9 @@ if (!empty($_POST["flogout"])) {
                             </li>
                             <!-- menu news -->
                             <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu4">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                    <li><a class="dropdown-item cl-1" href="#">Add News</a></li>
-                                    <li><a class="dropdown-item cl-1" href="#">List News</a></li>
+                                <ul class="btn-toggle-nav list-unstyled fw-normal small d-block nav">
+                                    <li><a class="dropdown-item cl-1" href="#addNews" data-bs-toggle="tab" aria-selected="false">Add News</a></li>
+                                    <li><a class="dropdown-item cl-1" href="#listNews" data-bs-toggle="tab" aria-selected="false">List News</a></li>
                                 </ul>
                             </div>
                             <!-- library -->
@@ -189,9 +189,9 @@ if (!empty($_POST["flogout"])) {
                             </li>
                             <!-- menu library -->
                             <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu5">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                    <li><a class="dropdown-item cl-1" href="#">Add Library</a></li>
-                                    <li><a class="dropdown-item cl-1" href="#">List Library</a></li>
+                                <ul class="btn-toggle-nav list-unstyled fw-normal small d-block nav">
+                                    <li><a class="dropdown-item cl-1" href="#addlibrary" data-bs-toggle="tab" aria-selected="false">Add Library</a></li>
+                                    <li><a class="dropdown-item cl-1" href="#listlibrary" data-bs-toggle="tab" aria-selected="false">List Library</a></li>
                                 </ul>
                             </div>
                             <!-- itemlibrary -->
@@ -204,9 +204,9 @@ if (!empty($_POST["flogout"])) {
                             </li>
                             <!-- menu itemlibrary -->
                             <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu10">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                    <li><a class="dropdown-item cl-1" href="a.php">Add Itemlibrary</a></li>
-                                    <li><a class="dropdown-item cl-1" href="#">List Itemlibrary</a></li>
+                                <ul class="btn-toggle-nav list-unstyled fw-normal small d-block nav">
+                                    <li><a class="dropdown-item cl-1" href="#addItemlibrary" data-bs-toggle="tab" aria-selected="false">Add Itemlibrary</a></li>
+                                    <li><a class="dropdown-item cl-1" href="#listItemlibrary" data-bs-toggle="tab" aria-selected="false">List Itemlibrary</a></li>
                                 </ul>
                             </div>
                             <!-- category -->
@@ -219,9 +219,9 @@ if (!empty($_POST["flogout"])) {
                             </li>
                             <!-- menu category -->
                             <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu6">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                    <li><a class="dropdown-item cl-1" href="#">Add Category</a></li>
-                                    <li><a class="dropdown-item cl-1" href="#">List Category</a></li>
+                                <ul class="btn-toggle-nav list-unstyled fw-normal small d-block nav">
+                                    <li><a class="dropdown-item cl-1" href="#addCategory" data-bs-toggle="tab" aria-selected="false">Add Category</a></li>
+                                    <li><a class="dropdown-item cl-1" href="#listcategory" data-bs-toggle="tab" aria-selected="false">List Category</a></li>
                                 </ul>
                             </div>
                             <!-- categorytour -->
@@ -234,9 +234,9 @@ if (!empty($_POST["flogout"])) {
                             </li>
                             <!-- menu categorytour -->
                             <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu7">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                    <li><a class="dropdown-item cl-1" href="#">Add Categorytour</a></li>
-                                    <li><a class="dropdown-item cl-1" href="#">List Categorytour</a></li>
+                                <ul class="btn-toggle-nav list-unstyled fw-normal small d-block nav">
+                                    <li><a class="dropdown-item cl-1" href="#addCategorytour" data-bs-toggle="tab" aria-selected="false">Add Categorytour</a></li>
+                                    <li><a class="dropdown-item cl-1" href="#listCategorytour" data-bs-toggle="tab" aria-selected="false">List Categorytour</a></li>
                                 </ul>
                             </div>
                             <!-- contact -->
@@ -263,9 +263,9 @@ if (!empty($_POST["flogout"])) {
                             </li>
                             <!-- menu locationandservice -->
                             <div class="menu w-100 mb-0 pt-0 pb-0 collapse" id="menu11">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                    <li><a class="dropdown-item cl-1" href="#">Add Locationandservice</a></li>
-                                    <li><a class="dropdown-item cl-1" href="#">List Locationandservice</a></li>
+                                <ul class="btn-toggle-nav list-unstyled fw-normal small d-block nav">
+                                    <li><a class="dropdown-item cl-1" href="#addLocationandservice" data-bs-toggle="tab" aria-selected="false">Add Locationandservice</a></li>
+                                    <li><a class="dropdown-item cl-1" href="#listlocationandservice" data-bs-toggle="tab" aria-selected="false">List Locationandservice</a></li>
                                 </ul>
                             </div>
                         </ul>
@@ -277,7 +277,7 @@ if (!empty($_POST["flogout"])) {
             <!-- BEGIN MAIN -->
             <main class="main">
 
-                <div class="tab-content" id="myTabContent">
+                <div class="tab-content">
                     <!-- dashboard -->
                     <div class="tab-pane fade show active" id="dashboard">
                         <div class="container text-dark">
@@ -321,25 +321,30 @@ if (!empty($_POST["flogout"])) {
                                 <!-- Box Item Library -->
                                 <div class="mt-3 col-md-6 col-xxl-3">
                                     <div class="bg-white shadow card h-100">
-                                        <p class="p-2 pt-3 fs-6 fw-bold m-0">Item Library</p>
-                                        <div class="p-3 text-center border-top">
-                                            <?php
-                                            $a = new Itemlibrary();
-                                            $arr = $a->getTotalItemlibrary();
-                                            $stt=0;
-                                            for($i = 0; $i < count($arr); $i++) {
-                                                $stt++;
-                                                $obj = $arr[$i];
-                                                echo "<span class='m-1 fs-4 fw-bold m-0 text-secondary' id='now-clock'>$obj->TotalItemLibrary ItemLibrary</span>";
-                                            }
-                                            ?>
+                                        <p class="p-2 pt-3 fs-6 fw-bold m-0">Image / Video</p>
+                                        <div class="p-3 text-center border-top d-flex justify-content-between">
+                                            <div class="d-flex flex-column">
+                                                <?php
+                                                $a = new Itemlibrary();
+                                                $img = $a->getTotalImglibrary();
+                                                $video = $a->getTotalVideolibrary();
+                                                for($i = 0; $i < count($img); $i++) {
+                                                    $obj = $img[$i];
+                                                    echo "<span class='m-1 fs-6 fw-bold m-0 text-secondary' id='now-clock'>$obj->TotalItemLibrary -> Image</span>";
+                                                }
+                                                for($i = 0; $i < count($video); $i++) {
+                                                    $obj = $video[$i];
+                                                    echo "<span class='m-1 fs-6 fw-bold m-0 text-secondary' id='now-clock'>$obj->TotalItemLibrary -> Video</span>";
+                                                }
+                                                ?>
+                                            </div>
                                             <i class="fs-3 bi bi-folder text-danger"></i>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Box lượng top 3 Service -->
                                 <div class="mt-3 col-md-6 col-xxl-3">
-                                    <div class="bg-white shadow card">
+                                    <div class="bg-white shadow card h-100">
                                         <p class="p-2 pt-3 fs-6 fw-bold m-0">Service traffic</p>
                                         <div class="text-center border-top p-3 d-flex justify-content-between">
                                             <div class="d-flex flex-column">
@@ -368,9 +373,7 @@ if (!empty($_POST["flogout"])) {
 
                                 <div class="col-xxl-12 mb-3">
                                     <div class="p-2 card shadow" style="height: 100%;">
-                                        <div>
-                                            <canvas id="myChart1"></canvas>
-                                        </div>
+                                        <canvas id="myChart1"></canvas>
                                     </div>
                                 </div>
                                 
@@ -441,7 +444,6 @@ if (!empty($_POST["flogout"])) {
                                             echo $strTbl;
 
                                             //delete => update
-
                                             if (isset($_POST["fdelete"])) {
                                                 $fBookTourID = $_POST["fBookTourID"];
                                                 $fvalDel = $_POST["fvalDel"];
@@ -453,6 +455,18 @@ if (!empty($_POST["flogout"])) {
                                             }
                                             ?>
                                         </table>
+                                        </div>
+
+                                        <div class="">
+                                            <span>
+                                                
+                                                <span class="fs-2 text-success bi bi-dot"></span>
+                                                Member
+                                            </span>
+                                            <span>
+                                                <i class="fs-2 text-danger bi bi-dot"></i>
+                                                Anonymous
+                                            </span>
                                         </div>
 
                                     </div>
@@ -539,243 +553,249 @@ if (!empty($_POST["flogout"])) {
 
                     <!-- tour -->
                     <div class="tab-pane fade" id="tour">
-                        <div class="container text-dark pb-5">
-                            <!-- form Add tour -->
-                            <div id="addtour">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
-                                    <div style="width: 650px;">
-                                        <div class="text-center pb-3">
-                                            <h2>Add Tour</h2>
-                                        </div>
-                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">TourName:</label>
-                                                <input type="text" id="TourName" name="fTourName" class="form-control" placeholder="TourName" />
+                        <div class="container pb-5">
+                            <div class="tab-content">
+
+                                <!-- form Add tour -->
+                                <div class="tab-pane fade show active text-dark" id="addtour">
+                                    <div class="pt-5 pb-5 d-flex justify-content-center">
+                                        <div style="width: 650px;">
+                                            <div class="text-center pb-3">
+                                                <h2>Add Tour</h2>
                                             </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">CategoryTour:</label>
-                                                <select class="form-select" name="fCategoryTour" id="CategoryTour">
-                                                    <?php
-                                                    $a = new CategoryTour();
-                                                    $arr = $a->getListCategoryTour();
-                                                    for($i = 0; $i < count($arr); $i++) {
-                                                        $obj = $arr[$i];
-                                                        echo "<option value='$obj->CategoryTourID'>$obj->CategoryTourName</option>";
-                                                    }
-                                                    ?>
-                                                </select>
-                                            </div>
-                                            <div class="mb-3 d-flex w-100">
-                                                <div class="w-50 pe-2">
-                                                    <label class="form-label fw-bold text-secondary">TimeStart:</label>
-                                                    <input type="date" id="TimeStart" name="fTimeStart" class="form-control" placeholder="TimeStart" />
+                                            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">TourName:</label>
+                                                    <input type="text" id="TourName" name="fTourName" class="form-control" placeholder="TourName" />
                                                 </div>
-                                                <div class="w-50 ps-2">
-                                                    <label class="form-label fw-bold text-secondary">TimeEnd:</label>
-                                                    <input type="date" id="TimeEnd" name="fTimeEnd" class="form-control" placeholder="TimeEnd" />
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">CategoryTour:</label>
+                                                    <select class="form-select" name="fCategoryTour" id="CategoryTour">
+                                                        <?php
+                                                        $a = new CategoryTour();
+                                                        $arr = $a->getListCategoryTour();
+                                                        for($i = 0; $i < count($arr); $i++) {
+                                                            $obj = $arr[$i];
+                                                            echo "<option value='$obj->CategoryTourID'>$obj->CategoryTourName</option>";
+                                                        }
+                                                        ?>
+                                                    </select>
                                                 </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">TourPrice:</label>
-                                                <div class="input-group">
-                                                    <input type="text" id="TourPrice" name="fTourPrice" class="form-control" placeholder="TourPrice" />
-                                                    <span class="input-group-text">USD</span>
+                                                <div class="mb-3 d-flex w-100">
+                                                    <div class="w-50 pe-2">
+                                                        <label class="form-label fw-bold text-secondary">TimeStart:</label>
+                                                        <input type="date" id="TimeStart" name="fTimeStart" class="form-control" placeholder="TimeStart" />
+                                                    </div>
+                                                    <div class="w-50 ps-2">
+                                                        <label class="form-label fw-bold text-secondary">TimeEnd:</label>
+                                                        <input type="date" id="TimeEnd" name="fTimeEnd" class="form-control" placeholder="TimeEnd" />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">TourPromotion:</label>
-                                                <div class="input-group">
-                                                    <input type="text" id="TourPromotion" name="fTourSale" class="form-control" placeholder="TourPromotion" />
-                                                    <span class="input-group-text">%</span>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">TourPrice:</label>
+                                                    <div class="input-group">
+                                                        <input type="text" id="TourPrice" name="fTourPrice" class="form-control" placeholder="TourPrice" />
+                                                        <span class="input-group-text">USD</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Location:</label>
-                                                <div class="input-group">
-                                                    <input type="text" id="Location" name="fLocation" class="form-control" placeholder="Location" />
-                                                    <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">TourPromotion:</label>
+                                                    <div class="input-group">
+                                                        <input type="text" id="TourPromotion" name="fTourSale" class="form-control" placeholder="TourPromotion" />
+                                                        <span class="input-group-text">%</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">AvatarTour:</label>
-                                                <input type="file" id="AvatarTour" name="fAvatarTour" class="form-control" placeholder="AvatarTour" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Status:</label>
-                                                <select class="form-select" id="Status" name="fStatus" >
-                                                    <option value="3">Chưa kích hoạt</option>
-                                                    <option value="1">Đang hoạt động</option>
-                                                    <option value="2">Dừng hoạt động</option>
-                                                </select>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
-                                            </div>
-                                            <input type="submit" id="btntour" name="ftour" class="btn btn-primary" value="Save" />
-                                        </form>
-                                        <?php
-                                        $message = "";
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Location:</label>
+                                                    <div class="input-group">
+                                                        <input type="text" id="Location" name="fLocation" class="form-control" placeholder="Location" />
+                                                        <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">AvatarTour:</label>
+                                                    <input type="file" id="AvatarTour" name="fAvatarTour" class="form-control" placeholder="AvatarTour" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Status:</label>
+                                                    <select class="form-select" id="Status" name="fStatus" >
+                                                        <option value="3">Chưa kích hoạt</option>
+                                                        <option value="1">Đang hoạt động</option>
+                                                        <option value="2">Dừng hoạt động</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Description:</label>
+                                                    <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                                </div>
+                                                <input type="submit" id="btntour" name="ftour" class="btn btn-primary" value="Save" />
+                                            </form>
+                                            <?php
+                                            $message = "";
 
-                                        if (isset($_POST['ftour']) && $_POST['ftour'] == 'Save') {
-                                            if (isset($_FILES['fAvatarTour']) && $_FILES['fAvatarTour']['error'] === UPLOAD_ERR_OK) {
-                                                // lưu vào thư mục tạm webserver
-                                                $fileTmpPath = $_FILES['fAvatarTour']['tmp_name'];
-                                                // echo $fileTmpPath;
+                                            if (isset($_POST['ftour']) && $_POST['ftour'] == 'Save') {
+                                                if (isset($_FILES['fAvatarTour']) && $_FILES['fAvatarTour']['error'] === UPLOAD_ERR_OK) {
+                                                    // lưu vào thư mục tạm webserver
+                                                    $fileTmpPath = $_FILES['fAvatarTour']['tmp_name'];
+                                                    // echo $fileTmpPath;
 
-                                                // thông tin file
-                                                $fileName = $_FILES['fAvatarTour']['name'];
-                                                $fileSize = $_FILES['fAvatarTour']['size'];
-                                                $fileType = $_FILES['fAvatarTour']['type'];
+                                                    // thông tin file
+                                                    $fileName = $_FILES['fAvatarTour']['name'];
+                                                    $fileSize = $_FILES['fAvatarTour']['size'];
+                                                    $fileType = $_FILES['fAvatarTour']['type'];
 
-                                                // lấy tên file và đuôi file
-                                                $fileNameCmps = explode(".", $fileName);
+                                                    // lấy tên file và đuôi file
+                                                    $fileNameCmps = explode(".", $fileName);
 
-                                                // chuẩn hóa lại tên file
-                                                $fileExtension = strtolower(end($fileNameCmps));
+                                                    // chuẩn hóa lại tên file
+                                                    $fileExtension = strtolower(end($fileNameCmps));
 
-                                                // thiết đặt filename để k bị trùng nhau
-                                                $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+                                                    // thiết đặt filename để k bị trùng nhau
+                                                    $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
 
-                                                // kiem tra phan mo rong cua file
-                                                $allowedfileExtensions = ['jpg', 'gif', 'png'];
+                                                    // kiem tra phan mo rong cua file
+                                                    $allowedfileExtensions = ['jpg', 'gif', 'png'];
 
-                                                // kiểm tra đuôi file
-                                                if (in_array($fileExtension, $allowedfileExtensions)) {
-                                                    // thu muc file uploaded
-                                                    $uploadFileDir = '../admin/assets/img/Tour/';
-                                                    $dest_path = $uploadFileDir . $newFileName;
+                                                    // kiểm tra đuôi file
+                                                    if (in_array($fileExtension, $allowedfileExtensions)) {
+                                                        // thu muc file uploaded
+                                                        $uploadFileDir = '../admin/assets/img/Tour/';
+                                                        $dest_path = $uploadFileDir . $newFileName;
 
-                                                    if (move_uploaded_file($fileTmpPath, $dest_path)) {
-                                                        $message = "";
+                                                        if (move_uploaded_file($fileTmpPath, $dest_path)) {
+                                                            $message = "";
+                                                        } else {
+                                                            $message = 'Check if the directory has write permissions.';
+                                                        }
                                                     } else {
-                                                        $message = 'Check if the directory has write permissions.';
+                                                        $message = 'Only file types allowed: ' . implode(',', $allowedfileExtensions);
                                                     }
-                                                } else {
-                                                    $message = 'Only file types allowed: ' . implode(',', $allowedfileExtensions);
                                                 }
                                             }
-                                        }
 
-                                        echo $message;
+                                            echo $message;
 
-                                        if (isset($_POST["ftour"])) {
-                                            $fCategoryTour = $_POST["fCategoryTour"];
-                                            $fTourName = $_POST["fTourName"];
-                                            $fTimeStart = $_POST["fTimeStart"];
-                                            $fTimeEnd = $_POST["fTimeEnd"];
-                                            $fTourPrice = $_POST["fTourPrice"];
-                                            $fTourSale = $_POST["fTourSale"];
-                                            $fLocation = $_POST["fLocation"];
-                                            // $fAvatarTour = $_POST["fAvatarTour"];
-                                            $fStatus = $_POST["fStatus"];
-                                            $fDescription = $_POST["fDescription"];
+                                            if (isset($_POST["ftour"])) {
+                                                $fCategoryTour = $_POST["fCategoryTour"];
+                                                $fTourName = $_POST["fTourName"];
+                                                $fTimeStart = $_POST["fTimeStart"];
+                                                $fTimeEnd = $_POST["fTimeEnd"];
+                                                $fTourPrice = $_POST["fTourPrice"];
+                                                $fTourSale = $_POST["fTourSale"];
+                                                $fLocation = $_POST["fLocation"];
+                                                // $fAvatarTour = $_POST["fAvatarTour"];
+                                                $fStatus = $_POST["fStatus"];
+                                                $fDescription = $_POST["fDescription"];
 
-                                            $a = new Tour();
-                                            $a->CategoryTourID = $fCategoryTour;
-                                            $a->TourName = $fTourName;
-                                            $a->TimeStart = $fTimeStart;
-                                            $a->TimeEnd = $fTimeEnd;
-                                            $a->TourPrice = $fTourPrice;
-                                            $a->TourSale = $fTourSale;
-                                            $a->Location = $fLocation;
-                                            $a->AvatarTour = $uploadFileDir . $newFileName;
-                                            $a->Status = $fStatus;
-                                            $a->Description = $fDescription;
-                                            $a->addTour();
-                                        }
-                                        ?>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- table list tour -->
-                            <div id="listtour">
-                                <div class="text-center">
-                                    <h2>List Tour</h2>
-                                </div>
-                                <div class="pb-5">
-                                    <div style="overflow-x: auto;">
-
-                                        <div id="tbl-kithi" class="mt-4 pb-5" >
-                                            <table class="table table-striped table-hover">
-                                                <tr>
-                                                    <th scope="col">STT</th>
-                                                    <th scope="col">CategoryTourName</th>
-                                                    <th scope="col">TourName</th>
-                                                    <th scope="col">Location</th>
-                                                    <th scope="col">Day</th>
-                                                    <th scope="col">TourPrice</th>
-                                                    <th scope="col">Action</th>
-                                                    <th scope="col">More</th>
-                                                </tr>
-                                                <?php
                                                 $a = new Tour();
-                                                $arr = $a->getListTour();
-                                                $strTbl = "";
-
-                                                $stt = 1;
-
-                                                for ($i = 0; $i < count($arr); $i++) {
-                                                    $obj = $arr[$i];
-
-                                                    $strTbl .= "<tr>";
-                                                    $strTbl .= "<th>" . $stt++ . "</th>";
-                                                    $strTbl .= "<td>$obj->CategoryTourName</td>";
-                                                    $strTbl .= "<td id='fTourName'>$obj->TourName</td>";
-                                                    $strTbl .= "<td>$obj->Location</td>";
-                                                    $strTbl .= "<td>$obj->Day</td>";
-                                                    $strTbl .= "<td>" . $obj->TourPrice . " USD" . "</td>";
-                                                    $strTbl .= "<td>
-                                                                    <div class='d-flex'>
-                                                                        <form class='m-1' action='' method='POST'>
-                                                                            <input type='hidden' name='fTourID' value='$obj->TourID'/>
-                                                                            <input type='hidden' name='fvalDel' value='d'/>
-                                                                            <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
-                                                                        </form>
-                                                                        <input type='button' class='btn btn-primary m-1' name='fedittour' value='Edit'>
-                                                                    </div>    
-                                                                </td>";
-                                                    $strTbl .= "<td>
-                                                                <button onclick='ShowTourById(this.value)' class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#modaltour' value='$obj->TourID'>More</button>
-                                                            </td>";
-
-                                                    // các trường ẩn lấy vào form edit
-                                                    $strTbl .= "<td class='d-none' id='TourID'>$obj->TourID</td>";
-                                                    $strTbl .= "<td class='d-none' id='fTimeStart'>$obj->TimeStart</td>";
-                                                    $strTbl .= "<td class='d-none' id='fTimeEnd'>$obj->TimeEnd</td>";
-                                                    $strTbl .= "<td class='d-none' id='TourPrice'>$obj->TourPrice</td>";
-                                                    $strTbl .= "<td class='d-none' id='TourSale'>$obj->TourSale</td>";
-                                                    $strTbl .= "<td class='d-none' id='Location'>$obj->Location</td>";
-                                                    $strTbl .= "<td class='d-none' id='Description'>$obj->Description</td>";
-                                                    $strTbl .= "</tr>";
-
-                                                }
-
-                                                echo $strTbl;
-
-                                                
-                                                //delete => update
-                                                if (isset($_POST["fdelete"])) {
-                                                    $TourID = $_POST["fTourID"];
-                                                    $fvalDel = $_POST["fvalDel"];
-
-                                                    $a = new Tour();
-                                                    $a->Flag = $fvalDel;
-                                                    $a->TourID = $TourID;
-                                                    $a->updateListTour();
-                                                }
-                                                ?>
-                                            </table>
+                                                $a->CategoryTourID = $fCategoryTour;
+                                                $a->TourName = $fTourName;
+                                                $a->TimeStart = $fTimeStart;
+                                                $a->TimeEnd = $fTimeEnd;
+                                                $a->TourPrice = $fTourPrice;
+                                                $a->TourSale = $fTourSale;
+                                                $a->Location = $fLocation;
+                                                $a->AvatarTour = $uploadFileDir . $newFileName;
+                                                $a->Status = $fStatus;
+                                                $a->Description = $fDescription;
+                                                $a->addTour();
+                                            }
+                                            ?>
                                         </div>
-
                                     </div>
                                 </div>
+
+                                <!-- table list tour -->
+                                <div class="tab-pane fade show active text-dark" id="listtour">
+                                    <div class="pt-5 pb-5">
+                                        <div class="text-center">
+                                            <h2>List Tour</h2>
+                                        </div>
+                                        <div class="pb-5">
+                                            <div style="overflow-x: auto;">
+
+                                                <div id="tbl-kithi" class="mt-4 pb-5" >
+                                                    <table class="table table-striped table-hover">
+                                                        <tr>
+                                                            <th scope="col">STT</th>
+                                                            <th scope="col">CategoryTourName</th>
+                                                            <th scope="col">TourName</th>
+                                                            <th scope="col">Location</th>
+                                                            <th scope="col">Day</th>
+                                                            <th scope="col">TourPrice</th>
+                                                            <th scope="col">Action</th>
+                                                            <th scope="col">More</th>
+                                                        </tr>
+                                                        <?php
+                                                        $a = new Tour();
+                                                        $arr = $a->getListTour();
+                                                        $strTbl = "";
+
+                                                        $stt = 1;
+
+                                                        for ($i = 0; $i < count($arr); $i++) {
+                                                            $obj = $arr[$i];
+
+                                                            $strTbl .= "<tr>";
+                                                            $strTbl .= "<th>" . $stt++ . "</th>";
+                                                            $strTbl .= "<td>$obj->CategoryTourName</td>";
+                                                            $strTbl .= "<td id='fTourName'>$obj->TourName</td>";
+                                                            $strTbl .= "<td>$obj->Location</td>";
+                                                            $strTbl .= "<td>$obj->Day</td>";
+                                                            $strTbl .= "<td>$obj->TourPrice USD</td>";
+                                                            $strTbl .= "<td>
+                                                                            <div class='d-flex'>
+                                                                                <form class='m-1' action='' method='POST'>
+                                                                                    <input type='hidden' name='fTourID' value='$obj->TourID'/>
+                                                                                    <input type='hidden' name='fvalDel' value='d'/>
+                                                                                    <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                                </form>
+                                                                                <input type='button' class='btn btn-primary m-1' name='fedittour' value='Edit'>
+                                                                            </div>    
+                                                                        </td>";
+                                                            $strTbl .= "<td>
+                                                                        <button onclick='ShowTourById(this.value)' class='btn btn-secondary' data-bs-toggle='modal' data-bs-target='#modaltour' value='$obj->TourID'>More</button>
+                                                                    </td>";
+
+                                                            // các trường ẩn lấy vào form edit
+                                                            $strTbl .= "<td class='d-none' id='TourID'>$obj->TourID</td>";
+                                                            $strTbl .= "<td class='d-none' id='fTimeStart'>$obj->TimeStart</td>";
+                                                            $strTbl .= "<td class='d-none' id='fTimeEnd'>$obj->TimeEnd</td>";
+                                                            $strTbl .= "<td class='d-none' id='TourPrice'>$obj->TourPrice</td>";
+                                                            $strTbl .= "<td class='d-none' id='TourSale'>$obj->TourSale</td>";
+                                                            $strTbl .= "<td class='d-none' id='Location'>$obj->Location</td>";
+                                                            $strTbl .= "<td class='d-none' id='Description'>$obj->Description</td>";
+                                                            $strTbl .= "</tr>";
+
+                                                        }
+
+                                                        echo $strTbl;
+
+                                                        
+                                                        //delete => update
+                                                        if (isset($_POST["fdelete"])) {
+                                                            $TourID = $_POST["fTourID"];
+                                                            $fvalDel = $_POST["fvalDel"];
+
+                                                            $a = new Tour();
+                                                            $a->Flag = $fvalDel;
+                                                            $a->TourID = $TourID;
+                                                            $a->updateListTour();
+                                                        }
+                                                        ?>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
                             </div>
 
                             <!-- edit list tour -->
-                            <div id="edittour" class="d-none">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                            <div id="edittour" class="d-none text-dark">
+                                <div class="pb-5 d-flex justify-content-center">
                                     <div style="width: 650px;">
                                         <div class="text-center pb-3">
                                             <h2>Edit</h2>
@@ -859,216 +879,221 @@ if (!empty($_POST["flogout"])) {
                     <!-- mountaineering -->
                     <div class="tab-pane fade" id="mountaineering">
                         <div class="container text-dark pb-5">
-                            <!-- form Add Mountaineering -->
-                            <div id="addMountaineering">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
-                                    <div style="width: 650px;">
-                                        <div class="text-center pb-3">
-                                            <h2 class="">Add Mountaineering</h2>
-                                        </div>
-                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">MountainName:</label>
-                                                <input type="text" id="MountainName" name="fMountainName" class="form-control" placeholder="MountainName" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">LocationX:</label>
-                                                <input type="text" id="LocationX" name="fLocationX" class="form-control" placeholder="LocationX" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">LocationY:</label>
-                                                <input type="text" id="LocationY" name="fLocationY" class="form-control" placeholder="LocationY" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Banner:</label>
-                                                <input type="file" id="Banner" name="fBanner" class="form-control" placeholder="Banner" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Type:</label>
-                                                <select class="form-select" id="Type" name="fType">
-                                                    <option value="1">1 chặng</option>
-                                                    <option value="2">Nhiều chặng</option>
-                                                </select>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Level:</label>
-                                                <select class="form-select" id="Level" name="fLevel">
-                                                    <option value="1">Dễ</option>
-                                                    <option value="2">Trung bình</option>
-                                                    <option value="3">Khó</option>
-                                                </select>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Sheltering:</label>
-                                                <input type="text" id="Sheltering" name="fSheltering" class="form-control" placeholder="Sheltering" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Techniques:</label>
-                                                <input type="text" id="Techniques" name="fTechniques" class="form-control" placeholder="Techniques" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
-                                            </div>
-                                            <input type="submit" id="btnMountaineering" name="fMountaineering" class="btn btn-primary" value="Save" />
-                                        </form>
+                            <div class="tab-content">
 
-                                        <?php
-                                        $message = "";
+                                <!-- form Add Mountaineering -->
+                                <div class="tab-pane fade show active text-dark" id="addMountaineering">
+                                    <div class="pt-5 pb-5 d-flex justify-content-center">
+                                        <div style="width: 650px;">
+                                            <div class="text-center pb-3">
+                                                <h2 class="">Add Mountaineering</h2>
+                                            </div>
+                                            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">MountainName:</label>
+                                                    <input type="text" id="MountainName" name="fMountainName" class="form-control" placeholder="MountainName" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">LocationX:</label>
+                                                    <input type="text" id="LocationX" name="fLocationX" class="form-control" placeholder="LocationX" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">LocationY:</label>
+                                                    <input type="text" id="LocationY" name="fLocationY" class="form-control" placeholder="LocationY" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Banner:</label>
+                                                    <input type="file" id="Banner" name="fBanner" class="form-control" placeholder="Banner" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Type:</label>
+                                                    <select class="form-select" id="Type" name="fType">
+                                                        <option value="1">One leg</option>
+                                                        <option value="2">Many leg</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Level:</label>
+                                                    <select class="form-select" id="Level" name="fLevel">
+                                                        <option value="1">Easy</option>
+                                                        <option value="2">Medium</option>
+                                                        <option value="3">Difficult</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Sheltering (the abode of that mountain top):</label>
+                                                    <input type="text" id="Sheltering" name="fSheltering" class="form-control" placeholder="Sheltering" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Techniques (Mountain climbing techniques):</label>
+                                                    <input type="text" id="Techniques" name="fTechniques" class="form-control" placeholder="Techniques" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Description:</label>
+                                                    <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                                </div>
+                                                <input type="submit" id="btnMountaineering" name="fMountaineering" class="btn btn-primary" value="Save" />
+                                            </form>
 
-                                        if (isset($_POST['fMountaineering']) && $_POST['fMountaineering'] == 'Save') {
-                                            if (isset($_FILES['fBanner']) && $_FILES['fBanner']['error'] === UPLOAD_ERR_OK) {
-                                                // lưu vào thư mục tạm webserver
-                                                $fileTmpPath = $_FILES['fBanner']['tmp_name'];
-                                                // echo $fileTmpPath;
+                                            <?php
+                                            $message = "";
 
-                                                // thông tin file
-                                                $fileName = $_FILES['fBanner']['name'];
-                                                $fileSize = $_FILES['fBanner']['size'];
-                                                $fileType = $_FILES['fBanner']['type'];
+                                            if (isset($_POST['fMountaineering']) && $_POST['fMountaineering'] == 'Save') {
+                                                if (isset($_FILES['fBanner']) && $_FILES['fBanner']['error'] === UPLOAD_ERR_OK) {
+                                                    // lưu vào thư mục tạm webserver
+                                                    $fileTmpPath = $_FILES['fBanner']['tmp_name'];
+                                                    // echo $fileTmpPath;
 
-                                                // lấy tên file và đuôi file
-                                                $fileNameCmps = explode(".", $fileName);
+                                                    // thông tin file
+                                                    $fileName = $_FILES['fBanner']['name'];
+                                                    $fileSize = $_FILES['fBanner']['size'];
+                                                    $fileType = $_FILES['fBanner']['type'];
 
-                                                // chuẩn hóa lại tên file
-                                                $fileExtension = strtolower(end($fileNameCmps));
+                                                    // lấy tên file và đuôi file
+                                                    $fileNameCmps = explode(".", $fileName);
 
-                                                // thiết đặt filename để k bị trùng nhau
-                                                $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+                                                    // chuẩn hóa lại tên file
+                                                    $fileExtension = strtolower(end($fileNameCmps));
 
-                                                // kiem tra phan mo rong cua file
-                                                $allowedfileExtensions = ['jpg', 'gif', 'png'];
+                                                    // thiết đặt filename để k bị trùng nhau
+                                                    $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
 
-                                                // kiểm tra đuôi file
-                                                if (in_array($fileExtension, $allowedfileExtensions)) {
-                                                    // thu muc file uploaded
-                                                    $uploadFileDir = '../admin/assets/img/Mountaineering/';
-                                                    $dest_path = $uploadFileDir . $newFileName;
+                                                    // kiem tra phan mo rong cua file
+                                                    $allowedfileExtensions = ['jpg', 'gif', 'png'];
 
-                                                    if (move_uploaded_file($fileTmpPath, $dest_path)) {
-                                                        $message = "";
+                                                    // kiểm tra đuôi file
+                                                    if (in_array($fileExtension, $allowedfileExtensions)) {
+                                                        // thu muc file uploaded
+                                                        $uploadFileDir = '../admin/assets/img/Mountaineering/';
+                                                        $dest_path = $uploadFileDir . $newFileName;
+
+                                                        if (move_uploaded_file($fileTmpPath, $dest_path)) {
+                                                            $message = "";
+                                                        } else {
+                                                            $message = 'Check if the directory has write permissions.';
+                                                        }
                                                     } else {
-                                                        $message = 'Check if the directory has write permissions.';
+                                                        $message = 'Only file types allowed: ' . implode(',', $allowedfileExtensions);
                                                     }
-                                                } else {
-                                                    $message = 'Only file types allowed: ' . implode(',', $allowedfileExtensions);
                                                 }
                                             }
-                                        }
 
-                                        echo $message;
+                                            echo $message;
 
-                                        if (isset($_POST["fMountaineering"])) {
-                                            $fMountainName = $_POST["fMountainName"];
-                                            $fLocationX = $_POST["fLocationX"];
-                                            $fLocationY = $_POST["fLocationY"];
-                                            // $fBanner = $_POST["fBanner"];
-                                            $fType = $_POST["fType"];
-                                            $fLevel = $_POST["fLevel"];
-                                            $fSheltering = $_POST["fSheltering"];
-                                            $fTechniques = $_POST["fTechniques"];
-                                            $fDescription = $_POST["fDescription"];
+                                            if (isset($_POST["fMountaineering"])) {
+                                                $fMountainName = $_POST["fMountainName"];
+                                                $fLocationX = $_POST["fLocationX"];
+                                                $fLocationY = $_POST["fLocationY"];
+                                                // $fBanner = $_POST["fBanner"];
+                                                $fType = $_POST["fType"];
+                                                $fLevel = $_POST["fLevel"];
+                                                $fSheltering = $_POST["fSheltering"];
+                                                $fTechniques = $_POST["fTechniques"];
+                                                $fDescription = $_POST["fDescription"];
 
-                                            $a = new Mountaineering();
-                                            $a->mountainName = $fMountainName;
-                                            $a->locationX = $fLocationX;
-                                            $a->locationY = $fLocationY;
-                                            $a->banner = $uploadFileDir . $newFileName;
-                                            $a->type = $fType;
-                                            $a->level = $fLevel;
-                                            $a->sheltering = $fSheltering;
-                                            $a->techniques = $fTechniques;
-                                            $a->description = $fDescription;
-                                            $a->addMountaineering();
-                                        }
-                                        ?>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- table list Mountaineering -->
-                            <div id="listMountaineering">
-                                <div class="text-center">
-                                    <h2>List Mountaineering</h2>
-                                </div>
-                                <div class="pb-5">
-                                    <div style="overflow-x: auto;">
-                                        <div id="tbl-kithi" class="mt-4 pb-5">
-                                        <table class="table table-striped table-hover">
-                                                <tr>
-                                                    <th scope="col">STT</th>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">MountainName</th>
-                                                    <th scope="col">LocationX</th>
-                                                    <th scope="col">LocationY</th>
-                                                    <th scope="col">Banner</th>
-                                                    <th scope="col">Type</th>
-                                                    <th scope="col">Level</th>
-                                                    <th scope="col">Sheltering</th>
-                                                    <th scope="col">Techniques</th>
-                                                    <th scope="col">Description</th>
-                                                    <th class="text-center" scope="col">Action</th>
-                                                </tr>
-                                                
-                                                <?php
                                                 $a = new Mountaineering();
-                                                $arr = $a->getListMountaineering();
-                                                $strTbl = "";
-
-                                                $stt = 1;
-
-                                                for ($i = 0; $i < count($arr); $i++) {
-                                                    $obj = $arr[$i];
-
-                                                    $strTbl .= "<tr>";
-                                                    $strTbl .= "<th>" . $stt++ . "</th>";
-                                                    $strTbl .= "<td id='mountaineeringID'>$obj->mountaineeringID</td>";
-                                                    $strTbl .= "<td id='mountainName'>$obj->mountainName</td>";
-                                                    $strTbl .= "<td id='locationX'>$obj->locationX</td>";
-                                                    $strTbl .= "<td id='locationY'>$obj->locationY</td>";
-                                                    $strTbl .= "<td><img src='$obj->banner' alt='banner' width='200' height='100'></td>";
-                                                    $strTbl .= "<td>$obj->type</td>";
-                                                    $strTbl .= "<td>$obj->level</td>";
-                                                    $strTbl .= "<td id='sheltering'>$obj->sheltering</td>";
-                                                    $strTbl .= "<td id='techniques'>$obj->techniques</td>";
-                                                    $strTbl .= "<td id='description'>$obj->description</td>";
-                                                    $strTbl .= "<td>
-                                                                        <div class='d-flex'>
-                                                                            <form class='m-1' action='' method='POST'>
-                                                                                <input type='hidden' name='fmountaineeringID' value='$obj->mountaineeringID'/>
-                                                                                <input type='hidden' name='fvalDel' value='d'/>
-                                                                                <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
-                                                                            </form>
-                                                                            <input type='submit' class='btn btn-primary m-1' name='feditMountaineering' value='Edit'>
-                                                                        </div>    
-                                                                    </td>";
-                                                    $strTbl .= "</tr>";
-                                                }
-
-                                                echo $strTbl;
-
-                                                //delete => update
-                                                if (isset($_POST["fdelete"])) {
-                                                    $fmountaineeringID = $_POST["fmountaineeringID"];
-                                                    $fvalDel = $_POST["fvalDel"];
-
-                                                    $a = new Mountaineering();
-                                                    $a->flag = $fvalDel;
-                                                    $a->mountaineeringID = $fmountaineeringID;
-                                                    $a->updateListMountaineering();
-                                                }
-                                                ?>
-                                            </table>
+                                                $a->mountainName = $fMountainName;
+                                                $a->locationX = $fLocationX;
+                                                $a->locationY = $fLocationY;
+                                                $a->banner = $uploadFileDir . $newFileName;
+                                                $a->type = $fType;
+                                                $a->level = $fLevel;
+                                                $a->sheltering = $fSheltering;
+                                                $a->techniques = $fTechniques;
+                                                $a->description = $fDescription;
+                                                $a->addMountaineering();
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
+                                <!-- table list Mountaineering -->
+                                <div class="tab-pane fade show active text-dark" id="listMountaineering">
+                                    <div class="pt-5 pb-5">
+                                        <div class="text-center">
+                                            <h2>List Mountaineering</h2>
+                                        </div>
+                                        <div class="pb-5">
+                                            <div style="overflow-x: auto;">
+                                                <div id="tbl-kithi" class="mt-4 pb-5">
+                                                <table class="table table-striped table-hover">
+                                                        <tr>
+                                                            <th scope="col">STT</th>
+                                                            <th scope="col">ID</th>
+                                                            <th scope="col">MountainName</th>
+                                                            <th scope="col">LocationX</th>
+                                                            <th scope="col">LocationY</th>
+                                                            <th scope="col">Banner</th>
+                                                            <th scope="col">Type</th>
+                                                            <th scope="col">Level</th>
+                                                            <th scope="col">Sheltering</th>
+                                                            <th scope="col">Techniques</th>
+                                                            <th scope="col">Description</th>
+                                                            <th class="text-center" scope="col">Action</th>
+                                                        </tr>
+                                                        
+                                                        <?php
+                                                        $a = new Mountaineering();
+                                                        $arr = $a->getListMountaineering();
+                                                        $strTbl = "";
+
+                                                        $stt = 1;
+
+                                                        for ($i = 0; $i < count($arr); $i++) {
+                                                            $obj = $arr[$i];
+
+                                                            $strTbl .= "<tr>";
+                                                            $strTbl .= "<th>" . $stt++ . "</th>";
+                                                            $strTbl .= "<td id='mountaineeringID'>$obj->mountaineeringID</td>";
+                                                            $strTbl .= "<td id='mountainName'>$obj->mountainName</td>";
+                                                            $strTbl .= "<td id='locationX'>$obj->locationX</td>";
+                                                            $strTbl .= "<td id='locationY'>$obj->locationY</td>";
+                                                            $strTbl .= "<td><img src='$obj->banner' alt='banner' width='200' height='100'></td>";
+                                                            $strTbl .= "<td>$obj->type</td>";
+                                                            $strTbl .= "<td>$obj->level</td>";
+                                                            $strTbl .= "<td id='sheltering'>$obj->sheltering</td>";
+                                                            $strTbl .= "<td id='techniques'>$obj->techniques</td>";
+                                                            $strTbl .= "<td id='description'>$obj->description</td>";
+                                                            $strTbl .= "<td>
+                                                                                <div class='d-flex'>
+                                                                                    <form class='m-1' action='' method='POST'>
+                                                                                        <input type='hidden' name='fmountaineeringID' value='$obj->mountaineeringID'/>
+                                                                                        <input type='hidden' name='fvalDel' value='d'/>
+                                                                                        <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                                    </form>
+                                                                                    <input type='submit' class='btn btn-primary m-1' name='feditMountaineering' value='Edit'>
+                                                                                </div>    
+                                                                            </td>";
+                                                            $strTbl .= "</tr>";
+                                                        }
+
+                                                        echo $strTbl;
+
+                                                        //delete => update
+                                                        if (isset($_POST["fdelete"])) {
+                                                            $fmountaineeringID = $_POST["fmountaineeringID"];
+                                                            $fvalDel = $_POST["fvalDel"];
+
+                                                            $a = new Mountaineering();
+                                                            $a->flag = $fvalDel;
+                                                            $a->mountaineeringID = $fmountaineeringID;
+                                                            $a->updateListMountaineering();
+                                                        }
+                                                        ?>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                             <!-- edit list Mountaineering -->
                             <div id="editMountaineering" class="d-none">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                <div class="pb-5 d-flex justify-content-center">
                                     <div style="width: 650px;">
-                                    <div class="text-center pb-3">
+                                        <div class="text-center pb-3">
                                             <h2 class="">Edit</h2>
                                         </div>
                                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
@@ -1134,197 +1159,204 @@ if (!empty($_POST["flogout"])) {
                     <!-- service -->
                     <div class="tab-pane fade" id="service">
                         <div class="container text-dark pb-5">
-                            <!-- form Add service -->
-                            <div id="addservice">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
-                                    <div style="width: 650px;">
-                                        <div class="text-center pb-3">
-                                            <h2>Add Service</h2>
-                                        </div>
-                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">ServiceName:</label>
-                                                <input type="text" id="ServiceName" name="fServiceName" class="form-control" placeholder="ServiceName" />
+                            <div class="tab-content">
+
+                                <!-- form Add service -->
+                                <div class="tab-pane fade show active text-dark" id="addservice">
+                                    <div class="pt-5 pb-5 d-flex justify-content-center">
+                                        <div style="width: 650px;">
+                                            <div class="text-center pb-3">
+                                                <h2>Add Service</h2>
                                             </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">AvatarService:</label>
-                                                <input type="file" id="AvatarService" name="fAvatarService" class="form-control" placeholder="AvatarService" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Price:</label>
-                                                <div class="input-group">
-                                                    <input type="text" id="Price" name="fPrice" class="form-control" placeholder="Price" />
-                                                    <span class="input-group-text">USD</span>
+                                            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">ServiceName:</label>
+                                                    <input type="text" id="ServiceName" name="fServiceName" class="form-control" placeholder="ServiceName" />
                                                 </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">TNTT(tax):</label>
-                                                <div class="input-group">
-                                                    <input type="text" id="VAT" name="fVAT" class="form-control" placeholder="VAT" value="10"/>
-                                                    <span class="input-group-text">%</span>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">AvatarService:</label>
+                                                    <input type="file" id="AvatarService" name="fAvatarService" class="form-control" placeholder="AvatarService" />
                                                 </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Sale on service:</label>
-                                                <div class="input-group">
-                                                    <input type="text" id="Sale" name="fSale" class="form-control" placeholder="Sale" />
-                                                    <span class="input-group-text">%</span>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Price:</label>
+                                                    <div class="input-group">
+                                                        <input type="text" id="Price" name="fPrice" class="form-control" placeholder="Price" />
+                                                        <span class="input-group-text">USD</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
-                                            </div>
-                                            <input type="submit" id="btnservice" name="fservice" class="btn btn-primary" value="Save" />
-                                        </form>
-                                        <?php
-                                        $message = "";
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">TNTT(tax):</label>
+                                                    <div class="input-group">
+                                                        <input type="text" id="VAT" name="fVAT" class="form-control" placeholder="VAT" value="10"/>
+                                                        <span class="input-group-text">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Sale on service:</label>
+                                                    <div class="input-group">
+                                                        <input type="text" id="Sale" name="fSale" class="form-control" placeholder="Sale" />
+                                                        <span class="input-group-text">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Description:</label>
+                                                    <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                                </div>
+                                                <input type="submit" id="btnservice" name="fservice" class="btn btn-primary" value="Save" />
+                                            </form>
+                                            <?php
+                                            $message = "";
 
-                                        if (isset($_POST['fservice']) && $_POST['fservice'] == 'Save') {
-                                            if (isset($_FILES['fAvatarService']) && $_FILES['fAvatarService']['error'] === UPLOAD_ERR_OK) {
-                                                // lưu vào thư mục tạm webserver
-                                                $fileTmpPath = $_FILES['fAvatarService']['tmp_name'];
-                                                // echo $fileTmpPath;
+                                            if (isset($_POST['fservice']) && $_POST['fservice'] == 'Save') {
+                                                if (isset($_FILES['fAvatarService']) && $_FILES['fAvatarService']['error'] === UPLOAD_ERR_OK) {
+                                                    // lưu vào thư mục tạm webserver
+                                                    $fileTmpPath = $_FILES['fAvatarService']['tmp_name'];
+                                                    // echo $fileTmpPath;
 
-                                                // thông tin file
-                                                $fileName = $_FILES['fAvatarService']['name'];
-                                                $fileSize = $_FILES['fAvatarService']['size'];
-                                                $fileType = $_FILES['fAvatarService']['type'];
+                                                    // thông tin file
+                                                    $fileName = $_FILES['fAvatarService']['name'];
+                                                    $fileSize = $_FILES['fAvatarService']['size'];
+                                                    $fileType = $_FILES['fAvatarService']['type'];
 
-                                                // lấy tên file và đuôi file
-                                                $fileNameCmps = explode(".", $fileName);
+                                                    // lấy tên file và đuôi file
+                                                    $fileNameCmps = explode(".", $fileName);
 
-                                                // chuẩn hóa lại tên file
-                                                $fileExtension = strtolower(end($fileNameCmps));
+                                                    // chuẩn hóa lại tên file
+                                                    $fileExtension = strtolower(end($fileNameCmps));
 
-                                                // thiết đặt filename để k bị trùng nhau
-                                                $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+                                                    // thiết đặt filename để k bị trùng nhau
+                                                    $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
 
-                                                // kiem tra phan mo rong cua file
-                                                $allowedfileExtensions = ['jpg', 'gif', 'png'];
+                                                    // kiem tra phan mo rong cua file
+                                                    $allowedfileExtensions = ['jpg', 'gif', 'png'];
 
-                                                // kiểm tra đuôi file
-                                                if (in_array($fileExtension, $allowedfileExtensions)) {
-                                                    // thu muc file uploaded
-                                                    $uploadFileDir = '../admin/assets/img/Service/';
-                                                    $dest_path = $uploadFileDir . $newFileName;
+                                                    // kiểm tra đuôi file
+                                                    if (in_array($fileExtension, $allowedfileExtensions)) {
+                                                        // thu muc file uploaded
+                                                        $uploadFileDir = '../admin/assets/img/Service/';
+                                                        $dest_path = $uploadFileDir . $newFileName;
 
-                                                    if (move_uploaded_file($fileTmpPath, $dest_path)) {
-                                                        $message = "";
+                                                        if (move_uploaded_file($fileTmpPath, $dest_path)) {
+                                                            $message = "";
+                                                        } else {
+                                                            $message = 'Check if the directory has write permissions.';
+                                                        }
                                                     } else {
-                                                        $message = 'Check if the directory has write permissions.';
+                                                        $message = 'Only file types allowed: ' . implode(',', $allowedfileExtensions);
                                                     }
-                                                } else {
-                                                    $message = 'Only file types allowed: ' . implode(',', $allowedfileExtensions);
                                                 }
                                             }
-                                        }
 
-                                        echo $message;
-                                        if (isset($_POST["fservice"])) {
-                                            $fServiceName = $_POST["fServiceName"];
-                                            $fPrice = $_POST["fPrice"];
-                                            $fVAT = $_POST["fVAT"];
-                                            $fSale = $_POST["fSale"];
-                                            $fDescription = $_POST["fDescription"];
+                                            echo $message;
+                                            if (isset($_POST["fservice"])) {
+                                                $fServiceName = $_POST["fServiceName"];
+                                                $fPrice = $_POST["fPrice"];
+                                                $fVAT = $_POST["fVAT"];
+                                                $fSale = $_POST["fSale"];
+                                                $fDescription = $_POST["fDescription"];
 
-                                            $a = new Service();
-                                            $a->serviceName = $fServiceName;
-                                            $a->avatarService = $uploadFileDir . $newFileName;
-                                            $a->price = $fPrice;
-                                            $a->vAT = $fVAT;
-                                            $a->sale = $fSale;
-                                            $a->description = $fDescription;
-                                            $a->addService();
-                                        }
-                                        ?>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- table list service -->
-                            <div id="listservice">
-                                <div class="text-center">
-                                    <h2>List Service</h2>
-                                </div>
-                                <div class="pb-5">
-                                    <div style="overflow-x: auto;">
-                                        
-                                        <div id="tbl-kithi" class="mt-4 pb-5">
-                                            <table class="table table-striped table-hover">
-                                                <tr>
-                                                    <th scope="col">STT</th>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">ServiceName</th>
-                                                    <th scope="col">AvatarService</th>
-                                                    <th scope="col">Price</th>
-                                                    <th scope="col">TNTT(tax)</th>
-                                                    <th scope="col">Sale</th>
-                                                    <th scope="col">Description</th>
-                                                    <th class="text-center" scope="col">Action</th>
-                                                </tr>
-                                                <?php
                                                 $a = new Service();
-                                                $arr = $a->getListService();
-                                                $strTbl = "";
-
-                                                $stt = 1;
-
-                                                for ($i = 0; $i < count($arr); $i++) {
-                                                    $obj = $arr[$i];
-
-                                                    $strTbl .= "<tr>";
-                                                    $strTbl .= "<th>" . $stt++ . "</th>";
-                                                    $strTbl .= "<td id='serviceID'>$obj->serviceID</td>";
-                                                    $strTbl .= "<td id='serviceName'>$obj->serviceName</td>";
-                                                    $strTbl .= "<td><img src='$obj->avatarService' alt='banner' width='200' height='100'></td>";
-                                                    $strTbl .= "<td>$obj->price USD</td>";
-                                                    $strTbl .= "<td>$obj->vAT %</td>";
-                                                    $strTbl .= "<td>$obj->sale %</td>";
-                                                    $strTbl .= "<td id='description'>$obj->description</td>";
-                                                    $strTbl .= "<td>
-                                                                        <div class='d-flex justify-content-center'>
-                                                                            <form class='m-1' action='' method='POST'>
-                                                                                <input type='hidden' name='fserviceID' value='$obj->serviceID'/>
-                                                                                <input type='hidden' name='fvalDel' value='d'/>
-                                                                                <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
-                                                                            </form>
-                                                                            <input type='submit' class='btn btn-primary m-1' name='feditService' value='Edit'>
-                                                                        </div>    
-                                                                    </td>";
-
-                                                    // trường ẩn để lấy value edit
-                                                    $strTbl .= "<td class='d-none' id='price'>$obj->price</td>";
-                                                    $strTbl .= "<td class='d-none' id='vAT'>$obj->vAT</td>";
-                                                    $strTbl .= "<td class='d-none' id='sale'>$obj->sale</td>";
-
-                                                    $strTbl .= "</tr>";
-
-                                                }
-
-                                                echo $strTbl;
-
-                                                //delete => update
-                                                if (isset($_POST["fdelete"])) {
-                                                    $fserviceID = $_POST["fserviceID"];
-                                                    $fvalDel = $_POST["fvalDel"];
-
-                                                    $a = new Service();
-                                                    $a->flag = $fvalDel;
-                                                    $a->serviceID = $fserviceID;
-                                                    $a->updateListService();
-                                                }
-                                                ?>
-                                            </table>
+                                                $a->serviceName = $fServiceName;
+                                                $a->avatarService = $uploadFileDir . $newFileName;
+                                                $a->price = $fPrice;
+                                                $a->vAT = $fVAT;
+                                                $a->sale = $fSale;
+                                                $a->description = $fDescription;
+                                                $a->addService();
+                                            }
+                                            ?>
                                         </div>
-
                                     </div>
                                 </div>
+
+                                <!-- table list service -->
+                                <div class="tab-pane fade show active text-dark" id="listservice">
+                                    <div class="pt-5 pb-5">
+                                        <div class="text-center">
+                                            <h2>List Service</h2>
+                                        </div>
+                                        <div class="pb-5">
+                                            <div style="overflow-x: auto;">
+                                                
+                                                <div id="tbl-kithi" class="mt-4 pb-5">
+                                                    <table class="table table-striped table-hover">
+                                                        <tr>
+                                                            <th scope="col">STT</th>
+                                                            <th scope="col">ID</th>
+                                                            <th scope="col">ServiceName</th>
+                                                            <th scope="col">AvatarService</th>
+                                                            <th scope="col">Price</th>
+                                                            <th scope="col">TNTT(tax)</th>
+                                                            <th scope="col">Sale</th>
+                                                            <th scope="col">Description</th>
+                                                            <th class="text-center" scope="col">Action</th>
+                                                        </tr>
+                                                        <?php
+                                                        $a = new Service();
+                                                        $arr = $a->getListService();
+                                                        $strTbl = "";
+
+                                                        $stt = 1;
+
+                                                        for ($i = 0; $i < count($arr); $i++) {
+                                                            $obj = $arr[$i];
+
+                                                            $strTbl .= "<tr>";
+                                                            $strTbl .= "<th>" . $stt++ . "</th>";
+                                                            $strTbl .= "<td id='serviceID'>$obj->serviceID</td>";
+                                                            $strTbl .= "<td id='serviceName'>$obj->serviceName</td>";
+                                                            $strTbl .= "<td><img src='$obj->avatarService' alt='banner' width='200' height='100'></td>";
+                                                            $strTbl .= "<td>$obj->price USD</td>";
+                                                            $strTbl .= "<td>$obj->vAT %</td>";
+                                                            $strTbl .= "<td>$obj->sale %</td>";
+                                                            $strTbl .= "<td id='description'>$obj->description</td>";
+                                                            $strTbl .= "<td>
+                                                                                <div class='d-flex justify-content-center'>
+                                                                                    <form class='m-1' action='' method='POST'>
+                                                                                        <input type='hidden' name='fserviceID' value='$obj->serviceID'/>
+                                                                                        <input type='hidden' name='fvalDel' value='d'/>
+                                                                                        <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                                    </form>
+                                                                                    <input type='submit' class='btn btn-primary m-1' name='feditService' value='Edit'>
+                                                                                </div>    
+                                                                            </td>";
+
+                                                            // trường ẩn để lấy value edit
+                                                            $strTbl .= "<td class='d-none' id='price'>$obj->price</td>";
+                                                            $strTbl .= "<td class='d-none' id='vAT'>$obj->vAT</td>";
+                                                            $strTbl .= "<td class='d-none' id='sale'>$obj->sale</td>";
+
+                                                            $strTbl .= "</tr>";
+
+                                                        }
+
+                                                        echo $strTbl;
+
+                                                        //delete => update
+                                                        if (isset($_POST["fdelete"])) {
+                                                            $fserviceID = $_POST["fserviceID"];
+                                                            $fvalDel = $_POST["fvalDel"];
+
+                                                            $a = new Service();
+                                                            $a->flag = $fvalDel;
+                                                            $a->serviceID = $fserviceID;
+                                                            $a->updateListService();
+                                                        }
+                                                        ?>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
                             </div>
 
                             <!-- edit list service -->
                             <div id="editService" class="d-none">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                <div class="pb-5 d-flex justify-content-center text-dark">
                                     <div style="width: 650px;">
                                         <div class="text-center pb-3">
                                             <h2>Edit</h2>
@@ -1395,200 +1427,206 @@ if (!empty($_POST["flogout"])) {
                     <!-- News -->
                     <div class="tab-pane fade" id="news">
                         <div class="container text-dark pb-5">
-                            <!-- form Add News -->
-                            <div id="addNews">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
-                                    <div style="width: 650px;">
-                                        <div class="text-center pb-3">
-                                            <h2>Add News</h2>
-                                        </div>
-                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Title:</label>
-                                                <input type="text" id="Title" name="fTitle" class="form-control" placeholder="Title" />
+                            <div class="tab-content">
+
+                                <!-- form Add News -->
+                                <div class="tab-pane fade show active text-dark" id="addNews">
+                                    <div class="pt-5 pb-5 d-flex justify-content-center">
+                                        <div style="width: 650px;">
+                                            <div class="text-center pb-3">
+                                                <h2>Add News</h2>
                                             </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Lead:</label>
-                                                <input type="text" id="Lead" name="fLead" class="form-control" placeholder="Lead" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Category:</label>
-                                                <select class="form-select" name="fCategory" id="CategoryID">
-                                                    <?php
-                                                    $a = new Category();
-                                                    $arr = $a->getListCategory();
-                                                    for($i = 0; $i < count($arr); $i++) {
-                                                        $obj = $arr[$i];
-                                                        echo "<option value='$obj->CategoryID'>$obj->CategoryName</option>";
-                                                    }
-                                                    ?>
-                                                </select>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Content:</label>
-                                                <textarea name="fContent" id="editor1" rows="10" cols="80" class="form-control">Content here...</textarea>
-                                            </div> 
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">AvatarNews:</label>
-                                                <input type="file" id="AvatarNews" name="fAvatarNews" class="form-control" placeholder="AvatarNews" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Author:</label>
-                                                <input type="text" id="Author" name="fAuthor" class="form-control" placeholder="Author" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
-                                            </div>
-                                            <input type="submit" id="btnnews" name="fnews" class="btn btn-primary" value="Save" />
-                                        </form>
-                                        <?php
-                                        $message = "";
+                                            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Title:</label>
+                                                    <input type="text" id="Title" name="fTitle" class="form-control" placeholder="Title" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Lead:</label>
+                                                    <input type="text" id="Lead" name="fLead" class="form-control" placeholder="Lead" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Category:</label>
+                                                    <select class="form-select" name="fCategory" id="CategoryID">
+                                                        <?php
+                                                        $a = new Category();
+                                                        $arr = $a->getListCategory();
+                                                        for($i = 0; $i < count($arr); $i++) {
+                                                            $obj = $arr[$i];
+                                                            echo "<option value='$obj->CategoryID'>$obj->CategoryName</option>";
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Content:</label>
+                                                    <textarea name="fContent" id="editor1" rows="10" cols="80" class="form-control">Content here...</textarea>
+                                                </div> 
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">AvatarNews:</label>
+                                                    <input type="file" id="AvatarNews" name="fAvatarNews" class="form-control" placeholder="AvatarNews" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Author:</label>
+                                                    <input type="text" id="Author" name="fAuthor" class="form-control" placeholder="Author" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Description:</label>
+                                                    <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                                </div>
+                                                <input type="submit" id="btnnews" name="fnews" class="btn btn-primary" value="Save" />
+                                            </form>
+                                            <?php
+                                            $message = "";
 
-                                        if (isset($_POST['fnews']) && $_POST['fnews'] == 'Save') {
-                                            if (isset($_FILES['fAvatarNews']) && $_FILES['fAvatarNews']['error'] === UPLOAD_ERR_OK) {
-                                                // lưu vào thư mục tạm webserver
-                                                $fileTmpPath = $_FILES['fAvatarNews']['tmp_name'];
-                                                // echo $fileTmpPath;
+                                            if (isset($_POST['fnews']) && $_POST['fnews'] == 'Save') {
+                                                if (isset($_FILES['fAvatarNews']) && $_FILES['fAvatarNews']['error'] === UPLOAD_ERR_OK) {
+                                                    // lưu vào thư mục tạm webserver
+                                                    $fileTmpPath = $_FILES['fAvatarNews']['tmp_name'];
+                                                    // echo $fileTmpPath;
 
-                                                // thông tin file
-                                                $fileName = $_FILES['fAvatarNews']['name'];
-                                                $fileSize = $_FILES['fAvatarNews']['size'];
-                                                $fileType = $_FILES['fAvatarNews']['type'];
+                                                    // thông tin file
+                                                    $fileName = $_FILES['fAvatarNews']['name'];
+                                                    $fileSize = $_FILES['fAvatarNews']['size'];
+                                                    $fileType = $_FILES['fAvatarNews']['type'];
 
-                                                // lấy tên file và đuôi file
-                                                $fileNameCmps = explode(".", $fileName);
+                                                    // lấy tên file và đuôi file
+                                                    $fileNameCmps = explode(".", $fileName);
 
-                                                // chuẩn hóa lại tên file
-                                                $fileExtension = strtolower(end($fileNameCmps));
+                                                    // chuẩn hóa lại tên file
+                                                    $fileExtension = strtolower(end($fileNameCmps));
 
-                                                // thiết đặt filename để k bị trùng nhau
-                                                $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+                                                    // thiết đặt filename để k bị trùng nhau
+                                                    $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
 
-                                                // kiem tra phan mo rong cua file
-                                                $allowedfileExtensions = ['jpg', 'gif', 'png'];
+                                                    // kiem tra phan mo rong cua file
+                                                    $allowedfileExtensions = ['jpg', 'gif', 'png'];
 
-                                                // kiểm tra đuôi file
-                                                if (in_array($fileExtension, $allowedfileExtensions)) {
-                                                    // thu muc file uploaded
-                                                    $uploadFileDir = '../admin/assets/img/News/';
-                                                    $dest_path = $uploadFileDir . $newFileName;
+                                                    // kiểm tra đuôi file
+                                                    if (in_array($fileExtension, $allowedfileExtensions)) {
+                                                        // thu muc file uploaded
+                                                        $uploadFileDir = '../admin/assets/img/News/';
+                                                        $dest_path = $uploadFileDir . $newFileName;
 
-                                                    if (move_uploaded_file($fileTmpPath, $dest_path)) {
-                                                        $message = "";
+                                                        if (move_uploaded_file($fileTmpPath, $dest_path)) {
+                                                            $message = "";
+                                                        } else {
+                                                            $message = 'Check if the directory has write permissions.';
+                                                        }
                                                     } else {
-                                                        $message = 'Check if the directory has write permissions.';
+                                                        $message = 'Only file types allowed: ' . implode(',', $allowedfileExtensions);
                                                     }
-                                                } else {
-                                                    $message = 'Only file types allowed: ' . implode(',', $allowedfileExtensions);
                                                 }
                                             }
-                                        }
 
-                                        echo $message;
+                                            echo $message;
 
-                                        if (isset($_POST["fnews"])) {
-                                            $fTitle = $_POST["fTitle"];
-                                            $fLead = $_POST["fLead"];
-                                            $fCategory = $_POST["fCategory"];
-                                            $fContent = $_POST["fContent"];
-                                            // $fAvatarNews = $_POST["fAvatarNews"];
-                                            $fAuthor = $_POST["fAuthor"];
-                                            $fDescription = $_POST["fDescription"];
+                                            if (isset($_POST["fnews"])) {
+                                                $fTitle = $_POST["fTitle"];
+                                                $fLead = $_POST["fLead"];
+                                                $fCategory = $_POST["fCategory"];
+                                                $fContent = $_POST["fContent"];
+                                                // $fAvatarNews = $_POST["fAvatarNews"];
+                                                $fAuthor = $_POST["fAuthor"];
+                                                $fDescription = $_POST["fDescription"];
 
-                                            $a = new News();
-                                            $a->title = $fTitle;
-                                            $a->leadcontent = $fLead;
-                                            $a->categoryID = $fCategory;
-                                            $a->content = $fContent;
-                                            $a->avatarNews = $uploadFileDir . $newFileName;
-                                            $a->author = $fAuthor;
-                                            $a->description = $fDescription;
-                                            $a->addNews();
-                                        }
-                                        ?>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- table list News -->
-                            <div id="listNews">
-                                <div class="text-center">
-                                    <h2>List News</h2>
-                                </div>
-                                <div class="pb-5">
-                                    <div style="overflow-x: auto;">
-
-                                        <div id="tbl-kithi" class="mt-4 pb-5" >
-                                            <table class="table table-striped table-hover">
-                                                <tr>
-                                                    <th scope="col">STT</th>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">Category</th>
-                                                    <th scope="col">Title</th>
-                                                    <th scope="col">LeadContent</th>
-                                                    <th scope="col">Content</th>
-                                                    <th scope="col">AvatarNews</th>
-                                                    <th scope="col">Author</th>
-                                                    <th scope="col">Description</th>
-                                                    <th class="text-center" scope="col">Action</th>
-                                                </tr>
-                                                <?php
                                                 $a = new News();
-                                                $arr = $a->getListNews();
-                                                $strTbl = "";
-
-                                                $stt = 1;
-
-                                                for ($i = 0; $i < count($arr); $i++) {
-                                                    $obj = $arr[$i];
-
-                                                    $strTbl .= "<tr>";
-                                                    $strTbl .= "<th>" . $stt++ . "</th>";
-                                                    $strTbl .= "<td id='newsID'>$obj->newsID</td>";
-                                                    $strTbl .= "<td>$obj->categoryID</td>";
-                                                    $strTbl .= "<td id='title'>$obj->title</td>";
-                                                    $strTbl .= "<td id='leadcontent'>$obj->leadcontent</td>";
-                                                    $strTbl .= "<td>$obj->content</td>";
-                                                    $strTbl .= "<td><img src='$obj->avatarNews' alt='AvatarNews' width='200' height='100'></td>";
-                                                    $strTbl .= "<td id='author'>$obj->author</td>";
-                                                    $strTbl .= "<td id='description'>$obj->description</td>";
-                                                    $strTbl .= "<td>
-                                                                        <div class='d-flex'>
-                                                                            <form class='m-1' action='' method='POST'>
-                                                                                <input type='hidden' name='fnewsID' value='$obj->newsID'/>
-                                                                                <input type='hidden' name='fvalDel' value='d'/>
-                                                                                <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
-                                                                            </form>
-                                                                            <input type='submit' class='btn btn-primary m-1' name='feditNews' value='Edit'>
-                                                                        </div>    
-                                                                    </td>";
-                                                    $strTbl .= "</tr>";
-                                                }
-
-                                                echo $strTbl;
-
-                                                //delete => update
-                                                if (isset($_POST["fdelete"])) {
-                                                    $fnewsID = $_POST["fnewsID"];
-                                                    $fvalDel = $_POST["fvalDel"];
-
-                                                    $a = new News();
-                                                    $a->flag = $fvalDel;
-                                                    $a->newsID = $fnewsID;
-                                                    $a->updateListNews();
-                                                }
-                                                ?>
-                                            </table>
+                                                $a->title = $fTitle;
+                                                $a->leadcontent = $fLead;
+                                                $a->categoryID = $fCategory;
+                                                $a->content = $fContent;
+                                                $a->avatarNews = $uploadFileDir . $newFileName;
+                                                $a->author = $fAuthor;
+                                                $a->description = $fDescription;
+                                                $a->addNews();
+                                            }
+                                            ?>
                                         </div>
-
                                     </div>
                                 </div>
+
+                                <!-- table list News -->
+                                <div class="tab-pane fade show active text-dark" id="listNews">
+                                    <div class="pt-5 pb-5">
+                                        <div class="text-center">
+                                            <h2>List News</h2>
+                                        </div>
+                                        <div class="pb-5">
+                                            <div style="overflow-x: auto;">
+
+                                                <div id="tbl-kithi" class="mt-4 pb-5" >
+                                                    <table class="table table-striped table-hover">
+                                                        <tr>
+                                                            <th scope="col">STT</th>
+                                                            <th scope="col">ID</th>
+                                                            <th scope="col">Category</th>
+                                                            <th scope="col">Title</th>
+                                                            <th scope="col">LeadContent</th>
+                                                            <th scope="col">Content</th>
+                                                            <th scope="col">AvatarNews</th>
+                                                            <th scope="col">Author</th>
+                                                            <th scope="col">Description</th>
+                                                            <th class="text-center" scope="col">Action</th>
+                                                        </tr>
+                                                        <?php
+                                                        $a = new News();
+                                                        $arr = $a->getListNews();
+                                                        $strTbl = "";
+
+                                                        $stt = 1;
+
+                                                        for ($i = 0; $i < count($arr); $i++) {
+                                                            $obj = $arr[$i];
+
+                                                            $strTbl .= "<tr>";
+                                                            $strTbl .= "<th>" . $stt++ . "</th>";
+                                                            $strTbl .= "<td id='newsID'>$obj->newsID</td>";
+                                                            $strTbl .= "<td>$obj->categoryID</td>";
+                                                            $strTbl .= "<td id='title'>$obj->title</td>";
+                                                            $strTbl .= "<td id='leadcontent'>$obj->leadcontent</td>";
+                                                            $strTbl .= "<td>$obj->content</td>";
+                                                            $strTbl .= "<td><img src='$obj->avatarNews' alt='AvatarNews' width='200' height='100'></td>";
+                                                            $strTbl .= "<td id='author'>$obj->author</td>";
+                                                            $strTbl .= "<td id='description'>$obj->description</td>";
+                                                            $strTbl .= "<td>
+                                                                                <div class='d-flex'>
+                                                                                    <form class='m-1' action='' method='POST'>
+                                                                                        <input type='hidden' name='fnewsID' value='$obj->newsID'/>
+                                                                                        <input type='hidden' name='fvalDel' value='d'/>
+                                                                                        <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                                    </form>
+                                                                                    <input type='submit' class='btn btn-primary m-1' name='feditNews' value='Edit'>
+                                                                                </div>    
+                                                                            </td>";
+                                                            $strTbl .= "</tr>";
+                                                        }
+
+                                                        echo $strTbl;
+
+                                                        //delete => update
+                                                        if (isset($_POST["fdelete"])) {
+                                                            $fnewsID = $_POST["fnewsID"];
+                                                            $fvalDel = $_POST["fvalDel"];
+
+                                                            $a = new News();
+                                                            $a->flag = $fvalDel;
+                                                            $a->newsID = $fnewsID;
+                                                            $a->updateListNews();
+                                                        }
+                                                        ?>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
 
                             <!-- edit list News -->
                             <div id="editNews" class="d-none">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                <div class="pb-5 d-flex justify-content-center">
                                     <div style="width: 650px;">
                                         <div class="text-center pb-3">
                                             <h2>Edit</h2>
@@ -1644,107 +1682,113 @@ if (!empty($_POST["flogout"])) {
                     <!-- library -->
                     <div class="tab-pane fade" id="library">
                         <div class="container text-dark pb-5">
-                            <!-- form Add library -->
-                            <div id="addlibrary">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
-                                    <div style="width: 650px;">
-                                        <div class="text-center pb-3">
-                                            <h2>Add Library</h2>
-                                        </div>
-                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">LibraryName:</label>
-                                                <input type="text" id="LibraryName" name="fLibraryName" class="form-control" placeholder="LibraryName" />
+                            <div class="tab-content">
+
+                                <!-- form Add library -->
+                                <div class="tab-pane fade show active text-dark" id="addlibrary">
+                                    <div class="pt-5 pb-5 d-flex justify-content-center">
+                                        <div style="width: 650px;">
+                                            <div class="text-center pb-3">
+                                                <h2>Add Library</h2>
                                             </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
-                                            </div>
-                                            <input type="submit" id="btnlibrary" name="flibrary" class="btn btn-primary" value="Save" />
-                                        </form>
-                                        <?php if (isset($_POST["flibrary"])) {
-                                            $fLibraryName = $_POST["fLibraryName"];
-                                            $fDescription = $_POST["fDescription"];
+                                            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">LibraryName:</label>
+                                                    <input type="text" id="LibraryName" name="fLibraryName" class="form-control" placeholder="LibraryName" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Description:</label>
+                                                    <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                                </div>
+                                                <input type="submit" id="btnlibrary" name="flibrary" class="btn btn-primary" value="Save" />
+                                            </form>
+                                            <?php if (isset($_POST["flibrary"])) {
+                                                $fLibraryName = $_POST["fLibraryName"];
+                                                $fDescription = $_POST["fDescription"];
 
-                                            $a = new Library();
-                                            $a->libraryName = $fLibraryName;
-                                            $a->description = $fDescription;
-                                            $a->addLibrary();
-                                        } ?>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- table list library -->
-                            <div id="listlibrary">
-                                <div class="text-center">
-                                    <h2>List Library</h2>
-                                </div>
-                                <div class="pb-5">
-                                    <div style="overflow-x: auto;">
-
-                                        <div id="tbl-kithi" class="mt-4 pb-5" >
-                                            <table class="table table-striped table-hover">
-                                                <tr>
-                                                    <th scope="col">STT</th>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">LibraryName</th>
-                                                    <th scope="col">Description</th>
-                                                    <th class='text-center' scope="col">Action</th>
-                                                    <th class='text-center' scope="col">Del - Edit</th>
-                                                </tr>
-                                                <?php
                                                 $a = new Library();
-                                                $arr = $a->getListLibrary();
-                                                $strTbl = "";
-
-                                                $stt = 1;
-
-                                                for ($i = 0; $i < count($arr); $i++) {
-                                                    $obj = $arr[$i];
-
-                                                    $strTbl .= "<tr>";
-                                                    $strTbl .= "<th>" . $stt++ . "</th>";
-                                                    $strTbl .= "<td id='libraryID'>$obj->libraryID</td>";
-                                                    $strTbl .= "<td id='libraryName'>$obj->libraryName</td>";
-                                                    $strTbl .= "<td id='description'>$obj->description</td>";
-                                                    $strTbl .= "<td class='text-center'>
-                                                                    <div class='nav d-block' id='myTab'>
-                                                                        <button class='btn btn-primary' data-bs-target='#add-img' data-bs-toggle='tab' name='additemlibrary' aria-selected='false'>Add image</button>
-                                                                        <button class='btn btn-primary' data-bs-target='#add-video' data-bs-toggle='tab' name='additemlibrary' aria-selected='false'>Add video</button>
-                                                                    </div>
-                                                                    </td>";
-                                                    $strTbl .= "<td>
-                                                                        <div class='d-flex justify-content-center'>
-                                                                            <form class='m-1' action='' method='POST'>
-                                                                                <input type='hidden' name='flibraryID' value='$obj->libraryID'/>
-                                                                                <input type='hidden' name='fvalDel' value='d'/>
-                                                                                <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
-                                                                            </form>
-                                                                            <input type='submit' class='btn btn-primary m-1' name='feditLibraryID' value='Edit'>
-                                                                        </div>    
-                                                                    </td>";
-                                                    $strTbl .= "</tr>";
-                                                }
-
-                                                echo $strTbl;
-
-                                                //delete => update
-                                                if (isset($_POST["fdelete"])) {
-                                                    $flibraryID = $_POST["flibraryID"];
-                                                    $fvalDel = $_POST["fvalDel"];
-
-                                                    $a = new Library();
-                                                    $a->flag = $fvalDel;
-                                                    $a->libraryID = $flibraryID;
-                                                    $a->updateListLibrary();
-                                                }
-                                                ?>
-                                            </table>
+                                                $a->libraryName = $fLibraryName;
+                                                $a->description = $fDescription;
+                                                $a->addLibrary();
+                                            } ?>
                                         </div>
-
                                     </div>
                                 </div>
+
+                                <!-- table list library -->
+                                <div class="tab-pane fade show active text-dark" id="listlibrary">
+                                    <div class="pt-5 pb-5">
+                                        <div class="text-center">
+                                            <h2>List Library</h2>
+                                        </div>
+                                        <div class="pb-5">
+                                            <div style="overflow-x: auto;">
+
+                                                <div id="tbl-kithi" class="mt-4 pb-5" >
+                                                    <table class="table table-striped table-hover">
+                                                        <tr>
+                                                            <th scope="col">STT</th>
+                                                            <th scope="col">ID</th>
+                                                            <th scope="col">LibraryName</th>
+                                                            <th scope="col">Description</th>
+                                                            <th class='text-center' scope="col">Action</th>
+                                                            <th class='text-center' scope="col">Del - Edit</th>
+                                                        </tr>
+                                                        <?php
+                                                        $a = new Library();
+                                                        $arr = $a->getListLibrary();
+                                                        $strTbl = "";
+
+                                                        $stt = 1;
+
+                                                        for ($i = 0; $i < count($arr); $i++) {
+                                                            $obj = $arr[$i];
+
+                                                            $strTbl .= "<tr>";
+                                                            $strTbl .= "<th>" . $stt++ . "</th>";
+                                                            $strTbl .= "<td id='libraryID'>$obj->libraryID</td>";
+                                                            $strTbl .= "<td id='libraryName'>$obj->libraryName</td>";
+                                                            $strTbl .= "<td id='description'>$obj->description</td>";
+                                                            $strTbl .= "<td class='text-center'>
+                                                                            <div class='nav d-block' id='myTab'>
+                                                                                <button class='btn btn-primary' data-bs-target='#add-img' data-bs-toggle='tab' name='additemlibrary' aria-selected='false'>Add image</button>
+                                                                                <button class='btn btn-primary' data-bs-target='#add-video' data-bs-toggle='tab' name='additemlibrary' aria-selected='false'>Add video</button>
+                                                                            </div>
+                                                                            </td>";
+                                                            $strTbl .= "<td>
+                                                                                <div class='d-flex justify-content-center'>
+                                                                                    <form class='m-1' action='' method='POST'>
+                                                                                        <input type='hidden' name='flibraryID' value='$obj->libraryID'/>
+                                                                                        <input type='hidden' name='fvalDel' value='d'/>
+                                                                                        <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                                    </form>
+                                                                                    <input type='submit' class='btn btn-primary m-1' name='feditLibraryID' value='Edit'>
+                                                                                </div>    
+                                                                            </td>";
+                                                            $strTbl .= "</tr>";
+                                                        }
+
+                                                        echo $strTbl;
+
+                                                        //delete => update
+                                                        if (isset($_POST["fdelete"])) {
+                                                            $flibraryID = $_POST["flibraryID"];
+                                                            $fvalDel = $_POST["fvalDel"];
+
+                                                            $a = new Library();
+                                                            $a->flag = $fvalDel;
+                                                            $a->libraryID = $flibraryID;
+                                                            $a->updateListLibrary();
+                                                        }
+                                                        ?>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
 
                             <!-- 2 tab add img and video -->
@@ -1926,10 +1970,9 @@ if (!empty($_POST["flogout"])) {
                                 </div>
                             </div>
 
-                            
                             <!-- edit list library -->
                             <div id="editlibrary" class="d-none">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                <div class="pb-5 d-flex justify-content-center">
                                     <div style="width: 650px;">
                                         <div class="text-center pb-3">
                                             <h2>Edit</h2>
@@ -1972,214 +2015,220 @@ if (!empty($_POST["flogout"])) {
                     <!-- itemlibrary -->
                     <div class="tab-pane fade" id="itemlibrary">
                         <div class="container text-dark pb-5">
-                            <!-- form Add Itemlibrary -->
-                            <div id="addItemlibrary">
-                            <div class="pt-5 pb-5 d-flex justify-content-center">
-                                    <div style="width: 650px;">
-                                        <div class="text-center pb-3">
-                                            <h2>Add Itemlibrary</h2>
-                                        </div>
-                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Type:</label>
-                                                <select class="form-select" id="ValueType" name="fType" onchange="showByType(this.value);">
-                                                    <option value="0" selected>Select</option>
-                                                    <option value="1">Image</option>
-                                                    <option value="2">Video</option>
-                                                </select>
+                            <div class="tab-content">
+                                
+                                <!-- form Add Itemlibrary -->
+                                <div class="tab-pane fade show active text-dark" id="addItemlibrary">
+                                    <div class="pt-5 pb-5 d-flex justify-content-center">
+                                        <div style="width: 650px;">
+                                            <div class="text-center pb-3">
+                                                <h2>Add Itemlibrary</h2>
                                             </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Library:</label>
-                                                <select class="form-select" id="LibraryID" name="fLibraryID">
-                                                    <option value="0">Select</option>
-                                                    <?php
-                                                    $a = new Library();
-                                                    $arr = $a->getListLibrary();
-                                                    
-                                                    for ($i = 0; $i < count($arr); $i++) {
-                                                        $obj = $arr[$i];
+                                            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Type:</label>
+                                                    <select class="form-select" id="ValueType" name="fType" onchange="showByType(this.value);">
+                                                        <option value="0" selected>Select</option>
+                                                        <option value="1">Image</option>
+                                                        <option value="2">Video</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Library:</label>
+                                                    <select class="form-select" id="LibraryID" name="fLibraryID">
+                                                        <option value="0">Select</option>
+                                                        <?php
+                                                        $a = new Library();
+                                                        $arr = $a->getListLibrary();
                                                         
-                                                        echo "<option value='$obj->libraryID'>" . $obj->libraryName . "</option>";
-                                                    }
-                                                    ?>
-                                                </select>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Title:</label>
-                                                <input type="text" id="Title" name="fTitle" class="form-control" placeholder="Title" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
-                                            </div>
-                                            <div id="hintitemlibraryitem"></div>
-                                        </form>
-                                        <?php
-                                        // add img
-                                        $message = "";
-                                        if (isset($_POST['fitemimg']) && $_POST['fitemimg'] == 'Save') {
-                                            if (isset($_FILES['fUpload']) && $_FILES['fUpload']['error'] === UPLOAD_ERR_OK) {
-                                                // lưu vào thư mục tạm webserver
-                                                $fileTmpPath = $_FILES['fUpload']['tmp_name'];
-                                                // echo $fileTmpPath;
-                                                // thông tin file
-                                                $fileName = $_FILES['fUpload']['name'];
-                                                $fileSize = $_FILES['fUpload']['size'];
-                                                $fileType = $_FILES['fUpload']['type'];
+                                                        for ($i = 0; $i < count($arr); $i++) {
+                                                            $obj = $arr[$i];
+                                                            
+                                                            echo "<option value='$obj->libraryID'>" . $obj->libraryName . "</option>";
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Title:</label>
+                                                    <input type="text" id="Title" name="fTitle" class="form-control" placeholder="Title" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Description:</label>
+                                                    <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                                </div>
+                                                <div id="hintitemlibraryitem"></div>
+                                            </form>
+                                            <?php
+                                            // add img
+                                            $message = "";
+                                            if (isset($_POST['fitemimg']) && $_POST['fitemimg'] == 'Save') {
+                                                if (isset($_FILES['fUpload']) && $_FILES['fUpload']['error'] === UPLOAD_ERR_OK) {
+                                                    // lưu vào thư mục tạm webserver
+                                                    $fileTmpPath = $_FILES['fUpload']['tmp_name'];
+                                                    // echo $fileTmpPath;
+                                                    // thông tin file
+                                                    $fileName = $_FILES['fUpload']['name'];
+                                                    $fileSize = $_FILES['fUpload']['size'];
+                                                    $fileType = $_FILES['fUpload']['type'];
 
-                                                // lấy tên file và đuôi file
-                                                $fileNameCmps = explode(".", $fileName);
+                                                    // lấy tên file và đuôi file
+                                                    $fileNameCmps = explode(".", $fileName);
 
-                                                // chuẩn hóa lại tên file
-                                                $fileExtension = strtolower(end($fileNameCmps));
+                                                    // chuẩn hóa lại tên file
+                                                    $fileExtension = strtolower(end($fileNameCmps));
 
-                                                // thiết đặt filename để k bị trùng nhau
-                                                $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+                                                    // thiết đặt filename để k bị trùng nhau
+                                                    $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
 
-                                                // kiem tra phan mo rong cua file
-                                                $allowedfileExtensions = ['jpg', 'gif', 'png'];
+                                                    // kiem tra phan mo rong cua file
+                                                    $allowedfileExtensions = ['jpg', 'gif', 'png'];
 
-                                                // kiểm tra đuôi file
-                                                if (in_array($fileExtension, $allowedfileExtensions)) {
-                                                    // thu muc file uploaded
-                                                    $uploadFileDir = './assets/img/ItemLibrary/';
-                                                    $dest_path = $uploadFileDir . $newFileName;
+                                                    // kiểm tra đuôi file
+                                                    if (in_array($fileExtension, $allowedfileExtensions)) {
+                                                        // thu muc file uploaded
+                                                        $uploadFileDir = './assets/img/ItemLibrary/';
+                                                        $dest_path = $uploadFileDir . $newFileName;
 
-                                                    if (move_uploaded_file($fileTmpPath, $dest_path)) {
-                                                        $message = "";
+                                                        if (move_uploaded_file($fileTmpPath, $dest_path)) {
+                                                            $message = "";
+                                                        } else {
+                                                            $message = 'Check if the directory has write permissions.';
+                                                        }
                                                     } else {
-                                                        $message = 'Check if the directory has write permissions.';
+                                                        $message = 'Only file types allowed: ' . implode(',', $allowedfileExtensions);
                                                     }
-                                                } else {
-                                                    $message = 'Only file types allowed: ' . implode(',', $allowedfileExtensions);
                                                 }
                                             }
-                                        }
-                                        echo $message;
-                                        if (isset($_POST["fitemimg"])) {
-                                            $fType = $_POST["fType"];
-                                            $fLibraryID = $_POST["fLibraryID"];
-                                            $fTitle = $_POST["fTitle"];
-                                            $fFile = $_POST["fFile"];
-                                            $fDescription = $_POST["fDescription"];
-                                            $fAlt = $_POST["fAlt"];
+                                            echo $message;
+                                            if (isset($_POST["fitemimg"])) {
+                                                $fType = $_POST["fType"];
+                                                $fLibraryID = $_POST["fLibraryID"];
+                                                $fTitle = $_POST["fTitle"];
+                                                // $fFile = $_POST["fFile"];
+                                                $fDescription = $_POST["fDescription"];
+                                                $fAlt = $_POST["fAlt"];
 
-                                            $a = new Itemlibrary();
-                                            $a->type = $fType;
-                                            $a->libraryID = $fLibraryID;
-                                            $a->title = $fTitle;
-                                            $a->description = $fDescription;
-                                            $a->alt = $fAlt;
-                                            $a->file = $uploadFileDir.$newFileName;
-                                            $a->addImglibrary();
-                                        }
-
-
-                                        // add video
-                                        if (isset($_POST["fitemvideo"])) {
-                                            $fType = $_POST["fType"];
-                                            $fLibraryID = $_POST["fLibraryID"];
-                                            $fTitle = $_POST["fTitle"];
-                                            $fFile = $_POST["fFile"];
-                                            $fDescription = $_POST["fDescription"];
-
-                                            $a = new Itemlibrary();
-                                            $a->type = $fType;
-                                            $a->libraryID = $fLibraryID;
-                                            $a->title = $fTitle;
-                                            $a->file = $fFile;
-                                            $a->description = $fDescription;
-                                            $a->addVideolibrary();
-                                        }
-                                        ?>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- table list Itemlibrary -->
-                            <div id="listItemlibrary">
-                                <div class="text-center">
-                                    <h2>List Itemlibrary</h2>
-                                </div>
-                                <div class="pb-5">
-                                    <div style="overflow-x: auto;">
-
-                                        <div id="tbl-kithi" class="mt-4 pb-5" >
-                                            <table class="table table-striped table-hover">
-                                                <tr>
-                                                    <th scope="col">STT</th>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">Type</th>
-                                                    <th scope="col">LibraryID</th>
-                                                    <th scope="col">Title</th>
-                                                    <th scope="col">Alt</th>
-                                                    <th scope="col">File</th>
-                                                    <th scope="col">Description</th>
-                                                    <th scope="col">Action</th>
-                                                </tr>
-                                                <?php
                                                 $a = new Itemlibrary();
-                                                $arr = $a->getListItemLibrary();
-                                                $strTbl = "";
+                                                $a->type = $fType;
+                                                $a->libraryID = $fLibraryID;
+                                                $a->title = $fTitle;
+                                                $a->description = $fDescription;
+                                                $a->alt = $fAlt;
+                                                $a->file = $uploadFileDir.$newFileName;
+                                                $a->addImglibrary();
+                                            }
 
-                                                $stt = 1;
 
-                                                for ($i = 0; $i < count($arr); $i++) {
-                                                    $obj = $arr[$i];
+                                            // add video
+                                            if (isset($_POST["fitemvideo"])) {
+                                                $fType = $_POST["fType"];
+                                                $fLibraryID = $_POST["fLibraryID"];
+                                                $fTitle = $_POST["fTitle"];
+                                                $fFile = $_POST["fFile"];
+                                                $fDescription = $_POST["fDescription"];
 
-                                                    $strTbl .= "<tr>";
-                                                    $strTbl .= "<th>" . $stt++ . "</th>";
-                                                    $strTbl .= "<td id='itemLibraryID'>$obj->itemLibraryID</td>";
-                                                    $strTbl .= "<td>$obj->type</td>";
-                                                    $strTbl .= "<td>$obj->LibraryName</td>";
-                                                    $strTbl .= "<td id='title'>$obj->title</td>";
-                                                    $strTbl .= "<td id='alt'>$obj->alt</td>";
-                                                    if($obj->type == "Image") {
-                                                        $strTbl .= "<td>
-                                                                    <img src='$obj->file' alt='$obj->alt' width='200' height='100'>
-                                                                </td>";
-                                                    } else {
-                                                        $strTbl .= "<td>
-                                                                        <iframe style='padding-top: 5%;' src='https://www.youtube.com/embed/$obj->file' title='$obj->title'></iframe>
-                                                                    </td>";
-                                                    }
-                                                    $strTbl .= "<td id='description'>$obj->description</td>";
-                                                    $strTbl .= "<td>
-                                                                        <div class='d-flex'>
-                                                                            <form class='m-1' action='' method='POST'>
-                                                                                <input type='hidden' name='fitemLibraryID' value='$obj->itemLibraryID'/>
-                                                                                <input type='hidden' name='fvalDel' value='d'/>
-                                                                                <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
-                                                                            </form>
-                                                                            <input type='submit' class='btn btn-primary m-1' name='feditItemlibrary' value='Edit'>
-                                                                        </div>    
-                                                                    </td>";
-                                                    $strTbl .= "</tr>";
-                                                }
- 
-                                                echo $strTbl;
-
-                                                //delete => update
-                                                if (isset($_POST["fdelete"])) {
-                                                    $fitemLibraryID = $_POST["fitemLibraryID"];
-                                                    $fvalDel = $_POST["fvalDel"];
-
-                                                    $a = new Itemlibrary();
-                                                    $a->flag = $fvalDel;
-                                                    $a->itemLibraryID = $fitemLibraryID;
-                                                    $a->updateListItemlibrary();
-                                                }
-                                                ?>
-                                            </table>
+                                                $a = new Itemlibrary();
+                                                $a->type = $fType;
+                                                $a->libraryID = $fLibraryID;
+                                                $a->title = $fTitle;
+                                                $a->file = $fFile;
+                                                $a->description = $fDescription;
+                                                $a->addVideolibrary();
+                                            }
+                                            ?>
                                         </div>
-
                                     </div>
                                 </div>
+
+                                <!-- table list Itemlibrary -->
+                                <div class="tab-pane fade show active text-dark" id="listItemlibrary">
+                                    <div class="pt-5 pb-5">
+                                        <div class="text-center">
+                                            <h2>List Itemlibrary</h2>
+                                        </div>
+                                        <div class="pb-5">
+                                            <div style="overflow-x: auto;">
+
+                                                <div id="tbl-kithi" class="mt-4 pb-5" >
+                                                    <table class="table table-striped table-hover">
+                                                        <tr>
+                                                            <th scope="col">STT</th>
+                                                            <th scope="col">ID</th>
+                                                            <th scope="col">Type</th>
+                                                            <th scope="col">LibraryID</th>
+                                                            <th scope="col">Title</th>
+                                                            <th scope="col">Alt</th>
+                                                            <th scope="col">File</th>
+                                                            <th scope="col">Description</th>
+                                                            <th scope="col">Action</th>
+                                                        </tr>
+                                                        <?php
+                                                        $a = new Itemlibrary();
+                                                        $arr = $a->getListItemLibrary();
+                                                        $strTbl = "";
+
+                                                        $stt = 1;
+
+                                                        for ($i = 0; $i < count($arr); $i++) {
+                                                            $obj = $arr[$i];
+
+                                                            $strTbl .= "<tr>";
+                                                            $strTbl .= "<th>" . $stt++ . "</th>";
+                                                            $strTbl .= "<td id='itemLibraryID'>$obj->itemLibraryID</td>";
+                                                            $strTbl .= "<td>$obj->type</td>";
+                                                            $strTbl .= "<td>$obj->LibraryName</td>";
+                                                            $strTbl .= "<td id='title'>$obj->title</td>";
+                                                            $strTbl .= "<td id='alt'>$obj->alt</td>";
+                                                            if($obj->type == "Image") {
+                                                                $strTbl .= "<td>
+                                                                            <img src='$obj->file' alt='$obj->alt' width='200' height='100'>
+                                                                        </td>";
+                                                            } else {
+                                                                $strTbl .= "<td>
+                                                                                <iframe style='padding-top: 5%;' src='https://www.youtube.com/embed/$obj->file' title='$obj->title'></iframe>
+                                                                            </td>";
+                                                            }
+                                                            $strTbl .= "<td id='description'>$obj->description</td>";
+                                                            $strTbl .= "<td>
+                                                                                <div class='d-flex'>
+                                                                                    <form class='m-1' action='' method='POST'>
+                                                                                        <input type='hidden' name='fitemLibraryID' value='$obj->itemLibraryID'/>
+                                                                                        <input type='hidden' name='fvalDel' value='d'/>
+                                                                                        <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                                    </form>
+                                                                                    <input type='submit' class='btn btn-primary m-1' name='feditItemlibrary' value='Edit'>
+                                                                                </div>    
+                                                                            </td>";
+                                                            $strTbl .= "</tr>";
+                                                        }
+
+                                                        echo $strTbl;
+
+                                                        //delete => update
+                                                        if (isset($_POST["fdelete"])) {
+                                                            $fitemLibraryID = $_POST["fitemLibraryID"];
+                                                            $fvalDel = $_POST["fvalDel"];
+
+                                                            $a = new Itemlibrary();
+                                                            $a->flag = $fvalDel;
+                                                            $a->itemLibraryID = $fitemLibraryID;
+                                                            $a->updateListItemlibrary();
+                                                        }
+                                                        ?>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
 
                             <!-- edit list Itemlibrary -->
                             <div id="editItemlibrary" class="d-none">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                <div class="pb-5 d-flex justify-content-center">
                                     <div style="width: 650px;">
                                         <div class="text-center pb-3">
                                             <h2>Edit</h2>
@@ -2244,122 +2293,128 @@ if (!empty($_POST["flogout"])) {
                     <!-- category -->
                     <div class="tab-pane fade" id="category">
                         <div class="container text-dark pb-5">
-                            <!-- form Add Category -->
-                            <div id="addCategory">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
-                                    <div style="width: 650px;">
-                                        <div class="text-center pb-3">
-                                            <h2>Add Category</h2>
-                                        </div>
-                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">CategoryName:</label>
-                                                <input type="text" id="CategoryName" name="fCategoryName" class="form-control" placeholder="CategoryName" />
-                                            </div>
-                                            <div class="mb-3 w-50">
-                                                <label class="form-label fw-bold text-secondary">ParentID:</label>
-                                                <select class="form-select" id="ParentID" name="fParentID">
-                                                    <?php
-                                                    $a = new Category();
-                                                    $arr = $a->getListCategory();
-                                                    for($i = 0; $i < count($arr); $i++) {
-                                                        $obj = $arr[$i];
-                                                        echo "<option value='$obj->CategoryID'>$obj->CategoryName</option>";
-                                                    }
-                                                    ?>
-                                                </select>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
-                                            </div>
-                                            <input type="submit" id="btncategory" name="fcategory" class="btn btn-primary" value="Save" />
-                                        </form>
-                                        <?php if (isset($_POST["fcategory"])) {
-                                            $fCategoryName = $_POST["fCategoryName"];
-                                            $fParentID = $_POST["fParentID"];
-                                            $fDescription = $_POST["fDescription"];
+                            <div class="tab-content">
 
-                                            $a = new Category();
-                                            $a->CategoryName = $fCategoryName;
-                                            $a->ParentID = $fParentID;
-                                            $a->Description = $fDescription;
-                                            $a->addCategory();
-                                        } ?>
-                                    </div>
-                                </div>
-                            </div>
+                                <!-- form Add Category -->
+                                <div class="tab-pane fade show active text-dark" id="addCategory">
+                                    <div class="pt-5 pb-5 d-flex justify-content-center">
+                                        <div style="width: 650px;">
+                                            <div class="text-center pb-3">
+                                                <h2>Add Category</h2>
+                                            </div>
+                                            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">CategoryName:</label>
+                                                    <input type="text" id="CategoryName" name="fCategoryName" class="form-control" placeholder="CategoryName" />
+                                                </div>
+                                                <div class="mb-3 w-50">
+                                                    <label class="form-label fw-bold text-secondary">ParentID:</label>
+                                                    <select class="form-select" id="ParentID" name="fParentID">
+                                                        <?php
+                                                        $a = new Category();
+                                                        $arr = $a->getListCategory();
+                                                        for($i = 0; $i < count($arr); $i++) {
+                                                            $obj = $arr[$i];
+                                                            echo "<option value='$obj->CategoryID'>$obj->CategoryName</option>";
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Description:</label>
+                                                    <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                                </div>
+                                                <input type="submit" id="btncategory" name="fcategory" class="btn btn-primary" value="Save" />
+                                            </form>
+                                            <?php if (isset($_POST["fcategory"])) {
+                                                $fCategoryName = $_POST["fCategoryName"];
+                                                $fParentID = $_POST["fParentID"];
+                                                $fDescription = $_POST["fDescription"];
 
-                            <!-- table list category -->
-                            <div id="listcategory">
-                                <div class="text-center">
-                                    <h2>List Category</h2>
-                                </div>
-                                <div class="pb-5">
-                                    <div style="overflow-x: auto;">
-
-                                        <div id="tbl-kithi" class="mt-4 pb-5" >
-                                            <table class="table table-striped table-hover">
-                                                <tr>
-                                                    <th scope="col">STT</th>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">CategoryName</th>
-                                                    <th scope="col">ParentID</th>
-                                                    <th scope="col">Description</th>
-                                                    <th class="text-center" scope="col">Action</th>
-                                                </tr>
-                                                <?php
                                                 $a = new Category();
-                                                $arr = $a->getListCategory();
-                                                $strTbl = "";
-
-                                                $stt = 1;
-
-                                                for ($i = 0; $i < count($arr); $i++) {
-                                                    $obj = $arr[$i];
-
-                                                    $strTbl .= "<tr>";
-                                                    $strTbl .= "<th>" . $stt++ . "</th>";
-                                                    $strTbl .= "<td id='CategoryID'>$obj->CategoryID</td>";
-                                                    $strTbl .= "<td id='CategoryName'>$obj->CategoryName</td>";
-                                                    $strTbl .= "<td>$obj->ParentID</td>";
-                                                    $strTbl .= "<td id='Description'>$obj->Description</td>";
-                                                    $strTbl .= "<td>
-                                                                        <div class='d-flex justify-content-center'>
-                                                                            <form class='m-1' action='' method='POST'>
-                                                                                <input type='hidden' name='fCategoryID' value='$obj->CategoryID'/>
-                                                                                <input type='hidden' name='fvalDel' value='d'/>
-                                                                                <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
-                                                                            </form>
-                                                                            <input type='submit' class='btn btn-primary m-1' name='feditCategory' value='Edit'>
-                                                                        </div>    
-                                                                    </td>";
-                                                    $strTbl .= "</tr>";
-                                                }
-
-                                                echo $strTbl;
-
-                                                //delete => update
-                                                if (isset($_POST["fdelete"])) {
-                                                    $fCategoryID = $_POST["fCategoryID"];
-                                                    $fvalDel = $_POST["fvalDel"];
-
-                                                    $a = new Category();
-                                                    $a->Flag = $fvalDel;
-                                                    $a->CategoryID = $fCategoryID;
-                                                    $a->updateListCategory();
-                                                }
-                                                ?>
-                                            </table>
+                                                $a->CategoryName = $fCategoryName;
+                                                $a->ParentID = $fParentID;
+                                                $a->Description = $fDescription;
+                                                $a->addCategory();
+                                            } ?>
                                         </div>
-
                                     </div>
                                 </div>
+
+                                <!-- table list category -->
+                                <div class="tab-pane fade show active text-dark" id="listcategory">
+                                    <div class="pt-5 pb-5">
+                                        <div class="text-center">
+                                            <h2>List Category</h2>
+                                        </div>
+                                        <div class="pb-5">
+                                            <div style="overflow-x: auto;">
+
+                                                <div id="tbl-kithi" class="mt-4 pb-5" >
+                                                    <table class="table table-striped table-hover">
+                                                        <tr>
+                                                            <th scope="col">STT</th>
+                                                            <th scope="col">ID</th>
+                                                            <th scope="col">CategoryName</th>
+                                                            <th scope="col">ParentID</th>
+                                                            <th scope="col">Description</th>
+                                                            <th class="text-center" scope="col">Action</th>
+                                                        </tr>
+                                                        <?php
+                                                        $a = new Category();
+                                                        $arr = $a->getListCategory();
+                                                        $strTbl = "";
+
+                                                        $stt = 1;
+
+                                                        for ($i = 0; $i < count($arr); $i++) {
+                                                            $obj = $arr[$i];
+
+                                                            $strTbl .= "<tr>";
+                                                            $strTbl .= "<th>" . $stt++ . "</th>";
+                                                            $strTbl .= "<td id='CategoryID'>$obj->CategoryID</td>";
+                                                            $strTbl .= "<td id='CategoryName'>$obj->CategoryName</td>";
+                                                            $strTbl .= "<td>$obj->ParentID</td>";
+                                                            $strTbl .= "<td id='Description'>$obj->Description</td>";
+                                                            $strTbl .= "<td>
+                                                                                <div class='d-flex justify-content-center'>
+                                                                                    <form class='m-1' action='' method='POST'>
+                                                                                        <input type='hidden' name='fCategoryID' value='$obj->CategoryID'/>
+                                                                                        <input type='hidden' name='fvalDel' value='d'/>
+                                                                                        <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                                    </form>
+                                                                                    <input type='submit' class='btn btn-primary m-1' name='feditCategory' value='Edit'>
+                                                                                </div>    
+                                                                            </td>";
+                                                            $strTbl .= "</tr>";
+                                                        }
+
+                                                        echo $strTbl;
+
+                                                        //delete => update
+                                                        if (isset($_POST["fdelete"])) {
+                                                            $fCategoryID = $_POST["fCategoryID"];
+                                                            $fvalDel = $_POST["fvalDel"];
+
+                                                            $a = new Category();
+                                                            $a->Flag = $fvalDel;
+                                                            $a->CategoryID = $fCategoryID;
+                                                            $a->updateListCategory();
+                                                        }
+                                                        ?>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
 
                             <!-- edit list category -->
                             <div id="editcategory" class="d-none">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                <div class="pb-5 d-flex justify-content-center">
                                     <div style="width: 650px;">
                                         <div class="text-center pb-3">
                                             <h2>Edit</h2>
@@ -2403,118 +2458,123 @@ if (!empty($_POST["flogout"])) {
                     <!-- categorytour -->
                     <div class="tab-pane fade" id="categorytour">
                         <div class="container text-dark pb-5">
-                            <!-- form Add Categorytour -->
-                            <div id="addCategorytour">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
-                                    <div style="width: 650px;">
-                                        <div class="text-center pb-3">
-                                            <h2>Add Categorytour</h2>
-                                        </div>
-                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">CategoryTourName:</label>
-                                                <input type="text" id="CategoryTourName" name="fCategoryTourName" class="form-control" placeholder="CategoryTourName" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Status:</label>
-                                                <select class="form-select" id="Status" name="fStatus" >
-                                                    <option value="3">Chưa kích hoạt</option>
-                                                    <option value="1">Đang hoạt động</option>
-                                                    <option value="2">Dừng hoạt động</option>
-                                                </select>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
-                                            </div>
-                                            <input type="submit" id="btncategorytour" name="fcategorytour" class="btn btn-primary" value="Save" />
-                                        </form>
-                                        <?php if (isset($_POST["fcategorytour"])) {
-                                            $fCategoryTourName = $_POST["fCategoryTourName"];
-                                            $fStatus = $_POST["fStatus"];
-                                            $fDescription = $_POST["fDescription"];
+                            <div class="tab-content">
 
-                                            $a = new CategoryTour();
-                                            $a->CategoryTourName = $fCategoryTourName;
-                                            $a->Status = $fStatus;
-                                            $a->Description = $fDescription;
-                                            $a->addCategoryTour();
-                                        } ?>
-                                    </div>
-                                </div>
-                            </div>
+                                <!-- form Add Categorytour -->
+                                <div class="tab-pane fade show active text-dark" id="addCategorytour">
+                                    <div class="pt-5 pb-5 d-flex justify-content-center">
+                                        <div style="width: 650px;">
+                                            <div class="text-center pb-3">
+                                                <h2>Add Categorytour</h2>
+                                            </div>
+                                            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">CategoryTourName:</label>
+                                                    <input type="text" id="CategoryTourName" name="fCategoryTourName" class="form-control" placeholder="CategoryTourName" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Status:</label>
+                                                    <select class="form-select" id="Status" name="fStatus" >
+                                                        <option value="3">Chưa kích hoạt</option>
+                                                        <option value="1">Đang hoạt động</option>
+                                                        <option value="2">Dừng hoạt động</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Description:</label>
+                                                    <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                                </div>
+                                                <input type="submit" id="btncategorytour" name="fcategorytour" class="btn btn-primary" value="Save" />
+                                            </form>
+                                            <?php if (isset($_POST["fcategorytour"])) {
+                                                $fCategoryTourName = $_POST["fCategoryTourName"];
+                                                $fStatus = $_POST["fStatus"];
+                                                $fDescription = $_POST["fDescription"];
 
-                            <!-- table list categorytour -->
-                            <div id="listCategorytour">
-                                <div class="text-center">
-                                    <h2>List Categorytour</h2>
-                                </div>
-                                <div class="pb-5">
-                                    <div style="overflow-x: auto;">
-
-                                        <div id="tbl-kithi" class="mt-4 pb-5" >
-                                            <table class="table table-striped table-hover">
-                                                <tr>
-                                                    <th scope="col">STT</th>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">CategoryTourName</th>
-                                                    <th scope="col">Status</th>
-                                                    <th scope="col">Description</th>
-                                                    <th class="text-center" scope="col">Action</th>
-                                                </tr>
-                                                <?php
                                                 $a = new CategoryTour();
-                                                $arr = $a->getListCategoryTour();
-                                                $strTbl = "";
-
-                                                $stt = 1;
-
-                                                for ($i = 0; $i < count($arr); $i++) {
-                                                    $obj = $arr[$i];
-
-                                                    $strTbl .= "<tr>";
-                                                    $strTbl .= "<th>" . $stt++ . "</th>";
-                                                    $strTbl .= "<td id='CategoryTourID'>$obj->CategoryTourID</td>";
-                                                    $strTbl .= "<td id='CategoryTourName'>$obj->CategoryTourName</td>";
-                                                    $strTbl .= "<td>$obj->Status</td>";
-                                                    $strTbl .= "<td id='Description'>$obj->Description</td>";
-                                                    $strTbl .= "<td>
-                                                                        <div class='d-flex'>
-                                                                            <form class='m-1' action='' method='POST'>
-                                                                                <input type='hidden' name='fCategoryTourID' value='$obj->CategoryTourID'/>
-                                                                                <input type='hidden' name='fvalDel' value='d'/>
-                                                                                <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
-                                                                            </form>
-                                                                            <input type='submit' class='btn btn-primary m-1' name='feditCategorytour' value='Edit'>
-                                                                        </div>    
-                                                                    </td>";
-                                                    $strTbl .= "</tr>";
-                                                }
-
-                                                echo $strTbl;
-
-                                                //delete => update
-                                                if (isset($_POST["fdelete"])) {
-                                                    $fCategoryTourID = $_POST["fCategoryTourID"];
-                                                    $fvalDel = $_POST["fvalDel"];
-
-                                                    $a = new CategoryTour();
-                                                    $a->Flag = $fvalDel;
-                                                    $a->CategoryTourID = $fCategoryTourID;
-                                                    $a->updateListCategoryTour();
-                                                }
-                                                ?>
-                                            </table>
+                                                $a->CategoryTourName = $fCategoryTourName;
+                                                $a->Status = $fStatus;
+                                                $a->Description = $fDescription;
+                                                $a->addCategoryTour();
+                                            } ?>
                                         </div>
-
                                     </div>
                                 </div>
-                            </div>
 
+                                <!-- table list categorytour -->
+                                <div class="tab-pane fade show active text-dark" id="listCategorytour">
+                                    <div class="pt-5 pb-5">
+                                        <div class="text-center">
+                                            <h2>List Categorytour</h2>
+                                        </div>
+                                        <div class="pb-5">
+                                            <div style="overflow-x: auto;">
+
+                                                <div id="tbl-kithi" class="mt-4 pb-5" >
+                                                    <table class="table table-striped table-hover">
+                                                        <tr>
+                                                            <th scope="col">STT</th>
+                                                            <th scope="col">ID</th>
+                                                            <th scope="col">CategoryTourName</th>
+                                                            <th scope="col">Status</th>
+                                                            <th scope="col">Description</th>
+                                                            <th class="text-center" scope="col">Action</th>
+                                                        </tr>
+                                                        <?php
+                                                        $a = new CategoryTour();
+                                                        $arr = $a->getListCategoryTour();
+                                                        $strTbl = "";
+
+                                                        $stt = 1;
+
+                                                        for ($i = 0; $i < count($arr); $i++) {
+                                                            $obj = $arr[$i];
+
+                                                            $strTbl .= "<tr>";
+                                                            $strTbl .= "<th>" . $stt++ . "</th>";
+                                                            $strTbl .= "<td id='CategoryTourID'>$obj->CategoryTourID</td>";
+                                                            $strTbl .= "<td id='CategoryTourName'>$obj->CategoryTourName</td>";
+                                                            $strTbl .= "<td>$obj->Status</td>";
+                                                            $strTbl .= "<td id='Description'>$obj->Description</td>";
+                                                            $strTbl .= "<td>
+                                                                                <div class='d-flex'>
+                                                                                    <form class='m-1' action='' method='POST'>
+                                                                                        <input type='hidden' name='fCategoryTourID' value='$obj->CategoryTourID'/>
+                                                                                        <input type='hidden' name='fvalDel' value='d'/>
+                                                                                        <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                                    </form>
+                                                                                    <input type='submit' class='btn btn-primary m-1' name='feditCategorytour' value='Edit'>
+                                                                                </div>    
+                                                                            </td>";
+                                                            $strTbl .= "</tr>";
+                                                        }
+
+                                                        echo $strTbl;
+
+                                                        //delete => update
+                                                        if (isset($_POST["fdelete"])) {
+                                                            $fCategoryTourID = $_POST["fCategoryTourID"];
+                                                            $fvalDel = $_POST["fvalDel"];
+
+                                                            $a = new CategoryTour();
+                                                            $a->Flag = $fvalDel;
+                                                            $a->CategoryTourID = $fCategoryTourID;
+                                                            $a->updateListCategoryTour();
+                                                        }
+                                                        ?>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
 
                             <!-- edit list categorytour -->
                             <div id="editcategorytour" class="d-none">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                <div class="pb-5 d-flex justify-content-center">
                                     <div style="width: 650px;">
                                         <div class="text-center pb-3">
                                             <h2>Edit</h2>
@@ -2616,136 +2676,141 @@ if (!empty($_POST["flogout"])) {
                     <!-- locationandservice -->
                     <div class="tab-pane fade" id="locationandservice">
                         <div class="container text-dark pb-5">
-                            <!-- form Add Locationandservice -->
-                            <div id="addLocationandservice">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
-                                    <div style="width: 650px;">
-                                        <div class="text-center pb-3">
-                                            <h2>Add Locationandservice</h2>
-                                        </div>
-                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Mountaineering:</label>
-                                                <select id="Mountaineering" name="fMountaineeringID" class="form-select">
-                                                    <option value="0">Select</option>
-                                                    <?php
-                                                    $a = new Mountaineering();
-                                                    $arr = $a->getListMountaineering();
+                            <div class="tab-content">
 
-                                                    for ($i = 0; $i < count($arr); $i++) {
-                                                        $obj = $arr[$i];
-
-                                                        echo "<option value='$obj->mountaineeringID'>" . $obj->mountainName . "</option>";
-                                                    }
-                                                    ?>
-                                                </select>
+                                <!-- form Add Locationandservice -->
+                                <div class="tab-pane fade show active text-dark" id="addLocationandservice">
+                                    <div class="pt-5 pb-5 d-flex justify-content-center">
+                                        <div style="width: 650px;">
+                                            <div class="text-center pb-3">
+                                                <h2>Add Locationandservice</h2>
                                             </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Service:</label>
-                                                <select id="Service" name="fServiceID" class="form-select">
-                                                    <option value="0">Select</option>
-                                                    <?php
-                                                    $a = new Service();
-                                                    $arr = $a->getListService();
+                                            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Mountaineering:</label>
+                                                    <select id="Mountaineering" name="fMountaineeringID" class="form-select">
+                                                        <option value="0">Select</option>
+                                                        <?php
+                                                        $a = new Mountaineering();
+                                                        $arr = $a->getListMountaineering();
 
-                                                    for ($i = 0; $i < count($arr); $i++) {
-                                                        $obj = $arr[$i];
+                                                        for ($i = 0; $i < count($arr); $i++) {
+                                                            $obj = $arr[$i];
 
-                                                        echo "<option value='$obj->serviceID'>" . $obj->serviceName . "</option>";
-                                                    }
-                                                    ?>
-                                                </select>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
-                                            </div>
-                                            <input type="submit" id="btnlocationandservice" name="flocationandservice" class="btn btn-primary" value="Save" />
-                                        </form>
-                                        <?php if (isset($_POST["flocationandservice"])) {
-                                            $fMountaineeringID = $_POST["fMountaineeringID"];
-                                            $fServiceID = $_POST["fServiceID"];
-                                            $fDescription = $_POST["fDescription"];
+                                                            echo "<option value='$obj->mountaineeringID'>" . $obj->mountainName . "</option>";
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Service:</label>
+                                                    <select id="Service" name="fServiceID" class="form-select">
+                                                        <option value="0">Select</option>
+                                                        <?php
+                                                        $a = new Service();
+                                                        $arr = $a->getListService();
 
-                                            $a = new Locationandservice();
-                                            $a->mountaineeringID = $fMountaineeringID;
-                                            $a->serviceID = $fServiceID;
-                                            $a->description = $fDescription;
-                                            $a->addLocationandservice();
-                                        } ?>
-                                    </div>
-                                </div>
-                            </div>
+                                                        for ($i = 0; $i < count($arr); $i++) {
+                                                            $obj = $arr[$i];
 
-                            <!-- table list locationandservice -->
-                            <div id="listlocationandservice">
-                                <div class="text-center">
-                                    <h2>List Locationandservice</h2>
-                                </div>
-                                <div class="pb-5">
-                                    <div style="overflow-x: auto;">
+                                                            echo "<option value='$obj->serviceID'>" . $obj->serviceName . "</option>";
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Description:</label>
+                                                    <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                                </div>
+                                                <input type="submit" id="btnlocationandservice" name="flocationandservice" class="btn btn-primary" value="Save" />
+                                            </form>
+                                            <?php if (isset($_POST["flocationandservice"])) {
+                                                $fMountaineeringID = $_POST["fMountaineeringID"];
+                                                $fServiceID = $_POST["fServiceID"];
+                                                $fDescription = $_POST["fDescription"];
 
-                                        <div id="tbl-kithi" class="mt-4 pb-5" >
-                                            <table class="table table-striped table-hover">
-                                                <tr>
-                                                    <th scope="col">STT</th>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">MountaineeringID</th>
-                                                    <th scope="col">ServiceID</th>
-                                                    <th scope="col">Description</th>
-                                                    <th class="text-center" scope="col">Action</th>
-                                                </tr>
-                                                <?php
                                                 $a = new Locationandservice();
-                                                $arr = $a->getListLocationandservice();
-                                                $strTbl = "";
-
-                                                $stt = 1;
-
-                                                for ($i = 0; $i < count($arr); $i++) {
-                                                    $obj = $arr[$i];
-
-                                                    $strTbl .= "<tr>";
-                                                    $strTbl .= "<th>" . $stt++ . "</th>";
-                                                    $strTbl .= "<td id='locationAndServiceID'>$obj->locationAndServiceID</td>";
-                                                    $strTbl .= "<td>$obj->mountaineeringID</td>";
-                                                    $strTbl .= "<td>$obj->serviceID</td>";
-                                                    $strTbl .= "<td id='description'>$obj->description</td>";
-                                                    $strTbl .= "<td>
-                                                                    <div class='d-flex'>
-                                                                        <form class='m-1' action='' method='POST'>
-                                                                            <input type='hidden' name='flocationAndServiceID' value='$obj->locationAndServiceID'/>
-                                                                            <input type='hidden' name='fvalDel' value='d'/>
-                                                                            <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
-                                                                        </form>
-                                                                        <input type='submit' class='btn btn-primary m-1' name='feditlocationandservice' value='Edit'>
-                                                                    </div>    
-                                                                </td>";
-                                                    $strTbl .= "</tr>";
-                                                }
-
-                                                echo $strTbl;
-                                                //delete => update
-                                                if (isset($_POST["fdelete"])) {
-                                                    $flocationAndServiceID = $_POST["flocationAndServiceID"];
-                                                    $fvalDel = $_POST["fvalDel"];
-
-                                                    $a = new Locationandservice();
-                                                    $a->flag = $fvalDel;
-                                                    $a->locationAndServiceID = $flocationAndServiceID;
-                                                    $a->updateListLocationandservice();
-                                                }
-                                                ?>
-                                            </table>
+                                                $a->mountaineeringID = $fMountaineeringID;
+                                                $a->serviceID = $fServiceID;
+                                                $a->description = $fDescription;
+                                                $a->addLocationandservice();
+                                            } ?>
                                         </div>
-
                                     </div>
                                 </div>
-                            </div>
 
+                                <!-- table list locationandservice -->
+                                <div class="tab-pane fade show active text-dark" id="listlocationandservice">
+                                    <div class="pt-5 pb-5">
+                                        <div class="text-center">
+                                            <h2>List Locationandservice</h2>
+                                        </div>
+                                        <div class="pb-5">
+                                            <div style="overflow-x: auto;">
+
+                                                <div id="tbl-kithi" class="mt-4 pb-5" >
+                                                    <table class="table table-striped table-hover">
+                                                        <tr>
+                                                            <th scope="col">STT</th>
+                                                            <th scope="col">ID</th>
+                                                            <th scope="col">MountaineeringID</th>
+                                                            <th scope="col">ServiceID</th>
+                                                            <th scope="col">Description</th>
+                                                            <th class="text-center" scope="col">Action</th>
+                                                        </tr>
+                                                        <?php
+                                                        $a = new Locationandservice();
+                                                        $arr = $a->getListLocationandservice();
+                                                        $strTbl = "";
+
+                                                        $stt = 1;
+
+                                                        for ($i = 0; $i < count($arr); $i++) {
+                                                            $obj = $arr[$i];
+
+                                                            $strTbl .= "<tr>";
+                                                            $strTbl .= "<th>" . $stt++ . "</th>";
+                                                            $strTbl .= "<td id='locationAndServiceID'>$obj->locationAndServiceID</td>";
+                                                            $strTbl .= "<td>$obj->mountaineeringID</td>";
+                                                            $strTbl .= "<td>$obj->serviceID</td>";
+                                                            $strTbl .= "<td id='description'>$obj->description</td>";
+                                                            $strTbl .= "<td>
+                                                                            <div class='d-flex'>
+                                                                                <form class='m-1' action='' method='POST'>
+                                                                                    <input type='hidden' name='flocationAndServiceID' value='$obj->locationAndServiceID'/>
+                                                                                    <input type='hidden' name='fvalDel' value='d'/>
+                                                                                    <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                                </form>
+                                                                                <input type='submit' class='btn btn-primary m-1' name='feditlocationandservice' value='Edit'>
+                                                                            </div>    
+                                                                        </td>";
+                                                            $strTbl .= "</tr>";
+                                                        }
+
+                                                        echo $strTbl;
+                                                        //delete => update
+                                                        if (isset($_POST["fdelete"])) {
+                                                            $flocationAndServiceID = $_POST["flocationAndServiceID"];
+                                                            $fvalDel = $_POST["fvalDel"];
+
+                                                            $a = new Locationandservice();
+                                                            $a->flag = $fvalDel;
+                                                            $a->locationAndServiceID = $flocationAndServiceID;
+                                                            $a->updateListLocationandservice();
+                                                        }
+                                                        ?>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                             <!-- edit list locationandservice -->
                             <div id="editlocationandservice" class="d-none">
-                                <div class="pt-5 pb-5 d-flex justify-content-center">
+                                <div class="pb-5 d-flex justify-content-center">
                                     <div style="width: 650px;">
                                         <div class="text-center pb-3">
                                             <h2>Edit</h2>

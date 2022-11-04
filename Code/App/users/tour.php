@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once '../PhpSetting/Tour.php';
-require_once '../PhpSetting/Categorytour.php';
+require_once '../PhpSetting/CategoryTour.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

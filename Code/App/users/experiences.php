@@ -1,5 +1,5 @@
 <?php
-require_once '../PhpSetting/Categorytour.php';
+require_once '../PhpSetting/CategoryTour.php';
 require_once '../PhpSetting/Common.php';
 require_once '../PhpSetting/Service.php';
 require_once '../PhpSetting/News.php';
