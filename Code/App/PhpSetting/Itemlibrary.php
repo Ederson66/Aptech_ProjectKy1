@@ -240,6 +240,34 @@ class Itemlibrary {
 		$conn = NULL;
 	}
 
+	public function updateVideoItemlibrary() {
+		// Connect to database.
+		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+
+		// Update query.
+		$sql = "UPDATE	`itemlibrary`
+				SET		`Description` = :description,
+						`Title` = :title,
+						`File` = :file
+				WHERE	`ItemLibraryID` = :itemLibraryID;";
+
+		// Prepare statement.
+		$stmt = $conn->prepare($sql);
+
+		// Execute the statement.
+		$stmt->execute(array(
+			":itemLibraryID" => $this->itemLibraryID,
+			":description" => $this->description,
+			":title" => $this->title,
+			":file" => $this->file
+		));
+
+		// Close the database connection.
+		$conn = NULL;
+	}
+
 	public static function deleteItemlibrary($itemLibraryID) {
 		// Connect to database.
 		$options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);

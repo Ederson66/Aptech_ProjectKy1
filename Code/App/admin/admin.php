@@ -2190,17 +2190,23 @@ if (!empty($_POST["flogout"])) {
                                                                             </td>";
                                                             }
                                                             $strTbl .= "<td id='description'>$obj->description</td>";
-                                                            $strTbl .= "<td>
-                                                                                <div class='d-flex'>
-                                                                                    <form class='m-1' action='' method='POST'>
-                                                                                        <input type='hidden' name='fitemLibraryID' value='$obj->itemLibraryID'/>
-                                                                                        <input type='hidden' name='fvalDel' value='d'/>
-                                                                                        <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
-                                                                                    </form>
-                                                                                    <input type='submit' class='btn btn-primary m-1' name='feditItemlibrary' value='Edit'>
-                                                                                </div>    
-                                                                            </td>";
+                                                            $strTbl .= "<td>";
+                                                            $strTbl .=      "<div class='d-flex'>
+                                                                                <form class='m-1' action='' method='POST'>
+                                                                                    <input type='hidden' name='fitemLibraryID' value='$obj->itemLibraryID'/>
+                                                                                    <input type='hidden' name='fvalDel' value='d'/>
+                                                                                    <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                                </form>";
+                                                            if ($obj->type == "Image" ){
+                                                                $strTbl .= "<button class='btn btn-primary m-1' name='feditimglibrary' onclick='showByTypeEdit(this.value)' value='1'>Edit</button>";
+                                                            } else {
+                                                                $strTbl .= "<button class='btn btn-primary m-1' name='feditvideolibrary' onclick='showByTypeEdit(this.value)' value='2'>Edit</button>";
+                                                            }
+                                                            $strTbl .=      "</div>"; 
+                                                            $strTbl .= "</td>";
+                                                            $strTbl .= "<td class='d-none' id='file'>$obj->file</td>";
                                                             $strTbl .= "</tr>";
+
                                                         }
 
                                                         echo $strTbl;
@@ -2227,7 +2233,7 @@ if (!empty($_POST["flogout"])) {
                             </div>
 
                             <!-- edit list Itemlibrary -->
-                            <div id="editItemlibrary" class="d-none">
+                            <div class="editItemlibrary d-none">
                                 <div class="pb-5 d-flex justify-content-center">
                                     <div style="width: 650px;">
                                         <div class="text-center pb-3">
@@ -2243,20 +2249,7 @@ if (!empty($_POST["flogout"])) {
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
                                                 <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                             </div>
-                                            <!-- chờ làm -->
-                                            <?php
-                                            echo "<div class='mb-3'>
-                                                    <label class='form-label fw-bold text-secondary'>Alt:</label>
-                                                    <input type='text' id='Alt' name='fAlt' class='form-control' placeholder='Alt' />
-                                                </div>
-                                                <input type='submit' name='fitemimgEdit' class='btn btn-primary' value='Save' />";
-                                            echo "<div class='mb-3'>
-                                                    <label class='form-label fw-bold text-secondary'>Id youtube:</label>
-                                                    <input type='text' id='Alt' name='fFile' class='form-control' placeholder='id video youtube' />
-                                                    Demo: <span class='text-primary'>https://www.youtube.com/watch?v=<span class='text-danger'>sGxw7ipTrq8 </span></span><= id color red
-                                                </div>
-                                                <input type='submit' name='fitemvideoEdit' class='btn btn-primary' value='Save' />";
-                                            ?>
+                                            <div id="hintedititem"></div>
                                         </form>
                                         <?php
                                         // edit img
@@ -2276,11 +2269,17 @@ if (!empty($_POST["flogout"])) {
 
                                         // edit video
                                         if (isset($_POST["fitemvideoEdit"])) {
-                                            $fLibraryID = $_POST["fLibraryID"];
+                                            $fItemlibraryID = $_POST["fItemlibraryID"];
+                                            $fTitle = $_POST["fTitle"];
+                                            $fFile = $_POST["fFile"];
+                                            $fDescription = $_POST["fDescription"];
 
                                             $a = new Itemlibrary();
-                                            $a->libraryID = $fLibraryID;
-                                            $a->updateLibrary();
+                                            $a->itemLibraryID = $fItemlibraryID;
+                                            $a->title = $fTitle;
+                                            $a->file = $fFile;
+                                            $a->description = $fDescription;
+                                            $a->updateVideoItemlibrary();
                                         }
                                         ?>
                                     </div>
@@ -3015,19 +3014,19 @@ if (!empty($_POST["flogout"])) {
             // check select itemlirary edit
             function showByTypeEdit(str) {
                 if (str == "0") {
-                    document.querySelector("#hintitemlibraryitem").innerHTML = "";
+                    document.querySelector("#hintedititem").innerHTML = "";
                     return;
                 } else if (str == 1) {
-                    document.querySelector("#hintitemlibraryitem").innerHTML = `<div class="mb-3">
+                    document.querySelector("#hintedititem").innerHTML = `<div class="mb-3">
                                                                                     <label class="form-label fw-bold text-secondary">Alt:</label>
-                                                                                    <input type="text" id="Alt" name="fAlt" class="form-control" placeholder="Alt" />
+                                                                                    <input type="text" name="fAlt" class="form-control" placeholder="Alt" />
                                                                                 </div>
                                                                                 <input type="submit" name="fitemimgEdit" class="btn btn-primary" value="Save" />`;
                     return;
                 } else {
-                    document.querySelector("#hintitemlibraryitem").innerHTML = `<div class="mb-3">
+                    document.querySelector("#hintedititem").innerHTML = `<div class="mb-3">
                                                                                     <label class="form-label fw-bold text-secondary">Id youtube:</label>
-                                                                                    <input type="text" id="Alt" name="fFile" class="form-control" placeholder="id video youtube" />
+                                                                                    <input type="text" name="fFile" class="form-control" placeholder="id video youtube" />
                                                                                     Demo: <span class="text-primary">https://www.youtube.com/watch?v=<span class="text-danger">sGxw7ipTrq8 </span></span><= id color red
                                                                                 </div>
                                                                                 <input type="submit" name="fitemvideoEdit" class="btn btn-primary" value="Save" />`;

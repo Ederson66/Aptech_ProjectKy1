@@ -138,13 +138,22 @@ $(document).ready(function () {
     });
 
     // editItemlibrary
-    $('[name="feditItemlibrary"]').click(function(){
-        $('#editItemlibrary').removeClass("d-none");
+    $('[name="feditimglibrary"]').click(function(){
+        $('.editItemlibrary').removeClass("d-none");
         let $row = $(this).closest('tr');
         $('input[name="fItemlibraryID"]').val($('#itemLibraryID',$row).text());
         $('input[name="fTitle"]').val($('#title',$row).text());
         $('input[name="fDescription"]').val($('#description',$row).text());
         $('input[name="fAlt"]').val($('#alt',$row).text());
+    });
+
+    $('[name="feditvideolibrary"]').click(function(){
+        $('.editItemlibrary').removeClass("d-none");
+        let $row = $(this).closest('tr');
+        $('input[name="fItemlibraryID"]').val($('#itemLibraryID',$row).text());
+        $('input[name="fTitle"]').val($('#title',$row).text());
+        $('input[name="fDescription"]').val($('#description',$row).text());
+        $('input[name="fFile"]').val($('#file',$row).text());
     });
 
     // editCategory

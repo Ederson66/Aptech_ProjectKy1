@@ -269,8 +269,6 @@
                             </ul>
                             <p class="font-6 text-muted m-0">© 2022 Designed by ndd.</p>
                         </div>
-                        <!-- col 2 tạo khoảng cách -->
-                        <!-- <div class="col-2 d-none d-lg-block"></div> -->
                         <!-- menu footer -->
                         <div class="col-12 col-lg-9">
                             <div class="row g-5">
