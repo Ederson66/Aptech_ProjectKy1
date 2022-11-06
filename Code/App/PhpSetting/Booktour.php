@@ -14,6 +14,53 @@ class Booktour {
 	public $Description;
 	public $Flag;
 
+	// Booktour
+	public function addBooktour() {
+		// chuỗi kết nối đến DB
+        $options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+
+		// Insert query.
+		$sql = "INSERT INTO `booktour`
+				(
+					`AnonymousAddress`,
+					`AnonymousBookTour`,
+					`AnonymousEmail`,
+					`AnonymousPhone`,
+					`TourID`
+				)
+				VALUES
+				(
+					:AnonymousAddress,
+					:AnonymousBookTour,
+					:AnonymousEmail,
+					:AnonymousPhone,
+					:TourID
+				);";
+
+		// Prepare statement.
+		$stmt = $conn->prepare($sql);
+
+		// Execute the statement.
+		$stmt->execute(array(
+			":AnonymousAddress" => $this->AnonymousAddress,
+			":AnonymousBookTour" => $this->AnonymousBookTour,
+			":AnonymousEmail" => $this->AnonymousEmail,
+			":AnonymousPhone" => $this->AnonymousPhone,
+			":TourID" => $this->TourID));
+
+		// Get value of the auto increment column.
+		$newId = $conn->lastInsertId();
+		$this->bookTourID = $newId;
+
+		// Close the database connection.
+		$conn = NULL;
+
+		// Return the id.
+		return $newId;
+	}
+
 	public function getListBooktour() {
         // chuỗi kết nối đến DB
         $options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
