@@ -1,8 +1,3 @@
-<?php 
-
-require_once '../PhpSetting/Mountaineering.php';
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,72 +7,76 @@ require_once '../PhpSetting/Mountaineering.php';
     <title>Document</title>
 </head>
 <body>
-    
-<table class="table table-striped table-hover">
-                                                <tr>
-                                                    <th scope="col">STT</th>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">MountainName</th>
-                                                    <th scope="col">LocationX</th>
-                                                    <th scope="col">LocationY</th>
-                                                    <th scope="col">Banner</th>
-                                                    <th scope="col">Type</th>
-                                                    <th scope="col">Level</th>
-                                                    <th scope="col">Sheltering</th>
-                                                    <th scope="col">Techniques</th>
-                                                    <th scope="col">Description</th>
-                                                    <th class="text-center" scope="col">Action</th>
-                                                </tr>
-                                                
-                                                <?php
-                                                $a = new Mountaineering();
-                                                $arr = $a->getListMountaineering();
-                                                $strTbl = "";
 
-                                                $stt = 1;
+<!-- edit list tour -->
+<div id="edittour" class="text-dark">
+                                <div class="pb-5 d-flex justify-content-center">
+                                    <div style="width: 650px;">
+                                        <div class="text-center pb-3">
+                                            <h2>Edit</h2>
+                                        </div>
+                                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                                            <input type="hidden" name="fTourID"/>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">TourName:</label>
+                                                <input type="text" name="fTourName" class="form-control" placeholder="TourName" value="abc"/>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">TourPrice:</label>
+                                                <div class="input-group">
+                                                    <input type="text" name="fTourPrice" class="form-control" placeholder="TourPrice" value="1000000"/>
+                                                    <span class="input-group-text">USD</span>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">TourPromotion:</label>
+                                                <div class="input-group">
+                                                    <input type="text" name="fTourSale" class="form-control" placeholder="TourPromotion" value="12"/>
+                                                    <span class="input-group-text">%</span>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Location:</label>
+                                                <div class="input-group">
+                                                    <input type="text" name="fLocation" class="form-control" placeholder="Location" value="test"/>
+                                                    <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Description:</label>
+                                                <input type="text" name="fDescription" class="form-control" placeholder="Description" value="oke"/>
+                                            </div>
+                                            <input type="submit" id="btntour" name="fedittour" class="btn btn-primary" value="Save" />
+                                            <div class="mb-3">
+                                                <i class="text-warning bi bi-exclamation-triangle pe-1"></i><span class="text-danger">If you need to fix other fields, please contact admin for support: <a href="mailto:nduydu66@gmail.com">nduydu66@gmail.com</a></span>
+                                            </div>
+                                        </form>
+                                        <?php
+require_once '../PhpSetting/Tour.php';
+                                        
+                                        if (isset($_POST["fedittour"])) {
+                                            $fTourID = $_POST["fTourID"];
+                                            $fTourName = $_POST["fTourName"];
+                                            $fTourPrice = $_POST["fTourPrice"];
+                                            $fTourSale = $_POST["fTourSale"];
+                                            $fLocation = $_POST["fLocation"];
+                                            $fDescription = $_POST["fDescription"];
 
-                                                for ($i = 0; $i < count($arr); $i++) {
-                                                    $obj = $arr[$i];
+                                            echo $fTourSale;
 
-                                                    $strTbl .= "<tr>";
-                                                    $strTbl .= "<th>" . $stt++ . "</th>";
-                                                    $strTbl .= "<td>$obj->mountaineeringID</td>";
-                                                    $strTbl .= "<td>$obj->mountainName</td>";
-                                                    $strTbl .= "<td>$obj->locationX</td>";
-                                                    $strTbl .= "<td>$obj->locationY</td>";
-                                                    $strTbl .= "<td><img src='$obj->banner' alt='banner' width='200' height='100'></td>";
-                                                    $strTbl .= "<td>$obj->type</td>";
-                                                    $strTbl .= "<td>$obj->level</td>";
-                                                    $strTbl .= "<td>$obj->sheltering</td>";
-                                                    $strTbl .= "<td>$obj->techniques</td>";
-                                                    $strTbl .= "<td>$obj->description</td>";
-                                                    $strTbl .= "<td>
-                                                                        <div class='d-flex'>
-                                                                            <form class='m-1' action='' method='POST'>
-                                                                                <input type='hidden' name='fmountaineeringID' value='$obj->mountaineeringID'/>
-                                                                                <input type='hidden' name='fvalDel' value='d'/>
-                                                                                <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
-                                                                            </form>
-                                                                            <input type='submit' class='btn btn-primary m-1' name='fedit' value='Edit'>
-                                                                        </div>    
-                                                                    </td>";
-                                                    $strTbl .= "</tr>";
-                                                }
-
-                                                echo $strTbl;
-
-                                                //delete => update
-                                                if (isset($_POST["fdelete"])) {
-                                                    $fmountaineeringID = $_POST["fmountaineeringID"];
-                                                    $fvalDel = $_POST["fvalDel"];
-
-                                                    $a = new Mountaineering();
-                                                    $a->flag = $fvalDel;
-                                                    $a->mountaineeringID = $fmountaineeringID;
-                                                    $a->updateListMountaineering();
-                                                }
-                                                ?>
-                                            </table>
+                                            $a = new Tour();
+                                            $a->TourID = $fTourID;
+                                            $a->TourName = $fTourName;
+                                            $a->TourPrice = $fTourPrice;
+                                            $a->TourSale = $fTourSale;
+                                            $a->Location = $fLocation;
+                                            $a->Description = $fDescription;
+                                            $a->updateTour();
+                                        }
+                                        ?>
+                                    </div>
+                                </div> 
+                            </div>
 
 </body>
 </html>

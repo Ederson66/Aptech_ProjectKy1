@@ -83,10 +83,8 @@ $(document).ready(function () {
         $('#edittour').removeClass("d-none");
         let $row = $(this).closest('tr');
         $('input[name="fTourName"]').val($('#fTourName',$row).text());
-        $('input[name="fTimeStart"]').val($('#fTimeStart',$row).text());
-        $('input[name="fTimeEnd"]').val($('#fTimeEnd',$row).text());
-        $('input[name="fTourPrice"]').val($('#TourPrice',$row).text());
-        $('input[name="fTourSale"]').val($('#TourSale',$row).text());
+        // $('input[name="fTourPrice"]').val($('#TourPrice',$row).text());
+        // $('input[name="fTourSale"]').val($('#TourSale',$row).text());
         $('input[name="fLocation"]').val($('#Location',$row).text());
         $('input[name="fDescription"]').val($('#Description',$row).text());
         $('input[name="fTourID"]').val($('#TourID',$row).text());
@@ -137,7 +135,7 @@ $(document).ready(function () {
         $('input[name="fDescription"]').val($('#description',$row).text());
     });
 
-    // editItemlibrary
+    // editimglibrary
     $('[name="feditimglibrary"]').click(function(){
         $('.editItemlibrary').removeClass("d-none");
         let $row = $(this).closest('tr');
@@ -147,13 +145,14 @@ $(document).ready(function () {
         $('input[name="fAlt"]').val($('#alt',$row).text());
     });
 
+    // editvideolibrary
     $('[name="feditvideolibrary"]').click(function(){
         $('.editItemlibrary').removeClass("d-none");
         let $row = $(this).closest('tr');
         $('input[name="fItemlibraryID"]').val($('#itemLibraryID',$row).text());
         $('input[name="fTitle"]').val($('#title',$row).text());
         $('input[name="fDescription"]').val($('#description',$row).text());
-        $('input[name="fFile"]').val($('#file',$row).text());
+        $('input[name="fFileEdit"]').val($('#file',$row).text());
     });
 
     // editCategory

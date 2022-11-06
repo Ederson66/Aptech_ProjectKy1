@@ -759,8 +759,6 @@ if (!empty($_POST["flogout"])) {
 
                                                             // các trường ẩn lấy vào form edit
                                                             $strTbl .= "<td class='d-none' id='TourID'>$obj->TourID</td>";
-                                                            $strTbl .= "<td class='d-none' id='fTimeStart'>$obj->TimeStart</td>";
-                                                            $strTbl .= "<td class='d-none' id='fTimeEnd'>$obj->TimeEnd</td>";
                                                             $strTbl .= "<td class='d-none' id='TourPrice'>$obj->TourPrice</td>";
                                                             $strTbl .= "<td class='d-none' id='TourSale'>$obj->TourSale</td>";
                                                             $strTbl .= "<td class='d-none' id='Location'>$obj->Location</td>";
@@ -794,52 +792,42 @@ if (!empty($_POST["flogout"])) {
                             </div>
 
                             <!-- edit list tour -->
-                            <div id="edittour" class="d-none text-dark">
+                            <div id="edittour" class="text-dark">
                                 <div class="pb-5 d-flex justify-content-center">
                                     <div style="width: 650px;">
                                         <div class="text-center pb-3">
                                             <h2>Edit</h2>
                                         </div>
                                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                                            <input type="hidden" id="TourID" name="fTourID" class="form-control" placeholder="TourID" value="35"/>
+                                            <input type="hidden" name="fTourID"/>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">TourName:</label>
-                                                <input type="text" id="TourName" name="fTourName" class="form-control" placeholder="TourName" value="duydu"/>
-                                            </div>
-                                            <div class="mb-3 d-flex w-100">
-                                                <div class="w-50 pe-2">
-                                                    <label class="form-label fw-bold text-secondary">TimeStart:</label>
-                                                    <input type="text" id="TimeStart" name="fTimeStart" class="form-control" placeholder="TimeStart" value="2022-11-02 00:00:00"/>
-                                                </div>
-                                                <div class="w-50 ps-2">
-                                                    <label class="form-label fw-bold text-secondary">TimeEnd:</label>
-                                                    <input type="text" id="TimeEnd" name="fTimeEnd" class="form-control" placeholder="TimeEnd" value="2022-11-05"/>
-                                                </div>
+                                                <input type="text" name="fTourName" class="form-control" placeholder="TourName" value="abc"/>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">TourPrice:</label>
                                                 <div class="input-group">
-                                                    <input type="text" id="TourPrice" name="fTourPrice" class="form-control" placeholder="TourPrice" value="3000"/>
+                                                    <input type="text" name="fTourPrice" class="form-control" placeholder="TourPrice" value="1000000"/>
                                                     <span class="input-group-text">USD</span>
                                                 </div>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">TourPromotion:</label>
                                                 <div class="input-group">
-                                                    <input type="text" id="TourPromotion" name="fTourSale" class="form-control" placeholder="TourPromotion" value="20"/>
+                                                    <input type="text" name="fTourSale" class="form-control" placeholder="TourPromotion" value="12"/>
                                                     <span class="input-group-text">%</span>
                                                 </div>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Location:</label>
                                                 <div class="input-group">
-                                                    <input type="text" id="Location" name="fLocation" class="form-control" placeholder="Location" value="Quảng Ninh"/>
+                                                    <input type="text" name="fLocation" class="form-control" placeholder="Location" value="test"/>
                                                     <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
                                                 </div>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
-                                                <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" value="vcb"/>
+                                                <input type="text" name="fDescription" class="form-control" placeholder="Description" value="oke"/>
                                             </div>
                                             <input type="submit" id="btntour" name="fedittour" class="btn btn-primary" value="Save" />
                                             <div class="mb-3">
@@ -851,18 +839,16 @@ if (!empty($_POST["flogout"])) {
                                         if (isset($_POST["fedittour"])) {
                                             $fTourID = $_POST["fTourID"];
                                             $fTourName = $_POST["fTourName"];
-                                            $fTimeStart = $_POST["fTimeStart"];
-                                            $fTimeEnd = $_POST["fTimeEnd"];
                                             $fTourPrice = $_POST["fTourPrice"];
                                             $fTourSale = $_POST["fTourSale"];
                                             $fLocation = $_POST["fLocation"];
                                             $fDescription = $_POST["fDescription"];
 
+                                            echo $fTourSale;
+
                                             $a = new Tour();
                                             $a->TourID = $fTourID;
                                             $a->TourName = $fTourName;
-                                            $a->TimeStart = $fTimeStart;
-                                            $a->TimeEnd = $fTimeEnd;
                                             $a->TourPrice = $fTourPrice;
                                             $a->TourSale = $fTourSale;
                                             $a->Location = $fLocation;
@@ -873,6 +859,7 @@ if (!empty($_POST["flogout"])) {
                                     </div>
                                 </div> 
                             </div>
+
                         </div>
                     </div>
 
@@ -2204,7 +2191,10 @@ if (!empty($_POST["flogout"])) {
                                                             }
                                                             $strTbl .=      "</div>"; 
                                                             $strTbl .= "</td>";
+
+                                                            // các trường ẩn lấy vào form edit
                                                             $strTbl .= "<td class='d-none' id='file'>$obj->file</td>";
+
                                                             $strTbl .= "</tr>";
 
                                                         }
@@ -2271,7 +2261,7 @@ if (!empty($_POST["flogout"])) {
                                         if (isset($_POST["fitemvideoEdit"])) {
                                             $fItemlibraryID = $_POST["fItemlibraryID"];
                                             $fTitle = $_POST["fTitle"];
-                                            $fFile = $_POST["fFile"];
+                                            $fFile = $_POST["fFileEdit"];
                                             $fDescription = $_POST["fDescription"];
 
                                             $a = new Itemlibrary();
@@ -3026,7 +3016,7 @@ if (!empty($_POST["flogout"])) {
                 } else {
                     document.querySelector("#hintedititem").innerHTML = `<div class="mb-3">
                                                                                     <label class="form-label fw-bold text-secondary">Id youtube:</label>
-                                                                                    <input type="text" name="fFile" class="form-control" placeholder="id video youtube" />
+                                                                                    <input type="text" name="fFileEdit" class="form-control" placeholder="id video youtube"/>
                                                                                     Demo: <span class="text-primary">https://www.youtube.com/watch?v=<span class="text-danger">sGxw7ipTrq8 </span></span><= id color red
                                                                                 </div>
                                                                                 <input type="submit" name="fitemvideoEdit" class="btn btn-primary" value="Save" />`;
