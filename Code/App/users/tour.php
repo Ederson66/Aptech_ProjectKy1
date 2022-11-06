@@ -2,6 +2,7 @@
 session_start();
 require_once '../PhpSetting/Tour.php';
 require_once '../PhpSetting/CategoryTour.php';
+require_once '../PhpSetting/Common.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +35,7 @@ require_once '../PhpSetting/CategoryTour.php';
         <!--BEGIN nav -->
         <nav class="navbar navbar-expand-lg position-fixed">
             <div class="container">
-                <a class="navbar-brand" href="index.php">
+                <a class="navbar-brand" href="../index.php">
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 56.68 55.66" style="width: 50px; height: 50px;" xml:space="preserve">
                         <style type="text/css">
                             .st0 {
@@ -139,7 +140,7 @@ require_once '../PhpSetting/CategoryTour.php';
                             </ul>
                         </li>
                         <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                            <a class="nav-link text-dark fw-bold hv-cl" href="#">Experience</a>
+                            <a class="nav-link text-dark fw-bold hv-cl" href="experiences.php">Experience</a>
                             <ul class="sub rounded p-0">
                                 <li>
                                     <a class="nav-link text-dark text-center hv-bg" href="#">Experience 1</a>
@@ -159,9 +160,6 @@ require_once '../PhpSetting/CategoryTour.php';
                             <a class="nav-link text-dark fw-bold hv-cl" href="contact.php">Contact</a>
                         </li>
                         <?php
-                        require_once '../PhpSetting/Member.php';
-                        require_once '../PhpSetting/Common.php';
-
                         $checkin = IsAuthen();
                         if ($checkin != 1) {
                             echo '<li class="nav-item ps-3 pe-3 mt-2 mb-2">
@@ -178,7 +176,7 @@ require_once '../PhpSetting/CategoryTour.php';
                             $member = (string) $_SESSION['MemberName'];
                             echo '<li class="nav-item ps-3 pe-3 mt-2 mb-2">
                                         <form action="index.php" method="POST">
-                                        <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="login.php">
+                                        <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="../index.php">
                                         Logout
                                     </a>
                                         </form>
@@ -199,47 +197,44 @@ require_once '../PhpSetting/CategoryTour.php';
 
         <!-- BEGIN Main -->
         <div class="main">
-            <div class="header-news bg-image">
+            <div class="header-tour bg-image">
             </div>
             <!-- Tour khám phá hang động -->
             <?php
 
             $s = new CategoryTour();
-
             $list = $s->getListCategoryTour();
+            $a = new Tour();
+            $arr = $a->getListTourToCategory($value->CategoryTourID);
+            foreach ($list as $value) {
+                echo "<h3 style='text-align:center;font-size:50px'>$value->CategoryTourName</h3>";
+                foreach ($arr as $value) {
+                    echo "
+                            <a href='./booktour.php' class='d-inline-block tour-item'>
+                                <div class='container-tour_item col-lg-4 col-md-6 col-sm-12 mt-5 mb-5'>
+                                    <div class='box-img' style='width:75%'>
+                                        <img src='$value->AvatarTour' alt='' style='width:350px;height: auto;border-radius: 10px;'>
+                                    </div>
+                                    <div class='box-text text-center bg-light' style='width:300px;height: 400px;'>
+                                        <div class='box-text_sale text-white'>
+                                            <div class='title'>Sale</div>
+                                            <div class='avage'> $value->TourSale%</div>
+                                        </div>
+                                        <div class='box-text_img'>
+                                            <img src='https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg' alt=''>
+                                        </div>
+                                        <h5> $value->TourName</h5>
+                                        <div class='price_tour' style='color: #3da4ff'>$value->TourPrice USD</div>
+                                        <div class='date_go text-dark'><i class='bi bi-clock' style='color: #3da4ff'></i></div>
+                                        <div class='hard_tour text-dark'>Độ khó:Cao</div>
+                                        <div class='hard_tour text-dark'> $value->Status</div>
+                                        <p class='from_the_blog_excerpt '> $value->Description</p>
+                                    </div>
+                                </div>
+                            </a>";
+                }
+            }
             ?>
-            <?php foreach ($list as $value) : ?>
-                <h3 style='text-align:center;font-size:50px'><?php echo $value->CategoryTourName ?></h3>
-                <?php
-                $s = new Tour();
-                $arr = $s->getListTourToCategory($value->CategoryTourID);
-                ?>
-                <?php foreach ($arr as $value) : ?>
-                    <a href="./booktour.php" class="d-inline-block tour-item">
-                        <div class="container-tour_item col-lg-4 col-md-6 col-sm-12 mt-5 mb-5">
-                            <div class="box-img" style="width:75%">
-                                <img src="<?php echo $value->AvatarTour; ?>" alt="" style="width:350px;height: auto;border-radius: 10px;">
-                            </div>
-                            <div class="box-text text-center bg-light" style="width:300px;height: 400px;">
-                                <div class="box-text_sale text-white">
-                                    <div class="title">Sale</div>
-                                    <div class="avage"><?php echo $value->TourSale; ?>%</div>
-                                </div>
-                                <div class="box-text_img">
-                                    <img src="https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg" alt="">
-                                </div>
-                                <h5><?php echo $value->TourName; ?></h5>
-                                <div class="price_tour sales" style="color:red"><?php echo $value->TourPrice; ?>VND</div>
-                                <div class="price_tour" style="color: #3da4ff">3.200.000 VNĐ</div>
-                                <div class="date_go text-dark"><i class="bi bi-clock" style="color: #3da4ff"></i><?php echo $value->TimeLimit; ?></div>
-                                <div class="hard_tour text-dark">Độ khó:Cao</div>
-                                <div class="hard_tour text-dark"><?php echo $value->Status; ?></div>
-                                <p class="from_the_blog_excerpt "><?php echo $value->Description; ?></p>
-                            </div>
-                        </div>
-                    </a>
-                <?php endforeach; ?>
-            <?php endforeach; ?>
         </div>
         <!-- END Main -->
 
