@@ -338,9 +338,9 @@ class Tour {
 		$sql = "UPDATE	`tour`
 				SET		`Description` = :Description,
 						`Location` = :Location,
-						`TimeEnd` = :TimeEnd,
-						`TimeStart` = :TimeStart,
 						`TourName` = :TourName,
+						`TimeStart` = :TimeStart,
+						`TimeEnd` = :TimeEnd,
 						`TourPrice` = :TourPrice,
 						`TourSale` = :TourSale
 				WHERE	`TourID` = :TourID;";
@@ -358,7 +358,8 @@ class Tour {
 			":TourPrice" => $this->TourPrice,
 			":TourSale" => $this->TourSale,
 			":Location" => $this->Location,
-			":Description" => $this->Description));
+			":Description" => $this->Description
+		));
 
 		// Close the database connection.
 		$conn = NULL;

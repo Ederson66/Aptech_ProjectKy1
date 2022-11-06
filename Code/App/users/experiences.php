@@ -202,7 +202,7 @@ require_once '../PhpSetting/News.php';
             </div>
 
             <!-- content -->
-            <div class="pt-120 pb-130" id="scroll-down" style="background-color: aliceblue;">
+            <div class="pt-120 pb-50" id="scroll-down" style="background-color: aliceblue;">
                 <div class="container">
                     <?php
                     $a = new News();

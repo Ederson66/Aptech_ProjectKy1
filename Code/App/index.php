@@ -73,34 +73,34 @@ require_once './PhpSetting/CategoryTour.php';
                             <path class="st2" d="M28.5,27.84c-0.11-0.1-0.21-0.19-0.32-0.29l0.27-0.22C28.46,27.49,28.48,27.66,28.5,27.84z"/>
                         </svg>
                     </a>
-                    <a id="bg-show-mobile" class="navbar-toggler text-dark" data-bs-toggle="collapse" data-bs-target="#navbarsExampleXxl">
-                        <i class="bi bi-list navbar-toggler-icon text-dark" style="padding: 4px;"></i>
+                    <a id="bg-show-mobile" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarsExampleXxl">
+                        <i class="bi bi-list navbar-toggler-icon" style="padding: 4px;"></i>
                     </a>
 
                     <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleXxl">
                         <ul class="navbar-nav">
                             <li class="nav-item ps-3 pe-3 mt-2 home">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="index.php">Home</a>
+                                <a class="nav-link fw-bold hv-cl" href="index.php">Home</a>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="./users/service.php">Service</a>
+                                <a class="nav-link fw-bold hv-cl" href="./users/service.php">Service</a>
                                 <ul class="sub rounded p-0">
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Service 1</a>
+                                        <a class="nav-link text-center hv-bg" href="#">Service 1</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Service 2</a>
+                                        <a class="nav-link text-center hv-bg" href="#">Service 2</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Service 3</a>
+                                        <a class="nav-link text-center hv-bg" href="#">Service 3</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Service 4</a>
+                                        <a class="nav-link text-center hv-bg" href="#">Service 4</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                            <a class="nav-link text-dark fw-bold hv-cl" href="./users/tour.php">Tour</a>
+                            <a class="nav-link fw-bold hv-cl" href="./users/tour.php">Tour</a>
                             <ul class="sub rounded p-0">
                             <?php
 
@@ -110,44 +110,44 @@ require_once './PhpSetting/CategoryTour.php';
                             ?>
                             <?php foreach ($list as $value) : ?>
                                 <li>
-                                    <a class="nav-link text-dark text-center hv-bg" href="#"><?php echo $value->CategoryTourName ?></a>
+                                    <a class="nav-link text-center hv-bg" href="#"><?php echo $value->CategoryTourName ?></a>
                                 </li>
                             <?php endforeach; ?>
                             </ul>
                         </li>
                             <li class="nav-item ps-3 pe-3 mt-2 link">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="./users/news.php">News</a>
+                                <a class="nav-link fw-bold hv-cl" href="./users/news.php">News</a>
                                 <ul class="sub rounded p-0">
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Sale</a>
+                                        <a class="nav-link text-center hv-bg" href="#">Sale</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Blog</a>
+                                        <a class="nav-link text-center hv-bg" href="#">Blog</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">History</a>
+                                        <a class="nav-link text-center hv-bg" href="#">History</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="./users/experiences.php">Experience</a>
+                                <a class="nav-link fw-bold hv-cl" href="./users/experiences.php">Experience</a>
                                 <ul class="sub rounded p-0">
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Experience 1</a>
+                                        <a class="nav-link text-center hv-bg" href="#">Experience 1</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Experience 2</a>
+                                        <a class="nav-link text-center hv-bg" href="#">Experience 2</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Experience 3</a>
+                                        <a class="nav-link text-center hv-bg" href="#">Experience 3</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-dark text-center hv-bg" href="#">Experience 4</a>
+                                        <a class="nav-link text-center hv-bg" href="#">Experience 4</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 disabled">
-                                <a class="nav-link text-dark fw-bold hv-cl" href="./users/contact.php">Contact</a>
+                                <a class="nav-link fw-bold hv-cl" href="./users/contact.php">Contact</a>
                             </li>
                             <?php
                             $checkin = IsAuthen();
@@ -189,7 +189,6 @@ require_once './PhpSetting/CategoryTour.php';
             <div class="main">
                 <!-- note 1 --> 
                 <div class="content-wrap position-relative mw-100">
-                    
                     <!-- giới thiệu -->
                     <div class="pt-180 pb-290 bg-linear-gradient-1 shape-parent text-center auto-height">
                         <div class="container">
@@ -210,7 +209,7 @@ require_once './PhpSetting/CategoryTour.php';
                     </div>
 
                     <!-- service Outstanding -->
-                    <div class="pb-130 pt-100 text-center bg-gradient bg-body" id="scroll-down">
+                    <div class="pb-50 pt-100 text-center bg-gradient bg-body" id="scroll-down">
                         <!-- class pending mt-n190 -->
                         <div class="container">
 
@@ -248,7 +247,7 @@ require_once './PhpSetting/CategoryTour.php';
                     </div>
 
                     <!-- img khách trải nghiệm -->
-                    <div class="pt-120 pb-130 bg-linear-gradient-2 shape-parent text-center">
+                    <div class="pt-120 pb-50 bg-linear-gradient-2 shape-parent text-center">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-6">
@@ -260,46 +259,46 @@ require_once './PhpSetting/CategoryTour.php';
                                     <div class="swiper mt-5 mySwiper">
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
-                                                <a class="card border-0 text-decoration-none text-dark" href="#">
+                                                <span class="card border-0 text-decoration-none text-dark">
                                                     <span class="card-img shadow-lg rounded-3 overflow-hidden">
                                                         <img class="img-fluid" src="./users/assets/image/home/item-img/im-1.png" alt="">
                                                     </span>
-                                                </a>
+                                                </span>
                                             </div>
                                             <div class="swiper-slide">
-                                                <a class="card border-0 text-decoration-none text-dark" href="#">
+                                                <span class="card border-0 text-decoration-none text-dark">
                                                     <span class="card-img shadow-lg rounded-3 overflow-hidden">
                                                         <img class="img-fluid" src="./users/assets/image/home/item-img/im-2.png" alt="">
                                                     </span>
-                                                </a>
+                                                </span>
                                             </div>
                                             <div class="swiper-slide">
-                                                <a class="card border-0 text-decoration-none text-dark" href="#">
+                                                <span class="card border-0 text-decoration-none text-dark">
                                                     <span class="card-img shadow-lg rounded-3 overflow-hidden">
                                                         <img class="img-fluid" src="./users/assets/image/home/item-img/im-3.png" alt="">
                                                     </span>
-                                                </a>
+                                                </span>
                                             </div>
                                             <div class="swiper-slide">
-                                                <a class="card border-0 text-decoration-none text-dark" href="#">
+                                                <span class="card border-0 text-decoration-none text-dark">
                                                     <span class="card-img shadow-lg rounded-3 overflow-hidden">
                                                         <img class="img-fluid" src="./users/assets/image/home/item-img/im-4.png" alt="">
                                                     </span>
-                                                </a>
+                                                </span>
                                             </div>
                                             <div class="swiper-slide">
-                                                <a class="card border-0 text-decoration-none text-dark" href="#">
+                                                <span class="card border-0 text-decoration-none text-dark">
                                                     <span class="card-img shadow-lg rounded-3 overflow-hidden">
                                                         <img class="img-fluid" src="./users/assets/image/home/item-img/im-5.png" alt="">
                                                     </span>
-                                                </a>
+                                                </span>
                                             </div>
                                             <div class="swiper-slide">
-                                                <a class="card border-0 text-decoration-none text-dark" href="#">
+                                                <span class="card border-0 text-decoration-none text-dark">
                                                     <span class="card-img shadow-lg rounded-3 overflow-hidden">
                                                         <img class="img-fluid" src="./users/assets/image/home/item-img/im-6.png" alt="">
                                                     </span>
-                                                </a>
+                                                </span>
                                             </div>
                                         </div>
                                         <!-- <div class="swiper-pagination"></div> -->
@@ -319,7 +318,7 @@ require_once './PhpSetting/CategoryTour.php';
                     </div>
 
                     <!-- History -->
-                    <div class="pt-120 pb-5 bg-secondary">
+                    <div class="pt-120 pb-50 bg-secondary">
                         <div class="container">
 
                             <h2 class="text-center mb-90 fs-1 fw-bold activeShow">
@@ -333,7 +332,7 @@ require_once './PhpSetting/CategoryTour.php';
                     </div>
 
                     <!-- Book tour -->
-                    <div class="pt-120 pb-5 text-center bg-linear-gradient-3">
+                    <div class="pt-120 pb-50 text-center bg-linear-gradient-3">
                         <div class="container">
 
                             <h2 class="text-center mb-90 fs-1 fw-bold activeShow">
@@ -406,7 +405,7 @@ require_once './PhpSetting/CategoryTour.php';
                     </div>
 
                     <!-- sale -->
-                    <div class="pt-120 pb-5 text-center bg-danger">
+                    <div class="pt-120 pb-50 text-center bg-danger">
                         <div class="container">
 
                             <h2 class="text-center mb-90 fs-1 fw-bold activeShow">
@@ -425,7 +424,7 @@ require_once './PhpSetting/CategoryTour.php';
                     </div>
 
                     <!-- tin tức tour -->
-                    <div class="pt-120 pb-5 text-center bg-primary">
+                    <div class="pt-120 pb-50 text-center bg-primary">
                         <div class="container">
 
                             <h2 class="text-center mb-90 fs-1 fw-bold activeShow">
@@ -444,7 +443,7 @@ require_once './PhpSetting/CategoryTour.php';
                     </div>
 
                     <!-- kinh nghiệm -->
-                    <div class="pt-120 pb-5 text-center bg-danger">
+                    <div class="pt-120 pb-50 text-center bg-danger">
                         <div class="container">
 
                             <h2 class="text-center mb-90 fs-1 fw-bold activeShow">
@@ -472,7 +471,7 @@ require_once './PhpSetting/CategoryTour.php';
                 <div class="container">
                     <div class="row g-5" style=" margin-right: 0 !important;">
                         <div class="col-12 col-lg-3">
-                            <a href="#" class="d-block mb-3">
+                            <a href="index.php" class="d-block mb-3">
                                 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                                 width="500.000000pt" height="500.000000pt" viewBox="0 0 500.000000 500.000000"
                                 preserveAspectRatio="xMidYMid meet" style="height: 40px; width: 40px;">
@@ -529,15 +528,13 @@ require_once './PhpSetting/CategoryTour.php';
                             </ul>
                             <p class="font-6 text-muted m-0">© 2022 Designed by ndd.</p>
                         </div>
-                        <!-- col 2 tạo khoảng cách -->
-                        <!-- <div class="col-2 d-none d-lg-block"></div> -->
                         <!-- menu footer -->
-                        <div class="col-12 col-lg-9">
-                            <div class="row g-5">
+                        <div class="col-lg-9">
+                            <div class="row">
                                 <!-- column 1 -->
-                                <div class="col-lg-2 col-md-2 col-sm-2">
+                                <div class="col-6 col-lg-2 col-md-2 p-2">
                                     <h6 class="display-6 text-white mb-3">Services</h6>
-                                    <ul class="nav flex-column text-white">
+                                    <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link ps-0 text-muted" href="#">Services 1</a>
                                         </li>
@@ -553,9 +550,9 @@ require_once './PhpSetting/CategoryTour.php';
                                     </ul>
                                 </div>
                                 <!-- column 2 -->
-                                <div class="col-lg-2 col-md-2 col-sm-2">
+                                <div class="col-6 col-lg-2 col-md-2 p-2">
                                     <h6 class="display-6 text-white mb-3">Tour</h6>
-                                    <ul class="nav flex-column text-white">
+                                    <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link ps-0 text-muted" href="#">Tour 1</a>
                                         </li>
@@ -571,9 +568,9 @@ require_once './PhpSetting/CategoryTour.php';
                                     </ul>
                                 </div>
                                 <!-- column 3 -->
-                                <div class="col-lg-2 col-md-2 col-sm-2">
+                                <div class="col-6 col-lg-2 col-md-2 p-2">
                                     <h6 class="display-6 text-white mb-3">News</h6>
-                                    <ul class="nav flex-column text-white">
+                                    <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link ps-0 text-muted" href="#">Sale</a>
                                         </li>
@@ -586,9 +583,9 @@ require_once './PhpSetting/CategoryTour.php';
                                     </ul>
                                 </div>
                                 <!-- column 4 -->
-                                <div class="col-lg-2 col-md-2 col-sm-2">
+                                <div class="col-6 col-lg-2 col-md-2 p-2">
                                     <h6 class="display-6 text-white mb-3">Experience</h6>
-                                    <ul class="nav flex-column text-white">
+                                    <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link ps-0 text-muted" href="#">Experience</a>
                                         </li>
@@ -601,9 +598,9 @@ require_once './PhpSetting/CategoryTour.php';
                                     </ul>
                                 </div>
                                 <!-- column 5 -->
-                                <div class="col-lg-2 col-md-4 col-sm-4">
+                                <div class="col-lg-4 col-md-4 col-sm-4 p-2">
                                     <h6 class="display-6 text-white mb-3">Contact</h6>
-                                    <ul class="nav flex-column text-white">
+                                    <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link ps-0 text-muted" href="tel:0968590075">+84 968 590 075</a>
                                         </li>
