@@ -130,7 +130,7 @@
 /* Css text-shadow */
 .text-shadow{
     /* text-shadow: 1.5px 1.5px #645f5f; */
-    text-shadow: 2px 1.5px #645f5f;
+    text-shadow: 2px 1px #645f5f;
 }
 
 /* fix bootstrap container */

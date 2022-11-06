@@ -393,80 +393,68 @@ if (!empty($_POST["flogout"])) {
                                     <div style="overflow-x: auto;">
 
                                         <div id="tbl-kithi" class="mt-4 pb-5" >
-                                        <table class="table table-striped table-hover">
-                                            <tr>
-                                                <th scope="col">STT</th>
-                                                <th scope="col">ID</th>
-                                                <th scope="col">TourID</th>
-                                                <th scope="col">MemberID</th>
-                                                <th scope="col">UserBookTour</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Address</th>
-                                                <th scope="col">Phone</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Description</th>
-                                                <th class="text-center" scope="col">Action</th>
-                                            </tr>
-                                            <?php
-                                            $a = new Booktour();
-                                            $arr = $a->getListBooktour();
-                                            $strTbl = "";
-
-                                            $stt = 1;
-
-                                            for ($i = 0; $i < count($arr); $i++) {
-                                                $obj = $arr[$i];
-
-                                                $strTbl .= "<tr>";
-                                                $strTbl .= "<th>" . $stt++ . "</th>";
-                                                $strTbl .= "<td id='BookTourID'>$obj->BookTourID</td>";
-                                                $strTbl .= "<td id='TourID'>$obj->TourID</td>";
-                                                $strTbl .= "<td id='MemberID'>$obj->MemberID</td>";
-                                                $strTbl .= "<td id='AnonymousBookTour'>$obj->AnonymousBookTour</td>";
-                                                $strTbl .= "<td id='AnonymousEmail'>$obj->AnonymousEmail</td>";
-                                                $strTbl .= "<td id='AnonymousAddress'>$obj->AnonymousAddress</td>";
-                                                $strTbl .= "<td id='AnonymousPhone'>$obj->AnonymousPhone</td>";
-                                                $strTbl .= "<td id='Status'>$obj->Status</td>";
-                                                $strTbl .= "<td id='Description'>$obj->Description</td>";
-                                                $strTbl .= "<td>
-                                                                    <div class='d-flex justify-content-center'>
-                                                                        <form class='m-1' action='' method='POST'>
-                                                                            <input type='hidden' name='fBookTourID' value='$obj->BookTourID'/>
-                                                                            <input type='hidden' name='fvalDel' value='d'/>
-                                                                            <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
-                                                                        </form>
-                                                                        <input type='button' class='btn-editbooktour btn btn-primary m-1' name='feditbooktour' value='Edit'>
-                                                                    </div>    
-                                                                </td>";
-                                                $strTbl .= "</tr>";
-                                            }
-
-                                            echo $strTbl;
-
-                                            //delete => update
-                                            if (isset($_POST["fdelete"])) {
-                                                $fBookTourID = $_POST["fBookTourID"];
-                                                $fvalDel = $_POST["fvalDel"];
-
+                                            <table class="table table-striped table-hover">
+                                                <tr>
+                                                    <th scope="col">STT</th>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">TourID</th>
+                                                    <th scope="col">MemberID</th>
+                                                    <th scope="col">UserBookTour</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Address</th>
+                                                    <th scope="col">Phone</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Description</th>
+                                                    <th class="text-center" scope="col">Action</th>
+                                                </tr>
+                                                <?php
                                                 $a = new Booktour();
-                                                $a->Flag = $fvalDel;
-                                                $a->BookTourID = $fBookTourID;
-                                                $a->updateListBooktour();
-                                            }
-                                            ?>
-                                        </table>
-                                        </div>
+                                                $arr = $a->getListBooktour();
+                                                $strTbl = "";
 
-                                        <div class="">
-                                            <span>
-                                                
-                                                <span class="fs-2 text-success bi bi-dot"></span>
-                                                Member
-                                            </span>
-                                            <span>
-                                                <i class="fs-2 text-danger bi bi-dot"></i>
-                                                Anonymous
-                                            </span>
+                                                $stt = 1;
+
+                                                for ($i = 0; $i < count($arr); $i++) {
+                                                    $obj = $arr[$i];
+
+                                                    $strTbl .= "<tr>";
+                                                    $strTbl .= "<th>" . $stt++ . "</th>";
+                                                    $strTbl .= "<td id='BookTourID'>$obj->BookTourID</td>";
+                                                    $strTbl .= "<td id='TourID'>$obj->TourID</td>";
+                                                    $strTbl .= "<td id='MemberID'>$obj->MemberID</td>";
+                                                    $strTbl .= "<td id='AnonymousBookTour'>$obj->AnonymousBookTour</td>";
+                                                    $strTbl .= "<td id='AnonymousEmail'>$obj->AnonymousEmail</td>";
+                                                    $strTbl .= "<td id='AnonymousAddress'>$obj->AnonymousAddress</td>";
+                                                    $strTbl .= "<td id='AnonymousPhone'>$obj->AnonymousPhone</td>";
+                                                    $strTbl .= "<td id='Status'>$obj->Status</td>";
+                                                    $strTbl .= "<td id='Description'>$obj->Description</td>";
+                                                    $strTbl .= "<td>
+                                                                        <div class='d-flex justify-content-center'>
+                                                                            <form class='m-1' action='' method='POST'>
+                                                                                <input type='hidden' name='fBookTourID' value='$obj->BookTourID'/>
+                                                                                <input type='hidden' name='fvalDel' value='d'/>
+                                                                                <input type='submit' class='btn btn-danger' name='fdelete' value='Delete'>
+                                                                            </form>
+                                                                            <input type='button' class='btn-editbooktour btn btn-primary m-1' name='feditbooktour' value='Edit'>
+                                                                        </div>    
+                                                                    </td>";
+                                                    $strTbl .= "</tr>";
+                                                }
+
+                                                echo $strTbl;
+
+                                                //delete => update
+                                                if (isset($_POST["fdelete"])) {
+                                                    $fBookTourID = $_POST["fBookTourID"];
+                                                    $fvalDel = $_POST["fvalDel"];
+
+                                                    $a = new Booktour();
+                                                    $a->Flag = $fvalDel;
+                                                    $a->BookTourID = $fBookTourID;
+                                                    $a->updateListBooktour();
+                                                }
+                                                ?>
+                                            </table>
                                         </div>
 
                                     </div>

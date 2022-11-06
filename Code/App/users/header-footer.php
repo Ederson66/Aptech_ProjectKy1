@@ -91,92 +91,87 @@
                             <path class="st2" d="M28.5,27.84c-0.11-0.1-0.21-0.19-0.32-0.29l0.27-0.22C28.46,27.49,28.48,27.66,28.5,27.84z"/>
                         </svg>
                     </a>
-                    <a id="bg-show-mobile" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarsExampleXxl">
-                        <i class="bi bi-list navbar-toggler-icon" style="padding: 4px;"></i>
+                    <a id="bg-show-mobile" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarmenu">
+                        <i class="bi bi-plus-square-fill text-danger"></i>
                     </a>
 
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleXxl">
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarmenu">
                         <ul class="navbar-nav">
                             <li class="nav-item ps-3 pe-3 mt-2 home">
-                                <a class="nav-link fw-bold hv-cl" href="../index.php">Home</a>
+                                <a class="nav-link fw-bold text-shadow" href="../index.php">Home</a>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                                <a class="nav-link fw-bold hv-cl" href="service.php">Service</a>
-                                <ul class="sub rounded p-0">
+                                <div class="nav-link fw-bold text-shadow dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                    Service
+                                </div>
+                                <ul class="dropdown-menu">
                                     <li>
-                                        <a class="nav-link text-center hv-bg" href="#">Service 1</a>
+                                        <a class="dropdown-item nav-link ps-2" href="service.php">Service</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-center hv-bg" href="#">Service 2</a>
+                                        <a class="dropdown-item nav-link ps-2" href="#">Service 1</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-center hv-bg" href="#">Service 3</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-center hv-bg" href="#">Service 4</a>
+                                        <a class="dropdown-item nav-link ps-2" href="#">Service 2</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                            <a class="nav-link fw-bold hv-cl" href="tour.php">Tour</a>
-                            <ul class="sub rounded p-0">
-                            <?php
+                                <div class="nav-link fw-bold text-shadow dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                    Tour
+                                </div>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item nav-link ps-2" href="tour.php">Tour</a>
+                                    </li>
+                                    <?php
 
-                                $s = new CategoryTour();
+                                        $s = new CategoryTour();
 
-                                $list = $s->getListCategoryTour();
-                            ?>
-                            <?php foreach ($list as $value) : ?>
-                                <li>
-                                    <a class="nav-link text-center hv-bg" href="#"><?php echo $value->CategoryTourName ?></a>
-                                </li>
-                            <?php endforeach; ?>
-                            </ul>
-                        </li>
-                            <li class="nav-item ps-3 pe-3 mt-2 link">
-                                <a class="nav-link fw-bold hv-cl" href="news.php">News</a>
-                                <ul class="sub rounded p-0">
+                                        $list = $s->getListCategoryTour();
+                                    ?>
+                                    <?php foreach ($list as $value) : ?>
+                                        <li>
+                                            <a class="dropdown-item nav-link ps-2" href="#"><?php echo $value->CategoryTourName ?></a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </li>
+                            <li class="nav-item ps-3 pe-3 mt-2 dropdown">
+                                <div class="nav-link fw-bold text-shadow dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                    News
+                                </div>
+                                <ul class="dropdown-menu">
                                     <li>
-                                        <a class="nav-link text-center hv-bg" href="#">Sale</a>
+                                        <a class="dropdown-item nav-link ps-2" href="service.php">Service</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-center hv-bg" href="#">Blog</a>
+                                        <a class="dropdown-item nav-link ps-2" href="#">Sale</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link text-center hv-bg" href="#">History</a>
+                                        <a class="dropdown-item nav-link ps-2" href="#">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item nav-link ps-2" href="#">History</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                                <a class="nav-link fw-bold hv-cl" href="experiences.php">Experience</a>
-                                <ul class="sub rounded p-0">
-                                    <li>
-                                        <a class="nav-link text-center hv-bg" href="#">Experience 1</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-center hv-bg" href="#">Experience 2</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-center hv-bg" href="#">Experience 3</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-center hv-bg" href="#">Experience 4</a>
-                                    </li>
-                                </ul>
+                                <a class="nav-link fw-bold text-shadow " href="experiences.php">Experience</a>
                             </li>
                             <li class="nav-item ps-3 pe-3 mt-2 disabled">
-                                <a class="nav-link fw-bold hv-cl" href="contact.php">Contact</a>
+                                <a class="nav-link fw-bold text-shadow " href="contact.php">Contact</a>
                             </li>
                             <?php
                             $checkin = IsAuthen();
                             if ($checkin != 1) {
                                 echo '<li class="nav-item ps-3 pe-3 mt-2 mb-2">
-                                        <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="login.php">
+                                        <a class="nav-link text-center p-2 hv-box text-white fw-bold text-shadow bg-danger rounded-pill" href="login.php">
                                             Login
                                         </a>
                                     </li>
                                     <li class="nav-item ps-3 pe-3 mt-2 mb-2">
-                                        <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-primary rounded-pill" href="register.php">
+                                        <a class="nav-link text-center p-2 hv-box text-white fw-bold text-shadow bg-primary rounded-pill" href="register.php">
                                             Register
                                         </a>
                                     </li>';
@@ -184,7 +179,7 @@
                                 $member = (string) $_SESSION['MemberName'];
                                 echo '<li class="nav-item ps-3 pe-3 mt-2 mb-2">
                                         <form action="index.php" method="POST">
-                                        <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="../index.php">
+                                        <a class="nav-link text-center p-2 hv-box text-white fw-bold text-shadow bg-danger rounded-pill" href="../index.php">
                                         Logout
                                     </a>
                                         </form>

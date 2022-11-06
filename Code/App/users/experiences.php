@@ -71,92 +71,87 @@ require_once '../PhpSetting/News.php';
                         <path class="st2" d="M28.5,27.84c-0.11-0.1-0.21-0.19-0.32-0.29l0.27-0.22C28.46,27.49,28.48,27.66,28.5,27.84z"/>
                     </svg>
                 </a>
-                <a id="bg-show-mobile" class="navbar-toggler text-dark" data-bs-toggle="collapse" data-bs-target="#navbarsExampleXxl">
-                    <i class="bi bi-list navbar-toggler-icon text-dark" style="padding: 4px;"></i>
+                <a id="bg-show-mobile" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarmenu">
+                    <i class="bi bi-plus-square-fill text-danger"></i>
                 </a>
 
-                <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleXxl">
+                <div class="collapse navbar-collapse justify-content-end" id="navbarmenu">
                     <ul class="navbar-nav">
                         <li class="nav-item ps-3 pe-3 mt-2 home">
-                            <a class="nav-link text-dark fw-bold hv-cl" href="../index.php">Home</a>
+                            <a class="nav-link fw-bold text-dark text-shadow" href="../index.php">Home</a>
                         </li>
                         <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                            <a class="nav-link text-dark fw-bold hv-cl" href="service.php">Service</a>
-                            <ul class="sub rounded p-0">
+                            <div class="nav-link fw-bold text-dark text-shadow dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                Service
+                            </div>
+                            <ul class="dropdown-menu">
                                 <li>
-                                    <a class="nav-link text-dark text-center hv-bg" href="#">Service 1</a>
+                                    <a class="dropdown-item nav-link ps-2" href="service.php">Service</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link text-dark text-center hv-bg" href="#">Service 2</a>
+                                    <a class="dropdown-item nav-link ps-2" href="#">Service 1</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link text-dark text-center hv-bg" href="#">Service 3</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link text-dark text-center hv-bg" href="#">Service 4</a>
+                                    <a class="dropdown-item nav-link ps-2" href="#">Service 2</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                        <a class="nav-link text-dark fw-bold hv-cl" href="tour.php">Tour</a>
-                        <ul class="sub rounded p-0">
-                        <?php
+                            <div class="nav-link fw-bold text-dark text-shadow dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                Tour
+                            </div>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item nav-link ps-2" href="tour.php">Tour</a>
+                                </li>
+                                <?php
 
-                            $s = new CategoryTour();
+                                    $s = new CategoryTour();
 
-                            $list = $s->getListCategoryTour();
-                        ?>
-                        <?php foreach ($list as $value) : ?>
-                            <li>
-                                <a class="nav-link text-dark text-center hv-bg" href="#"><?php echo $value->CategoryTourName ?></a>
-                            </li>
-                        <?php endforeach; ?>
-                        </ul>
-                    </li>
-                        <li class="nav-item ps-3 pe-3 mt-2 link">
-                            <a class="nav-link text-dark fw-bold hv-cl" href="news.php">News</a>
-                            <ul class="sub rounded p-0">
+                                    $list = $s->getListCategoryTour();
+                                ?>
+                                <?php foreach ($list as $value) : ?>
+                                    <li>
+                                        <a class="dropdown-item nav-link ps-2" href="#"><?php echo $value->CategoryTourName ?></a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </li>
+                        <li class="nav-item ps-3 pe-3 mt-2 dropdown">
+                            <div class="nav-link fw-bold text-dark text-shadow dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                News
+                            </div>
+                            <ul class="dropdown-menu">
                                 <li>
-                                    <a class="nav-link text-dark text-center hv-bg" href="#">Sale</a>
+                                    <a class="dropdown-item nav-link ps-2" href="service.php">Service</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link text-dark text-center hv-bg" href="#">Blog</a>
+                                    <a class="dropdown-item nav-link ps-2" href="#">Sale</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link text-dark text-center hv-bg" href="#">History</a>
+                                    <a class="dropdown-item nav-link ps-2" href="#">Blog</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item nav-link ps-2" href="#">History</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                            <a class="nav-link text-dark fw-bold hv-cl" href="experiences.php">Experience</a>
-                            <ul class="sub rounded p-0">
-                                <li>
-                                    <a class="nav-link text-dark text-center hv-bg" href="#">Experience 1</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link text-dark text-center hv-bg" href="#">Experience 2</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link text-dark text-center hv-bg" href="#">Experience 3</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link text-dark text-center hv-bg" href="#">Experience 4</a>
-                                </li>
-                            </ul>
+                            <a class="nav-link fw-bold text-dark text-shadow " href="experiences.php">Experience</a>
                         </li>
                         <li class="nav-item ps-3 pe-3 mt-2 disabled">
-                            <a class="nav-link text-dark fw-bold hv-cl" href="contact.php">Contact</a>
+                            <a class="nav-link fw-bold text-dark text-shadow " href="contact.php">Contact</a>
                         </li>
                         <?php
                         $checkin = IsAuthen();
                         if ($checkin != 1) {
                             echo '<li class="nav-item ps-3 pe-3 mt-2 mb-2">
-                                    <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="login.php">
+                                    <a class="nav-link text-center p-2 hv-box text-white fw-bold text-shadow bg-danger rounded-pill" href="login.php">
                                         Login
                                     </a>
                                 </li>
                                 <li class="nav-item ps-3 pe-3 mt-2 mb-2">
-                                    <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-primary rounded-pill" href="register.php">
+                                    <a class="nav-link text-center p-2 hv-box text-white fw-bold text-shadow bg-primary rounded-pill" href="register.php">
                                         Register
                                     </a>
                                 </li>';
@@ -164,7 +159,7 @@ require_once '../PhpSetting/News.php';
                             $member = (string) $_SESSION['MemberName'];
                             echo '<li class="nav-item ps-3 pe-3 mt-2 mb-2">
                                     <form action="index.php" method="POST">
-                                    <a class="nav-link text-center p-2 hv-box text-white fw-bold bg-danger rounded-pill" href="../index.php">
+                                    <a class="nav-link text-center p-2 hv-box text-white fw-bold text-shadow bg-danger rounded-pill" href="../index.php">
                                     Logout
                                 </a>
                                     </form>
@@ -224,7 +219,7 @@ require_once '../PhpSetting/News.php';
             <div class="container">
                 <div class="row g-5" style=" margin-right: 0 !important;">
                     <div class="col-12 col-lg-3">
-                        <a href="#" class="d-block mb-3">
+                        <a href="../index.php" class="d-block mb-3">
                             <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                             width="500.000000pt" height="500.000000pt" viewBox="0 0 500.000000 500.000000"
                             preserveAspectRatio="xMidYMid meet" style="height: 40px; width: 40px;">
@@ -281,15 +276,13 @@ require_once '../PhpSetting/News.php';
                         </ul>
                         <p class="font-6 text-muted m-0">© 2022 Designed by ndd.</p>
                     </div>
-                    <!-- col 2 tạo khoảng cách -->
-                    <!-- <div class="col-2 d-none d-lg-block"></div> -->
                     <!-- menu footer -->
-                    <div class="col-12 col-lg-9">
-                        <div class="row g-5">
+                    <div class="col-lg-9">
+                        <div class="row">
                             <!-- column 1 -->
-                            <div class="col-lg-2 col-md-2 col-sm-2">
+                            <div class="col-6 col-lg-2 col-md-2 p-2">
                                 <h6 class="display-6 text-white mb-3">Services</h6>
-                                <ul class="nav flex-column text-white">
+                                <ul class="nav flex-column">
                                     <li class="nav-item">
                                         <a class="nav-link ps-0 text-muted" href="#">Services 1</a>
                                     </li>
@@ -305,9 +298,9 @@ require_once '../PhpSetting/News.php';
                                 </ul>
                             </div>
                             <!-- column 2 -->
-                            <div class="col-lg-2 col-md-2 col-sm-2">
+                            <div class="col-6 col-lg-2 col-md-2 p-2">
                                 <h6 class="display-6 text-white mb-3">Tour</h6>
-                                <ul class="nav flex-column text-white">
+                                <ul class="nav flex-column">
                                     <li class="nav-item">
                                         <a class="nav-link ps-0 text-muted" href="#">Tour 1</a>
                                     </li>
@@ -323,9 +316,9 @@ require_once '../PhpSetting/News.php';
                                 </ul>
                             </div>
                             <!-- column 3 -->
-                            <div class="col-lg-2 col-md-2 col-sm-2">
+                            <div class="col-6 col-lg-2 col-md-2 p-2">
                                 <h6 class="display-6 text-white mb-3">News</h6>
-                                <ul class="nav flex-column text-white">
+                                <ul class="nav flex-column">
                                     <li class="nav-item">
                                         <a class="nav-link ps-0 text-muted" href="#">Sale</a>
                                     </li>
@@ -338,9 +331,9 @@ require_once '../PhpSetting/News.php';
                                 </ul>
                             </div>
                             <!-- column 4 -->
-                            <div class="col-lg-2 col-md-2 col-sm-2">
+                            <div class="col-6 col-lg-2 col-md-2 p-2">
                                 <h6 class="display-6 text-white mb-3">Experience</h6>
-                                <ul class="nav flex-column text-white">
+                                <ul class="nav flex-column">
                                     <li class="nav-item">
                                         <a class="nav-link ps-0 text-muted" href="#">Experience</a>
                                     </li>
@@ -353,9 +346,9 @@ require_once '../PhpSetting/News.php';
                                 </ul>
                             </div>
                             <!-- column 5 -->
-                            <div class="col-lg-2 col-md-4 col-sm-4">
+                            <div class="col-lg-4 col-md-4 col-sm-4 p-2">
                                 <h6 class="display-6 text-white mb-3">Contact</h6>
-                                <ul class="nav flex-column text-white">
+                                <ul class="nav flex-column">
                                     <li class="nav-item">
                                         <a class="nav-link ps-0 text-muted" href="tel:0968590075">+84 968 590 075</a>
                                     </li>
