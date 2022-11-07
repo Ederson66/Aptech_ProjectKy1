@@ -1,43 +1,10 @@
 /* general */
-html{
-    scroll-behavior: smooth;
-}
-
 .pt-180 {
     padding-top: 180px !important;
 }
 
-.pb-50 {
-    padding-bottom: 50px !important;
-}
-
-.pt-120 {
-    padding-top: 120px !important;
-}
-
-.pt-100{
-    padding-top: 100px !important;
-}
-
-.px-30 {
-    padding-right: 30px !important;
-    padding-left: 30px !important;
-}
-
-.mt-180 {
-    margin-top: 180px !important;
-}
-
-.mb-90{
-    margin-bottom: 90px !important;
-}
-
 .mb-30{
     margin-bottom: 30px !important;
-}
-
-.mb-100{
-    margin-bottom: 100px !important;
 }
 
 .pb-290 {

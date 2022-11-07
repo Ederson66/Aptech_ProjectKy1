@@ -1,7 +1,8 @@
 <?php
 session_start();
-require_once './PhpSetting/Service.php';
 require_once './PhpSetting/Common.php';
+require_once './PhpSetting/Service.php';
+require_once './PhpSetting/Tour.php';
 require_once './PhpSetting/CategoryTour.php';
 ?>
 <!DOCTYPE html>
@@ -224,7 +225,7 @@ require_once './PhpSetting/CategoryTour.php';
                     </div>
 
                     <!-- service Outstanding -->
-                    <div class="pb-50 pt-100 text-center bg-gradient bg-body" id="scroll-down">
+                    <div class="pb-5 pt-5 text-center bg-gradient bg-body" id="scroll-down">
                         <!-- class pending mt-n190 -->
                         <div class="container">
 
@@ -239,8 +240,8 @@ require_once './PhpSetting/CategoryTour.php';
                                 for($i = 0; $i < count($arr); $i++) {
                                     $obj = $arr[$i];
                                     $imgservice = substr($obj->avatarService, 1);
-                                    echo "<form action='servicedetail.php' method='POST' class='col-lg-5 m-4'>
-                                            <a class='card border-0 text-decoration-none text-dark' href='#'>
+                                    echo "<div class='col-lg-5 m-4'>
+                                            <a class='card border-0 text-decoration-none text-dark' href='./users/service.php'>
                                                 <span class='card-img shadow-lg rounded-3 overflow-hidden hv-box-lg'>
                                                     <img class='img-fluid' src='$imgservice' alt=''>
                                                 </span>
@@ -248,7 +249,10 @@ require_once './PhpSetting/CategoryTour.php';
                                                     <span class='card-title h4'>$obj->serviceName</span>
                                                 </span>
                                             </a>
-                                        </form>";
+                                            <noscript>
+                                            <input type='submit' value='See'/>
+                                            </noscript>
+                                        </div>";
                                 }
                                 ?>
                             </div>
@@ -262,7 +266,7 @@ require_once './PhpSetting/CategoryTour.php';
                     </div>
 
                     <!-- img khách trải nghiệm -->
-                    <div class="pt-120 pb-50 bg-linear-gradient-2 shape-parent text-center">
+                    <div class="pt-5 pb-5 bg-linear-gradient-2 shape-parent text-center">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-6">
@@ -333,101 +337,63 @@ require_once './PhpSetting/CategoryTour.php';
                     </div>
 
                     <!-- History -->
-                    <div class="pt-120 pb-50 bg-secondary">
+                    <div class="pt-5 pb-5 bg-secondary">
                         <div class="container">
 
                             <h2 class="text-center mb-90 fs-1 fw-bold">
                                 History
                             </h2>
 
-                            <div class="mb-100">
+                            <div class="mb-5">
                                 
                             </div>
                         </div>
                     </div>
 
                     <!-- Book tour -->
-                    <div class="pt-120 pb-50 text-center bg-linear-gradient-3">
+                    <div class="pt-5 pb-5 text-center bg-linear-gradient-3">
                         <div class="container">
 
                             <h2 class="text-center mb-90 fs-1 fw-bold">
-                                Book Tour
+                                Best Tour
                             </h2>
 
-                            <div class="mb-100">
-                                <div class="row g-4 position-relative">
-
-                                    <div class="col-12 col-md-6 col-lg-3">
-                                        <div class="service-box position-relative bg-white text-center service-box-sm rounded-4">
-                                            <!-- ảnh tour -->
-                                            <div class="circle-icon text-white bg-danger mb-30">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="none">
-                                                    <path fill="currentColor" fill-rule="evenodd" d="M26.125 2.375h-14.25A2.375 2.375 0 0 0 9.5 4.75V19a1.188 1.188 0 0 1-2.375 0V4.75A4.75 4.75 0 0 1 11.875 0h14.25a4.75 4.75 0 0 1 4.75 4.75V19a1.188 1.188 0 0 1-2.375 0V4.75a2.375 2.375 0 0 0-2.375-2.375ZM28.5 33.25a2.375 2.375 0 0 1-2.375 2.375h-14.25A2.375 2.375 0 0 1 9.5 33.25V28.5a1.188 1.188 0 0 0-2.375 0v4.75a4.75 4.75 0 0 0 4.75 4.75h14.25a4.75 4.75 0 0 0 4.75-4.75V28.5a1.188 1.188 0 0 0-2.375 0v4.75ZM4.068 18.89a1.188 1.188 0 0 0-.995-2.156c-.824.38-1.553.827-2.095 1.354-.541.537-.978 1.242-.978 2.1 0 1.296.969 2.232 1.955 2.852C3 23.7 4.432 24.25 6.099 24.693c3.349.893 7.909 1.432 12.901 1.432.235 0 .468 0 .698-.005l-2.726 2.727a1.188 1.188 0 1 0 1.681 1.681l4.75-4.75a1.186 1.186 0 0 0 0-1.681l-4.75-4.75a1.188 1.188 0 1 0-1.681 1.681l2.72 2.717-.692.005c-4.845 0-9.191-.525-12.288-1.351-1.558-.416-2.734-.889-3.491-1.366-.817-.515-.846-.831-.846-.846 0-.007 0-.14.266-.403.273-.266.736-.575 1.425-.893h.002Zm30.859-2.156a1.188 1.188 0 0 0-.995 2.157c.693.318 1.154.627 1.425.895.268.261.268.394.268.401 0 .008 0 .155-.309.445-.313.29-.836.617-1.608.95-1.532.665-3.79 1.242-6.562 1.631a1.187 1.187 0 0 0 .333 2.351c2.878-.403 5.367-1.02 7.172-1.8.903-.39 1.694-.848 2.28-1.394.585-.544 1.069-1.275 1.069-2.183 0-.86-.437-1.567-.978-2.097-.542-.53-1.271-.976-2.095-1.356ZM17.813 4.75a1.188 1.188 0 0 0 0 2.375h2.375a1.188 1.188 0 0 0 0-2.375h-2.375Z" clip-rule="evenodd"></path>
-                                                </svg>
-                                            </div>
-                                            <h4 class="mb-3">Name tour</h4>
-                                            <p class="fs-6 mb-0">Content tour.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12 col-md-6 col-lg-3">
-                                        <div class="service-box position-relative bg-white text-center service-box-sm rounded-4">
-                                            <!-- ảnh tour -->
-                                            <div class="circle-icon text-white bg-danger mb-30">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="none">
-                                                    <path fill="currentColor" fill-rule="evenodd" d="M26.125 2.375h-14.25A2.375 2.375 0 0 0 9.5 4.75V19a1.188 1.188 0 0 1-2.375 0V4.75A4.75 4.75 0 0 1 11.875 0h14.25a4.75 4.75 0 0 1 4.75 4.75V19a1.188 1.188 0 0 1-2.375 0V4.75a2.375 2.375 0 0 0-2.375-2.375ZM28.5 33.25a2.375 2.375 0 0 1-2.375 2.375h-14.25A2.375 2.375 0 0 1 9.5 33.25V28.5a1.188 1.188 0 0 0-2.375 0v4.75a4.75 4.75 0 0 0 4.75 4.75h14.25a4.75 4.75 0 0 0 4.75-4.75V28.5a1.188 1.188 0 0 0-2.375 0v4.75ZM4.068 18.89a1.188 1.188 0 0 0-.995-2.156c-.824.38-1.553.827-2.095 1.354-.541.537-.978 1.242-.978 2.1 0 1.296.969 2.232 1.955 2.852C3 23.7 4.432 24.25 6.099 24.693c3.349.893 7.909 1.432 12.901 1.432.235 0 .468 0 .698-.005l-2.726 2.727a1.188 1.188 0 1 0 1.681 1.681l4.75-4.75a1.186 1.186 0 0 0 0-1.681l-4.75-4.75a1.188 1.188 0 1 0-1.681 1.681l2.72 2.717-.692.005c-4.845 0-9.191-.525-12.288-1.351-1.558-.416-2.734-.889-3.491-1.366-.817-.515-.846-.831-.846-.846 0-.007 0-.14.266-.403.273-.266.736-.575 1.425-.893h.002Zm30.859-2.156a1.188 1.188 0 0 0-.995 2.157c.693.318 1.154.627 1.425.895.268.261.268.394.268.401 0 .008 0 .155-.309.445-.313.29-.836.617-1.608.95-1.532.665-3.79 1.242-6.562 1.631a1.187 1.187 0 0 0 .333 2.351c2.878-.403 5.367-1.02 7.172-1.8.903-.39 1.694-.848 2.28-1.394.585-.544 1.069-1.275 1.069-2.183 0-.86-.437-1.567-.978-2.097-.542-.53-1.271-.976-2.095-1.356ZM17.813 4.75a1.188 1.188 0 0 0 0 2.375h2.375a1.188 1.188 0 0 0 0-2.375h-2.375Z" clip-rule="evenodd"></path>
-                                                </svg>
-                                            </div>
-                                            <h4 class="mb-3">Name tour</h4>
-                                            <p class="fs-6 mb-0">Content tour.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12 col-md-6 col-lg-3">
-                                        <div class="service-box position-relative bg-white text-center service-box-sm rounded-4">
-                                            <!-- ảnh tour -->
-                                            <div class="circle-icon text-white bg-danger mb-30">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="none">
-                                                    <path fill="currentColor" fill-rule="evenodd" d="M26.125 2.375h-14.25A2.375 2.375 0 0 0 9.5 4.75V19a1.188 1.188 0 0 1-2.375 0V4.75A4.75 4.75 0 0 1 11.875 0h14.25a4.75 4.75 0 0 1 4.75 4.75V19a1.188 1.188 0 0 1-2.375 0V4.75a2.375 2.375 0 0 0-2.375-2.375ZM28.5 33.25a2.375 2.375 0 0 1-2.375 2.375h-14.25A2.375 2.375 0 0 1 9.5 33.25V28.5a1.188 1.188 0 0 0-2.375 0v4.75a4.75 4.75 0 0 0 4.75 4.75h14.25a4.75 4.75 0 0 0 4.75-4.75V28.5a1.188 1.188 0 0 0-2.375 0v4.75ZM4.068 18.89a1.188 1.188 0 0 0-.995-2.156c-.824.38-1.553.827-2.095 1.354-.541.537-.978 1.242-.978 2.1 0 1.296.969 2.232 1.955 2.852C3 23.7 4.432 24.25 6.099 24.693c3.349.893 7.909 1.432 12.901 1.432.235 0 .468 0 .698-.005l-2.726 2.727a1.188 1.188 0 1 0 1.681 1.681l4.75-4.75a1.186 1.186 0 0 0 0-1.681l-4.75-4.75a1.188 1.188 0 1 0-1.681 1.681l2.72 2.717-.692.005c-4.845 0-9.191-.525-12.288-1.351-1.558-.416-2.734-.889-3.491-1.366-.817-.515-.846-.831-.846-.846 0-.007 0-.14.266-.403.273-.266.736-.575 1.425-.893h.002Zm30.859-2.156a1.188 1.188 0 0 0-.995 2.157c.693.318 1.154.627 1.425.895.268.261.268.394.268.401 0 .008 0 .155-.309.445-.313.29-.836.617-1.608.95-1.532.665-3.79 1.242-6.562 1.631a1.187 1.187 0 0 0 .333 2.351c2.878-.403 5.367-1.02 7.172-1.8.903-.39 1.694-.848 2.28-1.394.585-.544 1.069-1.275 1.069-2.183 0-.86-.437-1.567-.978-2.097-.542-.53-1.271-.976-2.095-1.356ZM17.813 4.75a1.188 1.188 0 0 0 0 2.375h2.375a1.188 1.188 0 0 0 0-2.375h-2.375Z" clip-rule="evenodd"></path>
-                                                </svg>
-                                            </div>
-                                            <h4 class="mb-3">Name tour</h4>
-                                            <p class="fs-6 mb-0">Content tour.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12 col-md-6 col-lg-3">
-                                        <div class="service-box position-relative bg-white text-center service-box-sm rounded-4">
-                                            <!-- ảnh tour -->
-                                            <div class="circle-icon text-white bg-danger mb-30">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="none">
-                                                    <path fill="currentColor" fill-rule="evenodd" d="M26.125 2.375h-14.25A2.375 2.375 0 0 0 9.5 4.75V19a1.188 1.188 0 0 1-2.375 0V4.75A4.75 4.75 0 0 1 11.875 0h14.25a4.75 4.75 0 0 1 4.75 4.75V19a1.188 1.188 0 0 1-2.375 0V4.75a2.375 2.375 0 0 0-2.375-2.375ZM28.5 33.25a2.375 2.375 0 0 1-2.375 2.375h-14.25A2.375 2.375 0 0 1 9.5 33.25V28.5a1.188 1.188 0 0 0-2.375 0v4.75a4.75 4.75 0 0 0 4.75 4.75h14.25a4.75 4.75 0 0 0 4.75-4.75V28.5a1.188 1.188 0 0 0-2.375 0v4.75ZM4.068 18.89a1.188 1.188 0 0 0-.995-2.156c-.824.38-1.553.827-2.095 1.354-.541.537-.978 1.242-.978 2.1 0 1.296.969 2.232 1.955 2.852C3 23.7 4.432 24.25 6.099 24.693c3.349.893 7.909 1.432 12.901 1.432.235 0 .468 0 .698-.005l-2.726 2.727a1.188 1.188 0 1 0 1.681 1.681l4.75-4.75a1.186 1.186 0 0 0 0-1.681l-4.75-4.75a1.188 1.188 0 1 0-1.681 1.681l2.72 2.717-.692.005c-4.845 0-9.191-.525-12.288-1.351-1.558-.416-2.734-.889-3.491-1.366-.817-.515-.846-.831-.846-.846 0-.007 0-.14.266-.403.273-.266.736-.575 1.425-.893h.002Zm30.859-2.156a1.188 1.188 0 0 0-.995 2.157c.693.318 1.154.627 1.425.895.268.261.268.394.268.401 0 .008 0 .155-.309.445-.313.29-.836.617-1.608.95-1.532.665-3.79 1.242-6.562 1.631a1.187 1.187 0 0 0 .333 2.351c2.878-.403 5.367-1.02 7.172-1.8.903-.39 1.694-.848 2.28-1.394.585-.544 1.069-1.275 1.069-2.183 0-.86-.437-1.567-.978-2.097-.542-.53-1.271-.976-2.095-1.356ZM17.813 4.75a1.188 1.188 0 0 0 0 2.375h2.375a1.188 1.188 0 0 0 0-2.375h-2.375Z" clip-rule="evenodd"></path>
-                                                </svg>
-                                            </div>
-                                            <h4 class="mb-3">Name tour</h4>
-                                            <p class="fs-6 mb-0">Content tour.</p>
-                                        </div>
-                                    </div>
-
+                            <div class="mb-5 mt-5">
+                                <div class="row justify-content-center  ">
+                                    <?php
+                                    $a = new Tour();
+                                    $arr = $a->getBestTour();
+                                    foreach($arr as $val) {
+                                        $imgTour = substr($val->AvatarTour, 1);
+                                        echo "<div class='col-12 col-md-6 col-lg-3 m-2'>
+                                                <div class='bg-white text-center rounded-4 p-3'>
+                                                    <div class='text-white w-50 d-inline-flex justify-content-center mb-30'>
+                                                        <img class='img-fluid rounded-4' src='$imgTour' alt=''>
+                                                    </div>
+                                                    <h4 class='mb-3'>$val->TourName</h4>
+                                                    <p class='mb-2'><span class='fw-bold'>Location:</span> $val->Location</p>
+                                                    <p class='mb-2'><span class='fw-bold'>Time:</span> $val->Day Day</p>
+                                                    <p class='mb-2'><span class='fw-bold'>Price:</span> $val->TourPrice USD</p>
+                                                    <p class='mb-2'><span class='text-danger fw-bold text-decoration-underline'>Hot Sale:</span> $val->TourSale%</p>
+                                                    <a href='./users/tour.php' class='btn btn-primary'>Book Now</a>
+                                                </div>
+                                            </div>";
+                                    }
+                                    ?>
                                 </div>
-                            </div>
-
-                            <!-- btn xem thêm -->
-                            <div class="m-3 mt-5">
-                                <button class="btn btn-danger rounded-pill p-3 hv-box">See more</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- sale -->
-                    <div class="pt-120 pb-50 text-center bg-danger">
+                    <div class="pt-5 pb-5 text-center bg-danger">
                         <div class="container">
 
                             <h2 class="text-center mb-90 fs-1 fw-bold">
                                 Sale
                             </h2>
 
-                            <div class="mb-100">
+                            <div class="mb-5">
 
                             </div>
 
@@ -439,14 +405,14 @@ require_once './PhpSetting/CategoryTour.php';
                     </div>
 
                     <!-- tin tức tour -->
-                    <div class="pt-120 pb-50 text-center bg-primary">
+                    <div class="pt-5 pb-5 text-center bg-primary">
                         <div class="container">
 
                             <h2 class="text-center mb-90 fs-1 fw-bold">
                                 News
                             </h2>
 
-                            <div class="mb-100">
+                            <div class="mb-5">
 
                             </div>
 
@@ -458,14 +424,14 @@ require_once './PhpSetting/CategoryTour.php';
                     </div>
 
                     <!-- kinh nghiệm -->
-                    <div class="pt-120 pb-50 text-center bg-danger">
+                    <div class="pt-5 pb-5 text-center bg-danger">
                         <div class="container">
 
                             <h2 class="text-center mb-90 fs-1 fw-bold">
                                 Kinh nghiệm
                             </h2>
 
-                            <div class="mb-100">
+                            <div class="mb-5">
 
                             </div>
 
@@ -482,7 +448,7 @@ require_once './PhpSetting/CategoryTour.php';
             <!--END Main -->
 
             <!--BEGIN Footer -->
-            <div class="footer bg-dark text-white pt-120 pb-5">
+            <div class="footer bg-dark text-white pt-5 pb-5">
                 <div class="container">
                     <div class="row g-5" style=" margin-right: 0 !important;">
                         <div class="col-12 col-lg-3">
@@ -630,6 +596,27 @@ require_once './PhpSetting/CategoryTour.php';
                 </div>
             </div>
             <!--END Footer -->
+
+            <!-- top top -->
+            <!-- icon to top -->
+            <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <defs>
+                    <symbol id="Arrow-Up-1" viewBox="0 0 32 32">
+                        <path d="M2.6 13.4l2.8 2.8 8.6-8.6v24.4h4v-24.4l8.6 8.6 2.8-2.8-13.4-13.4-13.4 13.4z"></path>
+                    </symbol>
+                </defs>
+            </svg>
+            <a id="totop" class="shadow">
+                <i class=" bi bi-arrow-up"></i>
+            </a>
+            <!-- en to top -->
+            <!-- hotline -->
+            <div class="hotline shadow">
+                <a class="text-dark" href="tel:0968590075">
+                    <i class="fs-4 bi bi-telephone-forward"></i>
+                </a>
+            </div>
+            <!-- end hotline -->
         </div>
 
         <!-- JQUERY 3.6.1 -->

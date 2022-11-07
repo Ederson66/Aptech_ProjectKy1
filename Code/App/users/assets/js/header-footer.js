@@ -36,5 +36,20 @@ document.addEventListener('DOMContentLoaded', function () {
         navDiv.classList.toggle("shadow-sm");
     });
     // end //
+
+    // js tot top
+    var totop = $('#totop');
+    totop.click(function () {
+        $('html, body').stop(true, true).animate({ scrollTop: 0 }, 200);
+        return false;
+    });
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            totop.fadeIn();
+        } else {
+            totop.fadeOut();
+        }
+    });
+    // end
 });
 

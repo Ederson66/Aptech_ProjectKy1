@@ -351,6 +351,19 @@
                 </div>
             </div>
             <!--END Footer -->
+
+            <!-- top top -->
+            <a id="totop" class="shadow">
+                <i class="text-dark bi bi-arrow-up"></i>
+            </a>
+            <!-- en to top -->
+            <!-- hotline -->
+            <div class="hotline shadow">
+                <a class="text-dark" href="tel:0968590075">
+                    <i class="fs-4 bi bi-telephone-forward"></i>
+                </a>
+            </div>
+            <!-- end hotline -->
         </div>
 
         <!-- JQUERY 3.6.1 -->

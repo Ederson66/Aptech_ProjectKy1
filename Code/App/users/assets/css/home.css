@@ -90,7 +90,7 @@ body{
 .swiper-slide {
     background-position: center;
     background-size: cover;
-    width: 500px;
+    width: 300px;
 }
 
 .swiper-slide img {
@@ -98,36 +98,5 @@ body{
     width: 100%;
 }
 /* end swiper */
-
-/* future product */
-.service-box {
-    padding: 35px 30px;
-}
-.service-box-arrow:hover {
-    color: #F01F4B;
-}
-
-.service-box-sm {
-    padding: 35px 25px 50px;
-}
-
-.circle-icon {
-    display: -webkit-inline-box;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-}
-/* end future product */
 
 /* end main*/
