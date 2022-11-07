@@ -1875,7 +1875,7 @@ if (!empty($_POST["flogout"])) {
                                                 if (isset($_POST["fitemlibraryimg"])) {
                                                     $fType = $_POST["fType"];
                                                     $ftitle = $_POST["ftitle"];
-                                                    $fFile = $_POST["fFile"];
+                                                    // $fFile = $_POST["fFile"];
                                                     $fLibraryID = $_POST["fLibraryID"];
                                                     $fAlt = $_POST["fAlt"];
                                                     $fDescription = $_POST["fDescription"];
@@ -2301,6 +2301,7 @@ if (!empty($_POST["flogout"])) {
                                                 <div class="mb-3 w-50">
                                                     <label class="form-label fw-bold text-secondary">ParentID:</label>
                                                     <select class="form-select" id="ParentID" name="fParentID">
+                                                        <option value="0">Select</option>
                                                         <?php
                                                         $a = new Category();
                                                         $arr = $a->getListCategory();

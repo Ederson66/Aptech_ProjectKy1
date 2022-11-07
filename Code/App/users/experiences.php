@@ -98,10 +98,10 @@ require_once '../PhpSetting/News.php';
                 <div class="collapse navbar-collapse justify-content-end" id="navbarmenu">
                     <ul class="navbar-nav">
                         <li class="nav-item ps-3 pe-3 mt-2 home">
-                            <a class="nav-link fw-bold text-dark text-shadow" href="../index.php">Home</a>
+                            <a class="nav-link fw-bold text-shadow" href="../index.php">Home</a>
                         </li>
                         <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                            <div class="nav-link fw-bold text-dark text-shadow dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <div class="nav-link fw-bold text-shadow dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                 Service
                             </div>
                             <ul class="dropdown-menu">
@@ -117,7 +117,7 @@ require_once '../PhpSetting/News.php';
                             </ul>
                         </li>
                         <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                            <div class="nav-link fw-bold text-dark text-shadow dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <div class="nav-link fw-bold text-shadow dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                 Tour
                             </div>
                             <ul class="dropdown-menu">
@@ -138,12 +138,12 @@ require_once '../PhpSetting/News.php';
                             </ul>
                         </li>
                         <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                            <div class="nav-link fw-bold text-dark text-shadow dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <div class="nav-link fw-bold text-shadow dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                 News
                             </div>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item nav-link ps-2" href="service.php">Service</a>
+                                    <a class="dropdown-item nav-link ps-2" href="news.php">News</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item nav-link ps-2" href="#">Sale</a>
@@ -157,10 +157,10 @@ require_once '../PhpSetting/News.php';
                             </ul>
                         </li>
                         <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                            <a class="nav-link fw-bold text-dark text-shadow " href="experiences.php">Experience</a>
+                            <a class="nav-link fw-bold text-shadow " href="experiences.php">Experience</a>
                         </li>
                         <li class="nav-item ps-3 pe-3 mt-2 disabled">
-                            <a class="nav-link fw-bold text-dark text-shadow " href="contact.php">Contact</a>
+                            <a class="nav-link fw-bold text-shadow " href="contact.php">Contact</a>
                         </li>
                         <?php
                         $checkin = IsAuthen();
@@ -217,7 +217,7 @@ require_once '../PhpSetting/News.php';
             </div>
 
             <!-- content -->
-            <div class="pt-120 pb-50" id="scroll-down" style="background-color: aliceblue;">
+            <div class="pt-5 pb-5" id="scroll-down" style="background-color: aliceblue;">
                 <div class="container">
                     <?php
                     $a = new News();
@@ -235,11 +235,11 @@ require_once '../PhpSetting/News.php';
         <!--END Main -->
 
         <!--BEGIN Footer -->
-        <div class="footer bg-dark text-white pt-120 pb-5">
+        <div class="footer bg-dark text-white pt-5 pb-5">
             <div class="container">
                 <div class="row g-5" style=" margin-right: 0 !important;">
                     <div class="col-12 col-lg-3">
-                        <a href="../index.php" class="d-block mb-3">
+                        <a href="index.php" class="d-block mb-3">
                             <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                             width="500.000000pt" height="500.000000pt" viewBox="0 0 500.000000 500.000000"
                             preserveAspectRatio="xMidYMid meet" style="height: 40px; width: 40px;">
@@ -299,6 +299,9 @@ require_once '../PhpSetting/News.php';
                     <!-- menu footer -->
                     <div class="col-lg-9">
                         <div class="row">
+                            <!-- column ẩn -->
+                            <div class="col-lg-2 col-md-0">
+                            </div>
                             <!-- column 1 -->
                             <div class="col-6 col-lg-2 col-md-2 p-2">
                                 <h6 class="display-6 text-white mb-3">Services</h6>
@@ -351,21 +354,6 @@ require_once '../PhpSetting/News.php';
                                 </ul>
                             </div>
                             <!-- column 4 -->
-                            <div class="col-6 col-lg-2 col-md-2 p-2">
-                                <h6 class="display-6 text-white mb-3">Experience</h6>
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link ps-0 text-muted" href="#">Experience</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link ps-0 text-muted" href="#">Experience</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link ps-0 text-muted" href="#">Experience</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- column 5 -->
                             <div class="col-lg-4 col-md-4 col-sm-4 p-2">
                                 <h6 class="display-6 text-white mb-3">Contact</h6>
                                 <ul class="nav flex-column">

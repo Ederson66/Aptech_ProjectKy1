@@ -1,7 +1,6 @@
 CREATE TABLE `booktour` (
 	`BookTourID` INT(10) NOT NULL AUTO_INCREMENT,
 	`TourID` INT(10) NOT NULL,
-	`MemberID` INT(10) NULL DEFAULT NULL,
 	`AnonymousBookTour` VARCHAR(100) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
 	`AnonymousEmail` VARCHAR(100) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
 	`AnonymousAddress` VARCHAR(2000) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
@@ -10,7 +9,7 @@ CREATE TABLE `booktour` (
 	`Description` LONGTEXT NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
 	`Flag` VARCHAR(1) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
 	PRIMARY KEY (`BookTourID`) USING BTREE
-)
+)	
 COLLATE='utf8mb4_0900_ai_ci'
 ENGINE=InnoDB
 ;
@@ -44,7 +43,6 @@ ENGINE=InnoDB
 
 CREATE TABLE `contact` (
 	`contactID` INT(10) NOT NULL AUTO_INCREMENT,
-	`MemberID` INT(10) NOT NULL,
 	`fullname` VARCHAR(500) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
 	`address` VARCHAR(1000) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',
 	`email` VARCHAR(100) NOT NULL COLLATE 'utf8mb4_0900_ai_ci',

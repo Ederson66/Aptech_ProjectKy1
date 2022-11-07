@@ -146,7 +146,7 @@ require_once './PhpSetting/CategoryTour.php';
                                 </div>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a class="dropdown-item nav-link ps-2" href="./users/service.php">Service</a>
+                                        <a class="dropdown-item nav-link ps-2" href="./users/news.php">News</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item nav-link ps-2" href="#">Sale</a>
@@ -512,6 +512,9 @@ require_once './PhpSetting/CategoryTour.php';
                         <!-- menu footer -->
                         <div class="col-lg-9">
                             <div class="row">
+                                <!-- column ẩn -->
+                                <div class="col-lg-2 col-md-0">
+                                </div>
                                 <!-- column 1 -->
                                 <div class="col-6 col-lg-2 col-md-2 p-2">
                                     <h6 class="display-6 text-white mb-3">Services</h6>
@@ -564,21 +567,6 @@ require_once './PhpSetting/CategoryTour.php';
                                     </ul>
                                 </div>
                                 <!-- column 4 -->
-                                <div class="col-6 col-lg-2 col-md-2 p-2">
-                                    <h6 class="display-6 text-white mb-3">Experience</h6>
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link ps-0 text-muted" href="#">Experience</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link ps-0 text-muted" href="#">Experience</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link ps-0 text-muted" href="#">Experience</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- column 5 -->
                                 <div class="col-lg-4 col-md-4 col-sm-4 p-2">
                                     <h6 class="display-6 text-white mb-3">Contact</h6>
                                     <ul class="nav flex-column">
