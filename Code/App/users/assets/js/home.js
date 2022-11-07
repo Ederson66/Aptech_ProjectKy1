@@ -27,5 +27,24 @@ document.addEventListener('DOMContentLoaded', function () {
             prevEl: ".btn-next",
         },
     });
+
+    // active show data - show khi scroll đến //
+    function reveal() {
+        var reveals = document.querySelectorAll('[data-show="startbox"]');
+
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 50;
+
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("activeShow");
+            } else {
+                reveals[i].classList.remove("activeShow");
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    // end //
 });
 

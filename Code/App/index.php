@@ -11,6 +11,26 @@ require_once './PhpSetting/CategoryTour.php';
             <meta charset="UTF-8" />
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta name="description" content="Website về leo núi,cắm trại,du lịch,đặt tour và các dịch vụ đi cùng chuyến du lịch.Cho bạn 1 nơi tha hồ lựa chọn các địa điểm du lịch và book tour dễ dàng thuận tiện cùng những khuyến mãi khủng."/>
+            <meta name="keywords" content="Leo núi,Moutaineering,Du lịch,Tour,Book Tour, Dịch vụ,Service,Lịch sử,History,Kĩ năng,Đồ leo núi,Sale hấp dẫn ." />
+            <meta name="news_keywords" content="Leo núi,Moutaineering,Du lịch,Tour,Book Tour, Dịch vụ,Service,Lịch sử,History,Kĩ năng,Đồ leo núi,Sale hấp dẫn ." />
+            <meta http-equiv="REFRESH" content="1800" />
+            <meta name="copyright" content="Moutaineering" />
+            <meta name="author" content="Moutaineering" />
+            <meta name="robots" content="index,follow" />
+            <meta name="geo.placename" content="Ha Noi, Viet Nam" />
+            <meta name="geo.region" content="VN-HN" />
+            <meta name="geo.position" content="21.030624;105.782431" />
+            <!-- META FOR FACEBOOK -->
+            <meta property="og:site_name" content="Moutaineering.com" />
+            <meta property="og:rich_attachment" content="true" />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" itemprop="url" content="https://Moutaineering.com" />
+            <meta property="og:image:width" content="800" />
+            <meta property="og:image:height" content="354" />
+            <meta content="Moutaineering,Service,Tour,BookTour" itemprop="headline" property="og:title" />
+            <meta content="Home" itemprop="description" property="og:description" />
+            <!-- END META FOR FACEBOOK -->
             <!-- Reset CSS -->
             <link rel="stylesheet" href="./users/assets/css/reset.min.css" />
             <!-- BOOTSTRAP 5.0.2 CSS -->
@@ -189,10 +209,10 @@ require_once './PhpSetting/CategoryTour.php';
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8 text-white">
-                                    <h1 class="mb-3 px-lg-3 fs-fw text-shadow activeShow">
+                                    <h1 class="mb-3 px-lg-3 fs-fw text-shadow">
                                         Climb the mountain
                                     </h1>
-                                    <p class="mb-0 fw-normal fs-5 px-lg-5 text-shadow activeShow">
+                                    <p class="mb-0 fw-normal fs-5 px-lg-5 text-shadow">
                                         Climbing is the activity and sport in which participants strive to reach the highest point of a mountain mountain. Climbing techniques greatly depend on the location.
                                     </p>
                                 </div>
@@ -208,7 +228,7 @@ require_once './PhpSetting/CategoryTour.php';
                         <!-- class pending mt-n190 -->
                         <div class="container">
 
-                            <h2 class="text-center mb-90 fs-1 fw-bold activeShow">
+                            <h2 class="text-center mb-90 fs-1 fw-bold">
                                 Outstanding service
                             </h2>
 
@@ -219,7 +239,7 @@ require_once './PhpSetting/CategoryTour.php';
                                 for($i = 0; $i < count($arr); $i++) {
                                     $obj = $arr[$i];
                                     $imgservice = substr($obj->avatarService, 1);
-                                    echo "<div class='col-lg-5 m-4 activeShow'>
+                                    echo "<form action='servicedetail.php' method='POST' class='col-lg-5 m-4'>
                                             <a class='card border-0 text-decoration-none text-dark' href='#'>
                                                 <span class='card-img shadow-lg rounded-3 overflow-hidden hv-box-lg'>
                                                     <img class='img-fluid' src='$imgservice' alt=''>
@@ -228,12 +248,12 @@ require_once './PhpSetting/CategoryTour.php';
                                                     <span class='card-title h4'>$obj->serviceName</span>
                                                 </span>
                                             </a>
-                                        </div>";
+                                        </form>";
                                 }
                                 ?>
                             </div>
 
-                            <div class="m-3 mt-5 activeShow">
+                            <div class="m-3 mt-5">
                                 <button class="btn btn-danger rounded-pill p-3 hv-box">
                                     <a href="./users/service.php" class="text-white text-decoration-none" style="padding: 16px 10px;">See More</a>
                                 </button>
@@ -246,11 +266,11 @@ require_once './PhpSetting/CategoryTour.php';
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-6">
-                                    <h2 class="m-0 text-white fs-1 fw-bold text-shadow activeShow">Actual customer experience images</h2>
+                                    <h2 class="m-0 text-white fs-1 fw-bold text-shadow">Actual customer experience images</h2>
                                 </div>
 
                                 <!-- Swiper -->
-                                <div class="activeShow">
+                                <div class="">
                                     <div class="swiper mt-5 mySwiper">
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
@@ -316,7 +336,7 @@ require_once './PhpSetting/CategoryTour.php';
                     <div class="pt-120 pb-50 bg-secondary">
                         <div class="container">
 
-                            <h2 class="text-center mb-90 fs-1 fw-bold activeShow">
+                            <h2 class="text-center mb-90 fs-1 fw-bold">
                                 History
                             </h2>
 
@@ -330,14 +350,14 @@ require_once './PhpSetting/CategoryTour.php';
                     <div class="pt-120 pb-50 text-center bg-linear-gradient-3">
                         <div class="container">
 
-                            <h2 class="text-center mb-90 fs-1 fw-bold activeShow">
+                            <h2 class="text-center mb-90 fs-1 fw-bold">
                                 Book Tour
                             </h2>
 
                             <div class="mb-100">
                                 <div class="row g-4 position-relative">
 
-                                    <div class="col-12 col-md-6 col-lg-3 activeShow">
+                                    <div class="col-12 col-md-6 col-lg-3">
                                         <div class="service-box position-relative bg-white text-center service-box-sm rounded-4">
                                             <!-- ảnh tour -->
                                             <div class="circle-icon text-white bg-danger mb-30">
@@ -350,7 +370,7 @@ require_once './PhpSetting/CategoryTour.php';
                                         </div>
                                     </div>
 
-                                    <div class="col-12 col-md-6 col-lg-3 activeShow">
+                                    <div class="col-12 col-md-6 col-lg-3">
                                         <div class="service-box position-relative bg-white text-center service-box-sm rounded-4">
                                             <!-- ảnh tour -->
                                             <div class="circle-icon text-white bg-danger mb-30">
@@ -363,7 +383,7 @@ require_once './PhpSetting/CategoryTour.php';
                                         </div>
                                     </div>
 
-                                    <div class="col-12 col-md-6 col-lg-3 activeShow">
+                                    <div class="col-12 col-md-6 col-lg-3">
                                         <div class="service-box position-relative bg-white text-center service-box-sm rounded-4">
                                             <!-- ảnh tour -->
                                             <div class="circle-icon text-white bg-danger mb-30">
@@ -376,7 +396,7 @@ require_once './PhpSetting/CategoryTour.php';
                                         </div>
                                     </div>
 
-                                    <div class="col-12 col-md-6 col-lg-3 activeShow">
+                                    <div class="col-12 col-md-6 col-lg-3">
                                         <div class="service-box position-relative bg-white text-center service-box-sm rounded-4">
                                             <!-- ảnh tour -->
                                             <div class="circle-icon text-white bg-danger mb-30">
@@ -393,7 +413,7 @@ require_once './PhpSetting/CategoryTour.php';
                             </div>
 
                             <!-- btn xem thêm -->
-                            <div class="m-3 mt-5 activeShow">
+                            <div class="m-3 mt-5">
                                 <button class="btn btn-danger rounded-pill p-3 hv-box">See more</button>
                             </div>
                         </div>
@@ -403,7 +423,7 @@ require_once './PhpSetting/CategoryTour.php';
                     <div class="pt-120 pb-50 text-center bg-danger">
                         <div class="container">
 
-                            <h2 class="text-center mb-90 fs-1 fw-bold activeShow">
+                            <h2 class="text-center mb-90 fs-1 fw-bold">
                                 Sale
                             </h2>
 
@@ -412,7 +432,7 @@ require_once './PhpSetting/CategoryTour.php';
                             </div>
 
                             <!-- btn xem thêm -->
-                            <div class="m-3 mt-5 activeShow">
+                            <div class="m-3 mt-5">
                                 <button class="btn btn-primary rounded-pill p-3 hv-box">Xem thêm</button>
                             </div>
                         </div>
@@ -422,7 +442,7 @@ require_once './PhpSetting/CategoryTour.php';
                     <div class="pt-120 pb-50 text-center bg-primary">
                         <div class="container">
 
-                            <h2 class="text-center mb-90 fs-1 fw-bold activeShow">
+                            <h2 class="text-center mb-90 fs-1 fw-bold">
                                 News
                             </h2>
 
@@ -431,7 +451,7 @@ require_once './PhpSetting/CategoryTour.php';
                             </div>
 
                             <!-- btn xem thêm -->
-                            <div class="m-3 mt-5 activeShow">
+                            <div class="m-3 mt-5">
                                 <button class="btn btn-secondary rounded-pill p-3 hv-box">Xem thêm</button>
                             </div>
                         </div>
@@ -441,7 +461,7 @@ require_once './PhpSetting/CategoryTour.php';
                     <div class="pt-120 pb-50 text-center bg-danger">
                         <div class="container">
 
-                            <h2 class="text-center mb-90 fs-1 fw-bold activeShow">
+                            <h2 class="text-center mb-90 fs-1 fw-bold">
                                 Kinh nghiệm
                             </h2>
 
@@ -450,7 +470,7 @@ require_once './PhpSetting/CategoryTour.php';
                             </div>
 
                             <!-- btn xem thêm -->
-                            <div class="m-3 mt-5 activeShow">
+                            <div class="m-3 mt-5">
                                 <button class="btn btn-primary rounded-pill p-3 hv-box">Xem thêm</button>
                             </div>
                         </div>

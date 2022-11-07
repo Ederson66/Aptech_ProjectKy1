@@ -1,4 +1,8 @@
 /* general */
+html{
+    scroll-behavior: smooth;
+}
+
 .pt-180 {
     padding-top: 180px !important;
 }
