@@ -398,7 +398,6 @@ if (!empty($_POST["flogout"])) {
                                                     <th scope="col">STT</th>
                                                     <th scope="col">ID</th>
                                                     <th scope="col">TourID</th>
-                                                    <th scope="col">MemberID</th>
                                                     <th scope="col">UserBookTour</th>
                                                     <th scope="col">Email</th>
                                                     <th scope="col">Address</th>
@@ -421,7 +420,6 @@ if (!empty($_POST["flogout"])) {
                                                     $strTbl .= "<th>" . $stt++ . "</th>";
                                                     $strTbl .= "<td id='BookTourID'>$obj->BookTourID</td>";
                                                     $strTbl .= "<td id='TourID'>$obj->TourID</td>";
-                                                    $strTbl .= "<td id='MemberID'>$obj->MemberID</td>";
                                                     $strTbl .= "<td id='AnonymousBookTour'>$obj->AnonymousBookTour</td>";
                                                     $strTbl .= "<td id='AnonymousEmail'>$obj->AnonymousEmail</td>";
                                                     $strTbl .= "<td id='AnonymousAddress'>$obj->AnonymousAddress</td>";
@@ -1559,7 +1557,7 @@ if (!empty($_POST["flogout"])) {
                                                         </tr>
                                                         <?php
                                                         $a = new News();
-                                                        $arr = $a->getListNews();
+                                                        $arr = $a->getListNewsTbl();
                                                         $strTbl = "";
 
                                                         $stt = 1;
@@ -1570,7 +1568,7 @@ if (!empty($_POST["flogout"])) {
                                                             $strTbl .= "<tr>";
                                                             $strTbl .= "<th>" . $stt++ . "</th>";
                                                             $strTbl .= "<td id='newsID'>$obj->newsID</td>";
-                                                            $strTbl .= "<td>$obj->categoryID</td>";
+                                                            $strTbl .= "<td>$obj->CategoryName</td>";
                                                             $strTbl .= "<td id='title'>$obj->title</td>";
                                                             $strTbl .= "<td id='leadcontent'>$obj->leadcontent</td>";
                                                             $strTbl .= "<td>$obj->content</td>";
@@ -2621,7 +2619,6 @@ if (!empty($_POST["flogout"])) {
                                                 <tr>
                                                     <th scope="col">STT</th>
                                                     <th scope="col">ID</th>
-                                                    <th scope="col">MemberID</th>
                                                     <th scope="col">Fullname</th>
                                                     <th scope="col">Address</th>
                                                     <th scope="col">Email</th>
@@ -2642,7 +2639,6 @@ if (!empty($_POST["flogout"])) {
                                                     $strTbl .= "<tr>";
                                                     $strTbl .= "<th>" . $stt++ . "</th>";
                                                     $strTbl .= "<td>$obj->contactID</td>";
-                                                    $strTbl .= "<td>$obj->MemberID</td>";
                                                     $strTbl .= "<td>$obj->fullname</td>";
                                                     $strTbl .= "<td>$obj->address</td>";
                                                     $strTbl .= "<td>$obj->email</td>";
