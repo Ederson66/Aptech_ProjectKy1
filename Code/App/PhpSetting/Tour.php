@@ -214,7 +214,7 @@ class Tour {
 					ELSE 'Error'
 				END
 				AS `Status`
-				FROM `tour` WHERE CategoryTourID = $CategoryTourID AND Flag IS NULL;";
+				FROM `tour` WHERE CategoryTourID = $CategoryTourID AND Flag IS NULL LIMIT 0,3;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
