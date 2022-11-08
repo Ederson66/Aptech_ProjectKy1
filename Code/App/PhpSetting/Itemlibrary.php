@@ -1,6 +1,6 @@
 <?php
 
-require_once '../PhpSetting/DBinfoConfig.php';
+require_once 'DBinfoConfig.php';
 
 class Itemlibrary {
 	public $description;
@@ -144,6 +144,36 @@ class Itemlibrary {
 			$s->libraryID = $row["LibraryID"];
 			$s->title = $row["Title"];
 			$s->itemLibraryID = $row["ItemLibraryID"];
+            
+            array_push($list, $s);
+        }
+        
+        // đóng kết nối
+        $conn = NULL;
+        
+        return $list;
+    }
+
+	public function getFileItemLibrary() {
+        // chuỗi kết nối đến DB
+        $options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+        
+        // câu lệnh sql
+        $sql = "SELECT * FROM `itemlibrary` WHERE Flag IS NULL LIMIT 6;";
+        
+        // chuẩn bị câu lệnh SQL
+        $stmt = $conn->prepare($sql);
+        
+        // thực hiện
+        $stmt->execute();
+        
+        $list = Array();
+        while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
+            $s = new Itemlibrary();
+			$s->file = $row["File"];
+			$s->alt = $row["Alt"];
             
             array_push($list, $s);
         }

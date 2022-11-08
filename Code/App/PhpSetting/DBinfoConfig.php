@@ -2,7 +2,7 @@
 // không được sửa lại db này
 class DBinfoConfig {
     public static function getServer() {
-        return "103.190.36.5";
+        return "68.178.145.3";
     }
     
     public static function getDBname() {

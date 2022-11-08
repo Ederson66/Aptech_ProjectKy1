@@ -239,7 +239,7 @@ require_once '../PhpSetting/News.php';
             <div class="container">
                 <div class="row g-5" style=" margin-right: 0 !important;">
                     <div class="col-12 col-lg-3">
-                        <a href="index.php" class="d-block mb-3">
+                        <a href="../index.php" class="d-block mb-3">
                             <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                             width="500.000000pt" height="500.000000pt" viewBox="0 0 500.000000 500.000000"
                             preserveAspectRatio="xMidYMid meet" style="height: 40px; width: 40px;">
@@ -302,8 +302,10 @@ require_once '../PhpSetting/News.php';
                             <!-- column ẩn -->
                             <div class="col-lg-2 col-md-0">
                             </div>
+                            <div class="col-lg-2 col-md-0">
+                            </div>
                             <!-- column 1 -->
-                            <div class="col-6 col-lg-2 col-md-2 p-2">
+                            <div class=" col-lg-2 col-md-2 p-2">
                                 <h6 class="display-6 text-white mb-3">Services</h6>
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
@@ -321,7 +323,7 @@ require_once '../PhpSetting/News.php';
                                 </ul>
                             </div>
                             <!-- column 2 -->
-                            <div class="col-6 col-lg-2 col-md-2 p-2">
+                            <div class=" col-lg-2 col-md-2 p-2">
                                 <h6 class="display-6 text-white mb-3">Tour</h6>
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
@@ -339,7 +341,7 @@ require_once '../PhpSetting/News.php';
                                 </ul>
                             </div>
                             <!-- column 3 -->
-                            <div class="col-6 col-lg-2 col-md-2 p-2">
+                            <div class=" col-lg-2 col-md-2 p-2">
                                 <h6 class="display-6 text-white mb-3">News</h6>
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
@@ -354,7 +356,7 @@ require_once '../PhpSetting/News.php';
                                 </ul>
                             </div>
                             <!-- column 4 -->
-                            <div class="col-lg-4 col-md-4 col-sm-4 p-2">
+                            <div class=" col-md-2 col-sm-2 p-2">
                                 <h6 class="display-6 text-white mb-3">Contact</h6>
                                 <ul class="nav flex-column">
                                     <li class="nav-item">

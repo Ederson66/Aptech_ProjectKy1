@@ -4,6 +4,8 @@ require_once './PhpSetting/Common.php';
 require_once './PhpSetting/Service.php';
 require_once './PhpSetting/Tour.php';
 require_once './PhpSetting/CategoryTour.php';
+require_once './PhpSetting/Itemlibrary.php';
+require_once './PhpSetting/Library.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -205,8 +207,9 @@ require_once './PhpSetting/CategoryTour.php';
             <div class="main">
                 <!-- note 1 --> 
                 <div class="content-wrap position-relative mw-100">
+
                     <!-- giới thiệu -->
-                    <div class="pt-180 pb-290 bg-linear-gradient-1 shape-parent text-center auto-height">
+                    <div class="pt-180 pb-290 bg-gioithieu text-center auto-height">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8 text-white">
@@ -266,61 +269,39 @@ require_once './PhpSetting/CategoryTour.php';
                     </div>
 
                     <!-- img khách trải nghiệm -->
-                    <div class="pt-5 pb-5 bg-linear-gradient-2 shape-parent text-center">
+                    <div class="pt-5 pb-5 bg-trainghiem text-center">
                         <div class="container">
                             <div class="row justify-content-center">
-                                <div class="col-lg-6">
-                                    <h2 class="m-0 text-white fs-1 fw-bold text-shadow">Actual customer experience images</h2>
-                                </div>
+                                <?php
+                                $a = new Library();
+                                $arr = $a->getNameItemLibrary();
+                                foreach($arr as $val) {  
+                                    echo "<div class='col-lg-6'>
+                                            <h2 class='m-0 text-white fs-1 fw-bold text-shadow'>$val->libraryName</h2>
+                                        </div>";
+                                }
+                                ?>
+                                
 
                                 <!-- Swiper -->
                                 <div class="">
                                     <div class="swiper mt-5 mySwiper">
                                         <div class="swiper-wrapper">
-                                            <div class="swiper-slide">
-                                                <span class="card border-0 text-decoration-none text-dark">
-                                                    <span class="card-img shadow-lg rounded-3 overflow-hidden">
-                                                        <img class="img-fluid" src="./users/assets/image/home/item-img/im-1.png" alt="">
-                                                    </span>
-                                                </span>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <span class="card border-0 text-decoration-none text-dark">
-                                                    <span class="card-img shadow-lg rounded-3 overflow-hidden">
-                                                        <img class="img-fluid" src="./users/assets/image/home/item-img/im-2.png" alt="">
-                                                    </span>
-                                                </span>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <span class="card border-0 text-decoration-none text-dark">
-                                                    <span class="card-img shadow-lg rounded-3 overflow-hidden">
-                                                        <img class="img-fluid" src="./users/assets/image/home/item-img/im-3.png" alt="">
-                                                    </span>
-                                                </span>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <span class="card border-0 text-decoration-none text-dark">
-                                                    <span class="card-img shadow-lg rounded-3 overflow-hidden">
-                                                        <img class="img-fluid" src="./users/assets/image/home/item-img/im-4.png" alt="">
-                                                    </span>
-                                                </span>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <span class="card border-0 text-decoration-none text-dark">
-                                                    <span class="card-img shadow-lg rounded-3 overflow-hidden">
-                                                        <img class="img-fluid" src="./users/assets/image/home/item-img/im-5.png" alt="">
-                                                    </span>
-                                                </span>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <span class="card border-0 text-decoration-none text-dark">
-                                                    <span class="card-img shadow-lg rounded-3 overflow-hidden">
-                                                        <img class="img-fluid" src="./users/assets/image/home/item-img/im-6.png" alt="">
-                                                    </span>
-                                                </span>
-                                            </div>
+                                            <?php
+                                            $a = new Itemlibrary();
+                                            $arr = $a->getFileItemLibrary();
+                                            foreach($arr as $val) {
+                                                $imgItemlibrary = substr($val->file, 1);    
+                                                echo "<div class='swiper-slide'>
+                                                        <span class='card border-0 text-decoration-none text-dark'>
+                                                            <span class='card-img shadow-lg rounded-3 overflow-hidden'>
+                                                                <img class='img-fluid' src='$imgItemlibrary' alt='$val->alt'>
+                                                            </span>
+                                                        </span>
+                                                    </div>";
+                                            }
+                                            ?>
                                         </div>
-                                        <!-- <div class="swiper-pagination"></div> -->
                                     </div>
                                     <div class="d-flex mt-5 justify-content-center">
                                         <div class="m-2">
@@ -515,8 +496,10 @@ require_once './PhpSetting/CategoryTour.php';
                                 <!-- column ẩn -->
                                 <div class="col-lg-2 col-md-0">
                                 </div>
+                                <div class="col-lg-2 col-md-0">
+                                </div>
                                 <!-- column 1 -->
-                                <div class="col-6 col-lg-2 col-md-2 p-2">
+                                <div class=" col-lg-2 col-md-2 p-2">
                                     <h6 class="display-6 text-white mb-3">Services</h6>
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -534,7 +517,7 @@ require_once './PhpSetting/CategoryTour.php';
                                     </ul>
                                 </div>
                                 <!-- column 2 -->
-                                <div class="col-6 col-lg-2 col-md-2 p-2">
+                                <div class=" col-lg-2 col-md-2 p-2">
                                     <h6 class="display-6 text-white mb-3">Tour</h6>
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -552,7 +535,7 @@ require_once './PhpSetting/CategoryTour.php';
                                     </ul>
                                 </div>
                                 <!-- column 3 -->
-                                <div class="col-6 col-lg-2 col-md-2 p-2">
+                                <div class=" col-lg-2 col-md-2 p-2">
                                     <h6 class="display-6 text-white mb-3">News</h6>
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -567,7 +550,7 @@ require_once './PhpSetting/CategoryTour.php';
                                     </ul>
                                 </div>
                                 <!-- column 4 -->
-                                <div class="col-lg-4 col-md-4 col-sm-4 p-2">
+                                <div class=" col-md-2 col-sm-2 p-2">
                                     <h6 class="display-6 text-white mb-3">Contact</h6>
                                     <ul class="nav flex-column">
                                         <li class="nav-item">

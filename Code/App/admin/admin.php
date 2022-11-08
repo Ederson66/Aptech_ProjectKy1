@@ -1806,8 +1806,6 @@ if (!empty($_POST["flogout"])) {
                                                         <input type="file" id="File" name="fFile" class="form-control"/>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label class="form-label fw-bold text-secondary">LibraryName:</label>
-                                                        <input type="text" id="LibraryID" class="form-control" placeholder="LibraryName"/>
                                                         <?php
                                                         $a = new Library();
                                                         $arr = $a->getListLibrary();
@@ -1836,29 +1834,30 @@ if (!empty($_POST["flogout"])) {
                                                         // lưu vào thư mục tạm webserver
                                                         $fileTmpPath = $_FILES['fFile']['tmp_name'];
                                                         // echo $fileTmpPath;
+    
                                                         // thông tin file
                                                         $fileName = $_FILES['fFile']['name'];
                                                         $fileSize = $_FILES['fFile']['size'];
                                                         $fileType = $_FILES['fFile']['type'];
-
+    
                                                         // lấy tên file và đuôi file
                                                         $fileNameCmps = explode(".", $fileName);
-
+    
                                                         // chuẩn hóa lại tên file
                                                         $fileExtension = strtolower(end($fileNameCmps));
-
+    
                                                         // thiết đặt filename để k bị trùng nhau
                                                         $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
-
+    
                                                         // kiem tra phan mo rong cua file
                                                         $allowedfileExtensions = ['jpg', 'gif', 'png'];
-
+    
                                                         // kiểm tra đuôi file
                                                         if (in_array($fileExtension, $allowedfileExtensions)) {
                                                             // thu muc file uploaded
-                                                            $uploadFileDir = './assets/img/ItemLibrary/';
+                                                            $uploadFileDir = '../admin/assets/img/ItemLibrary/';
                                                             $dest_path = $uploadFileDir . $newFileName;
-
+    
                                                             if (move_uploaded_file($fileTmpPath, $dest_path)) {
                                                                 $message = "";
                                                             } else {
@@ -1869,7 +1868,7 @@ if (!empty($_POST["flogout"])) {
                                                         }
                                                     }
                                                 }
-
+    
                                                 echo $message;
 
                                                 if (isset($_POST["fitemlibraryimg"])) {
@@ -1898,64 +1897,62 @@ if (!empty($_POST["flogout"])) {
                                 <!-- add video -->
                                 <div class="tab-pane fade" id="add-video" role="tabpanel">
                                     <div class="container text-dark pb-5">
-                                            <div class="p-2 d-flex justify-content-center">
-                                                <div style="width: 650px;">
-                                                    <div class="text-center pb-3">
-                                                        <h2>Add</h2>
-                                                    </div>
-                                                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                                                        <div class="mb-3">
-                                                            <label class="form-label fw-bold text-secondary">Type:</label>
-                                                            <select class="form-select" id="Type" name="fType">
-                                                                <option value="2">Video</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label class="form-label fw-bold text-secondary">LibraryName:</label>
-                                                            <input type="text" id="LibraryID" class="form-control" placeholder="LibraryName"/>
-                                                            <?php
-                                                            require_once '../PhpSetting/Library.php';
-                                                            $a = new Library();
-                                                            $arr = $a->getListLibrary();
-                                                            for($i = 0; $i < count($arr); $i++) {
-                                                                $obj = $arr[$i];
-                                                                echo "<input type='hidden' value='$obj->libraryID' name='fLibraryID'/>";
-                                                            }
-                                                            ?>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label class="form-label fw-bold text-secondary">Title:</label>
-                                                            <input type="text" id="title" name="ftitle" class="form-control" placeholder="Title"/>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label class="form-label fw-bold text-secondary">Id youtube:</label>
-                                                            <input type="text" id="Alt" name="fFile" class="form-control" placeholder="id video youtube" />
-                                                            Demo: <span class="text-primary">https://www.youtube.com/watch?v=<span class="text-danger">sGxw7ipTrq8 </span></span><= id color red
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label class="form-label fw-bold text-secondary">Description:</label>
-                                                            <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
-                                                        </div>
-                                                        <input type="submit" id="btnitemlibrary" name="fitemlibraryvideo" class="btn btn-primary" value="Save" />
-                                                    </form>
-                                                    <?php if (isset($_POST["fitemlibraryvideo"])) {
-                                                        $fType = $_POST["fType"];
-                                                        $fLibraryID = $_POST["fLibraryID"];
-                                                        $fFile = $_POST["fFile"];
-                                                        $ftitle = $_POST["ftitle"];
-                                                        $fDescription = $_POST["fDescription"];
-
-                                                        $a = new Itemlibrary();
-                                                        $a->type = $fType;
-                                                        $a->libraryID = $fLibraryID;
-                                                        $a->file = $fFile;
-                                                        $a->title = $ftitle;
-                                                        $a->description = $fDescription;
-                                                        $a->addVideolibrary();
-                                                    } ?>
+                                        <div class="p-2 d-flex justify-content-center">
+                                            <div style="width: 650px;">
+                                                <div class="text-center pb-3">
+                                                    <h2>Add</h2>
                                                 </div>
+                                                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                                                    <div class="mb-3">
+                                                        <label class="form-label fw-bold text-secondary">Type:</label>
+                                                        <select class="form-select" id="Type" name="fType">
+                                                            <option value="2">Video</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <?php
+                                                        require_once '../PhpSetting/Library.php';
+                                                        $a = new Library();
+                                                        $arr = $a->getListLibrary();
+                                                        for($i = 0; $i < count($arr); $i++) {
+                                                            $obj = $arr[$i];
+                                                            echo "<input type='hidden' value='$obj->libraryID' name='fLibraryID'/>";
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label fw-bold text-secondary">Title:</label>
+                                                        <input type="text" id="title" name="ftitle" class="form-control" placeholder="Title"/>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label fw-bold text-secondary">Id youtube:</label>
+                                                        <input type="text" id="Alt" name="fFile" class="form-control" placeholder="id video youtube" />
+                                                        Demo: <span class="text-primary">https://www.youtube.com/watch?v=<span class="text-danger">sGxw7ipTrq8 </span></span><= id color red
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label fw-bold text-secondary">Description:</label>
+                                                        <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                                    </div>
+                                                    <input type="submit" id="btnitemlibrary" name="fitemlibraryvideo" class="btn btn-primary" value="Save" />
+                                                </form>
+                                                <?php if (isset($_POST["fitemlibraryvideo"])) {
+                                                    $fType = $_POST["fType"];
+                                                    $fLibraryID = $_POST["fLibraryID"];
+                                                    $fFile = $_POST["fFile"];
+                                                    $ftitle = $_POST["ftitle"];
+                                                    $fDescription = $_POST["fDescription"];
+
+                                                    $a = new Itemlibrary();
+                                                    $a->type = $fType;
+                                                    $a->libraryID = $fLibraryID;
+                                                    $a->file = $fFile;
+                                                    $a->title = $ftitle;
+                                                    $a->description = $fDescription;
+                                                    $a->addVideolibrary();
+                                                } ?>
                                             </div>
                                         </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -2056,6 +2053,7 @@ if (!empty($_POST["flogout"])) {
                                                     // lưu vào thư mục tạm webserver
                                                     $fileTmpPath = $_FILES['fUpload']['tmp_name'];
                                                     // echo $fileTmpPath;
+
                                                     // thông tin file
                                                     $fileName = $_FILES['fUpload']['name'];
                                                     $fileSize = $_FILES['fUpload']['size'];
@@ -2076,7 +2074,7 @@ if (!empty($_POST["flogout"])) {
                                                     // kiểm tra đuôi file
                                                     if (in_array($fileExtension, $allowedfileExtensions)) {
                                                         // thu muc file uploaded
-                                                        $uploadFileDir = './assets/img/ItemLibrary/';
+                                                        $uploadFileDir = '../admin/assets/img/ItemLibrary/';
                                                         $dest_path = $uploadFileDir . $newFileName;
 
                                                         if (move_uploaded_file($fileTmpPath, $dest_path)) {
@@ -2104,7 +2102,7 @@ if (!empty($_POST["flogout"])) {
                                                 $a->title = $fTitle;
                                                 $a->description = $fDescription;
                                                 $a->alt = $fAlt;
-                                                $a->file = $uploadFileDir.$newFileName;
+                                                $a->file = $dest_path;
                                                 $a->addImglibrary();
                                             }
 
