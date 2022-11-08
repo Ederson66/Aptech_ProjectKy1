@@ -82,6 +82,39 @@ class Category {
         return $list;
     }
 
+	// get name category
+	public function getCategoryName() {
+        // chuỗi kết nối đến DB
+        $options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+        
+        // câu lệnh sql
+        $sql = "SELECT * FROM `category` WHERE Flag IS NULL AND CategoryID = :CategoryID;";
+        
+        // chuẩn bị câu lệnh SQL
+        $stmt = $conn->prepare($sql);
+        
+        // thực hiện
+        $stmt->execute(array(
+			":CategoryID" => $this->CategoryID
+		));
+        
+        $list = Array();
+        while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
+            $s = new Category();
+            $s->CategoryID = $row["CategoryID"];
+            $s->CategoryName = $row["CategoryName"];
+            
+            array_push($list, $s);
+        }
+        
+        // đóng kết nối
+        $conn = NULL;
+        
+        return $list;
+    }
+
 	// function delete
 	public function updateListCategory() {
 		// Connect to database.

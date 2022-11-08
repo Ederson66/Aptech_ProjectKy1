@@ -3,6 +3,7 @@ require_once '../PhpSetting/CategoryTour.php';
 require_once '../PhpSetting/Common.php';
 require_once '../PhpSetting/Service.php';
 require_once '../PhpSetting/News.php';
+require_once '../PhpSetting/Category.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -205,9 +206,15 @@ require_once '../PhpSetting/News.php';
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-8 text-dark">
-                            <h1 class="mb-3 px-lg-3 fs-fw text-shadow activeShow">
-                                Mountain climbing experience
-                            </h1>
+                            <?php
+                            $a = new Category();
+                            $a->CategoryID=4;
+                            $arr = $a->getCategoryName();
+                            for($i = 0; $i < count($arr); $i++) {
+                                $obj = $arr[$i];
+                                echo "<h1 class='mb-3 px-lg-3 fs-fw text-shadow activeShow'>$obj->CategoryName</h1>";
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -221,6 +228,7 @@ require_once '../PhpSetting/News.php';
                 <div class="container">
                     <?php
                     $a = new News();
+                    $a->categoryID=4;
                     $arr = $a->getListExperiences();
                     for($i = 0; $i < count($arr); $i++) {
                         $obj = $arr[$i];
@@ -305,7 +313,7 @@ require_once '../PhpSetting/News.php';
                             <div class="col-lg-2 col-md-0">
                             </div>
                             <!-- column 1 -->
-                            <div class=" col-lg-2 col-md-2 p-2">
+                            <div class="col-6 col-lg-2 col-md-2 p-2">
                                 <h6 class="display-6 text-white mb-3">Services</h6>
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
@@ -323,7 +331,7 @@ require_once '../PhpSetting/News.php';
                                 </ul>
                             </div>
                             <!-- column 2 -->
-                            <div class=" col-lg-2 col-md-2 p-2">
+                            <div class="col-6 col-lg-2 col-md-2 p-2">
                                 <h6 class="display-6 text-white mb-3">Tour</h6>
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
@@ -341,7 +349,7 @@ require_once '../PhpSetting/News.php';
                                 </ul>
                             </div>
                             <!-- column 3 -->
-                            <div class=" col-lg-2 col-md-2 p-2">
+                            <div class="col-6 col-lg-2 col-md-2 p-2">
                                 <h6 class="display-6 text-white mb-3">News</h6>
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
@@ -356,7 +364,7 @@ require_once '../PhpSetting/News.php';
                                 </ul>
                             </div>
                             <!-- column 4 -->
-                            <div class=" col-md-2 col-sm-2 p-2">
+                            <div class="col-6 col-md-2 col-sm-2 p-2">
                                 <h6 class="display-6 text-white mb-3">Contact</h6>
                                 <ul class="nav flex-column">
                                     <li class="nav-item">

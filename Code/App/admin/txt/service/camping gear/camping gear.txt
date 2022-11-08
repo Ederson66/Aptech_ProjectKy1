@@ -1,5 +1,0 @@
-tên: Camping Gear
-địa điểm:
-content:We will provide Camping gear: tent, sleeping mat, pillow and sleeping bag.
-price: 2000000
-sale: 20

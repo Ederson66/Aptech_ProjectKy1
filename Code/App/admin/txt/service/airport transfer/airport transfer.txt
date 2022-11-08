@@ -1,8 +1,0 @@
-tên: Airport Transfer 
-địa điểm : Hà Nội
-content: We provide airport transfers from Noi Bai Airport to your pre-climb hotel.
-When you arrive at your hotel you can agree the time for your pre-trek briefing that evening, 
-when your guide will carry out a gear check and also review the route with you. 
-We will also drop you back at Noi Bai Airport in time for you to catch your flight home or to another destination.
-price: 5000000
-sale:10

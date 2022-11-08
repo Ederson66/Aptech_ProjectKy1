@@ -499,7 +499,7 @@ require_once './PhpSetting/Library.php';
                                 <div class="col-lg-2 col-md-0">
                                 </div>
                                 <!-- column 1 -->
-                                <div class=" col-lg-2 col-md-2 p-2">
+                                <div class="col-6 col-lg-2 col-md-2 p-2">
                                     <h6 class="display-6 text-white mb-3">Services</h6>
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -517,7 +517,7 @@ require_once './PhpSetting/Library.php';
                                     </ul>
                                 </div>
                                 <!-- column 2 -->
-                                <div class=" col-lg-2 col-md-2 p-2">
+                                <div class="col-6 col-lg-2 col-md-2 p-2">
                                     <h6 class="display-6 text-white mb-3">Tour</h6>
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -535,7 +535,7 @@ require_once './PhpSetting/Library.php';
                                     </ul>
                                 </div>
                                 <!-- column 3 -->
-                                <div class=" col-lg-2 col-md-2 p-2">
+                                <div class="col-6 col-lg-2 col-md-2 p-2">
                                     <h6 class="display-6 text-white mb-3">News</h6>
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -550,7 +550,7 @@ require_once './PhpSetting/Library.php';
                                     </ul>
                                 </div>
                                 <!-- column 4 -->
-                                <div class=" col-md-2 col-sm-2 p-2">
+                                <div class="col-6 col-md-2 col-sm-2 p-2">
                                     <h6 class="display-6 text-white mb-3">Contact</h6>
                                     <ul class="nav flex-column">
                                         <li class="nav-item">

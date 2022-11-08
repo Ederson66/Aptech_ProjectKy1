@@ -116,13 +116,15 @@ class News {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT * FROM `news` WHERE Flag IS NULL AND CategoryID = 1;";
+        $sql = "SELECT * FROM `news` WHERE Flag IS NULL AND CategoryID = :categoryID;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
         
-        // thực hiện
-        $stmt->execute();
+        // Execute the statement.
+		$stmt->execute(array(
+			":categoryID" => $this->categoryID
+		));
         
         $list = Array();
         while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {

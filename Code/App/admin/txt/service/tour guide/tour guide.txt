@@ -1,7 +1,0 @@
-tên: Tour Guide
-địa điểm:
-content:At the very heart of our business and fundamental to your safety and enjoyment, are the mountain guides we employ. All of our guides are hand-picked by us to ensure you get the very best leadership on the mountain.
-Each of our guides is licensed by National Park frequently each year. They all speak fluent English. We do not subcontract any of our operations. All our climbs are supported by a crew of local people who are experts on the mountain.
-Our guides have received first aid training from National Park prior to their certification and get additional training from us on a regular basis. They can recognize the symptoms of serious altitude sickness and organize an immediate descent which is by far the best treatment. We follow an established protocol for handling emergencies on the mountain, including rescue and evacuation procedures.
-price: 7000000
-sale: 15
