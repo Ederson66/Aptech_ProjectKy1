@@ -5,6 +5,7 @@
     require_once '../PhpSetting/Common.php';
     require_once '../PhpSetting/Tour.php'; 
     require_once '../PhpSetting/Categorytour.php'; 
+    require_once '../PhpSetting/Contact.php'; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -305,10 +306,28 @@
                                 <div class="col-12 mb-5"><textarea class="form-control form-contact" rows="2"
                                         placeholder="Message *"></textarea></div>
                                 <div class="col-12 col-lg-3 text-end text-lg-start">
-                                    <!-- Button--><button class="btn btn-danger">Send</button>
+                                    <input type="submit" class="btn btn-danger" value="Send" name="fsend"></input>
                                 </div>
                             </div>
                         </form>
+                        <?php 
+                            if(!empty($_POST["fsend"])){
+                                $name = $_POST['fmember'];
+                                $email = $_POST['femail'];
+                                $phonenumber = $_POST['fphone'];
+                                $address = $_POST['faddress'];
+                                $message = $_POST['fmessage'];
+                
+                                $a = new Contact();
+                                $a->fullname=$name;
+                                $a->email=$email;
+                                $a->telephone=$phonenumber;
+                                $a->address=$address;
+                                $a->message=$message;
+                                $a->addContact();
+                                echo "<script>alert('Feedback has been sent')</script>";
+                            }                        
+                        ?>
                     </div>
                 </div>
             </div>

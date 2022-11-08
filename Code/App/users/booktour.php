@@ -3,7 +3,7 @@ session_start();
 require_once '../PhpSetting/Member.php';
 require_once '../PhpSetting/Common.php';
 require_once '../PhpSetting/Tour.php';
-require_once '../PhpSetting/Categorytour.php';
+require_once '../PhpSetting/CategoryTour.php';
 require_once '../PhpSetting/Booktour.php';
 ?>
 <!DOCTYPE html>
@@ -205,7 +205,7 @@ require_once '../PhpSetting/Booktour.php';
         <div class="main">
 
         <?php
-            $show = $_POST['ftourid'];
+            $show = $_GET['ftourid'];
             $s = new Tour();
             $s->TourID = $show;
             $arr = $s->getbooktourbyID();
@@ -296,7 +296,7 @@ require_once '../PhpSetting/Booktour.php';
                 $a->AnonymousAddress=$address;
                 $a->TourID=$tourid;
                 $a->addBooktour();
-                echo "Done";
+                echo "<script>alert('Booktour successful,Thank you!')</script>";
             }
             ?>
             

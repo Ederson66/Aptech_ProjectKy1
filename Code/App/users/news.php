@@ -4,6 +4,8 @@
     require_once '../PhpSetting/Common.php';
     require_once '../PhpSetting/Tour.php'; 
     require_once '../PhpSetting/Categorytour.php'; 
+    require_once '../PhpSetting/Category.php';
+    require_once '../PhpSetting/News.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +13,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Website về leo núi,cắm trại,du lịch,đặt tour và các dịch vụ đi cùng chuyến du lịch.Cho bạn 1 nơi tha hồ lựa chọn các địa điểm du lịch và book tour dễ dàng thuận tiện cùng những khuyến mãi khủng."/>
+        <meta name="description" content="Website về leo núi,cắm trại,du lịch,đặt tour và các dịch vụ đi cùng chuyến du lịch.Cho bạn 1 nơi tha hồ lựa chọn các địa điểm du lịch và book tour dễ dàng thuận tiện cùng những khuyến mãi khủng." />
         <meta name="keywords" content="Leo núi,Moutaineering,Du lịch,Tour,Book Tour, Dịch vụ,Service,Lịch sử,History,Kĩ năng,Đồ leo núi,Sale hấp dẫn ." />
         <meta name="news_keywords" content="Leo núi,Moutaineering,Du lịch,Tour,Book Tour, Dịch vụ,Service,Lịch sử,History,Kĩ năng,Đồ leo núi,Sale hấp dẫn ." />
         <meta http-equiv="REFRESH" content="1800" />
@@ -275,194 +277,39 @@
             </div>
             <div class="container ">
                 <div class="row">
-                    <h3 style="text-align:center;font-size:50px">News</h3>
-                    <div class="container-news d-flex">
-                        <div class="container-news_left">
-                            <a href="#" class="text-decoration-none text-dark">
-                                <div class="col-lg-9 col-sm-12 mb-5">
-                                    <div class="content-news">
-                                        <div class="content-news_item d-flex text-left">
-                                            <div class="news_item-img">
-                                                <img src="../Fontend/assets/image/News/new-item 1.png" alt="khuyen mai trekking" style="border-radius:6px">
-                                            </div>
-                                            <div class="news_item-intro">
-                                                <h5 style="font-weight:600">KHUYẾN MÃI COMBO TREKKING</h5>
-                                                <p>CHƯƠNG TRÌNH KHUYẾN MÃI TẬN HƯỞNG ƯU ĐÃI LỚN NHẤT NĂM LÊN ĐẾN 20%
-                                                    DÀNH CHO CÁC TREKKER Chương trình ưu đãi hấp dẫn nhất trong năm
-                                                    2022, đáp ứng đúng với mong muốn của khách hàng leo núi, tăng thêm
-                                                    trải nghiệm và cũng là chương “mở màn” cho</p>
-                                                <button class="btn btn-warning">Xem thêm</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#" class="text-decoration-none text-dark">
-                                <div class="col-lg-9 col-sm-12 mb-5">
-                                    <div class="content-news">
-                                        <div class="content-news_item d-flex text-left">
-                                            <div class="news_item-img">
-                                                <img src="../Fontend/assets/image/News/new-item 2.png" alt="khuyen mai trekking" style="border-radius:6px">
-                                            </div>
-                                            <div class="news_item-intro">
-                                                <h5 style="font-weight:600">KHUYẾN MÃI COMBO TREKKING</h5>
-                                                <p>CHƯƠNG TRÌNH KHUYẾN MÃI TẬN HƯỞNG ƯU ĐÃI LỚN NHẤT NĂM LÊN ĐẾN 20%
-                                                    DÀNH CHO CÁC TREKKER Chương trình ưu đãi hấp dẫn nhất trong năm
-                                                    2022, đáp ứng đúng với mong muốn của khách hàng leo núi, tăng thêm
-                                                    trải nghiệm và cũng là chương “mở màn” cho</p>
-                                                <button class="btn btn-warning">Xem thêm</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#" class="text-decoration-none text-dark">
-                                <div class="col-lg-9 col-sm-12 mb-5">
-                                    <div class="content-news">
-                                        <div class="content-news_item d-flex text-left">
-                                            <div class="news_item-img">
-                                                <img src="../Fontend/assets/image/News/new-item 3.png" alt="khuyen mai trekking" style="border-radius:6px">
-                                            </div>
-                                            <div class="news_item-intro">
-                                                <h5 style="font-weight:600">KHUYẾN MÃI COMBO TREKKING</h5>
-                                                <p>CHƯƠNG TRÌNH KHUYẾN MÃI TẬN HƯỞNG ƯU ĐÃI LỚN NHẤT NĂM LÊN ĐẾN 20%
-                                                    DÀNH CHO CÁC TREKKER Chương trình ưu đãi hấp dẫn nhất trong năm
-                                                    2022, đáp ứng đúng với mong muốn của khách hàng leo núi, tăng thêm
-                                                    trải nghiệm và cũng là chương “mở màn” cho</p>
-                                                <button class="btn btn-warning">Xem thêm</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#" class="text-decoration-none text-dark">
-                                <div class="col-lg-9 col-sm-12 mb-5">
-                                    <div class="content-news">
-                                        <div class="content-news_item d-flex text-left">
-                                            <div class="news_item-img">
-                                                <img src="../Fontend/assets/image/News/new-item 4.png" alt="khuyen mai trekking" style="border-radius:6px">
-                                            </div>
-                                            <div class="news_item-intro">
-                                                <h5 style="font-weight:600">KHUYẾN MÃI COMBO TREKKING</h5>
-                                                <p>CHƯƠNG TRÌNH KHUYẾN MÃI TẬN HƯỞNG ƯU ĐÃI LỚN NHẤT NĂM LÊN ĐẾN 20%
-                                                    DÀNH CHO CÁC TREKKER Chương trình ưu đãi hấp dẫn nhất trong năm
-                                                    2022, đáp ứng đúng với mong muốn của khách hàng leo núi, tăng thêm
-                                                    trải nghiệm và cũng là chương “mở màn” cho</p>
-                                                <button class="btn btn-warning">Xem thêm</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#" class="text-decoration-none text-dark">
-                                <div class="col-lg-9 col-sm-12 mb-100">
-                                    <div class="content-news">
-                                        <div class="content-news_item d-flex text-left">
-                                            <div class="news_item-img">
-                                                <img src="../Fontend/assets/image/News/new-item 5.png" alt="khuyen mai trekking" style="border-radius:6px">
-                                            </div>
-                                            <div class="news_item-intro">
-                                                <h5 style="font-weight:600">KHUYẾN MÃI COMBO TREKKING</h5>
-                                                <p>CHƯƠNG TRÌNH KHUYẾN MÃI TẬN HƯỞNG ƯU ĐÃI LỚN NHẤT NĂM LÊN ĐẾN 20%
-                                                    DÀNH CHO CÁC TREKKER Chương trình ưu đãi hấp dẫn nhất trong năm
-                                                    2022, đáp ứng đúng với mong muốn của khách hàng leo núi, tăng thêm
-                                                    trải nghiệm và cũng là chương “mở màn” cho</p>
-                                                <button class="btn btn-warning">Xem thêm</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-3 col-sm-1 mobile">
-                            <div class="container-news_right">
-                                <div class="list-service">
-                                    <ul class="list-group">
-                                        <li class="list-group-item fw-bolder" style="background-color:#F01F4B">An active
-                                            item</li>
-                                        <li class="list-group-item"><i class="bi bi-arrow-right"></i>A second item</li>
-                                        <li class="list-group-item"><i class="bi bi-arrow-right"></i>A third item</li>
-                                        <li class="list-group-item"><i class="bi bi-arrow-right"></i>A fourth item</li>
-                                    </ul>
-                                </div>
-                                <div class="list-product mt-5">
-                                    <ul class="list-group">
-                                        <li class="list-group-item fw-bolder" style="background-color:#F01F4B">Có thể
-                                            bạn quan tâm</li>
-                                        <li class="list-group-item">
-                                            <div class="col blog_Feat post-item">
-                                                <div class="col-inner">
-                                                    <a href="https://travelup.vn/tour/tour-trai-nghiem-phong-nha-ke-bang-3n2d/" class="plain">
-                                                        <div class="box box-project box-overlay dark box-text-top box-blog-post has-hover">
-                                                            <div class="box-image position-relative">
-                                                                <div class="image-cover">
-                                                                    <img width="100%" src="./assets/image/News/new-item 2.png" class="attachment-original size-original wp-post-image" alt="Tour Phong Nha Kẻ Bàng 3N2Đ" style="border-radius:5px ;">
-                                                                    <div class="overlay" style="background-color: rgba(0,0,0,.25)"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="box-text text-left position-absolute top-0 mt-2">
-                                                                <div class="box-text-inner blog-post-inner">
-                                                                    <h3 class="post-title is-large fs-6 text-white ">Tour Trải Nghiệm
-                                                                        Phong Nha Kẻ Bàng 3N2Đ</h3>
-                                                                    <div class="price_tour" style="color:#FF6A16">5.500.000 VNĐ</div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
+                <?php
+                    $s = new Category();
+                    $listCategory = $s->getListCategory();
+                    ?>
+                    <?php foreach ($listCategory as $value) : ?>
+                        <h3 style="text-align:center;font-size:50px"><?php echo $value->CategoryName ?></h3>
+                        <?php
+                        $s = new News();
+                        $listNews = $s->getListNews($value->CategoryID);
+                        ?>
+                        <?php foreach ($listNews as $value) : ?>
+                            <div class="container-news d-flex">
+                                <div class="container-news_left">
+                                    <a href="#" class="text-decoration-none text-dark">
+                                        <div class="col-lg-9 col-sm-12 mb-5">
+                                            <div class="content-news">
+                                                <div class="content-news_item d-flex text-left">
+                                                    <div class="news_item-img">
+                                                        <img src="<?php echo "$value->AvatarNews"?>" alt="khuyen mai trekking" style="border-radius:6px">
+                                                    </div>
+                                                    <div class="news_item-intro">
+                                                        <h5 style="font-weight:600"><?php echo $value->Title ?></h5>
+                                                        <p><?php echo $value->Content ?></p>
+                                                        <button class="btn btn-warning">Xem thêm</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="col blog_Feat post-item pd-4">
-                                                <div class="col-inner">
-                                                    <a href="https://travelup.vn/tour/tour-trai-nghiem-phong-nha-ke-bang-3n2d/" class="plain">
-                                                        <div class="box box-project box-overlay dark box-text-top box-blog-post has-hover">
-                                                            <div class="box-image position-relative">
-                                                                <div class="image-cover">
-                                                                    <img width="100%" src="./assets/image/News/list-product1.png" class="attachment-original size-original wp-post-image" alt="Tour Phong Nha Kẻ Bàng 3N2Đ" style="border-radius:5px ;">
-                                                                    <div class="overlay" style="background-color: rgba(0,0,0,.25)"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="box-text text-left position-absolute top-0 mt-2">
-                                                                <div class="box-text-inner blog-post-inner">
-                                                                    <h3 class="post-title is-large fs-6 text-white ">Tour Trải Nghiệm
-                                                                        Phong Nha Kẻ Bàng 3N2Đ</h3>
-                                                                    <div class="price_tour" style="color:#FF6A16">5.500.000 VNĐ</div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="col blog_Feat post-item">
-                                                <div class="col-inner">
-                                                    <a href="https://travelup.vn/tour/tour-trai-nghiem-phong-nha-ke-bang-3n2d/" class="plain">
-                                                        <div class="box box-project box-overlay dark box-text-top box-blog-post has-hover">
-                                                            <div class="box-image position-relative">
-                                                                <div class="image-cover">
-                                                                    <img width="100%" src="./assets/image/News/new-item 2.png" class="attachment-original size-original wp-post-image" alt="Tour Phong Nha Kẻ Bàng 3N2Đ" style="border-radius:5px ;">
-                                                                    <div class="overlay" style="background-color: rgba(0,0,0,.25)"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="box-text text-left position-absolute top-0 mt-2">
-                                                                <div class="box-text-inner blog-post-inner">
-                                                                    <h3 class="post-title is-large fs-6 text-white ">Tour Trải Nghiệm
-                                                                        Phong Nha Kẻ Bàng 3N2Đ</h3>
-                                                                    <div class="price_tour" style="color:#FF6A16">5.500.000 VNĐ</div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        <?php endforeach ?>
+                    <?php endforeach ?>
                 </div>
             </div>
 

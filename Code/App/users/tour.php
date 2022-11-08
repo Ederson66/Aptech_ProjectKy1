@@ -205,50 +205,54 @@ require_once '../PhpSetting/Categorytour.php';
         <div class="main">
             <div class="header-tour bg-image">
             </div>
-            <!-- Tour khám phá hang động -->
-            <?php
-
-            $s = new CategoryTour();
-            $list = $s->getListCategoryTour();
-            $a = new Tour();
-            $arr = $a->getListTourToCategory($value->CategoryTourID);
-            foreach ($list as $value) {
-                echo "<h3 style='text-align:center;font-size:50px'>$value->CategoryTourName</h3>";
-                $a = new Tour();
-                $listtour = $a->getListTourToCategory($value->CategoryTourID);
-                    foreach ($listtour as $value) {
-                        echo "
-                            <form action='booktour.php' method = 'POST'>
-                                <button type='submit' class='btn btn-light' style='background-color:white;border: none;'>
-                                    <input type='hidden' name='ftourid' value='$value->TourID'>
-                                        <a href='./booktour.php' class='d-inline-block tour-item'>
-                                            <div class='container-tour_item col-lg-4 col-md-6 col-sm-12 mt-5 mb-5'>
-                                                <div class='box-img' style='width:75%'>
-                                                    <img src='$value->AvatarTour' alt='' style='width:350px;height: auto;border-radius: 10px;'>
-                                                </div>
-                                                <div class='box-text text-center bg-light' style='width:300px;height: 400px;'>
-                                                    <div class='box-text_sale text-white'>
-                                                        <div class='title'>Sale</div>
-                                                            <div class='avage'> $value->TourSale%</div>
+           <!-- Tour khám phá hang động -->
+           <?php
+                $s = new CategoryTour();
+                $list = $s->getListCategoryTour();
+            ?>
+            <?php foreach ($list as $value) :?>
+                <h3 style='text-align:center;font-size:50px'><?php echo $value->CategoryTourName ?></h3>
+                <?php
+                    $a = new Tour();
+                    $arr = $a->getListTourToCategory($value->CategoryTourID);
+                ?>
+                <div class="container d-flex justify-content-center col-lg-3 col-md-6 col-sm-12 test">
+                    <div class="container-tour d-flex justify-content-center ">
+                        <div class="container-tour_list">
+                        <?php foreach ($arr as $value): ?>
+                                <form action='booktour.php' method = 'GET'>
+                                    <button type='submit' class='btn btn-light' style='background-color:white;border: none;'>
+                                        <input type='hidden' name='ftourid' value=<?php echo $value->TourID ?>>
+                                            <a href='./booktour.php?id=$value->TourID' class='d-inline-block tour-item'>
+                                                <div class='container-tour_item col-lg-4 col-md-6 col-sm-12 mt-5 mb-5'>
+                                                    <div class='box-img' style='width:75%'>
+                                                        <img src='<?php echo $value->AvatarTour?>' alt='' style='width:350px;height: auto;border-radius: 10px;'>
+                                                    </div>
+                                                    <div class='box-text text-center bg-light' style='width:300px;height: 400px;'>
+                                                        <div class='box-text_sale text-white'>
+                                                            <div class='title'>Sale</div>
+                                                                <div class='avage'><?php echo $value->TourSale?>%</div>
+                                                            </div>
+                                                            <div class='box-text_img'>
+                                                                <img src='https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg' alt=''>
+                                                            </div>
+                                                            <h5><?php echo $value->TourName ?></h5>
+                                                            <div class='price_tour' style='color: #3da4ff'><?php echo $value->TourPrice?>USD</div>
+                                                            <div class='date_go text-dark'><i class='bi bi-clock' style='color: #3da4ff'></i></div>
+                                                            <div class='hard_tour text-dark'>Độ khó:Cao</div>
+                                                            <div class='hard_tour text-dark'><?php echo $value->Status?></div>
+                                                            <p class='from_the_blog_excerpt '><?php echo $value->Description?></p>
                                                         </div>
-                                                        <div class='box-text_img'>
-                                                            <img src='https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg' alt=''>
-                                                        </div>
-                                                        <h5> $value->TourName</h5>
-                                                        <div class='price_tour' style='color: #3da4ff'>$value->TourPrice USD</div>
-                                                        <div class='date_go text-dark'><i class='bi bi-clock' style='color: #3da4ff'></i></div>
-                                                        <div class='hard_tour text-dark'>Độ khó:Cao</div>
-                                                        <div class='hard_tour text-dark'> $value->Status</div>
-                                                        <p class='from_the_blog_excerpt '> $value->Description</p>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </a> 
-                                </button>
-                            </form>";
-                    }
-            }
-            ?>
+                                            </a> 
+                                    </button>
+                                </form>
+                    <?php endforeach ?>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach ?>
         </div>
         <!-- END Main -->
 
@@ -411,8 +415,8 @@ require_once '../PhpSetting/Categorytour.php';
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <!-- JS ME -->
     <script src="./assets/js/home.js"></script>
-            <!-- JS ME -->
-            <script src="./assets/js/header-footer.js"></script>
+    <!-- JS ME -->
+    <script src="./assets/js/header-footer.js"></script>
 </body>
 
 </html>
