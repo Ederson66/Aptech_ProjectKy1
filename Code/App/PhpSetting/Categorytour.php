@@ -90,6 +90,38 @@ class CategoryTour {
         
         return $list;
     }
+	
+	public function getCategoryTourName() {
+        // chuỗi kết nối đến DB
+        $options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+        
+        // câu lệnh sql
+        $sql = "SELECT
+				* FROM `categorytour`
+	   			WHERE CategoryTourID = :CategoryTourID AND Flag IS NULL;";
+        
+        // chuẩn bị câu lệnh SQL
+        $stmt = $conn->prepare($sql);
+        
+        // thực hiện
+        $stmt->execute(array(":CategoryTourID" => $this->CategoryTourID));
+        
+        $list = Array();
+        while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
+            $s = new CategoryTour();
+            $s->CategoryTourID = $row["CategoryTourID"];
+            $s->CategoryTourName = $row["CategoryTourName"];
+            
+            array_push($list, $s);
+        }
+        
+        // đóng kết nối
+        $conn = NULL;
+        
+        return $list;
+    }
 
 	// function delete
 	public function updateListCategoryTour() {

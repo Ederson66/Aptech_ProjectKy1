@@ -213,65 +213,69 @@ require_once '../PhpSetting/Categorytour.php';
         <!--END nav -->
 
         <!-- BEGIN Main -->
-        <div class="main" style="height:auto;">
+        <div class="main" style="height: auto;">
             <div class="header-tour bg-image">
             </div>
-            <!-- Tour khám phá hang động -->
             <?php
-                $s = new CategoryTour();
-                $list = $s->getListCategoryTour();
+            $categorytourID = $_GET["id"];
+            $a = new CategoryTour();
+            $a->CategoryTourID = $categorytourID;
+            $arr = $a->getCategoryTourName();
+            foreach ($arr as $value) {
+                echo "<h3 style='text-align:center;font-size:50px'>$value->CategoryTourName</h3>";
+            }
             ?>
-            <?php foreach ($list as $value) :?>
-                <h3 style='text-align:center;font-size:50px'><?php echo $value->CategoryTourName ?></h3>
-                <?php
-                    $a = new Tour();
-                    $arr = $a->getListTourToCategory($value->CategoryTourID);
-                ?>
-                <div class="container text-center">
-                    <div class="row mb-5">
-                        <?php foreach ($arr as $value): ?>
-                            <div class="col-lg-4 col-md-6 col-sm-12">
-                                <form action="booktour.php" method="GET">
-                                    <button type='submit' class='btn btn-light' style='background-color:white;border: none;'>
-                                        <input type='hidden' name='ftourid' value=<?php echo $value->TourID ?>>
-                                            <a href='./booktour.php?id=<?php echo $value->TourID ?>' class='d-inline-block tour-item'>
-                                                <div class='container-tour_item col-lg-4 col-md-6 col-sm-12 mt-5 mb-5'>
-                                                    <div class='box-img' style='width:75%'>
-                                                        <img src='<?php echo $value->AvatarTour?>' alt='' style='width:350px;height: auto;border-radius: 10px;'>
-                                                    </div>
-                                                    <div class='box-text text-center bg-light' style='width:300px;height: 400px;overflow:hidden'>
-                                                        <div class='box-text_sale text-white'>
-                                                            <div class='title'>Sale</div>
-                                                                <div class='avage'><?php echo $value->TourSale?>%</div>
-                                                            </div>
-                                                        <div class='box-text_img'>
-                                                            <img src='https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg' alt=''>
-                                                        </div>
-                                                        <h5><?php echo $value->TourName ?></h5>
-                                                        <div class='price_tour' style='color: #3da4ff'><?php echo $value->TourPrice?>USD</div>
-                                                        <div class='date_go text-dark'><i class='bi bi-clock' style='color: #3da4ff'></i></div>
-                                                        <div class='hard_tour text-dark'>Độ khó:Cao</div>
-                                                        <div class='hard_tour text-dark'><?php echo $value->Status?></div>
-                                                        <p class='from_the_blog_excerpt '><?php echo $value->Description?></p>
-                                                    </div>
+            <div class="container text-center">
+                <div class="row mb-5">
+                    <?php
+                    $categorytourID = $_GET["id"];
+                    $s = new Tour();
+                    $s->CategoryTourID = $categorytourID;
+                    $list = $s->getListCategoryTourID();
+                    foreach ($list as $value) {
+                        echo "
+                            <div class='col-lg-4 col-md-6 col-sm-12'>
+                                <div class='container-tour_list'>
+                                    <a href='./booktour.php?id=$value->CategoryTourID' class='d-inline-block tour-item'>
+                                        <div class='container-tour_item col-lg-4 col-md-6 col-sm-12'>
+                                            <div class='box-img' style='width:75%'>
+                                                <img src='./assets/image/News/Tư liệu hình ảnh/slide1.png' alt='' style='width:350px;height: auto;border-radius: 10px;'>
+                                            </div>
+                                            <div class='box-text text-center bg-light' style='width:300px;height: auto;'>
+                                                <div class='box-text_sale text-white'>
+                                                    <div class='title'>Sale</div>
+                                                    <div class='avage'>40%</div>
                                                 </div>
-                                            </a> 
-                                    </button>
-                                </form>
-                            </div>
-                        <?php endforeach ?>
-                        <a href="./booktour.php?id=<?php echo $value->TourID ?>'">
-                        
-                        </a>
-                        <button class="btn btn-warning" style="width: 100px; margin: 0 auto;">Xem thêm</button>
-                    </div>
+                                                <div class='box-text_img'>
+                                                    <img src='https://travelup.vn/wp-content/uploads/2021/07/trekkkinghing.svg' alt=''>
+                                                </div>
+                                                <h5 class='post-title is-large text-dark'>Tour Leo Núi Fansipan</h5>
+                                                <div class='price_tour sales' style='color:red'>4.000.000 VNĐ</div>
+                                                <div class='price_tour' style='color: #3da4ff'>3.200.000 VNĐ</div>
+                                                <div class='date_go text-dark'><i class='bi bi-clock' style='color: #3da4ff'></i> 2 ngày 3
+                                                    đêm</div>
+                                                <div class='hard_tour text-dark'>Độ khó:Cao</div>
+                                                <p class='from_the_blog_excerpt '>TOUR LEO NÚI FANSIPAN Với độ cao 3143m so với mực
+                                                    nước biển, nằm trong</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>";
+                    }
+                    ?>
                 </div>
-                <?php endforeach ?>
+            </div>
+
+
+
         </div>
         <!-- END Main -->
 
+
+
         <!--BEGIN Footer -->
-        <div class="footer bg-dark text-white pt-120 pb-5">
+        <div class="footer bg-dark text-white pt-5 pb-5">
             <div class="container">
                 <div class="row g-5" style=" margin-right: 0 !important;">
                     <div class="col-12 col-lg-3">
@@ -332,6 +336,11 @@ require_once '../PhpSetting/Categorytour.php';
                     <!-- menu footer -->
                     <div class="col-lg-9">
                         <div class="row">
+                            <!-- column ẩn -->
+                            <div class="col-lg-2 col-md-0">
+                            </div>
+                            <div class="col-lg-2 col-md-0">
+                            </div>
                             <!-- column 1 -->
                             <div class="col-6 col-lg-2 col-md-2 p-2">
                                 <h6 class="display-6 text-white mb-3">Services</h6>
@@ -384,22 +393,7 @@ require_once '../PhpSetting/Categorytour.php';
                                 </ul>
                             </div>
                             <!-- column 4 -->
-                            <div class="col-6 col-lg-2 col-md-2 p-2">
-                                <h6 class="display-6 text-white mb-3">Experience</h6>
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link ps-0 text-muted" href="#">Experience</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link ps-0 text-muted" href="#">Experience</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link ps-0 text-muted" href="#">Experience</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- column 5 -->
-                            <div class="col-lg-4 col-md-4 col-sm-4 p-2">
+                            <div class="col-6 col-md-2 col-sm-2 p-2">
                                 <h6 class="display-6 text-white mb-3">Contact</h6>
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
