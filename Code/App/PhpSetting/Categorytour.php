@@ -58,9 +58,9 @@ class CategoryTour {
         // câu lệnh sql
         $sql = "SELECT CategoryTourID, CategoryTourName, Description, Flag,
 				CASE
-					WHEN Status = 1 THEN 'Đang hoạt động'
-					WHEN Status = 2 THEN 'Dừng hoạt động'
-					WHEN Status = 3 THEN 'Chưa kích hoạt'
+					WHEN Status = 1 THEN 'Active'
+					WHEN Status = 2 THEN 'Stop working'
+					WHEN Status = 3 THEN 'Not activated'
 					ELSE 'Error'
 				END
 				AS `Status`
