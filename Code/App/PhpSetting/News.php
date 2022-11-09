@@ -189,6 +189,79 @@ class News {
         return $list;
     }
 
+	// get image news
+	public function getNewsBanner() {
+        // chuỗi kết nối đến DB
+        $options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+        
+        // câu lệnh sql
+        $sql = "SELECT * FROM `news` WHERE Flag IS NULL AND NewsID = :newsID;";
+        
+        // chuẩn bị câu lệnh SQL
+        $stmt = $conn->prepare($sql);
+        
+        // Execute the statement.
+		$stmt->execute(array(
+			":newsID" => $this->newsID
+		));
+        
+        $list = Array();
+        while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
+            $s = new News();
+            $s->avatarNews = $row["AvatarNews"];
+			$s->newsID = $row["NewsID"];
+            
+            array_push($list, $s);
+        }
+        
+        // đóng kết nối
+        $conn = NULL;
+        
+        return $list;
+    }
+
+	// blog-single.php
+	public function getBlogSingleById() {
+        // chuỗi kết nối đến DB
+        $options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+        
+        // câu lệnh sql
+        $sql = "SELECT * FROM `news` WHERE Flag IS NULL AND NewsID = :NewsID;";
+        
+        // chuẩn bị câu lệnh SQL
+        $stmt = $conn->prepare($sql);
+        
+        // Execute the statement.
+		$stmt->execute(array(
+			":newsID" => $this->newsID
+		));
+        
+        $list = Array();
+        while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
+            $s = new News();
+            $s->author = $row["Author"];
+            $s->avatarNews = $row["AvatarNews"];
+			$s->categoryID = $row["CategoryID"];
+			$s->content = $row["Content"];
+			$s->description = $row["Description"];
+			$s->flag = $row["Flag"];
+			$s->leadcontent = $row["LeadContent"];
+			$s->newsID = $row["NewsID"];
+			$s->title = $row["Title"];
+            
+            array_push($list, $s);
+        }
+        
+        // đóng kết nối
+        $conn = NULL;
+        
+        return $list;
+    }
+
 	// function delete
 	public function updateListNews() {
 		// Connect to database.

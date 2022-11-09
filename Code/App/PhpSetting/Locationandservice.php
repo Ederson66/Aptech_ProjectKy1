@@ -56,7 +56,12 @@ class Locationandservice {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT * FROM `locationandservice` WHERE Flag IS NULL;";
+        $sql = "SELECT `M`.MountainName, `L`.Description, `L`.MountaineeringID, `L`.ServiceID, `L`.LocationAndServiceID, `S`.ServiceName FROM `locationandservice` `L`
+				INNER JOIN `mountaineering` `M` 
+					ON `L`.MountaineeringID = `M`.MountaineeringID
+				INNER JOIN `service` `S` 
+					ON `S`.ServiceID = `L`.ServiceID
+				WHERE `L`.Flag IS NULL;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
@@ -68,9 +73,10 @@ class Locationandservice {
         while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
             $s = new Locationandservice();
 			$s->description = $row["Description"];
-			$s->flag = $row["Flag"];
 			$s->locationAndServiceID = $row["LocationAndServiceID"];
 			$s->mountaineeringID = $row["MountaineeringID"];
+			$s->MountainName = $row["MountainName"];
+			$s->ServiceName = $row["ServiceName"];
 			$s->serviceID = $row["ServiceID"];
             
             array_push($list, $s);
