@@ -201,6 +201,7 @@ require_once '../PhpSetting/Category.php';
 
         <!--BEGIN Main -->
         <div class="main">
+            
             <!-- introduce -->
             <div class="pt-180 pb-290 bg-introduce text-center auto-height">
                 <div class="container">
@@ -239,6 +240,7 @@ require_once '../PhpSetting/Category.php';
                     ?>
                 </div>
             </div>
+
         </div>
         <!--END Main -->
 
