@@ -289,6 +289,7 @@ require_once './PhpSetting/Library.php';
                                         <div class="swiper-wrapper">
                                             <?php
                                             $a = new Itemlibrary();
+                                            $a->libraryID = 1;
                                             $arr = $a->getFileItemLibrary();
                                             foreach($arr as $val) {
                                                 $imgItemlibrary = substr($val->file, 1);    

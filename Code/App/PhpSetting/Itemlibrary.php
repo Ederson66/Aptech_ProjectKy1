@@ -161,13 +161,15 @@ class Itemlibrary {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT * FROM `itemlibrary` WHERE Flag IS NULL LIMIT 6;";
+        $sql = "SELECT * FROM `itemlibrary` WHERE LibraryID = :LibraryID AND Flag IS NULL LIMIT 6;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
         
         // thực hiện
-        $stmt->execute();
+        $stmt->execute(array(
+			":LibraryID" => $this->libraryID
+		));
         
         $list = Array();
         while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
