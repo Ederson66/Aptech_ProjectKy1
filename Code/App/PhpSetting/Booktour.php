@@ -5,7 +5,6 @@ require_once '../PhpSetting/DBinfoConfig.php';
 class Booktour {
 	public $BookTourID;
 	public $TourID;
-	public $MemberID;
 	public $AnonymousBookTour;
 	public $AnonymousEmail;
 	public $AnonymousAddress;
@@ -81,7 +80,6 @@ class Booktour {
             $s = new Booktour();
             $s->BookTourID = $row["BookTourID"];
             $s->TourID = $row["TourID"];
-			$s->MemberID = $row["MemberID"];
 			$s->AnonymousBookTour = $row["AnonymousBookTour"];
 			$s->AnonymousEmail = $row["AnonymousEmail"];
 			$s->AnonymousAddress = $row["AnonymousAddress"];

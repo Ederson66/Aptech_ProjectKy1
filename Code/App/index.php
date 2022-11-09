@@ -348,7 +348,7 @@ require_once './PhpSetting/Library.php';
                                     foreach($arr as $val) {
                                         $imgTour = substr($val->AvatarTour, 1);
                                         echo "<div class='col-12 col-md-6 col-lg-3 m-2'>
-                                                <div class='bg-white text-center rounded-4 p-3'>
+                                                <div class='bg-white text-center rounded-4 p-3 h-100'>
                                                     <div class='text-white w-50 d-inline-flex justify-content-center mb-30'>
                                                         <img class='img-fluid rounded-4' src='$imgTour' alt=''>
                                                     </div>
@@ -410,7 +410,7 @@ require_once './PhpSetting/Library.php';
                         <div class="container">
 
                             <h2 class="text-center mb-90 fs-1 fw-bold">
-                                Kinh nghiệm
+                                Experiences
                             </h2>
 
                             <div class="mb-5">
@@ -419,7 +419,9 @@ require_once './PhpSetting/Library.php';
 
                             <!-- btn xem thêm -->
                             <div class="m-3 mt-5">
-                                <button class="btn btn-primary rounded-pill p-3 hv-box">Xem thêm</button>
+                                <button class="btn btn-danger rounded-pill p-3 hv-box">
+                                    <a href="./users/experiences.php" class="text-white text-decoration-none" style="padding: 16px 10px;">See More</a>
+                                </button>
                             </div>
                         </div>
                     </div>

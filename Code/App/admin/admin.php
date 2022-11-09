@@ -296,7 +296,7 @@ if (!empty($_POST["flogout"])) {
                                                 echo '<span class="m-3 fs-4 fw-bold text-secondary">' . $obj->totaluserbooktour . " " . 'User</span>';
                                             }
                                             ?>
-                                            <i class="fs-3 bi bi-person text-success"></i>
+                                            <i class="fs-3 bi bi-person text-info"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -321,7 +321,7 @@ if (!empty($_POST["flogout"])) {
                                 <!-- Box Item Library -->
                                 <div class="mt-3 col-md-6 col-xxl-3">
                                     <div class="bg-white shadow card h-100">
-                                        <p class="p-2 pt-3 fs-6 fw-bold m-0">Image / Video</p>
+                                        <p class="p-2 pt-3 fs-6 fw-bold m-0">Library Image / Video</p>
                                         <div class="p-3 text-center border-top d-flex justify-content-between">
                                             <div class="d-flex flex-column">
                                                 <?php
@@ -342,10 +342,10 @@ if (!empty($_POST["flogout"])) {
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Box lượng top 3 Service -->
+                                <!-- Box Service price -->
                                 <div class="mt-3 col-md-6 col-xxl-3">
                                     <div class="bg-white shadow card h-100">
-                                        <p class="p-2 pt-3 fs-6 fw-bold m-0">Service traffic</p>
+                                        <p class="p-2 pt-3 fs-6 fw-bold m-0">Service price</p>
                                         <div class="text-center border-top p-3 d-flex justify-content-between">
                                             <div class="d-flex flex-column">
                                                 <?php
@@ -356,14 +356,14 @@ if (!empty($_POST["flogout"])) {
                                                     for($i = 0; $i < count($arr); $i++) {
                                                         $stt++;
                                                         $obj = $arr[$i];
-                                                        echo "<span class='fs fw-bold text-start text-secondary'>$stt. $obj->serviceName</span>";
+                                                        echo "<span class='fs fw-bold text-start text-secondary'>$stt. $obj->serviceName: $obj->price</span>";
                                                     }
                                                 } else {
                                                     echo "<span class='m-3 fs-4 fw-bold text-secondary'>0 Service</span>";
                                                 }
                                                 ?>
                                             </div>
-                                            <i class="fs-3 bi bi-activity text-info"></i>
+                                            <i class="fs-3 text-success bi bi-currency-dollar"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -605,10 +605,14 @@ if (!empty($_POST["flogout"])) {
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Status:</label>
                                                     <select class="form-select" id="Status" name="fStatus" >
-                                                        <option value="3">Chưa kích hoạt</option>
-                                                        <option value="1">Đang hoạt động</option>
-                                                        <option value="2">Dừng hoạt động</option>
+                                                        <option value="3">Not activated</option>
+                                                        <option value="1">Active</option>
+                                                        <option value="2">Stop working</option>
                                                     </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-bold text-secondary">Leadcontent:</label>
+                                                    <input type="text" id="Leadcontent" name="fLeadcontent" class="form-control" placeholder="Leadcontent" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Description:</label>
@@ -671,6 +675,7 @@ if (!empty($_POST["flogout"])) {
                                                 $fLocation = $_POST["fLocation"];
                                                 // $fAvatarTour = $_POST["fAvatarTour"];
                                                 $fStatus = $_POST["fStatus"];
+                                                $fLeadcontent = $_POST["fLeadcontent"];
                                                 $fDescription = $_POST["fDescription"];
 
                                                 $a = new Tour();
@@ -683,6 +688,7 @@ if (!empty($_POST["flogout"])) {
                                                 $a->Location = $fLocation;
                                                 $a->AvatarTour = $uploadFileDir . $newFileName;
                                                 $a->Status = $fStatus;
+                                                $a->Leadcontent = $fLeadcontent;
                                                 $a->Description = $fDescription;
                                                 $a->addTour();
                                             }
@@ -751,6 +757,7 @@ if (!empty($_POST["flogout"])) {
                                                             $strTbl .= "<td class='d-none' id='TourSale'>$obj->TourSale</td>";
                                                             $strTbl .= "<td class='d-none' id='Location'>$obj->Location</td>";
                                                             $strTbl .= "<td class='d-none' id='Description'>$obj->Description</td>";
+                                                            $strTbl .= "<td class='d-none' id='Leadcontent'>$obj->Leadcontent</td>";
                                                             $strTbl .= "</tr>";
 
                                                         }
@@ -827,6 +834,10 @@ if (!empty($_POST["flogout"])) {
                                                 <label class="form-label fw-bold text-secondary">Description:</label>
                                                 <input type="text" name="fDescription" class="form-control" placeholder="Description"/>
                                             </div>
+                                            <div class="mb-3">
+                                                <label class="form-label fw-bold text-secondary">Leadcontent:</label>
+                                                <input type="text" name="fLeadcontent" class="form-control" placeholder="Leadcontent"/>
+                                            </div>
                                             <input type="submit" id="btntour" name="ftourEdit" class="btn btn-primary" value="Save" />
                                             <div class="mb-3">
                                                 <i class="text-warning bi bi-exclamation-triangle pe-1"></i><span class="text-danger">If you need to fix other fields, please contact admin for support: <a href="mailto:nduydu66@gmail.com">nduydu66@gmail.com</a></span>
@@ -843,6 +854,7 @@ if (!empty($_POST["flogout"])) {
                                             $fDescription = $_POST["fDescription"];
                                             $fTimeStart = $_POST["fTimeStart"];
                                             $fTimeEnd = $_POST["fTimeEnd"];
+                                            $fLeadcontent = $_POST["fLeadcontent"];
 
                                             $a = new Tour();
                                             $a->TourID = $fTourID;
@@ -853,6 +865,7 @@ if (!empty($_POST["flogout"])) {
                                             $a->Description = $fDescription;
                                             $a->TimeStart = $fTimeStart;
                                             $a->TimeEnd = $fTimeEnd;
+                                            $a->Leadcontent = $fLeadcontent;
                                             $a->updateTour();
                                         }
                                         ?>
@@ -1792,7 +1805,7 @@ if (!empty($_POST["flogout"])) {
                                                     <div class="mb-3">
                                                         <label class="form-label fw-bold text-secondary">Type:</label>
                                                         <select class="form-select" id="Type" name="fType">
-                                                            <option value="1">Ảnh</option>
+                                                            <option value="1">Image</option>
                                                         </select>
                                                     </div>
                                                     <div class="mb-3">
@@ -2739,8 +2752,8 @@ if (!empty($_POST["flogout"])) {
                                                         <tr>
                                                             <th scope="col">STT</th>
                                                             <th scope="col">ID</th>
-                                                            <th scope="col">MountaineeringID</th>
-                                                            <th scope="col">ServiceID</th>
+                                                            <th scope="col">MountainName</th>
+                                                            <th scope="col">ServiceName</th>
                                                             <th scope="col">Description</th>
                                                             <th class="text-center" scope="col">Action</th>
                                                         </tr>
@@ -2757,8 +2770,8 @@ if (!empty($_POST["flogout"])) {
                                                             $strTbl .= "<tr>";
                                                             $strTbl .= "<th>" . $stt++ . "</th>";
                                                             $strTbl .= "<td id='locationAndServiceID'>$obj->locationAndServiceID</td>";
-                                                            $strTbl .= "<td>$obj->mountaineeringID</td>";
-                                                            $strTbl .= "<td>$obj->serviceID</td>";
+                                                            $strTbl .= "<td>$obj->MountainName</td>";
+                                                            $strTbl .= "<td>$obj->ServiceName</td>";
                                                             $strTbl .= "<td id='description'>$obj->description</td>";
                                                             $strTbl .= "<td>
                                                                             <div class='d-flex'>

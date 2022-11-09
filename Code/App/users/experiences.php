@@ -42,12 +42,26 @@ require_once '../PhpSetting/Category.php';
     <!-- Swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
     <!-- CSS ME -->
-    <link rel="stylesheet" href="./assets/css/experiences.css" />
     <link rel="stylesheet" href="./assets/css/header-footer.css" />
     <link rel="stylesheet" href="./assets/css/base.css">
     <!--favicon-->
     <link rel="icon" type="image/x-icon" href="./assets/image/favicon.png" />
     <title>Experiences</title>
+    <style>
+        <?php
+        $a = new News();
+        $a->newsID=3;
+        $arr = $a->getNewsBanner();
+        for($i = 0; $i < count($arr); $i++) {
+            $obj = $arr[$i];
+            $imgExperiences = $obj->avatarNews;
+        }
+        ?>
+        .bg-introduce{
+            background-image: url(<?php echo $imgExperiences; ?>);
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
     <div class="app">
@@ -198,7 +212,7 @@ require_once '../PhpSetting/Category.php';
             </div>
         </nav>
         <!--END nav -->
-
+        
         <!--BEGIN Main -->
         <div class="main">
             

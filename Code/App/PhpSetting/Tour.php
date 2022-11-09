@@ -13,6 +13,7 @@ class Tour {
 	public $Location;
 	public $AvatarTour;
 	public $Status;
+	public $Leadcontent;
 	public $Description;
 	public $Flag;
 
@@ -33,7 +34,8 @@ class Tour {
 					`TourSale`, 
 					`Location`, 
 					`AvatarTour`, 
-					`Status`, 
+					`Status`,
+					`Leadcontent`,
 					`Description`
 				) 
 				VALUES 
@@ -47,6 +49,7 @@ class Tour {
 					:Location, 
 					:AvatarTour, 
 					:Status, 
+					:Leadcontent, 
 					:Description
 				);";
 
@@ -64,6 +67,7 @@ class Tour {
 			":Location" => $this->Location,
 			":AvatarTour" => $this->AvatarTour,
 			":Status" => $this->Status,
+			":Leadcontent" => $this->Leadcontent,
 			":Description" => $this->Description));
 
 		// Get value of the auto increment column.
@@ -84,11 +88,11 @@ class Tour {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT TourID, `T`.CategoryTourID, `C`.CategoryTourName, TourName ,TimeStart , TimeEnd,DATE(TimeEnd) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, `T`.Description, `T`.Flag,
+        $sql = "SELECT TourID, `T`.CategoryTourID, `C`.CategoryTourName, TourName ,TimeStart , TimeEnd,DATE(TimeEnd) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, Leadcontent,`T`.Description, `T`.Flag,
 				CASE
-					WHEN `T`.Status = 1 THEN 'Đang hoạt động'
-					WHEN `T`.Status = 2 THEN 'Dừng hoạt động'
-					WHEN `T`.Status = 3 THEN 'Chưa kích hoạt'
+					WHEN `T`.Status = 1 THEN 'Active'
+					WHEN `T`.Status = 2 THEN 'Stop working'
+					WHEN `T`.Status = 3 THEN 'Not activated'
 					ELSE 'Error'
 				END
 				AS `Status`
@@ -117,6 +121,7 @@ class Tour {
 			$s->Location = $row["Location"];
 			$s->AvatarTour = $row["AvatarTour"];
 			$s->Status = $row["Status"];
+			$s->Leadcontent = $row["Leadcontent"];
 			$s->Description = $row["Description"];
 			$s->Flag = $row["Flag"];
             
@@ -208,9 +213,9 @@ class Tour {
         // câu lệnh sql
         $sql = "SELECT TourID, CategoryTourID, TourName ,TimeStart , DATE(TimeEnd) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, Description, Flag,
 				CASE
-					WHEN Status = 1 THEN 'Đang hoạt động'
-					WHEN Status = 2 THEN 'Dừng hoạt động'
-					WHEN Status = 3 THEN 'Chưa kích hoạt'
+					WHEN `T`.Status = 1 THEN 'Active'
+					WHEN `T`.Status = 2 THEN 'Stop working'
+					WHEN `T`.Status = 3 THEN 'Not activated'
 					ELSE 'Error'
 				END
 				AS `Status`
@@ -255,11 +260,11 @@ class Tour {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT TourID, `T`.CategoryTourID, `C`.CategoryTourName, TourName ,TimeStart , DATE(TimeEnd) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, `T`.Description, `T`.Flag,
+        $sql = "SELECT TourID, `T`.CategoryTourID, `C`.CategoryTourName, TourName ,TimeStart , DATE(TimeEnd) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, Leadcontent,`T`.Description, `T`.Flag,
 				CASE
-					WHEN `T`.Status = 1 THEN 'Đang hoạt động'
-					WHEN `T`.Status = 2 THEN 'Dừng hoạt động'
-					WHEN `T`.Status = 3 THEN 'Chưa kích hoạt'
+					WHEN `T`.Status = 1 THEN 'Active'
+					WHEN `T`.Status = 2 THEN 'Stop working'
+					WHEN `T`.Status = 3 THEN 'Not activated'
 					ELSE 'Error'
 				END
 				AS `Status`
@@ -283,6 +288,7 @@ class Tour {
 			$s->Location = $row["Location"];
 			$s->AvatarTour = $row["AvatarTour"];
             $s->Status = $row["Status"];
+            $s->Leadcontent = $row["Leadcontent"];
             $s->Description = $row["Description"];
             $s->Day = $row["Day"];
             
@@ -302,11 +308,11 @@ class Tour {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT TourID, `T`.CategoryTourID, `C`.CategoryTourName, TourName ,TimeStart , DATE(TimeEnd) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, `T`.Description, `T`.Flag,
+        $sql = "SELECT TourID, `T`.CategoryTourID, `C`.CategoryTourName, TourName ,TimeStart , DATE(TimeEnd) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, Leadcontent,`T`.Description, `T`.Flag,
 				CASE
-					WHEN `T`.Status = 1 THEN 'Đang hoạt động'
-					WHEN `T`.Status = 2 THEN 'Dừng hoạt động'
-					WHEN `T`.Status = 3 THEN 'Chưa kích hoạt'
+					WHEN `T`.Status = 1 THEN 'Active'
+					WHEN `T`.Status = 2 THEN 'Stop working'
+					WHEN `T`.Status = 3 THEN 'Not activated'
 					ELSE 'Error'
 				END
 				AS `Status`
@@ -330,6 +336,7 @@ class Tour {
 			$s->Location = $row["Location"];
 			$s->AvatarTour = $row["AvatarTour"];
             $s->Status = $row["Status"];
+            $s->Leadcontent = $row["Leadcontent"];
             $s->Description = $row["Description"];
             $s->Day = $row["Day"];
             
@@ -349,11 +356,11 @@ class Tour {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT `C`.CategoryTourName, TourID, `T`.CategoryTourID, TourName ,TimeStart , DATE(TimeEnd) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, `T`.Description, `T`.Flag,
+        $sql = "SELECT `C`.CategoryTourName, TourID, `T`.CategoryTourID, TourName ,TimeStart , DATE(TimeEnd) - DATE(TimeStart) AS Day, TourPrice ,TourSale, Location, AvatarTour, Leadcontent,`T`.Description, `T`.Flag,
 				CASE
-					WHEN `T`.Status = 1 THEN 'Đang hoạt động'
-					WHEN `T`.Status = 2 THEN 'Dừng hoạt động'
-					WHEN `T`.Status = 3 THEN 'Chưa kích hoạt'
+					WHEN `T`.Status = 1 THEN 'Active'
+					WHEN `T`.Status = 2 THEN 'Stop working'
+					WHEN `T`.Status = 3 THEN 'Not activated'
 					ELSE 'Error'
 				END
 				AS `Status`
@@ -380,6 +387,7 @@ class Tour {
 			$s->Location = $row["Location"];
 			$s->AvatarTour = $row["AvatarTour"];
 			$s->Status = $row["Status"];
+			$s->Leadcontent = $row["Leadcontent"];
 			$s->Description = $row["Description"];
 			$s->Flag = $row["Flag"];
             
@@ -428,6 +436,7 @@ class Tour {
 						`TimeStart` = :TimeStart,
 						`TimeEnd` = :TimeEnd,
 						`TourPrice` = :TourPrice,
+						`Leadcontent` = :Leadcontent,
 						`TourSale` = :TourSale
 				WHERE	`TourID` = :TourID;";
 
@@ -444,6 +453,7 @@ class Tour {
 			":TourPrice" => $this->TourPrice,
 			":TourSale" => $this->TourSale,
 			":Location" => $this->Location,
+			":Leadcontent" => $this->Leadcontent,
 			":Description" => $this->Description
 		));
 

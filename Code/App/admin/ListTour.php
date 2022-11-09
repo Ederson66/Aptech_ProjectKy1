@@ -10,6 +10,7 @@
         <th scope="col">Location</th>
         <th scope="col">AvatarTour</th>
         <th scope="col">Status</th>
+        <th scope="col">Leadcontent</th>
         <th scope="col">Description</th>
     </tr>
     <?php 
@@ -29,16 +30,17 @@
 
         $strTbl .= "<tr>";
             $strTbl .= "<th>". $stt++ ."</th>";
-            $strTbl .= "<td id='TourID'>$obj->TourID</td>";
-            $strTbl .= "<td id='CategoryTourName'>$obj->CategoryTourName</td>";
-            $strTbl .= "<td id='fTourName'>$obj->TourName</td>";
-            $strTbl .= "<td id='Day'>$obj->Day</td>";
-            $strTbl .= "<td id='TourPrice'>".$obj->TourPrice." USD"."</td>";
-            $strTbl .= "<td id='TourSale'>".$obj->TourSale." %"."</td>";
-            $strTbl .= "<td id='Location'>$obj->Location</td>";
-            $strTbl .= "<td id='AvatarTour'><img src='$obj->AvatarTour' alt='banner' width='200' height='100'></td>";
-            $strTbl .= "<td id='Status'>$obj->Status</td>";
-            $strTbl .= "<td id='Description'>$obj->Description</td>";
+            $strTbl .= "<td>$obj->TourID</td>";
+            $strTbl .= "<td>$obj->CategoryTourName</td>";
+            $strTbl .= "<td>$obj->TourName</td>";
+            $strTbl .= "<td>$obj->Day</td>";
+            $strTbl .= "<td>".$obj->TourPrice." USD"."</td>";
+            $strTbl .= "<td>".$obj->TourSale." %"."</td>";
+            $strTbl .= "<td>$obj->Location</td>";
+            $strTbl .= "<td><img src='$obj->AvatarTour' alt='banner' width='200' height='100'></td>";
+            $strTbl .= "<td>$obj->Status</td>";
+            $strTbl .= "<td>$obj->Leadcontent</td>";
+            $strTbl .= "<td>$obj->Description</td>";
         $strTbl .= "</tr>";
         
     }

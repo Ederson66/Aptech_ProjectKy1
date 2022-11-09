@@ -184,6 +184,7 @@ CREATE TABLE `tour` (
 	`Location` VARCHAR(1000) NOT NULL COLLATE 'utf8mb4_general_ci',
 	`AvatarTour` VARCHAR(2000) NOT NULL COLLATE 'utf8mb4_general_ci',
 	`Status` VARCHAR(20) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`Leadcontent` VARCHAR(5000) NOT NULL COLLATE 'utf8mb4_general_ci',
 	`Description` LONGTEXT NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
 	`Flag` VARCHAR(1) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
 	PRIMARY KEY (`TourID`) USING BTREE

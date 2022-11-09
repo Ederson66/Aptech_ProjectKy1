@@ -4,7 +4,6 @@ require_once '../PhpSetting/DBinfoConfig.php';
 
 class Contact {
 	public $contactID;
-	public $MemberID;
 	public $fullname;
 	public $address;
 	public $email;
@@ -80,7 +79,6 @@ class Contact {
         while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
             $s = new Category();
             $s->contactID = $row["contactID"];
-            $s->MemberID = $row["MemberID"];
 			$s->fullname = $row["fullname"];
 			$s->address = $row["address"];
 			$s->email = $row["email"];
