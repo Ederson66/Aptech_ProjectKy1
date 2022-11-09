@@ -237,7 +237,7 @@ class News {
         
         // Execute the statement.
 		$stmt->execute(array(
-			":newsID" => $this->newsID
+			":NewsID" => $this->newsID
 		));
         
         $list = Array();

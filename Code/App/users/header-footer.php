@@ -4,6 +4,11 @@
     require_once '../PhpSetting/Common.php';
     require_once '../PhpSetting/Tour.php'; 
     require_once '../PhpSetting/Categorytour.php'; 
+
+    if(isset($_POST["logout"])) {
+        $a = new Member();
+        $a->Logout();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -187,14 +192,12 @@
                                         </a>
                                     </li>';
                         } else {
-                            $member = (string) $_SESSION['MemberName'];
                             echo '<li class="nav-item ps-3 pe-3 mt-2 mb-2">
-                                        <form action="index.php" method="POST">
-                                        <a class="nav-link text-center p-2 hv-box text-white fw-bold text-shadow bg-danger rounded-pill" href="../index.php">
-                                        Logout
-                                    </a>
+                                        <form action="" method="POST">
+                                            <button type="submit" name="logout" class="nav-link text-center p-2 hv-box text-white fw-bold text-shadow bg-danger rounded-pill">
+                                                Logout
+                                            </button>
                                         </form>
-                                    
                                     </li>';
                             //Show tên người dùng đã đăng nhập.
                             //    $s = new Member();
