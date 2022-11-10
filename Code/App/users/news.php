@@ -4,9 +4,10 @@
     require_once '../PhpSetting/Common.php';
     require_once '../PhpSetting/Tour.php'; 
     require_once '../PhpSetting/Service.php';
-    require_once '../PhpSetting/Categorytour.php'; 
+    require_once '../PhpSetting/CategoryTour.php'; 
     require_once '../PhpSetting/Category.php'; 
     require_once '../PhpSetting/Member.php'; 
+    require_once '../PhpSetting/News.php'; 
     if(isset($_POST["logout"])) {
         $a = new Member();
         $a->Logout();
@@ -259,31 +260,31 @@
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="./assets/image/News/Tư liệu hình ảnh/slide1.png" />
+                            <img src="./assets/image/News/slide/slide1.png" />
                         </div>
                         <div class="swiper-slide">
-                            <img src="./assets/image/News/Tư liệu hình ảnh/slide6.png" />
+                            <img src="./assets/image/News/slide/slide6.png" />
                         </div>
                         <div class="swiper-slide">
-                            <img src="./assets/image/News/Tư liệu hình ảnh/slide4.png" />
+                            <img src="./assets/image/News/slide/slide4.png" />
                         </div>
                         <div class="swiper-slide">
-                            <img src="./assets/image/News/Tư liệu hình ảnh/slide2.png" />
+                            <img src="./assets/image/News/slide/slide2.png" />
                         </div>
                         <div class="swiper-slide">
-                            <img src="./assets/image/News/Tư liệu hình ảnh/slide7.png" />
+                            <img src="./assets/image/News/slide/slide7.png" />
                         </div>
                         <div class="swiper-slide">
-                            <img src="./assets/image/News/Tư liệu hình ảnh/slide5.png" />
+                            <img src="./assets/image/News/slide/slide5.png" />
                         </div>
                         <div class="swiper-slide">
-                            <img src="./assets/image/News/Tư liệu hình ảnh/slide8.png" />
+                            <img src="./assets/image/News/slide/slide8.png" />
                         </div>
                         <div class="swiper-slide">
-                            <img src="./assets/image/News/Tư liệu hình ảnh/slide10.png" />
+                            <img src="./assets/image/News/slide/slide10.png" />
                         </div>
                         <div class="swiper-slide">
-                            <img src="./assets/image/News/Tư liệu hình ảnh/slide9.png" />
+                            <img src="./assets/image/News/slide/slide9.png" />
                         </div>
                     </div>
                     <div class="swiper-pagination"></div>

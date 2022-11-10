@@ -1,5 +1,5 @@
 <?php
-// không được sửa lại db này
+// db chuẩn
 class DBinfoConfig {
     public static function getServer() {
         return "68.178.145.3";
@@ -16,22 +16,6 @@ class DBinfoConfig {
     public static function getPassword() {
         return "ndd123";
     }
-    
-    // public static function getServer() {
-    //     return "localhost";
-    // }
-    
-    // public static function getDBname() {
-    //     return "db_g1";
-    // }
-    
-    // public static function getUsername() {
-    //     return "root";
-    // }
-    
-    // public static function getPassword() {
-    //     return "662002";
-    // }
 }
 
 ?>

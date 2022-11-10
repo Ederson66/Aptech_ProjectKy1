@@ -4,7 +4,7 @@
     require_once '../PhpSetting/Common.php';
     require_once '../PhpSetting/Tour.php'; 
     require_once '../PhpSetting/Service.php';
-    require_once '../PhpSetting/Categorytour.php'; 
+    require_once '../PhpSetting/CategoryTour.php'; 
     require_once '../PhpSetting/Category.php'; 
     require_once '../PhpSetting/Member.php'; 
     if(isset($_POST["logout"])) {
@@ -459,7 +459,7 @@
     <!-- JS ME -->
     <script src="./assets/js/home.js"></script>
     <!-- JS ME -->
-    <scriptZ src="./assets/js/header-footer.js"></scriptZ>
+    <script src="./assets/js/header-footer.js"></script>
 </body>
 
 </html>

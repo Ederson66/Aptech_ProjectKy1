@@ -147,7 +147,7 @@ if(isset($_POST["logout"])) {
                                 </div>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a class="dropdown-item nav-link ps-2" href="tour.php">Tour</a>
+                                        <a class="dropdown-item nav-link ps-2" href="./users/tour.php">Tour</a>
                                     </li>
                                     <?php
                                     $s = new CategoryTour();

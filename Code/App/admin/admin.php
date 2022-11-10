@@ -552,7 +552,7 @@ if (!empty($_POST["flogout"])) {
                                             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">TourName:</label>
-                                                    <input type="text" id="TourName" name="fTourName" class="form-control" placeholder="TourName" />
+                                                    <input required type="text" id="TourName" name="fTourName" class="form-control" placeholder="TourName" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">CategoryTour:</label>
@@ -570,41 +570,41 @@ if (!empty($_POST["flogout"])) {
                                                 <div class="mb-3 d-flex w-100">
                                                     <div class="w-50 pe-2">
                                                         <label class="form-label fw-bold text-secondary">TimeStart:</label>
-                                                        <input type="date" id="TimeStart" name="fTimeStart" class="form-control" placeholder="TimeStart" />
+                                                        <input required type="date" id="TimeStart" name="fTimeStart" class="form-control" placeholder="TimeStart" />
                                                     </div>
                                                     <div class="w-50 ps-2">
                                                         <label class="form-label fw-bold text-secondary">TimeEnd:</label>
-                                                        <input type="date" id="TimeEnd" name="fTimeEnd" class="form-control" placeholder="TimeEnd" />
+                                                        <input required type="date" id="TimeEnd" name="fTimeEnd" class="form-control" placeholder="TimeEnd" />
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">TourPrice:</label>
                                                     <div class="input-group">
-                                                        <input type="text" id="TourPrice" name="fTourPrice" class="form-control" placeholder="TourPrice" />
+                                                        <input required type="text" id="TourPrice" name="fTourPrice" class="form-control" placeholder="TourPrice" />
                                                         <span class="input-group-text">USD</span>
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">TourPromotion:</label>
                                                     <div class="input-group">
-                                                        <input type="text" id="TourPromotion" name="fTourSale" class="form-control" placeholder="TourPromotion" />
+                                                        <input required type="text" id="TourPromotion" name="fTourSale" class="form-control" placeholder="TourPromotion" />
                                                         <span class="input-group-text">%</span>
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Location:</label>
                                                     <div class="input-group">
-                                                        <input type="text" id="Location" name="fLocation" class="form-control" placeholder="Location" />
+                                                        <input required type="text" id="Location" name="fLocation" class="form-control" placeholder="Location" />
                                                         <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">AvatarTour:</label>
-                                                    <input type="file" id="AvatarTour" name="fAvatarTour" class="form-control" placeholder="AvatarTour" />
+                                                    <input required type="file" id="AvatarTour" name="fAvatarTour" class="form-control" placeholder="AvatarTour" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Status:</label>
-                                                    <select class="form-select" id="Status" name="fStatus" >
+                                                    <select class="form-select" id="Status" name="fStatus" required>
                                                         <option value="3">Not activated</option>
                                                         <option value="1">Active</option>
                                                         <option value="2">Stop working</option>
@@ -612,11 +612,11 @@ if (!empty($_POST["flogout"])) {
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Leadcontent:</label>
-                                                    <input type="text" id="Leadcontent" name="fLeadcontent" class="form-control" placeholder="Leadcontent" />
+                                                    <input required type="text" id="Leadcontent" name="fLeadcontent" class="form-control" placeholder="Leadcontent" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Description:</label>
-                                                    <input type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
+                                                    <input required type="text" id="Description" name="fDescription" class="form-control" placeholder="Description" />
                                                 </div>
                                                 <input type="submit" id="btntour" name="ftour" class="btn btn-primary" value="Save" />
                                             </form>
@@ -891,19 +891,19 @@ if (!empty($_POST["flogout"])) {
                                             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">MountainName:</label>
-                                                    <input type="text" id="MountainName" name="fMountainName" class="form-control" placeholder="MountainName" />
+                                                    <input required type="text" id="MountainName" name="fMountainName" class="form-control" placeholder="MountainName" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">LocationX:</label>
-                                                    <input type="text" id="LocationX" name="fLocationX" class="form-control" placeholder="LocationX" />
+                                                    <input required type="text" id="LocationX" name="fLocationX" class="form-control" placeholder="LocationX" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">LocationY:</label>
-                                                    <input type="text" id="LocationY" name="fLocationY" class="form-control" placeholder="LocationY" />
+                                                    <input required type="text" id="LocationY" name="fLocationY" class="form-control" placeholder="LocationY" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Banner:</label>
-                                                    <input type="file" id="Banner" name="fBanner" class="form-control" placeholder="Banner" />
+                                                    <input required type="file" id="Banner" name="fBanner" class="form-control" placeholder="Banner" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Type:</label>
@@ -914,7 +914,7 @@ if (!empty($_POST["flogout"])) {
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Level:</label>
-                                                    <select class="form-select" id="Level" name="fLevel">
+                                                    <select required class="form-select" id="Level" name="fLevel">
                                                         <option value="1">Easy</option>
                                                         <option value="2">Medium</option>
                                                         <option value="3">Difficult</option>
@@ -922,11 +922,11 @@ if (!empty($_POST["flogout"])) {
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Sheltering (the abode of that mountain top):</label>
-                                                    <input type="text" id="Sheltering" name="fSheltering" class="form-control" placeholder="Sheltering" />
+                                                    <input required type="text" id="Sheltering" name="fSheltering" class="form-control" placeholder="Sheltering" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Techniques (Mountain climbing techniques):</label>
-                                                    <input type="text" id="Techniques" name="fTechniques" class="form-control" placeholder="Techniques" />
+                                                    <input required type="text" id="Techniques" name="fTechniques" class="form-control" placeholder="Techniques" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Description:</label>
@@ -1171,30 +1171,30 @@ if (!empty($_POST["flogout"])) {
                                             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">ServiceName:</label>
-                                                    <input type="text" id="ServiceName" name="fServiceName" class="form-control" placeholder="ServiceName" />
+                                                    <input required type="text" id="ServiceName" name="fServiceName" class="form-control" placeholder="ServiceName" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">AvatarService:</label>
-                                                    <input type="file" id="AvatarService" name="fAvatarService" class="form-control" placeholder="AvatarService" />
+                                                    <input required type="file" id="AvatarService" name="fAvatarService" class="form-control" placeholder="AvatarService" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Price:</label>
                                                     <div class="input-group">
-                                                        <input type="text" id="Price" name="fPrice" class="form-control" placeholder="Price" />
+                                                        <input required type="text" id="Price" name="fPrice" class="form-control" placeholder="Price" />
                                                         <span class="input-group-text">USD</span>
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">TNTT(tax):</label>
                                                     <div class="input-group">
-                                                        <input type="text" id="VAT" name="fVAT" class="form-control" placeholder="VAT" value="10"/>
+                                                        <input required type="text" id="VAT" name="fVAT" class="form-control" placeholder="VAT" value="10"/>
                                                         <span class="input-group-text">%</span>
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Sale on service:</label>
                                                     <div class="input-group">
-                                                        <input type="text" id="Sale" name="fSale" class="form-control" placeholder="Sale" />
+                                                        <input required type="text" id="Sale" name="fSale" class="form-control" placeholder="Sale" />
                                                         <span class="input-group-text">%</span>
                                                     </div>
                                                 </div>
@@ -1439,15 +1439,15 @@ if (!empty($_POST["flogout"])) {
                                             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Title:</label>
-                                                    <input type="text" id="Title" name="fTitle" class="form-control" placeholder="Title" />
+                                                    <input required type="text" id="Title" name="fTitle" class="form-control" placeholder="Title" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Lead:</label>
-                                                    <input type="text" id="Lead" name="fLead" class="form-control" placeholder="Lead" />
+                                                    <input required type="text" id="Lead" name="fLead" class="form-control" placeholder="Lead" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Category:</label>
-                                                    <select class="form-select" name="fCategory" id="CategoryID">
+                                                    <select required class="form-select" name="fCategory" id="CategoryID">
                                                         <?php
                                                         $a = new Category();
                                                         $arr = $a->getListCategory();
@@ -1460,15 +1460,15 @@ if (!empty($_POST["flogout"])) {
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Content:</label>
-                                                    <textarea name="fContent" id="editor1" rows="10" cols="80" class="form-control">Content here...</textarea>
+                                                    <textarea required name="fContent" id="editor1" rows="10" cols="80" class="form-control">Content here...</textarea>
                                                 </div> 
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">AvatarNews:</label>
-                                                    <input type="file" id="AvatarNews" name="fAvatarNews" class="form-control" placeholder="AvatarNews" />
+                                                    <input required type="file" id="AvatarNews" name="fAvatarNews" class="form-control" placeholder="AvatarNews" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Author:</label>
-                                                    <input type="text" id="Author" name="fAuthor" class="form-control" placeholder="Author" />
+                                                    <input required type="text" id="Author" name="fAuthor" class="form-control" placeholder="Author" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Description:</label>
@@ -1694,7 +1694,7 @@ if (!empty($_POST["flogout"])) {
                                             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">LibraryName:</label>
-                                                    <input type="text" id="LibraryName" name="fLibraryName" class="form-control" placeholder="LibraryName" />
+                                                    <input required type="text" id="LibraryName" name="fLibraryName" class="form-control" placeholder="LibraryName" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Description:</label>
@@ -2024,7 +2024,7 @@ if (!empty($_POST["flogout"])) {
                                             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Type:</label>
-                                                    <select class="form-select" id="ValueType" name="fType" onchange="showByType(this.value);">
+                                                    <select required class="form-select" id="ValueType" name="fType" onchange="showByType(this.value);">
                                                         <option value="0" selected>Select</option>
                                                         <option value="1">Image</option>
                                                         <option value="2">Video</option>
@@ -2032,7 +2032,7 @@ if (!empty($_POST["flogout"])) {
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Library:</label>
-                                                    <select class="form-select" id="LibraryID" name="fLibraryID">
+                                                    <select required class="form-select" id="LibraryID" name="fLibraryID">
                                                         <option value="0">Select</option>
                                                         <?php
                                                         $a = new Library();
@@ -2048,7 +2048,7 @@ if (!empty($_POST["flogout"])) {
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Title:</label>
-                                                    <input type="text" id="Title" name="fTitle" class="form-control" placeholder="Title" />
+                                                    <input required type="text" id="Title" name="fTitle" class="form-control" placeholder="Title" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Description:</label>
@@ -2305,11 +2305,11 @@ if (!empty($_POST["flogout"])) {
                                             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">CategoryName:</label>
-                                                    <input type="text" id="CategoryName" name="fCategoryName" class="form-control" placeholder="CategoryName" />
+                                                    <input required type="text" id="CategoryName" name="fCategoryName" class="form-control" placeholder="CategoryName" />
                                                 </div>
                                                 <div class="mb-3 w-50">
                                                     <label class="form-label fw-bold text-secondary">ParentID:</label>
-                                                    <select class="form-select" id="ParentID" name="fParentID">
+                                                    <select required class="form-select" id="ParentID" name="fParentID">
                                                         <option value="0">Select</option>
                                                         <?php
                                                         $a = new Category();
@@ -2471,11 +2471,11 @@ if (!empty($_POST["flogout"])) {
                                             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">CategoryTourName:</label>
-                                                    <input type="text" id="CategoryTourName" name="fCategoryTourName" class="form-control" placeholder="CategoryTourName" />
+                                                    <input required type="text" id="CategoryTourName" name="fCategoryTourName" class="form-control" placeholder="CategoryTourName" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Status:</label>
-                                                    <select class="form-select" id="Status" name="fStatus" >
+                                                    <select required class="form-select" id="Status" name="fStatus" >
                                                         <option value="3">Not activated</option>
                                                         <option value="1">Active</option>
                                                         <option value="2">Stop working</option>
@@ -2687,7 +2687,7 @@ if (!empty($_POST["flogout"])) {
                                             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Mountaineering:</label>
-                                                    <select id="Mountaineering" name="fMountaineeringID" class="form-select">
+                                                    <select required id="Mountaineering" name="fMountaineeringID" class="form-select">
                                                         <option value="0">Select</option>
                                                         <?php
                                                         $a = new Mountaineering();
@@ -2703,7 +2703,7 @@ if (!empty($_POST["flogout"])) {
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label fw-bold text-secondary">Service:</label>
-                                                    <select id="Service" name="fServiceID" class="form-select">
+                                                    <select required id="Service" name="fServiceID" class="form-select">
                                                         <option value="0">Select</option>
                                                         <?php
                                                         $a = new Service();
@@ -2890,15 +2890,15 @@ if (!empty($_POST["flogout"])) {
                                             ?>
                                             <div class="mt-3 mb-3">
                                                 <label class="form-label fw-bold text-secondary">Current password:</label>
-                                                <input type="password" id="crpass" name="fcrpass" class="form-control" placeholder="Pass" />
+                                                <input required type="password" id="crpass" name="fcrpass" class="form-control" placeholder="Pass" />
                                             </div>
                                             <div class="mt-3 mb-3">
                                                 <label class="form-label fw-bold text-secondary">New password:</label>
-                                                <input type="password" id="newpass" name="fnewpass" class="form-control" placeholder="Create pass" />
+                                                <input required type="password" id="newpass" name="fnewpass" class="form-control" placeholder="Create pass" />
                                             </div>
                                             <div class="mt-3 mb-3">
                                                 <label class="form-label fw-bold text-secondary">Confirm password:</label>
-                                                <input type="password" id="cfpass" name="cfpass" class="form-control" placeholder="Confirm pass" />
+                                                <input required type="password" id="cfpass" name="cfpass" class="form-control" placeholder="Confirm pass" />
                                             </div>
                                             <div class="mt-3 mb-3">
                                                 <input type="submit" class="btn btn-primary" name="fresetpass" value="Reset"/>
