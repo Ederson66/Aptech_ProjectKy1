@@ -7,6 +7,7 @@
     require_once '../PhpSetting/Categorytour.php'; 
     require_once '../PhpSetting/Category.php'; 
     require_once '../PhpSetting/Member.php'; 
+    require_once '../PhpSetting/News.php'; 
     if(isset($_POST["logout"])) {
         $a = new Member();
         $a->Logout();
@@ -14,11 +15,12 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Website về leo núi,cắm trại,du lịch,đặt tour và các dịch vụ đi cùng chuyến du lịch.Cho bạn 1 nơi tha hồ lựa chọn các địa điểm du lịch và book tour dễ dàng thuận tiện cùng những khuyến mãi khủng." />
+        <meta name="description" content="Website về leo núi,cắm trại,du lịch,đặt tour và các dịch vụ đi cùng chuyến du lịch.Cho bạn 1 nơi tha hồ lựa chọn các địa điểm du lịch và book tour dễ dàng thuận tiện cùng những khuyến mãi khủng."/>
         <meta name="keywords" content="Leo núi,Moutaineering,Du lịch,Tour,Book Tour, Dịch vụ,Service,Lịch sử,History,Kĩ năng,Đồ leo núi,Sale hấp dẫn ." />
         <meta name="news_keywords" content="Leo núi,Moutaineering,Du lịch,Tour,Book Tour, Dịch vụ,Service,Lịch sử,History,Kĩ năng,Đồ leo núi,Sale hấp dẫn ." />
         <meta http-equiv="REFRESH" content="1800" />
@@ -51,45 +53,12 @@
         <!-- CSS ME -->
         <link rel="stylesheet" href="./assets/css/header-footer.css" />
         <link rel="stylesheet" href="./assets/css/base.css" />
-        <link rel="stylesheet" href="./assets/css/news.css" />
+        <link rel="stylesheet" href="./assets/css/service.css" />
+        <link rel="stylesheet" href="./assets/css/booktour.css" />
         <!--favicon-->
         <link rel="icon" type="image/x-icon" href="./assets/image/favicon.png" />
-    <title>News</title>
-    <style>
-        html,
-        body {
-            position: relative;
-            height: 100%;
-        }
-
-        body {
-            background: #eee;
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            color: #000;
-            margin: 0;
-            padding: 0;
-        }
-
-        .swiper {
-            width: 100%;
-            padding-top: 50px;
-            padding-bottom: 50px;
-        }
-
-        .swiper-slide {
-            background-position: center;
-            background-size: cover;
-            width: 300px;
-            height: 300px;
-        }
-
-        .swiper-slide img {
-            display: block;
-            width: 100%;
-        }
-    </style>
-</head>
+        <title>History</title>
+    </head>
 
 <body>
     <div class="app">
@@ -252,83 +221,42 @@
 
         <!-- BEGIN Main -->
         <div class="main">
-            <div class="header-news bg-image">
-            </div>
-            <div class="row">
-                <h3 style="text-align:center;font-size:50px">Popular News</h3>
-                <div class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="./assets/image/News/Tư liệu hình ảnh/slide1.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./assets/image/News/Tư liệu hình ảnh/slide6.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./assets/image/News/Tư liệu hình ảnh/slide4.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./assets/image/News/Tư liệu hình ảnh/slide2.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./assets/image/News/Tư liệu hình ảnh/slide7.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./assets/image/News/Tư liệu hình ảnh/slide5.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./assets/image/News/Tư liệu hình ảnh/slide8.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./assets/image/News/Tư liệu hình ảnh/slide10.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./assets/image/News/Tư liệu hình ảnh/slide9.png" />
-                        </div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
+            <div class="header-service bg-image">
             </div>
             <div class="container ">
-                <div class="row">
-                <?php
-                    $s = new Category();
-                    $listCategory = $s->getListCategory();
-                    ?>
-                    <?php foreach ($listCategory as $value) : ?>
-                        <h3 style="text-align:center;font-size:50px"><?php echo $value->CategoryName ?></h3>
+                <div class="container-service text-center d-flex">
+                    <div class="content-service" style="margin-bottom: 100px;">
+                        <div class="text-center title-tourname"><span class="title-service">History</span></div>
                         <?php
                         $s = new News();
-                        $listNews = $s->getListNews($value->CategoryID);
-                        ?>
-                        <?php foreach ($listNews as $value) : ?>
-                            <div class="container-news d-flex">
-                                <div class="container container-news_left">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <div class="">
-                                            <div class="content-news">
-                                                <div class="content-news_item d-flex text-left">
-                                                    <div class="news_item-img mb-5">
-                                                        <img src="<?php echo "$value->avatarNews"?>" alt="khuyen mai trekking" style="border-radius:6px;width:330px;">
-                                                    </div>
-                                                    <div class="news_item-intro mb-5">
-                                                        <h5 style="font-weight:600"><?php echo $value->title ?></h5>
-                                                        <p><?php echo $value->leadcontent ?></p>
-                                                        <button class="btn btn-warning">See More</button>
-                                                    </div>
+                        $s->categoryID=3;
+                        $listNews = $s->getListNewsID();
+                        foreach ($listNews as $value) {
+                            echo "<div class='container container-news'>
+                            <div class='container-news_left'>
+                                <a href='#' class='text-decoration-none text-dark'>
+                                    <div class=''>
+                                        <div class='content-news'>
+                                            <div class='content-news_item d-flex'>
+                                                <div class='news_item-intro col-lg-9 col-md-6 col-sm-12 mb-5'>
+                                                    <h5 style='font-weight:600'>$value->title</h5>
+                                                    <p class='text-left'> $value->content</p>
+                                                </div>
+                                                <div class='news_item-img col-lg-3 col-md-6 col-sm-12 mb-5'>
+                                                    <img src='$value->avatarNews' alt='khuyen mai trekking' style='border-radius:6px; width: 340px;'>
                                                 </div>
                                             </div>
                                         </div>
-                                    </a>
-                                </div>
+                                    </div>
+                                </a>
                             </div>
-                        <?php endforeach ?>
-                    <?php endforeach ?>
+                        </div>";
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
-
-        </div>
-        <!-- END Main -->
+                    <!-- END Main -->
 
             <!--BEGIN Footer -->
             <div class="footer bg-dark text-white pt-5 pb-5">
@@ -493,41 +421,18 @@
                 </div>
             </div>
             <!--END Footer -->
+                </div>
 
-    </div>
-
-    <!-- JQUERY 3.6.1 -->
-    <script src="./assets/js/jquery.min.js"></script>
-    <!-- JS BOOTSTRAP -->
-    <script src="./assets/js/bootstrap.bundle.min.js"></script>
-    <!-- js swiper -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <!-- JS ME -->
-    <script src="./assets/js/home.js"></script>
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            effect: "coverflow",
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: "auto",
-            coverflowEffect: {
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: true,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-            },
-        });
-    </script>
-            <!-- JS ME -->
-            <script src="./assets/js/header-footer.js"></script>
+                <!-- JQUERY 3.6.1 -->
+                <script src="./assets/js/jquery.min.js"></script>
+                <!-- JS BOOTSTRAP -->
+                <script src="./assets/js/bootstrap.bundle.min.js"></script>
+                <!-- js swiper -->
+                <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+                <!-- JS ME -->
+                <script src="./assets/js/home.js"></script>
+                <!-- JS ME -->
+                <script src="./assets/js/header-footer.js"></script>
 </body>
 
 </html>

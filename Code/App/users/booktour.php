@@ -46,6 +46,7 @@ require_once '../PhpSetting/Booktour.php';
     <!-- CSS ME -->
     <link rel="stylesheet" href="./assets/css/header-footer.css" />
     <link rel="stylesheet" href="./assets/css/base.css" />
+    <link rel="stylesheet" href="./assets/css/booktour.css" />
     <!--favicon-->
     <link rel="icon" type="image/x-icon" href="./assets/image/favicon.png" />
     <title>BookTour</title>
@@ -224,7 +225,7 @@ require_once '../PhpSetting/Booktour.php';
                 echo "<div class='box-img'>
                                 <img src='$value->AvatarTour' alt='' style='width: 100%;height:100vh'>
                                 <div class='title-tour'>
-                                    <h2>$value->TourName</h2>
+                                    <h2 class='text-center mt-5 mb-5 title-tourname'style='font-family: Times New Roman', Times, serif';>$value->TourName</h2>
                                 </div>
                             </div>
                             <div class='container'>
@@ -238,7 +239,7 @@ require_once '../PhpSetting/Booktour.php';
                                                     <i class='bi bi-clock' style='color: #0284fe ;font-size: 24px ;width: 24px ;'></i>
                                                 </span>
                                                 <div class='gdlr-core-icon-list-content-wrap'>
-                                                    <span class='gdlr-core-icon-list-content' style='font-size: 15px ;'>Lịch trình:</span>
+                                                    <span class='gdlr-core-icon-list-content' style='font-size: 15px ;'>Schedule:$value->Day DAY</span>
                                                 </div>
                                             </li>
                                             <li class='d-flex align-items-center' style='margin-bottom: 30px ;'>
@@ -246,7 +247,7 @@ require_once '../PhpSetting/Booktour.php';
                                                     <i class='bi bi-people-fill' style='color: #0284fe ;font-size: 24px ;width: 24px ;'></i>
                                                 </span>
                                                 <div class='gdlr-core-icon-list-content-wrap'>
-                                                    <span class='gdlr-core-icon-list-content' style='font-size: 15px ;'>Giá tour:$value->TourPrice</span>
+                                                    <span class='gdlr-core-icon-list-content' style='font-size: 15px ;'>Tour Price:$value->TourPrice USD</span>
                                                 </div>
                                             </li>
                                             <li class='d-flex align-items-center' style='margin-bottom: 30px ;'>
@@ -281,7 +282,7 @@ require_once '../PhpSetting/Booktour.php';
                                                 <div class='col-12 col-md-6 mb-5'><input class='form-control form-contact' type='text' name='faddress' placeholder='Address'></div>
                                                 <div class='col-12 mb-5'><textarea class='form-control form-contact' rows='2' placeholder='Description *'></textarea></div>
                                                 <div class='col-12 col-lg-3 text-end text-lg-start'>
-                                                <input type='submit' class='btn btn-danger' name='fbooktour' value='Booktour'>
+                                                <input type='submit' class='btn btn-danger mb-5 text-center' name='fbooktour' value='Booktour'>
                                                 </div>
                                             </div>
                                         </form>

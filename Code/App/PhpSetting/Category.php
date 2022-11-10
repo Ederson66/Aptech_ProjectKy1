@@ -1,6 +1,6 @@
 <?php
 
-require_once '../PhpSetting/DBinfoConfig.php';
+require_once 'DBinfoConfig.php';
 
 class Category {
 	public $CategoryID;
@@ -82,7 +82,37 @@ class Category {
         return $list;
     }
 
-	// get name category
+	// get name category menu
+	public function getCategoryNameMenu() {
+        // chuỗi kết nối đến DB
+        $options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		$dsn = "mysql:host=" . DBinfoConfig::getServer() . ";dbname=" . DBinfoConfig::getDBname() . ";charset=utf8";
+		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
+        
+        // câu lệnh sql
+        $sql = "SELECT * FROM `category` WHERE Flag IS NULL";
+        
+        // chuẩn bị câu lệnh SQL
+        $stmt = $conn->prepare($sql);
+        
+        // thực hiện
+        $stmt->execute();
+        
+        $list = Array();
+        while($row = $stmt ->fetch(PDO::FETCH_ASSOC)) {
+            $s = new Category();
+            $s->CategoryName = $row["CategoryName"];
+            
+            array_push($list, $s);
+        }
+        
+        // đóng kết nối
+        $conn = NULL;
+        
+        return $list;
+    }
+
+	// get name category by id
 	public function getCategoryName() {
         // chuỗi kết nối đến DB
         $options = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);

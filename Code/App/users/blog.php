@@ -1,10 +1,16 @@
 <?php
+    session_start();
 require_once '../PhpSetting/Itemlibrary.php';
 require_once '../PhpSetting/News.php';
 require_once '../PhpSetting/CategoryTour.php';
 require_once '../PhpSetting/Common.php';
 require_once '../PhpSetting/Service.php';
 require_once '../PhpSetting/Category.php';
+require_once '../PhpSetting/Member.php'; 
+if(isset($_POST["logout"])) {
+    $a = new Member();
+    $a->Logout();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,6 +53,7 @@ require_once '../PhpSetting/Category.php';
     <!-- Swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./assets/css/header-footer.css">
+    <link rel="stylesheet" href="./assets/css/base.css">
     <!--favicon-->
     <link rel="icon" type="image/x-icon" href="./assets/image/favicon.png" />
     
@@ -72,41 +79,51 @@ require_once '../PhpSetting/Category.php';
         <nav class="navbar navbar-expand-lg position-fixed">
             <div class="container">
                 <a class="navbar-brand" href="../index.php">
-                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                        viewBox="0 0 56.68 55.66" style="width: 50px; height: 50px;" xml:space="preserve">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 56.68 55.66" style="width: 50px; height: 50px;" xml:space="preserve">
                         <style type="text/css">
-                            .st0{fill:#D85F37;stroke:#E7DBBE;stroke-width:5;stroke-miterlimit:10;}
-                            .st1{fill:#E7DBBE;}
-                            .st2{fill:#203B2D;}
+                            .st0 {
+                                fill: #D85F37;
+                                stroke: #E7DBBE;
+                                stroke-width: 5;
+                                stroke-miterlimit: 10;
+                            }
+
+                            .st1 {
+                                fill: #E7DBBE;
+                            }
+
+                            .st2 {
+                                fill: #203B2D;
+                            }
                         </style>
-                        <circle class="st0" cx="28.34" cy="27.59" r="24.05"/>
+                        <circle class="st0" cx="28.34" cy="27.59" r="24.05" />
                         <polygon class="st1" points="4.82,33.63 6.62,31.09 13.58,26.7 15.45,27.08 19.57,22.5 23.31,20.66 30.34,24.03 35.82,21.17 
-                            40.78,24.79 45.16,26.25 51.86,34.52 46.84,31.21 46.58,33.06 42.45,28.8 40.52,30.64 40.46,27.59 37.11,25.81 35.3,23.2 
-                            32.01,28.29 28.34,27.59 26.54,31.34 24.02,30.9 16.67,34.52 18.09,32.17 25.18,27.59 30.02,26.32 24.8,23.71 23.76,22.31 
-                            20.22,27.59 17.9,27.02 16.16,30.58 12.23,30.01 "/>
-                        <path class="st2" d="M28.45,27.33l-0.27,0.22c0.11,0.1,0.21,0.19,0.32,0.29C28.48,27.66,28.46,27.49,28.45,27.33z"/>
-                        <path class="st2" d="M28.5,27.84c-0.11-0.1-0.21-0.19-0.32-0.29l0.27-0.22C28.46,27.49,28.48,27.66,28.5,27.84z"/>
+                                40.78,24.79 45.16,26.25 51.86,34.52 46.84,31.21 46.58,33.06 42.45,28.8 40.52,30.64 40.46,27.59 37.11,25.81 35.3,23.2 
+                                32.01,28.29 28.34,27.59 26.54,31.34 24.02,30.9 16.67,34.52 18.09,32.17 25.18,27.59 30.02,26.32 24.8,23.71 23.76,22.31 
+                                20.22,27.59 17.9,27.02 16.16,30.58 12.23,30.01 " />
+                        <path class="st2" d="M28.45,27.33l-0.27,0.22c0.11,0.1,0.21,0.19,0.32,0.29C28.48,27.66,28.46,27.49,28.45,27.33z" />
+                        <path class="st2" d="M28.5,27.84c-0.11-0.1-0.21-0.19-0.32-0.29l0.27-0.22C28.46,27.49,28.48,27.66,28.5,27.84z" />
                         <path class="st2" d="M40.83,42.06c-0.45-1.51-3.26-2.93-3.26-2.93l-1.16,0.86l1.03-2.22c-0.06-1.44-1.92-1.31-1.92-1.31
-                            c-1.4,0.47-1.72-0.32-1.72-0.32l3.88-14.8c0.27-0.2,0.39-0.44,0.42-0.61c0.04-0.18,0.07-0.55-0.04-0.88l0.64-2.46
-                            c0.43-0.67,0-1.14,0-1.14c-0.73-0.13-0.77,0.62-0.77,0.62l-0.63,2.35c-0.04,0-0.08-0.01-0.12-0.01c-1.05,0.02-1.31,0.72-1.31,0.72
-                            l-0.53,0.01c-0.43-0.8-1.21-0.19-1.21-0.19l-1.08,0.07l-2.41-2.5l0.02-0.63c1.03,0.17,1.36-0.17,1.36-0.17l0.02-0.93l0.67,0.02
-                            v-1.18l0.37-0.02v-0.62c1.03-0.39,0.15-0.86,0.15-0.86l-1.9-1.29v-1.29c-3.49-1.81-5.13-1.27-5.13-1.27
-                            c-1.55,0.15-1.25,3.64-1.25,3.64c-1.49-0.39-1.61,0.73-1.61,0.73l-2.65,8.16c-0.32,2.34,2.56,2.27,2.56,2.27
-                            c-1.67,1.67-0.75,3.68-0.75,3.68c0.26,0.11-0.06,5.37-0.06,5.37c-1.55,2.1-1.35,5-1.35,5c-0.06,1.26-0.78,1.69-0.78,1.69
-                            c-1,0.86-0.55,1.75-0.55,1.75l1.96,1.51c-0.31,0.15-0.47,0.28-0.47,0.28l-3.22-0.2c-2-1.35-2.59,1.32-2.59,1.32
-                            c-0.69,2.13,2.03,1.83,2.03,1.83c0.88,0.39,6.53-0.95,6.53-0.95c0.65,1.14,2.41,0.39,2.41,0.39c0.32-0.22,2.37-0.15,2.37-0.15
-                            c0.56-0.11,1.44-2.93,1.44-2.93c0.52,0.37,0,2.22,0,2.22l2.84,1.42c2.15-1.29,3.79-1.14,3.79-1.14c1.7-0.09,0.52-2.37,0.52-2.37
-                            c-0.59-0.36-0.86-1-0.99-1.52c2.11,2.02,2.78,4.35,2.78,4.35l1.26-0.32C42.16,44.89,40.83,42.06,40.83,42.06z M30.3,37.02
-                            c-0.1,1.1-2.32,1.53-2.32,1.53l0.14,2.27c-1.78-0.49-2.15,1.99-2.15,1.99c-0.61-0.21-1.17-0.32-1.67-0.36
-                            c-0.17-0.67-1.25-0.83-1.25-0.83c-0.69-1.29,0-3.13,0-3.13l2.41-5.72l0.72-1.95c0.4-2.04,1.85-1.97,1.85-1.97
-                            c2.74,0.17,2.14,1.03,2.14,1.03c-0.73,2.54-2.07,3.69-2.07,3.69c-0.86,1.32,0,1.69,0,1.69l2.26,1.7
-                            C30.32,37.01,30.3,37.02,30.3,37.02z M32.77,36.14c-0.08-0.07-0.17-0.1-0.28-0.12c-0.01-0.03-0.01-0.04-0.01-0.04
-                            c-0.75-0.04-0.83-0.5-0.83-0.5c-1.22-1.33-0.62-2.08-0.62-2.08l2.67-4.38c0.83-1.7-0.76-2.3-0.76-2.3l-3.71-1.51
-                            c-0.93-0.09-0.52-0.93-0.52-0.93l1.39-2.07l2.99,0.13c0.4,0.73,1.26,0.58,1.62,0.5c0.36-0.07,1.25-1.21,1.25-1.21
-                            c0.26,0.03,0.49,0.04,0.69,0.02L32.77,36.14z M36.27,40.49l0.05-0.04c0,0.03,0.01,0.06,0.01,0.09
-                            C36.3,40.52,36.28,40.51,36.27,40.49z"/>
-                        <line class="st2" x1="23.87" y1="26.06" x2="32.81" y2="29.12"/>
-                        <path class="st2" d="M28.5,27.84c-0.11-0.1-0.21-0.19-0.32-0.29l0.27-0.22C28.46,27.49,28.48,27.66,28.5,27.84z"/>
+                                c-1.4,0.47-1.72-0.32-1.72-0.32l3.88-14.8c0.27-0.2,0.39-0.44,0.42-0.61c0.04-0.18,0.07-0.55-0.04-0.88l0.64-2.46
+                                c0.43-0.67,0-1.14,0-1.14c-0.73-0.13-0.77,0.62-0.77,0.62l-0.63,2.35c-0.04,0-0.08-0.01-0.12-0.01c-1.05,0.02-1.31,0.72-1.31,0.72
+                                l-0.53,0.01c-0.43-0.8-1.21-0.19-1.21-0.19l-1.08,0.07l-2.41-2.5l0.02-0.63c1.03,0.17,1.36-0.17,1.36-0.17l0.02-0.93l0.67,0.02
+                                v-1.18l0.37-0.02v-0.62c1.03-0.39,0.15-0.86,0.15-0.86l-1.9-1.29v-1.29c-3.49-1.81-5.13-1.27-5.13-1.27
+                                c-1.55,0.15-1.25,3.64-1.25,3.64c-1.49-0.39-1.61,0.73-1.61,0.73l-2.65,8.16c-0.32,2.34,2.56,2.27,2.56,2.27
+                                c-1.67,1.67-0.75,3.68-0.75,3.68c0.26,0.11-0.06,5.37-0.06,5.37c-1.55,2.1-1.35,5-1.35,5c-0.06,1.26-0.78,1.69-0.78,1.69
+                                c-1,0.86-0.55,1.75-0.55,1.75l1.96,1.51c-0.31,0.15-0.47,0.28-0.47,0.28l-3.22-0.2c-2-1.35-2.59,1.32-2.59,1.32
+                                c-0.69,2.13,2.03,1.83,2.03,1.83c0.88,0.39,6.53-0.95,6.53-0.95c0.65,1.14,2.41,0.39,2.41,0.39c0.32-0.22,2.37-0.15,2.37-0.15
+                                c0.56-0.11,1.44-2.93,1.44-2.93c0.52,0.37,0,2.22,0,2.22l2.84,1.42c2.15-1.29,3.79-1.14,3.79-1.14c1.7-0.09,0.52-2.37,0.52-2.37
+                                c-0.59-0.36-0.86-1-0.99-1.52c2.11,2.02,2.78,4.35,2.78,4.35l1.26-0.32C42.16,44.89,40.83,42.06,40.83,42.06z M30.3,37.02
+                                c-0.1,1.1-2.32,1.53-2.32,1.53l0.14,2.27c-1.78-0.49-2.15,1.99-2.15,1.99c-0.61-0.21-1.17-0.32-1.67-0.36
+                                c-0.17-0.67-1.25-0.83-1.25-0.83c-0.69-1.29,0-3.13,0-3.13l2.41-5.72l0.72-1.95c0.4-2.04,1.85-1.97,1.85-1.97
+                                c2.74,0.17,2.14,1.03,2.14,1.03c-0.73,2.54-2.07,3.69-2.07,3.69c-0.86,1.32,0,1.69,0,1.69l2.26,1.7
+                                C30.32,37.01,30.3,37.02,30.3,37.02z M32.77,36.14c-0.08-0.07-0.17-0.1-0.28-0.12c-0.01-0.03-0.01-0.04-0.01-0.04
+                                c-0.75-0.04-0.83-0.5-0.83-0.5c-1.22-1.33-0.62-2.08-0.62-2.08l2.67-4.38c0.83-1.7-0.76-2.3-0.76-2.3l-3.71-1.51
+                                c-0.93-0.09-0.52-0.93-0.52-0.93l1.39-2.07l2.99,0.13c0.4,0.73,1.26,0.58,1.62,0.5c0.36-0.07,1.25-1.21,1.25-1.21
+                                c0.26,0.03,0.49,0.04,0.69,0.02L32.77,36.14z M36.27,40.49l0.05-0.04c0,0.03,0.01,0.06,0.01,0.09
+                                C36.3,40.52,36.28,40.51,36.27,40.49z" />
+                        <line class="st2" x1="23.87" y1="26.06" x2="32.81" y2="29.12" />
+                        <path class="st2" d="M28.5,27.84c-0.11-0.1-0.21-0.19-0.32-0.29l0.27-0.22C28.46,27.49,28.48,27.66,28.5,27.84z" />
                     </svg>
                 </a>
                 <a id="bg-show-mobile" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarmenu">
@@ -126,12 +143,15 @@ require_once '../PhpSetting/Category.php';
                                 <li>
                                     <a class="dropdown-item nav-link ps-2" href="service.php">Service</a>
                                 </li>
-                                <li>
-                                    <a class="dropdown-item nav-link ps-2" href="#">Service 1</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item nav-link ps-2" href="#">Service 2</a>
-                                </li>
+                                <?php
+                                $s = new Service();
+                                $arr = $s->getListServiceMenu();
+                                foreach ($arr as $value){
+                                    echo "<li>
+                                            <a class='dropdown-item nav-link ps-2' href='service.php'>$value->serviceName</a>
+                                        </li>";
+                                }  
+                                ?>
                             </ul>
                         </li>
                         <li class="nav-item ps-3 pe-3 mt-2 dropdown">
@@ -143,37 +163,35 @@ require_once '../PhpSetting/Category.php';
                                     <a class="dropdown-item nav-link ps-2" href="tour.php">Tour</a>
                                 </li>
                                 <?php
-
-                                    $s = new CategoryTour();
-
-                                    $list = $s->getListCategoryTour();
+                                $s = new CategoryTour();
+                                $list = $s->getListCategoryTour();
+                                foreach ($list as $value){
+                                    echo "<li>
+                                            <a class='dropdown-item nav-link ps-2' href='./listtourtocategory.php?id=$value->CategoryTourID'>$value->CategoryTourName</a>
+                                        </li>";
+                                }
                                 ?>
-                                <?php foreach ($list as $value) : ?>
-                                    <li>
-                                        <a class="dropdown-item nav-link ps-2" href="#"><?php echo $value->CategoryTourName ?></a>
-                                    </li>
-                                <?php endforeach; ?>
                             </ul>
                         </li>
                         <li class="nav-item ps-3 pe-3 mt-2 dropdown">
-                            <div class="nav-link fw-bold text-shadow dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                News
-                            </div>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item nav-link ps-2" href="news.php">News</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item nav-link ps-2" href="#">Sale</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item nav-link ps-2" href="#">Blog</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item nav-link ps-2" href="#">History</a>
-                                </li>
-                            </ul>
-                        </li>
+                                <div class="nav-link fw-bold text-shadow dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                    News
+                                </div>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item nav-link ps-2" href="news.php">News</a>
+                                    </li>
+                                    <?php
+                                    $s = new Category();
+                                    $arr = $s->getCategoryNameMenu();
+                                    foreach ($arr as $value){
+                                        echo "<li>
+                                                <a class='dropdown-item nav-link ps-2' href='$value->CategoryName.php'>$value->CategoryName</a>
+                                            </li>";
+                                    }  
+                                    ?>
+                                </ul>
+                            </li>
                         <li class="nav-item ps-3 pe-3 mt-2 dropdown">
                             <a class="nav-link fw-bold text-shadow " href="experiences.php">Experience</a>
                         </li>
@@ -184,37 +202,35 @@ require_once '../PhpSetting/Category.php';
                         $checkin = IsAuthen();
                         if ($checkin != 1) {
                             echo '<li class="nav-item ps-3 pe-3 mt-2 mb-2">
-                                    <a class="nav-link text-center p-2 hv-box text-white fw-bold text-shadow bg-danger rounded-pill" href="login.php">
-                                        Login
-                                    </a>
-                                </li>
-                                <li class="nav-item ps-3 pe-3 mt-2 mb-2">
-                                    <a class="nav-link text-center p-2 hv-box text-white fw-bold text-shadow bg-primary rounded-pill" href="register.php">
-                                        Register
-                                    </a>
-                                </li>';
+                                        <a class="nav-link text-center p-2 hv-box text-white fw-bold text-shadow bg-danger rounded-pill" href="login.php">
+                                            Login
+                                        </a>
+                                    </li>
+                                    <li class="nav-item ps-3 pe-3 mt-2 mb-2">
+                                        <a class="nav-link text-center p-2 hv-box text-white fw-bold text-shadow bg-primary rounded-pill" href="register.php">
+                                            Register
+                                        </a>
+                                    </li>';
                         } else {
-                            $member = (string) $_SESSION['MemberName'];
                             echo '<li class="nav-item ps-3 pe-3 mt-2 mb-2">
-                                    <form action="index.php" method="POST">
-                                    <a class="nav-link text-center p-2 hv-box text-white fw-bold text-shadow bg-danger rounded-pill" href="../index.php">
-                                    Logout
-                                </a>
-                                    </form>
-                                
-                                </li>';
+                                        <form action="" method="POST">
+                                            <button type="submit" name="logout" class="nav-link text-center p-2 hv-box text-white fw-bold text-shadow bg-danger rounded-pill">
+                                                Logout
+                                            </button>
+                                        </form>
+                                    </li>';
                             //Show tên người dùng đã đăng nhập.
-                        //    $s = new Member();
-                        //    $s->MemberName = $member;
-                        //    $list = $s->GetUserByUsername();
-                        //    echo 'Hello :' . $list[0]->Firstname . ' ' . $list[0]->Middlename . ' ' . $list[0]->Lastname;
+                            //    $s = new Member();
+                            //    $s->MemberName = $member;
+                            //    $list = $s->GetUserByUsername();
+                            //    echo 'Hello :' . $list[0]->Firstname . ' ' . $list[0]->Middlename . ' ' . $list[0]->Lastname;
                         }
                         ?>
                     </ul>
                 </div>
             </div>
         </nav>
-        <!--END Header -->
+        <!--END nav -->
    
        
 
@@ -433,22 +449,52 @@ require_once '../PhpSetting/Category.php';
                 <div class="row g-5" style=" margin-right: 0 !important;">
                     <div class="col-12 col-lg-3">
                         <a href="../index.php" class="d-block mb-3">
-                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                            width="500.000000pt" height="500.000000pt" viewBox="0 0 500.000000 500.000000"
-                            preserveAspectRatio="xMidYMid meet" style="height: 40px; width: 40px;">
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 56.68 55.66" style="width: 50px; height: 50px;" xml:space="preserve">
+                            <style type="text/css">
+                                .st0 {
+                                    fill: #D85F37;
+                                    stroke: #E7DBBE;
+                                    stroke-width: 5;
+                                    stroke-miterlimit: 10;
+                                }
 
-                            <g transform="translate(0.000000,500.000000) scale(0.100000,-0.100000)"
-                            fill="#fff" stroke="none">
-                            <path d="M2650 4978 c0 -3 9 -31 20 -64 26 -74 64 -226 82 -324 8 -48 13 -151
-                            12 -285 0 -178 -4 -226 -23 -315 -70 -331 -210 -586 -460 -843 -97 -100 -318
-                            -287 -339 -287 -15 0 -92 104 -137 184 -71 128 -125 346 -125 509 0 42 -3 77
-                            -6 77 -7 0 -23 -17 -128 -140 -257 -300 -573 -786 -705 -1086 -62 -140 -128
-                            -336 -164 -484 -81 -331 -76 -673 12 -934 118 -347 343 -589 711 -765 314
-                            -150 631 -211 1094 -211 670 0 1127 142 1424 442 244 246 407 608 453 1007 16
-                            140 6 550 -16 691 -42 268 -117 554 -206 780 -65 167 -231 501 -339 680 -199
-                            330 -523 739 -860 1084 -134 137 -300 294 -300 284z"/>
-                            </g>
-                            </svg>
+                                .st1 {
+                                    fill: #E7DBBE;
+                                }
+
+                                .st2 {
+                                    fill: #203B2D;
+                                }
+                            </style>
+                            <circle class="st0" cx="28.34" cy="27.59" r="24.05" />
+                            <polygon class="st1" points="4.82,33.63 6.62,31.09 13.58,26.7 15.45,27.08 19.57,22.5 23.31,20.66 30.34,24.03 35.82,21.17 
+                                    40.78,24.79 45.16,26.25 51.86,34.52 46.84,31.21 46.58,33.06 42.45,28.8 40.52,30.64 40.46,27.59 37.11,25.81 35.3,23.2 
+                                    32.01,28.29 28.34,27.59 26.54,31.34 24.02,30.9 16.67,34.52 18.09,32.17 25.18,27.59 30.02,26.32 24.8,23.71 23.76,22.31 
+                                    20.22,27.59 17.9,27.02 16.16,30.58 12.23,30.01 " />
+                            <path class="st2" d="M28.45,27.33l-0.27,0.22c0.11,0.1,0.21,0.19,0.32,0.29C28.48,27.66,28.46,27.49,28.45,27.33z" />
+                            <path class="st2" d="M28.5,27.84c-0.11-0.1-0.21-0.19-0.32-0.29l0.27-0.22C28.46,27.49,28.48,27.66,28.5,27.84z" />
+                            <path class="st2" d="M40.83,42.06c-0.45-1.51-3.26-2.93-3.26-2.93l-1.16,0.86l1.03-2.22c-0.06-1.44-1.92-1.31-1.92-1.31
+                                    c-1.4,0.47-1.72-0.32-1.72-0.32l3.88-14.8c0.27-0.2,0.39-0.44,0.42-0.61c0.04-0.18,0.07-0.55-0.04-0.88l0.64-2.46
+                                    c0.43-0.67,0-1.14,0-1.14c-0.73-0.13-0.77,0.62-0.77,0.62l-0.63,2.35c-0.04,0-0.08-0.01-0.12-0.01c-1.05,0.02-1.31,0.72-1.31,0.72
+                                    l-0.53,0.01c-0.43-0.8-1.21-0.19-1.21-0.19l-1.08,0.07l-2.41-2.5l0.02-0.63c1.03,0.17,1.36-0.17,1.36-0.17l0.02-0.93l0.67,0.02
+                                    v-1.18l0.37-0.02v-0.62c1.03-0.39,0.15-0.86,0.15-0.86l-1.9-1.29v-1.29c-3.49-1.81-5.13-1.27-5.13-1.27
+                                    c-1.55,0.15-1.25,3.64-1.25,3.64c-1.49-0.39-1.61,0.73-1.61,0.73l-2.65,8.16c-0.32,2.34,2.56,2.27,2.56,2.27
+                                    c-1.67,1.67-0.75,3.68-0.75,3.68c0.26,0.11-0.06,5.37-0.06,5.37c-1.55,2.1-1.35,5-1.35,5c-0.06,1.26-0.78,1.69-0.78,1.69
+                                    c-1,0.86-0.55,1.75-0.55,1.75l1.96,1.51c-0.31,0.15-0.47,0.28-0.47,0.28l-3.22-0.2c-2-1.35-2.59,1.32-2.59,1.32
+                                    c-0.69,2.13,2.03,1.83,2.03,1.83c0.88,0.39,6.53-0.95,6.53-0.95c0.65,1.14,2.41,0.39,2.41,0.39c0.32-0.22,2.37-0.15,2.37-0.15
+                                    c0.56-0.11,1.44-2.93,1.44-2.93c0.52,0.37,0,2.22,0,2.22l2.84,1.42c2.15-1.29,3.79-1.14,3.79-1.14c1.7-0.09,0.52-2.37,0.52-2.37
+                                    c-0.59-0.36-0.86-1-0.99-1.52c2.11,2.02,2.78,4.35,2.78,4.35l1.26-0.32C42.16,44.89,40.83,42.06,40.83,42.06z M30.3,37.02
+                                    c-0.1,1.1-2.32,1.53-2.32,1.53l0.14,2.27c-1.78-0.49-2.15,1.99-2.15,1.99c-0.61-0.21-1.17-0.32-1.67-0.36
+                                    c-0.17-0.67-1.25-0.83-1.25-0.83c-0.69-1.29,0-3.13,0-3.13l2.41-5.72l0.72-1.95c0.4-2.04,1.85-1.97,1.85-1.97
+                                    c2.74,0.17,2.14,1.03,2.14,1.03c-0.73,2.54-2.07,3.69-2.07,3.69c-0.86,1.32,0,1.69,0,1.69l2.26,1.7
+                                    C30.32,37.01,30.3,37.02,30.3,37.02z M32.77,36.14c-0.08-0.07-0.17-0.1-0.28-0.12c-0.01-0.03-0.01-0.04-0.01-0.04
+                                    c-0.75-0.04-0.83-0.5-0.83-0.5c-1.22-1.33-0.62-2.08-0.62-2.08l2.67-4.38c0.83-1.7-0.76-2.3-0.76-2.3l-3.71-1.51
+                                    c-0.93-0.09-0.52-0.93-0.52-0.93l1.39-2.07l2.99,0.13c0.4,0.73,1.26,0.58,1.62,0.5c0.36-0.07,1.25-1.21,1.25-1.21
+                                    c0.26,0.03,0.49,0.04,0.69,0.02L32.77,36.14z M36.27,40.49l0.05-0.04c0,0.03,0.01,0.06,0.01,0.09
+                                    C36.3,40.52,36.28,40.51,36.27,40.49z" />
+                            <line class="st2" x1="23.87" y1="26.06" x2="32.81" y2="29.12" />
+                            <path class="st2" d="M28.5,27.84c-0.11-0.1-0.21-0.19-0.32-0.29l0.27-0.22C28.46,27.49,28.48,27.66,28.5,27.84z" />
+                        </svg>
                         </a>
                         <p class="fs-6 mb-2">
                             Climbing inspires people and brings people closer together
@@ -501,51 +547,45 @@ require_once '../PhpSetting/Category.php';
                             <div class="col-6 col-lg-2 col-md-2 p-2">
                                 <h6 class="display-6 text-white mb-3">Services</h6>
                                 <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link ps-0 text-muted" href="#">Services 1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link ps-0 text-muted" href="#">Services 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link ps-0 text-muted" href="#">Services 3</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link ps-0 text-muted" href="#">Services 4</a>
-                                    </li>
+                                    <?php
+                                    $s = new Service();
+                                    $arr = $s->getListServiceMenu();
+                                    foreach ($arr as $value){
+                                        echo "<li class='nav-item'>
+                                                <a class='nav-link ps-0 text-muted' href='service.php'>$value->serviceName</a>
+                                            </li>";
+                                    }  
+                                    ?>
                                 </ul>
                             </div>
                             <!-- column 2 -->
                             <div class="col-6 col-lg-2 col-md-2 p-2">
                                 <h6 class="display-6 text-white mb-3">Tour</h6>
                                 <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link ps-0 text-muted" href="#">Tour 1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link ps-0 text-muted" href="#">Tour 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link ps-0 text-muted" href="#">Tour 3</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link ps-0 text-muted" href="#">Tour 4</a>
-                                    </li>
+                                    <?php
+                                    $s = new CategoryTour();
+                                    $list = $s->getListCategoryTour();
+                                    foreach ($list as $value){
+                                        echo "<li class='nav-item'>
+                                                <a class='nav-link ps-0 text-muted' href='./listtourtocategory.php?id=$value->CategoryTourID'>$value->CategoryTourName</a>
+                                            </li>";
+                                    }
+                                    ?>
                                 </ul>
                             </div>
                             <!-- column 3 -->
                             <div class="col-6 col-lg-2 col-md-2 p-2">
                                 <h6 class="display-6 text-white mb-3">News</h6>
                                 <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link ps-0 text-muted" href="#">Sale</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link ps-0 text-muted" href="#">Blog</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link ps-0 text-muted" href="#">History</a>
-                                    </li>
+                                    <?php
+                                    $s = new Category();
+                                    $arr = $s->getCategoryNameMenu();
+                                    foreach ($arr as $value){
+                                        echo "<li class='nav-item'>
+                                                <a class='nav-link ps-0 text-muted' href='$value->CategoryName.php'>$value->CategoryName</a>
+                                            </li>";
+                                    }  
+                                    ?>
                                 </ul>
                             </div>
                             <!-- column 4 -->
@@ -565,6 +605,7 @@ require_once '../PhpSetting/Category.php';
                 </div>
             </div>
         </div>
+        <!--END Footer -->
         
 
         <!-- top top -->

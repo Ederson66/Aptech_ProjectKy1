@@ -397,7 +397,7 @@ if (!empty($_POST["flogout"])) {
                                                 <tr>
                                                     <th scope="col">STT</th>
                                                     <th scope="col">ID</th>
-                                                    <th scope="col">TourName</th>
+                                                    <th scope="col">TourID</th>
                                                     <th scope="col">UserBookTour</th>
                                                     <th scope="col">Email</th>
                                                     <th scope="col">Address</th>
@@ -419,7 +419,7 @@ if (!empty($_POST["flogout"])) {
                                                     $strTbl .= "<tr>";
                                                     $strTbl .= "<th>" . $stt++ . "</th>";
                                                     $strTbl .= "<td id='BookTourID'>$obj->BookTourID</td>";
-                                                    $strTbl .= "<td id='TourID'>$obj->TourName</td>";
+                                                    $strTbl .= "<td id='TourID'>$obj->TourID</td>";
                                                     $strTbl .= "<td id='AnonymousBookTour'>$obj->AnonymousBookTour</td>";
                                                     $strTbl .= "<td id='AnonymousEmail'>$obj->AnonymousEmail</td>";
                                                     $strTbl .= "<td id='AnonymousAddress'>$obj->AnonymousAddress</td>";

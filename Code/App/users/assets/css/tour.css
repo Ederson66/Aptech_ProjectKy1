@@ -37,6 +37,7 @@ body{
     position: absolute;
     left: 50%;
     transform: translateX(calc(50% - 300px));
+    
 }
 .box-text_sale{
     position: absolute;
