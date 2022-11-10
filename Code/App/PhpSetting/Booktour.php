@@ -1,6 +1,6 @@
 <?php
 
-require_once '../PhpSetting/DBinfoConfig.php';
+require_once 'DBinfoConfig.php';
 
 class Booktour {
 	public $BookTourID;
@@ -67,12 +67,7 @@ class Booktour {
 		$conn = new PDO($dsn, DBinfoConfig::getUserName(), DBinfoConfig::getPassword(), $options);
         
         // câu lệnh sql
-        $sql = "SELECT `B`.Description, `T`.TourName, `B`.BookTourID, `B`.TourID, `B`.AnonymousBookTour,
-				`B`.AnonymousEmail, `B`.AnonymousAddress, `B`.AnonymousPhone, `B`.Status, `B`.Flag
-				FROM `booktour` `B`
-				INNER JOIN `tour` `T` 
-					ON `B`.TourID = `T`.TourID
-				WHERE `T`.Flag IS NULL;";
+        $sql = "SELECT * FROM `booktour` WHERE Flag IS NULL;";
         
         // chuẩn bị câu lệnh SQL
         $stmt = $conn->prepare($sql);
@@ -91,7 +86,6 @@ class Booktour {
 			$s->AnonymousPhone = $row["AnonymousPhone"];
 			$s->Status = $row["Status"];
 			$s->Description = $row["Description"];
-			$s->TourName = $row["TourName"];
 			$s->Flag = $row["Flag"];
             
             array_push($list, $s);
