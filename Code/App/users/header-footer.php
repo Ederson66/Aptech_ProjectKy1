@@ -163,15 +163,18 @@
                                         <li>
                                             <a class="dropdown-item nav-link ps-2" href="news.php">News</a>
                                         </li>
-                                        <?php
-                                        $s = new Category();
-                                        $arr = $s->getCategoryNameMenu();
-                                        foreach ($arr as $value){
-                                            echo "<li>
-                                                    <a class='dropdown-item nav-link ps-2' href='$value->CategoryName.php'>$value->CategoryName</a>
-                                                </li>";
-                                        }  
-                                        ?>
+                                        <li>
+                                            <a class="dropdown-item nav-link ps-2" href="blog.php">Blog</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item nav-link ps-2" href="#">Sale</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item nav-link ps-2" href="history.php">History</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item nav-link ps-2" href="experiences.php">Experiences</a>
+                                        </li>
                                     </ul>
                                 </li>
                             <li class="nav-item ps-3 pe-3 mt-2 dropdown">
