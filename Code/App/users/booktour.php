@@ -5,6 +5,7 @@ require_once '../PhpSetting/Common.php';
 require_once '../PhpSetting/Tour.php';
 require_once '../PhpSetting/CategoryTour.php';
 require_once '../PhpSetting/Booktour.php';
+require_once '../PhpSetting/Service.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
