@@ -1,13 +1,13 @@
 <?php
-    session_start();
+session_start();
 require_once '../PhpSetting/Itemlibrary.php';
 require_once '../PhpSetting/News.php';
 require_once '../PhpSetting/CategoryTour.php';
 require_once '../PhpSetting/Common.php';
 require_once '../PhpSetting/Service.php';
 require_once '../PhpSetting/Category.php';
-require_once '../PhpSetting/Member.php'; 
-if(isset($_POST["logout"])) {
+require_once '../PhpSetting/Member.php';
+if (isset($_POST["logout"])) {
     $a = new Member();
     $a->Logout();
 }
@@ -16,10 +16,10 @@ if(isset($_POST["logout"])) {
 <html lang="en">
 
 <head>
-<meta charset="UTF-8" />
+    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Website về leo núi,cắm trại,du lịch,đặt tour và các dịch vụ đi cùng chuyến du lịch.Cho bạn 1 nơi tha hồ lựa chọn các địa điểm du lịch và book tour dễ dàng thuận tiện cùng những khuyến mãi khủng."/>
+    <meta name="description" content="Website về leo núi,cắm trại,du lịch,đặt tour và các dịch vụ đi cùng chuyến du lịch.Cho bạn 1 nơi tha hồ lựa chọn các địa điểm du lịch và book tour dễ dàng thuận tiện cùng những khuyến mãi khủng." />
     <meta name="keywords" content="Leo núi,Moutaineering,Du lịch,Tour,Book Tour, Dịch vụ,Service,Lịch sử,History,Kĩ năng,Đồ leo núi,Sale hấp dẫn ." />
     <meta name="news_keywords" content="Leo núi,Moutaineering,Du lịch,Tour,Book Tour, Dịch vụ,Service,Lịch sử,History,Kĩ năng,Đồ leo núi,Sale hấp dẫn ." />
     <meta http-equiv="REFRESH" content="1800" />
@@ -45,9 +45,9 @@ if(isset($_POST["logout"])) {
     <link rel="stylesheet" href="./assets/css/reset.min.css" />
     <!-- bootstrap 5-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    
+
     <!-- bootstrap icon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- Icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
     <!-- Swiper -->
@@ -56,7 +56,7 @@ if(isset($_POST["logout"])) {
     <link rel="stylesheet" href="./assets/css/base.css">
     <!--favicon-->
     <link rel="icon" type="image/x-icon" href="./assets/image/favicon.png" />
-    
+
 
 
     <!-- --------- Owl-Carousel ------------------->
@@ -73,24 +73,25 @@ if(isset($_POST["logout"])) {
 
 <body>
     <style>
-    .blog-single-content{
-    text-align:start;
-    color:black;
-    margin: 3rem;
-    
-    
-    
-    } 
-    .blog-single-title{
-    /* position: absolute;  */
-    padding-top: 5rem;
-    margin: 0 2rem;
-    text-align: center;
-    color: #000000;
-    font-size: 50px ;
-    font-weight: bold ;
-    
-    }
+        .blog-single-content {
+            text-align: start;
+            color: black;
+            margin: 3rem;
+
+
+
+        }
+
+        .blog-single-title {
+            /* position: absolute;  */
+            padding-top: 5rem;
+            margin: 0 2rem;
+            text-align: center;
+            color: #000000;
+            font-size: 50px;
+            font-weight: bold;
+
+        }
     </style>
     <!-- ----------------------------  Navigation ---------------------------------------------- -->
     <div class="app">
@@ -253,7 +254,7 @@ if(isset($_POST["logout"])) {
                 </div>
             </nav>
             <!--END nav -->
-    
+
         <!-- ------------x---------------  Navigation --------------------------x------------------- -->
 
         <!----------------------------- Main Site Section ------------------------------>
@@ -265,60 +266,60 @@ if(isset($_POST["logout"])) {
             <?php
             $newsID = $_GET["id"];
             $a = new News();
-            $a->newsID =$newsID;
+            $a->newsID = $newsID;
             $arr = $a->getBlogSingleById();
-            foreach ($arr as $value){
+            foreach ($arr as $value) {
                 echo "<div>
                         <img class='w-100' src='$value->avatarNews' alt=''>
                     </div>";
             }
-            ?>    
-                <div class="blog-single-title flex-row" data-aos="fade-up" data-aos-delay="500">
-            
-                    <?php
-                    $newsID = $_GET["id"];
-                    $a = new News();
-                    $a->newsID =$newsID;
-                    $arr = $a->getBlogSingleById();
-                    foreach ($arr as $value){
-                        echo " $value->title";
-                    }
-                    ?>         
+            ?>
+            <div class="blog-single-title flex-row" data-aos="fade-up" data-aos-delay="500">
 
-                </div>
-            
-            
+                <?php
+                $newsID = $_GET["id"];
+                $a = new News();
+                $a->newsID = $newsID;
+                $arr = $a->getBlogSingleById();
+                foreach ($arr as $value) {
+                    echo " $value->title";
+                }
+                ?>
+
+            </div>
+
+
             <!------------x----------- Site Title ----------x----------->
 
 
-        
+
             <!-- ---------------------- Site Content -------------------------->
 
             <div class="container-fluid">
                 <?php
                 $newsID = $_GET["id"];
                 $a = new News();
-                $a->newsID =$newsID;
+                $a->newsID = $newsID;
                 $arr = $a->getBlogSingleById();
-                foreach ($arr as $value){
+                foreach ($arr as $value) {
                     echo "<div class='blog-single-content' data-aos='fade-up' data-aos-delay='200'>
                             <p>$value->content</p>   
                             
                         </div>";
                 }
                 ?>
-                
+
             </div>
         </main>
         <!-- -----------x---------- Site Content -------------x------------>
 
-    
 
- 
+
+
 
 
         <!-- --------------------------- Footer ---------------------------------------- -->
-    
+
         <!--BEGIN Footer -->
         <div class="footer bg-dark text-white pt-5 pb-5">
             <div class="container">
@@ -326,30 +327,30 @@ if(isset($_POST["logout"])) {
                     <div class="col-12 col-lg-3">
                         <a href="../index.php" class="d-block mb-3">
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 56.68 55.66" style="width: 50px; height: 50px;" xml:space="preserve">
-                            <style type="text/css">
-                                .st0 {
-                                    fill: #D85F37;
-                                    stroke: #E7DBBE;
-                                    stroke-width: 5;
-                                    stroke-miterlimit: 10;
-                                }
+                                <style type="text/css">
+                                    .st0 {
+                                        fill: #D85F37;
+                                        stroke: #E7DBBE;
+                                        stroke-width: 5;
+                                        stroke-miterlimit: 10;
+                                    }
 
-                                .st1 {
-                                    fill: #E7DBBE;
-                                }
+                                    .st1 {
+                                        fill: #E7DBBE;
+                                    }
 
-                                .st2 {
-                                    fill: #203B2D;
-                                }
-                            </style>
-                            <circle class="st0" cx="28.34" cy="27.59" r="24.05" />
-                            <polygon class="st1" points="4.82,33.63 6.62,31.09 13.58,26.7 15.45,27.08 19.57,22.5 23.31,20.66 30.34,24.03 35.82,21.17 
+                                    .st2 {
+                                        fill: #203B2D;
+                                    }
+                                </style>
+                                <circle class="st0" cx="28.34" cy="27.59" r="24.05" />
+                                <polygon class="st1" points="4.82,33.63 6.62,31.09 13.58,26.7 15.45,27.08 19.57,22.5 23.31,20.66 30.34,24.03 35.82,21.17 
                                     40.78,24.79 45.16,26.25 51.86,34.52 46.84,31.21 46.58,33.06 42.45,28.8 40.52,30.64 40.46,27.59 37.11,25.81 35.3,23.2 
                                     32.01,28.29 28.34,27.59 26.54,31.34 24.02,30.9 16.67,34.52 18.09,32.17 25.18,27.59 30.02,26.32 24.8,23.71 23.76,22.31 
                                     20.22,27.59 17.9,27.02 16.16,30.58 12.23,30.01 " />
-                            <path class="st2" d="M28.45,27.33l-0.27,0.22c0.11,0.1,0.21,0.19,0.32,0.29C28.48,27.66,28.46,27.49,28.45,27.33z" />
-                            <path class="st2" d="M28.5,27.84c-0.11-0.1-0.21-0.19-0.32-0.29l0.27-0.22C28.46,27.49,28.48,27.66,28.5,27.84z" />
-                            <path class="st2" d="M40.83,42.06c-0.45-1.51-3.26-2.93-3.26-2.93l-1.16,0.86l1.03-2.22c-0.06-1.44-1.92-1.31-1.92-1.31
+                                <path class="st2" d="M28.45,27.33l-0.27,0.22c0.11,0.1,0.21,0.19,0.32,0.29C28.48,27.66,28.46,27.49,28.45,27.33z" />
+                                <path class="st2" d="M28.5,27.84c-0.11-0.1-0.21-0.19-0.32-0.29l0.27-0.22C28.46,27.49,28.48,27.66,28.5,27.84z" />
+                                <path class="st2" d="M40.83,42.06c-0.45-1.51-3.26-2.93-3.26-2.93l-1.16,0.86l1.03-2.22c-0.06-1.44-1.92-1.31-1.92-1.31
                                     c-1.4,0.47-1.72-0.32-1.72-0.32l3.88-14.8c0.27-0.2,0.39-0.44,0.42-0.61c0.04-0.18,0.07-0.55-0.04-0.88l0.64-2.46
                                     c0.43-0.67,0-1.14,0-1.14c-0.73-0.13-0.77,0.62-0.77,0.62l-0.63,2.35c-0.04,0-0.08-0.01-0.12-0.01c-1.05,0.02-1.31,0.72-1.31,0.72
                                     l-0.53,0.01c-0.43-0.8-1.21-0.19-1.21-0.19l-1.08,0.07l-2.41-2.5l0.02-0.63c1.03,0.17,1.36-0.17,1.36-0.17l0.02-0.93l0.67,0.02
@@ -368,9 +369,9 @@ if(isset($_POST["logout"])) {
                                     c-0.93-0.09-0.52-0.93-0.52-0.93l1.39-2.07l2.99,0.13c0.4,0.73,1.26,0.58,1.62,0.5c0.36-0.07,1.25-1.21,1.25-1.21
                                     c0.26,0.03,0.49,0.04,0.69,0.02L32.77,36.14z M36.27,40.49l0.05-0.04c0,0.03,0.01,0.06,0.01,0.09
                                     C36.3,40.52,36.28,40.51,36.27,40.49z" />
-                            <line class="st2" x1="23.87" y1="26.06" x2="32.81" y2="29.12" />
-                            <path class="st2" d="M28.5,27.84c-0.11-0.1-0.21-0.19-0.32-0.29l0.27-0.22C28.46,27.49,28.48,27.66,28.5,27.84z" />
-                        </svg>
+                                <line class="st2" x1="23.87" y1="26.06" x2="32.81" y2="29.12" />
+                                <path class="st2" d="M28.5,27.84c-0.11-0.1-0.21-0.19-0.32-0.29l0.27-0.22C28.46,27.49,28.48,27.66,28.5,27.84z" />
+                            </svg>
                         </a>
                         <p class="fs-6 mb-2">
                             Climbing inspires people and brings people closer together
@@ -426,11 +427,11 @@ if(isset($_POST["logout"])) {
                                     <?php
                                     $s = new Service();
                                     $arr = $s->getListServiceMenu();
-                                    foreach ($arr as $value){
+                                    foreach ($arr as $value) {
                                         echo "<li class='nav-item'>
                                                 <a class='nav-link ps-0 text-muted' href='service.php'>$value->serviceName</a>
                                             </li>";
-                                    }  
+                                    }
                                     ?>
                                 </ul>
                             </div>
@@ -441,7 +442,7 @@ if(isset($_POST["logout"])) {
                                     <?php
                                     $s = new CategoryTour();
                                     $list = $s->getListCategoryTour();
-                                    foreach ($list as $value){
+                                    foreach ($list as $value) {
                                         echo "<li class='nav-item'>
                                                 <a class='nav-link ps-0 text-muted' href='./listtourtocategory.php?id=$value->CategoryTourID'>$value->CategoryTourName</a>
                                             </li>";
@@ -456,11 +457,11 @@ if(isset($_POST["logout"])) {
                                     <?php
                                     $s = new Category();
                                     $arr = $s->getCategoryNameMenu();
-                                    foreach ($arr as $value){
+                                    foreach ($arr as $value) {
                                         echo "<li class='nav-item'>
                                                 <a class='nav-link ps-0 text-muted' href='$value->CategoryName.php'>$value->CategoryName</a>
                                             </li>";
-                                    }  
+                                    }
                                     ?>
                                 </ul>
                             </div>
@@ -482,7 +483,7 @@ if(isset($_POST["logout"])) {
             </div>
         </div>
         <!--END Footer -->
-        
+
 
         <!-- top top -->
         <a id="totop" class="shadow">
@@ -496,9 +497,9 @@ if(isset($_POST["logout"])) {
             </a>
         </div>
         <!-- end hotline -->
-        
+
     </div>
-    
+
 
     <!-- Jquery Library file -->
     <script src="./assets/js/jquery.min.js"></script>
