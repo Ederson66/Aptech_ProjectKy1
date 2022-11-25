@@ -356,7 +356,7 @@ if(isset($_POST["logout"])) {
                                     echo "<div class='col-lg-6 col-md-6 col-sm-12'>
                                             <a href='#' class='text-decoration-none text-dark d-flex flex-column'>
                                                 <div>
-                                                    <img style='width: 265px; height:170px;' class='img-fluid mb-2' src='$imgHistory' alt=''>
+                                                    <img style='width: 365px; height:210px;' class='img-fluid mb-2' src='$imgHistory' alt=''>
                                                 </div>
                                                 <div class='mb-3'>
                                                     <span class='fw-bold'>History Of Putaleng Mountain</span>
